@@ -24,6 +24,13 @@ We are using [Nx](https://nx.dev/) to scaffold applications, services, libraries
 #### [React Library](https://nx.dev/latest/react/react/library#nrwlreactlibrary)
 
 Run `npm run create-react-lib -- --name=<application name> --importPath=<import path>` (`import path` looks like `@mint-vernetzt/react-components`)
+#### [React Component](https://nx.dev/latest/react/react/library#nrwlreactlibrary)
+
+##### for Library
+
+1. Run `npm run create-react-lib-component`
+2. You will be asked to enter the project name
+3. You will be asked to enter the application name
 
 *Hint:*
 
