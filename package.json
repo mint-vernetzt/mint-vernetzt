@@ -6,7 +6,8 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "create-react-app": "npx nx g @nrwl/react:application --e2eTestRunner=none --globalCss --pascalCaseFiles --routing=false --style=css"
+    "create-react-app": "npx nx g @nrwl/react:application --e2eTestRunner=none --globalCss --pascalCaseFiles --routing=false --style=css",
+    "create-react-lib": "nx g @nrwl/react:library --style=none --buildable --publishable --pascalCaseFiles --component=false"
   },
   "dependencies": {
     "core-js": "^3.6.5",

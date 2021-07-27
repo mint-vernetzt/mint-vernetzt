@@ -26,5 +26,9 @@
       }
     ]
   },
-  "projects": {}
+  "projects": {
+    "react-components": {
+      "tags": []
+    }
+  }
 }

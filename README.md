@@ -21,6 +21,10 @@ We are using [Nx](https://nx.dev/) to scaffold applications, services, libraries
 1. Run `npm run create-react-app`
 2. You will be asked to enter the application name
 
+#### [React Library](https://nx.dev/latest/react/react/library#nrwlreactlibrary)
+
+Run `npm run create-react-lib -- --name=<application name> --importPath=<import path>` (`import path` looks like `@mint-vernetzt/react-components`)
+
 *Hint:*
 
 By passing arguments to the script call (e.g. `npm run create-react-app –– --name=<application name>`) you can pass e.g. the application name directly or override default properties.
