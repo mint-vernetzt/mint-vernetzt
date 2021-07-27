@@ -30,7 +30,7 @@ Run `npm run create-react-lib -- --name=<application name> --importPath=<import 
 
 1. Run `npm run create-react-lib-component`
 2. You will be asked to enter the project name
-3. You will be asked to enter the application name
+3. You will be asked to enter the component name
 
 *Hint:*
 
