@@ -26,15 +26,20 @@
     "@nrwl/cli": "12.6.2",
     "@nrwl/jest": "12.6.2",
     "@nrwl/react": "^12.6.2",
+    "@nrwl/storybook": "12.6.2",
     "@nrwl/tao": "12.6.2",
     "@nrwl/web": "12.6.2",
     "@nrwl/workspace": "12.6.2",
+    "@storybook/addon-essentials": "~6.3.0",
+    "@storybook/react": "~6.3.0",
+    "@svgr/webpack": "^5.4.0",
     "@testing-library/react": "11.2.6",
     "@types/jest": "26.0.24",
     "@types/node": "14.14.33",
     "@types/react": "17.0.3",
     "@types/react-dom": "17.0.3",
     "babel-jest": "27.0.6",
+    "babel-loader": "8.1.0",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
     "dotenv": "8.2.0",
@@ -48,7 +53,8 @@
     "prettier": "^2.3.1",
     "ts-jest": "27.0.3",
     "ts-node": "~9.1.1",
-    "typescript": "~4.3.5"
+    "typescript": "~4.3.5",
+    "url-loader": "^3.0.0"
   },
   "config": {
     "commitizen": {
