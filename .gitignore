@@ -38,3 +38,6 @@ testem.log
 .DS_Store
 Thumbs.db
 .env
+
+# design-system
+libs/design-system/src/styles.css
