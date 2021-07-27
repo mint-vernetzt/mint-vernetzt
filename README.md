@@ -27,7 +27,7 @@ Run `npm run create-react-lib -- --name=<application name> --importPath=<import 
 
 *Hint:*
 
-By passing arguments to the script call (e.g. `npm run create-react-app –– --name=<application name>`) you can pass e.g. the application name directly or override default properties.
+By passing arguments to the script call (e.g. `npm run create-react-app -- --name=<application name>`) you can pass e.g. the application name directly or override default properties.
 
 ### Write commit messages
 
