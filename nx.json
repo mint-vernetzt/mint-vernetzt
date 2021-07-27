@@ -33,6 +33,9 @@
     ]
   },
   "projects": {
+    "design-system": {
+      "tags": []
+    },
     "react-components": {
       "tags": []
     }

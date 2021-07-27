@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@mint-vernetzt/design-system": ["libs/design-system/src/index.ts"],
       "@mint-vernetzt/react-components": ["libs/react-components/src/index.ts"]
     }
   },

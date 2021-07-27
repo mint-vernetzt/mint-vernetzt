@@ -8,7 +8,9 @@
     "prepare": "husky install",
     "create-react-app": "nx g @nrwl/react:application --e2eTestRunner=none --globalCss --pascalCaseFiles --routing=false --style=css",
     "create-react-lib": "nx g @nrwl/react:library --style=none --buildable --publishable --pascalCaseFiles --component=false",
-    "create-react-lib-component": "nx g @nrwl/react:component --style=none --export --pascalCaseFiles --flat"
+    "create-react-lib-component": "nx g @nrwl/react:component --style=none --export --pascalCaseFiles --flat",
+    "serve-design-system": "nx storybook design-system",
+    "build-design-system": "nx build-storybook design-system"
   },
   "dependencies": {
     "core-js": "^3.6.5",
