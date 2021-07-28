@@ -41,7 +41,7 @@
           "executor": "@nrwl/workspace:run-commands",
           "outputs": [],
           "options": {
-            "command": "tailwindcss -c ./tailwind.config.js -i ./src/tailwind.css -o ./src/styles.css",
+            "command": "tailwindcss -c ./tailwind.config.js -i ./src/tailwind.css -o ./src/styles.css --watch",
             "cwd": "libs/design-system"
           }
         },
