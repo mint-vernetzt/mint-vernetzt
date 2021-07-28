@@ -1,0 +1,26 @@
+name: Build and deploy Design System
+
+on:
+  push:
+    branches: [ main ]
+  # allow trigger manually
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "16.x"
+      - run: npm install
+      - run: npm run build-design-system
+      - uses: netlify/actions/cli@master
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_DESIGN_SYSTEM_SITE_ID }}
+        with:
+          args: deploy --dir=dist/storybook/design-system --prod
+          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
