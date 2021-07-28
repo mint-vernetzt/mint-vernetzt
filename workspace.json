@@ -36,6 +36,22 @@
               "quiet": true
             }
           }
+        },
+        "tailwind": {
+          "executor": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "tailwindcss -c ./tailwind.config.js -i ./src/tailwind.css -o ./src/styles.css",
+            "cwd": "libs/design-system"
+          }
+        },
+        "build-tailwind": {
+          "executor": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "NODE_ENV=production tailwindcss -c ./tailwind.config.js -i ./src/tailwind.css -o ./src/styles.css",
+            "cwd": "libs/design-system"
+          }
         }
       }
     },
