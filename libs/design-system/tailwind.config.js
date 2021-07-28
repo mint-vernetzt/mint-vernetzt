@@ -1,5 +1,5 @@
 module.exports = {
-  purge: ["../react-components/**/*.stories.tsx"],
+  purge: ["../**/*.ts", "../**/*.tsx"],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
