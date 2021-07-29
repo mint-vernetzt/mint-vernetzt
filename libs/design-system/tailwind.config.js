@@ -20,6 +20,12 @@ Object.keys(extendedCustomColors).forEach((color) => {
     `bg-${color}`,
     `text-${color}`,
     `border-${color}`,
+    `hover:bg-${color}`,
+    `hover:text-${color}`,
+    `hover:border-${color}`,
+    `focus:bg-${color}`,
+    `focus:text-${color}`,
+    `focus:border-${color}`,
   ]);
 });
 
