@@ -32,12 +32,7 @@ export function Button(props: ButtonProps) {
   let textColor: String = color;
 
   if (type === ButtonType.Primary) {
-    if (
-      color === ButtonColor.Beige ||
-      color === ButtonColor.Lilac ||
-      color === ButtonColor.Warning ||
-      color === ButtonColor.Danger
-    ) {
+    if (color === ButtonColor.Beige || color === ButtonColor.Warning) {
       textColor = ButtonColor.Blue;
     } else {
       textColor = ButtonColor.Beige;

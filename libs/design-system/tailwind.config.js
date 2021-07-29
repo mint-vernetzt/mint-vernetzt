@@ -1,10 +1,10 @@
 const customColors = {
-  beige: "#f4e8e0",
-  blue: "#164194",
-  lilac: "#c8acd3",
-  yellow: "#fdc533",
-  green: "#42b38c",
-  salmon: "#f6afad",
+  beige: "#efe8e6",
+  blue: "#154194",
+  lilac: "#b16fab",
+  yellow: "#fcc433",
+  green: "#00a87a",
+  salmon: "#ee7775",
 };
 
 const extendedCustomColors = {
