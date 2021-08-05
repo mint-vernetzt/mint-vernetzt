@@ -31,10 +31,16 @@ Object.keys(extendedCustomColors).forEach((color) => {
   ]);
 });
 
+const customFontSizes = ["h1", "h2", "h3", "h4", "h5", "h6", "p"];
+let fontSizeSafeList = [];
+customFontSizes.forEach((fontSize) => {
+  fontSizeSafeList = fontSizeSafeList.concat([`text-${fontSize}`]);
+});
+
 module.exports = {
   purge: {
     content: ["../**/*.ts", "../**/*.tsx"],
-    safelist: [...colorSafelist],
+    safelist: [...colorSafelist, ...fontSizeSafeList],
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
