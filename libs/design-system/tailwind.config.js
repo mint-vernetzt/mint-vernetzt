@@ -1,3 +1,5 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 const customColors = {
   beige: "#efe8e6",
   blue: "#154194",
@@ -40,6 +42,10 @@ module.exports = {
       colors: {
         ...extendedCustomColors,
       },
+    },
+    fontFamily: {
+      logo: ["'Baloo 2'", ...defaultTheme.fontFamily.sans],
+      sans: ["'Source Sans Pro'", ...defaultTheme.fontFamily.sans],
     },
   },
   variants: {
