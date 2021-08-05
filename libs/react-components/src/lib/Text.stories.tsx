@@ -14,6 +14,7 @@ const defaultText =
 Playground.args = {
   children: defaultText,
   kind: TextKinds.H1,
+  color: TextColors.Blue,
 };
 
 export const Variants: Story = () => {
