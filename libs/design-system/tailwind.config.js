@@ -47,6 +47,15 @@ module.exports = {
       logo: ["'Baloo 2'", ...defaultTheme.fontFamily.sans],
       sans: ["'Source Sans Pro'", ...defaultTheme.fontFamily.sans],
     },
+    fontSize: {
+      h1: defaultTheme.fontSize["5xl"],
+      h2: defaultTheme.fontSize["4xl"],
+      h3: defaultTheme.fontSize["3xl"],
+      h4: defaultTheme.fontSize["2xl"],
+      h5: defaultTheme.fontSize.xl,
+      h6: defaultTheme.fontSize.lg,
+      p: defaultTheme.fontSize.base,
+    },
   },
   variants: {
     extend: {
