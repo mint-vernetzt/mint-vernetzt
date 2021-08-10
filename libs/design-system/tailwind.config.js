@@ -50,8 +50,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      logo: ["'Baloo 2'", ...defaultTheme.fontFamily.sans],
-      sans: ["'Source Sans Pro'", ...defaultTheme.fontFamily.sans],
+      sans: ["'Lato'", ...defaultTheme.fontFamily.sans],
     },
     fontSize: {
       h1: defaultTheme.fontSize["5xl"],
