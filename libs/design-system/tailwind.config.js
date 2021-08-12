@@ -1,4 +1,5 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
+const plugin = require("tailwindcss/plugin");
 
 const customColors = {
   beige: "#efe8e6",
@@ -31,16 +32,10 @@ Object.keys(extendedCustomColors).forEach((color) => {
   ]);
 });
 
-const customFontSizes = ["h1", "h2", "h3", "h4", "h5", "h6", "p"];
-let fontSizeSafeList = [];
-customFontSizes.forEach((fontSize) => {
-  fontSizeSafeList = fontSizeSafeList.concat([`text-${fontSize}`]);
-});
-
 module.exports = {
   purge: {
     content: ["../**/*.ts", "../**/*.tsx"],
-    safelist: [...colorSafelist, ...fontSizeSafeList],
+    safelist: [...colorSafelist],
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
@@ -52,20 +47,48 @@ module.exports = {
     fontFamily: {
       sans: ["'Lato'", ...defaultTheme.fontFamily.sans],
     },
-    fontSize: {
-      h1: defaultTheme.fontSize["5xl"],
-      h2: defaultTheme.fontSize["4xl"],
-      h3: defaultTheme.fontSize["3xl"],
-      h4: defaultTheme.fontSize["2xl"],
-      h5: defaultTheme.fontSize.xl,
-      h6: defaultTheme.fontSize.lg,
-      p: defaultTheme.fontSize.base,
-    },
   },
   variants: {
     extend: {
       brightness: ["hover", "focus"],
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addBase, theme }) => {
+      console.log(theme);
+      addBase({
+        h1: {
+          fontSize: theme("fontSize.5xl"),
+          textTransform: "uppercase",
+          fontWeight: "bold",
+        },
+        h2: {
+          fontSize: theme("fontSize.4xl"),
+          textTransform: "uppercase",
+          fontWeight: "bold",
+        },
+        h3: {
+          fontSize: theme("fontSize.3xl"),
+          textTransform: "uppercase",
+          fontWeight: "bold",
+        },
+        h4: {
+          fontSize: theme("fontSize.2xl"),
+          textTransform: "uppercase",
+          fontWeight: "bold",
+        },
+        h5: {
+          fontSize: theme("fontSize.xl"),
+          textTransform: "uppercase",
+          fontWeight: "bold",
+        },
+        h6: {
+          fontSize: theme("fontSize.lg"),
+          textTransform: "uppercase",
+          fontWeight: "bold",
+        },
+        p: { fontSize: theme("fontSize.base") },
+      });
+    }),
+  ],
 };

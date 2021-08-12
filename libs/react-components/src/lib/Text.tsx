@@ -24,22 +24,7 @@ export function Text(props: TextProps) {
   const { kind = TextKinds.P, color = TextColors.Blue, children = "" } = props;
   const KindTag = kind as keyof JSX.IntrinsicElements;
 
-  let classes: Array<String> = [];
-
-  if (kind === TextKinds.P) {
-  } else {
-    classes = classes.concat(["font-bold", "uppercase"]);
-  }
-
-  return (
-    <KindTag
-      className={`break-words text-${kind} text-${color} ${classes.join(
-        " "
-      )}`.trimEnd()}
-    >
-      {children}
-    </KindTag>
-  );
+  return <KindTag className={`text-${color}`}>{children}</KindTag>;
 }
 
 export default Text;
