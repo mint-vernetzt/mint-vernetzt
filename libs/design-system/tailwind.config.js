@@ -45,7 +45,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ["'Lato'", ...defaultTheme.fontFamily.sans],
+      sans: ["'Source Sans Pro'", ...defaultTheme.fontFamily.sans],
     },
   },
   variants: {
