@@ -1,5 +1,4 @@
 import { Meta, Story } from "@storybook/react";
-import { DOMAttributes } from "react";
 
 enum Colors {
   BeigeOriginal = "Beige Original",
@@ -25,6 +24,7 @@ enum Colors {
   Salmon60 = "Salmon 60%",
   Salmon40 = "Salmon 40%",
   White = "White",
+  Black = "Black",
 }
 
 const ColorMap = {
@@ -51,6 +51,7 @@ const ColorMap = {
   [Colors.Salmon60]: "#f5adac",
   [Colors.Salmon40]: "#f8c9c8",
   [Colors.White]: "#ffffff",
+  [Colors.Black]: "#000000",
 };
 
 export interface ColorPalletProps {
@@ -171,15 +172,21 @@ Playground.args = {
 };
 
 interface CombinationProps {
-  backgroundColor: Colors;
-  color: Colors;
+  backgroundColor?: Colors;
+  color?: Colors;
   fontSize: Number;
   bold?: Boolean;
+  text?: String;
 }
 
 function Combination(props: CombinationProps) {
-  const { backgroundColor, color, bold } = props;
+  const { backgroundColor = Colors.White, color = Colors.Black, bold } = props;
   const fontSize = `${props.fontSize}px`;
+  const text =
+    props.text ||
+    `${color}, ${backgroundColor}, ${fontSize} ${
+      bold ? ", bold" : ""
+    }`.trimRight();
   return (
     <div
       className={`p-1 ${bold ? "font-bold" : ""}`.trimRight()}
@@ -189,9 +196,7 @@ function Combination(props: CombinationProps) {
         fontSize,
       }}
     >
-      {`${color}, ${backgroundColor}, ${fontSize} ${
-        bold ? ", bold" : ""
-      }`.trimRight()}
+      {text}
     </div>
   );
 }
@@ -438,5 +443,408 @@ export const NotViolating = () => {
 };
 
 NotViolating.parameters = {
+  controls: { disable: true },
+};
+
+export const Rules = () => {
+  return (
+    <>
+      <Combination fontSize={20} text="HEADLINE min. 20px (15pt) bold" bold />
+      <Combination fontSize={16} text="Copy 16px (12pt)" />
+      <Combination fontSize={12} text="small-printed 12px (9pt)" />
+      <Combination
+        backgroundColor={Colors.BeigeOriginal}
+        color={Colors.Lilac}
+        fontSize={20}
+        text="HEADLINE h6 20px (15pt)"
+        bold
+      />
+      <Combination
+        backgroundColor={Colors.BeigeOriginal}
+        color={Colors.Blue}
+        fontSize={20}
+        text="HEADLINE h6 20px (15pt)"
+        bold
+      />
+      <Combination
+        backgroundColor={Colors.BeigeOriginal}
+        color={Colors.Blue}
+        fontSize={16}
+        text="Copy 16px (12pt)"
+      />
+      <Combination
+        backgroundColor={Colors.BeigeOriginal}
+        color={Colors.Blue}
+        fontSize={12}
+        text="small-printed 12px (9pt)"
+      />
+      <Combination
+        backgroundColor={Colors.Blue}
+        color={Colors.BeigeOriginal}
+        fontSize={20}
+        text="HEADLINE h6 20px (15pt)"
+        bold
+      />
+      <Combination
+        backgroundColor={Colors.Blue}
+        color={Colors.Green}
+        fontSize={20}
+        text="HEADLINE h6 20px (15pt)"
+        bold
+      />
+      <Combination
+        backgroundColor={Colors.Blue}
+        color={Colors.Yellow}
+        fontSize={20}
+        text="HEADLINE h6 20px (15pt)"
+        bold
+      />
+      <Combination
+        backgroundColor={Colors.Blue}
+        color={Colors.Salmon}
+        fontSize={20}
+        text="HEADLINE h6 20px (15pt)"
+        bold
+      />
+      <Combination
+        backgroundColor={Colors.Blue}
+        color={Colors.BeigeOriginal}
+        fontSize={16}
+        text="Copy 16px (12pt)"
+      />
+      <Combination
+        backgroundColor={Colors.Blue}
+        color={Colors.Yellow}
+        fontSize={16}
+        text="Copy 16px (12pt)"
+      />
+      <Combination
+        backgroundColor={Colors.Blue}
+        color={Colors.BeigeOriginal}
+        fontSize={12}
+        text="small-printed 12px (9pt)"
+      />
+      <Combination
+        backgroundColor={Colors.Blue}
+        color={Colors.Yellow}
+        fontSize={12}
+        text="small-printed 12px (9pt)"
+      />
+      <Combination
+        backgroundColor={Colors.Lilac}
+        color={Colors.BeigeOriginal}
+        fontSize={20}
+        text="HEADLINE h6 20px (15pt)"
+        bold
+      />
+      <Combination
+        backgroundColor={Colors.Lilac}
+        color={Colors.White}
+        fontSize={16}
+        text="Copy not allowed"
+      />
+      <Combination
+        backgroundColor={Colors.Lilac}
+        color={Colors.White}
+        fontSize={12}
+        text="small-printed not allowed"
+      />
+      <Combination
+        backgroundColor={Colors.Lilac80}
+        color={Colors.Blue}
+        fontSize={20}
+        text="HEADLINE h6 20px (15pt)"
+        bold
+      />
+      <Combination
+        backgroundColor={Colors.Lilac80}
+        color={Colors.White}
+        fontSize={16}
+        text="Copy not allowed"
+      />
+      <Combination
+        backgroundColor={Colors.Lilac80}
+        color={Colors.White}
+        fontSize={12}
+        text="small-printed not allowed"
+      />
+      <Combination
+        backgroundColor={Colors.Lilac60}
+        color={Colors.Blue}
+        fontSize={20}
+        text="HEADLINE h6 20px (15pt)"
+        bold
+      />
+      <Combination
+        backgroundColor={Colors.Lilac60}
+        color={Colors.Blue}
+        fontSize={16}
+        text="Copy 16px (12pt)"
+      />
+      <Combination
+        backgroundColor={Colors.Lilac60}
+        color={Colors.Blue}
+        fontSize={12}
+        text="small-printed 12px (9pt)"
+      />
+      <Combination
+        backgroundColor={Colors.Lilac40}
+        color={Colors.Blue}
+        fontSize={20}
+        text="HEADLINE h6 20px (15pt)"
+        bold
+      />
+      <Combination
+        backgroundColor={Colors.Lilac40}
+        color={Colors.Blue}
+        fontSize={16}
+        text="Copy 16px (12pt)"
+      />
+      <Combination
+        backgroundColor={Colors.Lilac40}
+        color={Colors.Blue}
+        fontSize={12}
+        text="small-printed 12px (9pt)"
+      />
+      <Combination
+        backgroundColor={Colors.Yellow}
+        color={Colors.Blue}
+        fontSize={20}
+        text="HEADLINE h6 20px (15pt)"
+        bold
+      />
+      <Combination
+        backgroundColor={Colors.Yellow}
+        color={Colors.Blue}
+        fontSize={16}
+        text="Copy 16px (12pt)"
+      />
+      <Combination
+        backgroundColor={Colors.Yellow}
+        color={Colors.Blue}
+        fontSize={12}
+        text="small-printed 12px (9pt)"
+      />
+      <Combination
+        backgroundColor={Colors.Yellow80}
+        color={Colors.Blue}
+        fontSize={20}
+        text="HEADLINE h6 20px (15pt)"
+        bold
+      />
+      <Combination
+        backgroundColor={Colors.Yellow80}
+        color={Colors.Blue}
+        fontSize={16}
+        text="Copy 16px (12pt)"
+      />
+      <Combination
+        backgroundColor={Colors.Yellow80}
+        color={Colors.Blue}
+        fontSize={12}
+        text="small-printed 12px (9pt)"
+      />
+      <Combination
+        backgroundColor={Colors.Yellow60}
+        color={Colors.Blue}
+        fontSize={20}
+        text="HEADLINE h6 20px (15pt)"
+        bold
+      />
+      <Combination
+        backgroundColor={Colors.Yellow60}
+        color={Colors.Blue}
+        fontSize={16}
+        text="Copy 16px (12pt)"
+      />
+      <Combination
+        backgroundColor={Colors.Yellow60}
+        color={Colors.Blue}
+        fontSize={12}
+        text="small-printed 12px (9pt)"
+      />
+      <Combination
+        backgroundColor={Colors.Yellow40}
+        color={Colors.Blue}
+        fontSize={20}
+        text="HEADLINE h6 20px (15pt)"
+        bold
+      />
+      <Combination
+        backgroundColor={Colors.Yellow40}
+        color={Colors.Lilac}
+        fontSize={20}
+        text="HEADLINE h6 20px (15pt)"
+        bold
+      />
+      <Combination
+        backgroundColor={Colors.Yellow40}
+        color={Colors.Blue}
+        fontSize={16}
+        text="Copy 16px (12pt)"
+      />
+      <Combination
+        backgroundColor={Colors.Yellow40}
+        color={Colors.Blue}
+        fontSize={12}
+        text="small-printed 12px (9pt)"
+      />
+      <Combination
+        backgroundColor={Colors.Green}
+        color={Colors.Blue}
+        fontSize={20}
+        text="HEADLINE h6 20px (15pt)"
+        bold
+      />
+      <Combination
+        backgroundColor={Colors.Green}
+        color={Colors.White}
+        fontSize={16}
+        text="Copy not allowed"
+      />
+      <Combination
+        backgroundColor={Colors.Green}
+        color={Colors.White}
+        fontSize={12}
+        text="small-printed not allowed"
+      />
+      <Combination
+        backgroundColor={Colors.Green80}
+        color={Colors.Blue}
+        fontSize={20}
+        text="HEADLINE h6 20px (15pt)"
+        bold
+      />
+      <Combination
+        backgroundColor={Colors.Green80}
+        color={Colors.White}
+        fontSize={16}
+        text="Copy not allowed"
+      />
+      <Combination
+        backgroundColor={Colors.Green80}
+        color={Colors.White}
+        fontSize={12}
+        text="small-printed not allowed"
+      />
+      <Combination
+        backgroundColor={Colors.Green60}
+        color={Colors.Blue}
+        fontSize={20}
+        text="HEADLINE h6 20px (15pt)"
+        bold
+      />
+      <Combination
+        backgroundColor={Colors.Green60}
+        color={Colors.Blue}
+        fontSize={16}
+        text="Copy 16px (12pt)"
+      />
+      <Combination
+        backgroundColor={Colors.Green60}
+        color={Colors.Blue}
+        fontSize={12}
+        text="small-printed 12px (9pt)"
+      />
+      <Combination
+        backgroundColor={Colors.Green40}
+        color={Colors.Blue}
+        fontSize={20}
+        text="HEADLINE h6 20px (15pt)"
+        bold
+      />
+      <Combination
+        backgroundColor={Colors.Green40}
+        color={Colors.Blue}
+        fontSize={16}
+        text="Copy 16px (12pt)"
+      />
+      <Combination
+        backgroundColor={Colors.Green40}
+        color={Colors.Blue}
+        fontSize={12}
+        text="small-printed 12px (9pt)"
+      />
+      <Combination
+        backgroundColor={Colors.Salmon}
+        color={Colors.Blue}
+        fontSize={20}
+        text="HEADLINE h6 20px (15pt)"
+        bold
+      />
+      <Combination
+        backgroundColor={Colors.Salmon}
+        color={Colors.White}
+        fontSize={16}
+        text="Copy not allowed"
+      />
+      <Combination
+        backgroundColor={Colors.Salmon}
+        color={Colors.White}
+        fontSize={12}
+        text="small-printed not allowed"
+      />
+      <Combination
+        backgroundColor={Colors.Salmon80}
+        color={Colors.Blue}
+        fontSize={20}
+        text="HEADLINE h6 20px (15pt)"
+        bold
+      />
+      <Combination
+        backgroundColor={Colors.Salmon80}
+        color={Colors.White}
+        fontSize={16}
+        text="Copy not allowed"
+      />
+      <Combination
+        backgroundColor={Colors.Salmon80}
+        color={Colors.White}
+        fontSize={12}
+        text="small-printed not allowed"
+      />
+      <Combination
+        backgroundColor={Colors.Salmon60}
+        color={Colors.Blue}
+        fontSize={20}
+        text="HEADLINE h6 20px (15pt)"
+        bold
+      />
+      <Combination
+        backgroundColor={Colors.Salmon60}
+        color={Colors.Blue}
+        fontSize={16}
+        text="Copy 16px (12pt)"
+      />
+      <Combination
+        backgroundColor={Colors.Salmon60}
+        color={Colors.Blue}
+        fontSize={12}
+        text="small-printed 12px (9pt)"
+      />
+      <Combination
+        backgroundColor={Colors.Salmon40}
+        color={Colors.Blue}
+        fontSize={20}
+        text="HEADLINE h6 20px (15pt)"
+        bold
+      />
+      <Combination
+        backgroundColor={Colors.Salmon40}
+        color={Colors.Blue}
+        fontSize={16}
+        text="Copy 16px (12pt)"
+      />
+      <Combination
+        backgroundColor={Colors.Salmon40}
+        color={Colors.Blue}
+        fontSize={12}
+        text="small-printed 12px (9pt)"
+      />
+    </>
+  );
+};
+
+Rules.parameters = {
   controls: { disable: true },
 };
