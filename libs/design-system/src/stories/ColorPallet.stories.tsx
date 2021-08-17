@@ -848,3 +848,239 @@ export const Rules = () => {
 Rules.parameters = {
   controls: { disable: true },
 };
+
+export const Proposal = () => {
+  return (
+    <div
+      className="p-4"
+      style={{ backgroundColor: ColorMap[Colors.BeigeOriginal] }}
+    >
+      <Combination
+        backgroundColor={Colors.BeigeOriginal}
+        color={Colors.Blue}
+        fontSize={16}
+        text="on beige: Headlines blue and lilac | copy and small-printed blue "
+      />
+      <Combination
+        backgroundColor={Colors.BeigeOriginal}
+        color={Colors.Lilac}
+        fontSize={20}
+        text="HEADLINE h6 20px (15pt)"
+        bold
+      />
+      <Combination
+        backgroundColor={Colors.BeigeOriginal}
+        color={Colors.Blue}
+        fontSize={20}
+        text="HEADLINE h6 20px (15pt)"
+        bold
+      />
+      <Combination
+        backgroundColor={Colors.BeigeOriginal}
+        color={Colors.Blue}
+        fontSize={16}
+        text="Copy 16px (12pt)"
+      />
+      <Combination
+        backgroundColor={Colors.BeigeOriginal}
+        color={Colors.Blue}
+        fontSize={12}
+        text="small-printed 12px (9pt)"
+      />
+      <div
+        className="mt-4 p-4"
+        style={{ backgroundColor: ColorMap[Colors.Lilac60] }}
+      >
+        <Combination
+          backgroundColor={Colors.Lilac60}
+          color={Colors.Blue}
+          fontSize={16}
+          text="on lilac 60%: Headline, Copy and small-printed blue"
+        />
+        <Combination
+          backgroundColor={Colors.Lilac60}
+          color={Colors.Blue}
+          fontSize={20}
+          text="HEADLINE h6 20px (15pt)"
+          bold
+        />
+        <Combination
+          backgroundColor={Colors.Lilac60}
+          color={Colors.Blue}
+          fontSize={16}
+          text="Copy 16px (12pt)"
+        />
+        <Combination
+          backgroundColor={Colors.Lilac60}
+          color={Colors.Blue}
+          fontSize={12}
+          text="small-printed 12px (9pt)"
+        />
+      </div>
+      <div
+        className="mt-4 p-4"
+        style={{ backgroundColor: ColorMap[Colors.Yellow80] }}
+      >
+        <Combination
+          backgroundColor={Colors.Yellow80}
+          color={Colors.Blue}
+          fontSize={16}
+          text="on yellow 80%: Headline, Copy and small-printed blue"
+        />
+        <Combination
+          backgroundColor={Colors.Yellow80}
+          color={Colors.Blue}
+          fontSize={20}
+          text="HEADLINE h6 20px (15pt)"
+          bold
+        />
+        <Combination
+          backgroundColor={Colors.Yellow80}
+          color={Colors.Blue}
+          fontSize={16}
+          text="Copy 16px (12pt)"
+        />
+        <Combination
+          backgroundColor={Colors.Yellow80}
+          color={Colors.Blue}
+          fontSize={12}
+          text="small-printed 12px (9pt)"
+        />
+      </div>
+      <div
+        className="mt-4 p-4"
+        style={{ backgroundColor: ColorMap[Colors.Green60] }}
+      >
+        <Combination
+          backgroundColor={Colors.Green60}
+          color={Colors.Blue}
+          fontSize={16}
+          text="on green 60%: Headline, Copy and small-printed blue"
+        />
+        <Combination
+          backgroundColor={Colors.Green60}
+          color={Colors.Blue}
+          fontSize={20}
+          text="HEADLINE h6 20px (15pt)"
+          bold
+        />
+        <Combination
+          backgroundColor={Colors.Green60}
+          color={Colors.Blue}
+          fontSize={16}
+          text="Copy 16px (12pt)"
+        />
+        <Combination
+          backgroundColor={Colors.Green60}
+          color={Colors.Blue}
+          fontSize={12}
+          text="small-printed 12px (9pt)"
+        />
+      </div>
+      <div
+        className="mt-4 p-4"
+        style={{ backgroundColor: ColorMap[Colors.Salmon60] }}
+      >
+        <Combination
+          backgroundColor={Colors.Salmon60}
+          color={Colors.Blue}
+          fontSize={16}
+          text="on salmon 60%: Headline, Copy and small-printed blue"
+        />
+        <Combination
+          backgroundColor={Colors.Salmon60}
+          color={Colors.Blue}
+          fontSize={20}
+          text="HEADLINE h6 20px (15pt)"
+          bold
+        />
+        <Combination
+          backgroundColor={Colors.Salmon60}
+          color={Colors.Blue}
+          fontSize={16}
+          text="Copy 16px (12pt)"
+        />
+        <Combination
+          backgroundColor={Colors.Salmon60}
+          color={Colors.Blue}
+          fontSize={12}
+          text="small-printed 12px (9pt)"
+        />
+      </div>
+      <div
+        className="mt-4 p-4"
+        style={{ backgroundColor: ColorMap[Colors.Blue] }}
+      >
+        <Combination
+          backgroundColor={Colors.Blue}
+          color={Colors.BeigeOriginal}
+          fontSize={16}
+          text="on blue: Headline beige, lilac 60%, green 60%, yellow 80%, salmon 60% | Copy and small-printed beige and yellow 80%"
+        />
+        <Combination
+          backgroundColor={Colors.Blue}
+          color={Colors.BeigeOriginal}
+          fontSize={20}
+          text="HEADLINE h6 20px (15pt)"
+          bold
+        />
+        <Combination
+          backgroundColor={Colors.Blue}
+          color={Colors.Lilac60}
+          fontSize={20}
+          text="HEADLINE h6 20px (15pt)"
+          bold
+        />
+        <Combination
+          backgroundColor={Colors.Blue}
+          color={Colors.Green60}
+          fontSize={20}
+          text="HEADLINE h6 20px (15pt)"
+          bold
+        />
+        <Combination
+          backgroundColor={Colors.Blue}
+          color={Colors.Yellow80}
+          fontSize={20}
+          text="HEADLINE h6 20px (15pt)"
+          bold
+        />
+        <Combination
+          backgroundColor={Colors.Blue}
+          color={Colors.Salmon60}
+          fontSize={20}
+          text="HEADLINE h6 20px (15pt)"
+          bold
+        />
+        <Combination
+          backgroundColor={Colors.Blue}
+          color={Colors.BeigeOriginal}
+          fontSize={16}
+          text="Copy 16px (12pt)"
+        />
+        <Combination
+          backgroundColor={Colors.Blue}
+          color={Colors.Yellow80}
+          fontSize={16}
+          text="Copy 16px (12pt)"
+        />
+        <Combination
+          backgroundColor={Colors.Blue}
+          color={Colors.BeigeOriginal}
+          fontSize={12}
+          text="small-printed 12px (9pt)"
+        />
+        <Combination
+          backgroundColor={Colors.Blue}
+          color={Colors.Yellow80}
+          fontSize={12}
+          text="small-printed 12px (9pt)"
+        />
+      </div>
+    </div>
+  );
+};
+
+Proposal.parameters = {
+  controls: { disable: true },
+};
