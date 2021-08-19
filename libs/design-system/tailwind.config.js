@@ -1,28 +1,9 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 const plugin = require("tailwindcss/plugin");
-
-const customColors = {
-  beige: "#efe8e6",
-  blue: "#154194",
-  "lilac-500": "#b16fab",
-  "lilac-300": "#d0a9cd",
-  yellow: "#fdd05c",
-  green: "#66cbaf",
-  salmon: "#f5adac",
-};
-
-const extendedCustomColors = {
-  ...customColors,
-  primary: customColors.blue,
-  secondary: customColors["lilac-300"],
-  fill: customColors.beige,
-  success: customColors.green,
-  warning: customColors.yellow,
-  danger: customColors.salmon,
-};
+const { colors } = require("./src/theme");
 
 let colorSafelist = [];
-Object.keys(extendedCustomColors).forEach((color) => {
+Object.keys(colors).forEach((color) => {
   colorSafelist = colorSafelist.concat([
     `bg-${color}`,
     `text-${color}`,
@@ -45,7 +26,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ...extendedCustomColors,
+        ...colors,
       },
     },
     fontFamily: {
