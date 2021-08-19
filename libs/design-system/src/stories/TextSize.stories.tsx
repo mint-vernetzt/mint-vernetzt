@@ -36,8 +36,66 @@ export const Sizes: Story = () => {
   );
 };
 
+export const SizesAndColors: Story = () => {
+  return (
+    <div className="grid gap-y-2">
+      <div className="flex flex-wrap items-baseline ">
+        <div className="w-1/6 p-2 text-blue">color</div>
+        <div className="w-5/6 p-2">
+          <p className="text-blue">colors with min. size</p>
+        </div>
+      </div>
+      <div className="flex flex-wrap items-baseline bg-beige">
+        <div className="w-1/6 p-2 text-blue">beige</div>
+        <div className="w-5/6 p-2">
+          <p className="text-blue text-xs">blue xs</p>
+          <p className="text-lilac-500 text-xl">lilac-500 xl</p>
+          <p className="text-lilac-500 text-lg font-bold">lilac-500 lg bold</p>
+        </div>
+      </div>
+      <div className="flex flex-wrap items-baseline bg-blue">
+        <div className="w-1/6 p-2 text-beige">blue</div>
+        <div className="w-5/6 p-2">
+          <p className="text-beige text-xs">beige xs</p>
+          <p className="text-lilac-300 text-xl">lilac-300 xl</p>
+          <p className="text-lilac-300 text-lg font-bold">lilac-300 lg bold</p>
+          <p className="text-green text-xl">green xl</p>
+          <p className="text-green text-lg font-bold">green lg bold</p>
+          <p className="text-yellow text-xs">yellow xs</p>
+          <p className="text-salmon text-xl">salmon xl</p>
+          <p className="text-salmon text-lg font-bold">salmon lg bold</p>
+        </div>
+      </div>
+      <div className="flex flex-wrap items-baseline bg-lilac-300">
+        <div className="w-1/6 p-2 text-blue">lilac-300</div>
+        <div className="w-5/6 p-2">
+          <p className="text-blue text-xs">blue xs</p>
+        </div>
+      </div>
+      <div className="flex flex-wrap items-baseline bg-green">
+        <div className="w-1/6 p-2 text-blue">green</div>
+        <div className="w-5/6 p-2">
+          <p className="text-blue text-xs">blue xs</p>
+        </div>
+      </div>
+      <div className="flex flex-wrap items-baseline bg-yellow">
+        <div className="w-1/6 p-2 text-blue">yellow</div>
+        <div className="w-5/6 p-2">
+          <p className="text-blue text-xs">blue xs</p>
+        </div>
+      </div>
+      <div className="flex flex-wrap items-baseline bg-salmon">
+        <div className="w-1/6 p-2 text-blue">salmon</div>
+        <div className="w-5/6 p-2">
+          <p className="text-blue text-xs">blue xs</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default {
-  title: "Style Guide/Text Sizes",
+  title: "Style Guide/Text",
   parameters: {
     controls: { disable: true },
     actions: {
