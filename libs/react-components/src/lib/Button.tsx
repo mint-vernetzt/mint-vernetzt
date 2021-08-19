@@ -3,59 +3,45 @@ import React from "react";
 export enum ButtonType {
   Primary = "primary",
   Secondary = "secondary",
-}
-
-export enum ButtonColor {
-  Beige = "beige",
-  Blue = "blue",
-  Lilac = "lilac",
   Success = "success",
   Warning = "warning",
   Danger = "danger",
 }
 export interface ButtonProps {
   type: ButtonType;
-  color: ButtonColor;
   children: React.ReactNode;
   onClick?: React.MouseEventHandler;
 }
 
 export function Button(props: ButtonProps) {
-  const {
-    type = ButtonType.Primary,
-    color = ButtonColor.Blue,
-    children,
-    ...otherProps
-  } = props;
+  const { type = ButtonType.Primary, children, ...otherProps } = props;
 
   let classes: Array<String> = [];
-  let textColor: String = color;
 
   if (type === ButtonType.Primary) {
-    if (color === ButtonColor.Beige || color === ButtonColor.Warning) {
-      textColor = ButtonColor.Blue;
-    } else {
-      textColor = ButtonColor.Beige;
-    }
     classes = classes.concat([
       "border-transparent",
-      `bg-${color}`,
-      "filter hover:brightness-90 focus:brightness-90",
+      "text-fill",
+      "focus:border-fill focus:border-dotted focus:outline-none",
+      "filter hover:brightness-75",
     ]);
   } else {
     classes = classes.concat([
-      `border-${color}`,
-      "bg-transparent",
-      `hover:bg-${color} hover:bg-opacity-10`,
-      `focus:bg-${color} focus:bg-opacity-10`,
+      "border-primary",
+      "text-primary",
+      "focus:border-dotted focus:outline-none",
+      "filter hover:brightness-75",
     ]);
+  }
+  if (type === ButtonType.Secondary) {
+    classes = classes.concat(["bg-fill"]);
+  } else {
+    classes = classes.concat([`bg-${type}`]);
   }
 
   return (
     <button
-      className={`px-4 py-2 border-2 rounded text-${textColor} ${classes.join(
-        " "
-      )}`}
+      className={`m-1 px-4 py-2 border-2 rounded ${classes.join(" ")}`}
       {...otherProps}
     >
       {children}

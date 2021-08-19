@@ -4,14 +4,18 @@ const plugin = require("tailwindcss/plugin");
 const customColors = {
   beige: "#efe8e6",
   blue: "#154194",
-  lilac: "#b16fab",
-  yellow: "#fcc433",
-  green: "#00a87a",
-  salmon: "#ee7775",
+  "lilac-500": "#b16fab",
+  "lilac-300": "#d0a9cd",
+  yellow: "#fdd05c",
+  green: "#66cbaf",
+  salmon: "#f5adac",
 };
 
 const extendedCustomColors = {
   ...customColors,
+  primary: customColors.blue,
+  secondary: customColors["lilac-300"],
+  fill: customColors.beige,
   success: customColors.green,
   warning: customColors.yellow,
   danger: customColors.salmon,
@@ -51,6 +55,7 @@ module.exports = {
   variants: {
     extend: {
       brightness: ["hover", "focus"],
+      borderStyle: ["hover", "focus"],
     },
   },
   plugins: [
