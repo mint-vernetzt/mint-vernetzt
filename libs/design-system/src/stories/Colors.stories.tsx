@@ -2,7 +2,7 @@ import { Meta, Story } from "@storybook/react";
 
 export const Colors: Story = () => {
   return (
-    <div className="grid grid-cols-2 gap-2 text-xl font-bold">
+    <div className="grid grid-cols-2 gap-2 text-lg font-bold">
       <div className="p-2 bg-beige text-blue">beige</div>
       <div className="p-2 bg-fill text-blue">fill</div>
       <div className="p-2 bg-blue text-fill">blue</div>
