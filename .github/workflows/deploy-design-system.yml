@@ -1,4 +1,4 @@
-name: Build and deploy Design System
+name: Design System
 
 on:
   push:

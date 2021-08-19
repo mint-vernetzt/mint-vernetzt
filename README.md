@@ -38,7 +38,11 @@ By passing arguments to the script call (e.g. `npm run create-react-app -- --nam
 
 ### Use Design System
 
+![Design Build Status](https://github.com/mint-vernetzt/mint-vernetzt/workflows/Design%20System/badge.svg)
+
 We are using [Storybook](https://storybook.js.org/) for our design system. If you want to use Storybook in your library please follow the instructions from the [Nx documentation](https://nx.dev/latest/react/storybook/overview#storybook).
+
+[Here](https://design.mint-vernetzt.de/) you can find the current build of the design system.
 
 #### commands
 
