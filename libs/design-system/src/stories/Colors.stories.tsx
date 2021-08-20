@@ -11,7 +11,7 @@ export const Colors: Story = () => {
         lilac-500 #b16fab (text only)
       </div>
       <div></div>
-      <div className="p-2 bg-lilac-300 text-blue">lilac 300 #d0a9cd</div>
+      <div className="p-2 bg-lilac-300 text-blue">lilac-300 #d0a9cd</div>
       <div className="p-2 bg-secondary text-blue">secondary</div>
       <div className="p-2 bg-green text-blue">green #66cbaf</div>
       <div className="p-2 bg-success text-blue">success</div>
