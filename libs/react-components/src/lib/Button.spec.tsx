@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import user from "@testing-library/user-event";
+import { notDeepEqual } from "node:assert";
 import Button from "./Button";
 
 test("render children", () => {
@@ -20,4 +21,20 @@ test("click handler", () => {
   user.click(button);
 
   expect(handler).toHaveBeenCalledTimes(1);
+});
+
+test("disabled", () => {
+  const handler = jest.fn();
+  const text = "Button";
+
+  render(
+    <Button onClick={handler} disabled>
+      {text}
+    </Button>
+  );
+
+  const button = screen.getByText(text);
+  user.click(button);
+
+  expect(handler).not.toHaveBeenCalled();
 });
