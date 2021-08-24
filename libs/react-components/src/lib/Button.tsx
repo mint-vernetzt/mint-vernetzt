@@ -8,13 +8,13 @@ export enum ButtonType {
   Danger = "danger",
 }
 export interface ButtonProps {
-  type: ButtonType;
+  type?: ButtonType;
   children: React.ReactNode;
   onClick?: React.MouseEventHandler;
 }
 
 export function Button(props: ButtonProps) {
-  const { type = ButtonType.Primary, children, ...otherProps } = props;
+  const { type, children, ...otherProps } = props;
 
   let classes: Array<String> = [];
 
@@ -48,5 +48,9 @@ export function Button(props: ButtonProps) {
     </button>
   );
 }
+
+Button.defaultProps = {
+  type: ButtonType.Primary,
+};
 
 export default Button;
