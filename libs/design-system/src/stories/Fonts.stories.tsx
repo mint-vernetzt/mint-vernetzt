@@ -17,31 +17,31 @@ export const Families: Story = () => {
 export const Sizes: Story = () => {
   return (
     <div className="flex flex-wrap items-baseline text-blue">
-      <div className="w-1/6 text-xs font-bold">xs</div>
+      <div className="w-1/6 text-xs font-bold">xs – 0.75rem</div>
       <div className="w-5/6 text-xs truncate">{text}</div>
       <hr className="w-full border-blue" />
-      <div className="w-1/6 text-xs font-bold">sm</div>
+      <div className="w-1/6 text-xs font-bold">sm – 0.875rem</div>
       <div className="w-5/6 text-sm truncate">{text}</div>
       <hr className="w-full border-blue" />
-      <div className="w-1/6 text-xs font-bold">base</div>
+      <div className="w-1/6 text-xs font-bold">base – 1rem</div>
       <div className="w-5/6 text-base truncate">{text}</div>
       <hr className="w-full border-blue" />
-      <div className="w-1/6 text-xs font-bold">lg</div>
+      <div className="w-1/6 text-xs font-bold">lg – 1.25rem</div>
       <div className="w-5/6 text-lg truncate">{text}</div>
       <hr className="w-full border-blue" />
-      <div className="w-1/6 text-xs font-bold">xl</div>
+      <div className="w-1/6 text-xs font-bold">xl – 1.5rem</div>
       <div className="w-5/6 text-xl truncate">{text}</div>
       <hr className="w-full border-blue" />
-      <div className="w-1/6 text-xs font-bold">2xl</div>
+      <div className="w-1/6 text-xs font-bold">2xl – 1.875rem</div>
       <div className="w-5/6 text-2xl truncate">{text}</div>
       <hr className="w-full border-blue" />
-      <div className="w-1/6 text-xs font-bold">3xl</div>
+      <div className="w-1/6 text-xs font-bold">3xl – 2rem</div>
       <div className="w-5/6 text-3xl truncate">{text}</div>
       <hr className="w-full border-blue" />
-      <div className="w-1/6 text-xs font-bold">4xl</div>
+      <div className="w-1/6 text-xs font-bold">4xl – 2.5rem</div>
       <div className="w-5/6 text-4xl truncate">{text}</div>
       <hr className="w-full border-blue" />
-      <div className="w-1/6 text-xs font-bold">5xl</div>
+      <div className="w-1/6 text-xs font-bold">5xl – 3rem</div>
       <div className="w-5/6 text-5xl truncate">{text}</div>
     </div>
   );
