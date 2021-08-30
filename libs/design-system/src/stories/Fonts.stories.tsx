@@ -3,6 +3,17 @@ import { Meta, Story } from "@storybook/react";
 const text =
   "ABCDEFGHIJKLMNOPQRSTUVWXYZ\nabcdefghijklmnopqrstuvwxyz\n,./:()!?#@&0123456789";
 
+export const Families: Story = () => {
+  return (
+    <div className="flex flex-wrap items-baseline text-blue text-base">
+      <div className="w-1/6 font-bold">sans</div>
+      <div className="w-5/6 font-sans">Source Sans Pro 400</div>
+      <div className="w-1/6 font-bold">sans bold</div>
+      <div className="w-5/6 font-sans font-bold">Source Sans Pro 600</div>
+    </div>
+  );
+};
+
 export const Sizes: Story = () => {
   return (
     <div className="flex flex-wrap items-baseline text-blue">
@@ -95,7 +106,7 @@ export const SizesAndColors: Story = () => {
 };
 
 export default {
-  title: "Style Guide/Text",
+  title: "Style Guide/Fonts",
   parameters: {
     controls: { disable: true },
     actions: {
