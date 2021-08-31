@@ -20,6 +20,16 @@ export function Index({ data }) {
           />
         </div>
       ))}
+      <h4>Partner </h4>
+      {data.allWpOrganization.nodes.map((node, index) => {
+        return (
+          <div key={`organization ${index}`}>
+            <Link to={node.slug}>
+              <h2>{node.title}</h2>
+            </Link>
+          </div>
+        );
+      })}
     </>
   );
 }
@@ -33,6 +43,12 @@ export const pageQuery = graphql`
         title
         excerpt
         slug
+      }
+    }
+    allWpOrganization {
+      nodes {
+        slug
+        title
       }
     }
   }

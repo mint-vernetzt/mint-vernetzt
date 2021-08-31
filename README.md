@@ -55,6 +55,15 @@ If you have trouble with the self signed certificate on you Mac while using Loca
 
 If you get an error regarding the self signed certificate while running Gatsby follow this instruction: [Using self-signed certificates](https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-source-wordpress/docs/tutorials/using-self-signed-certificates.md)
 
+#### Enable Advanced Custom Fields for Gatsby
+
+To provide custom content elements we are using "Advanced Custom Fields" (ACF).
+
+1. You have to install the following plugins: _Advanced Custom Fields_, _Custom Post Type UI_, and [_WPGraphQL for Advanced Custom Fields_](https://www.wpgraphql.com/acf/) (needs to be manually installed).
+2. Create a new Post Type in Wordpress (_CPT UI_ > _Add/Edit Post Types_).
+3. In the _Add/Edit Post Types_ View scroll down to the _WPGraphQL_ section and set _Show in GraphQL_ to `True`.
+4. Now you can use the custom content type querying for `allWpSingularLabel` (e.g. `allWpOrganization`).
+
 #### commands
 
 1. Run `npm run serve-website` to run the website for development
