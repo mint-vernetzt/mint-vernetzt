@@ -9,13 +9,14 @@
 1. Install nvm ([Guide](https://github.com/nvm-sh/nvm#installing-and-updating))
 2. Run `nvm use` in repository root
 
-*Hint:*
+_Hint:_
 
 If you can read something like `You need to run "nvm install v16.5.0" to install it before using it.` run `nvm install v16.5.0`. 😎
 
 ### Create
 
 We are using [Nx](https://nx.dev/) to scaffold applications, services, libraries, etc. For easy use we provide some scripts but you can also use the [Nx Console Plugin](https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console) for VSCode.
+
 #### [React App](https://nx.dev/latest/react/react/application#nrwlreactapplication)
 
 1. Run `npm run create-react-app`
@@ -24,6 +25,7 @@ We are using [Nx](https://nx.dev/) to scaffold applications, services, libraries
 #### [React Library](https://nx.dev/latest/react/react/library#nrwlreactlibrary)
 
 Run `npm run create-react-lib -- --name=<application name> --importPath=<import path>` (`import path` looks like `@mint-vernetzt/react-components`)
+
 #### [React Component](https://nx.dev/latest/react/react/library#nrwlreactlibrary)
 
 ##### for Library
@@ -32,9 +34,18 @@ Run `npm run create-react-lib -- --name=<application name> --importPath=<import 
 2. You will be asked to enter the project name
 3. You will be asked to enter the component name
 
-*Hint:*
+_Hint:_
 
 By passing arguments to the script call (e.g. `npm run create-react-app -- --name=<application name>`) you can pass e.g. the application name directly or override default properties.
+
+### Website
+
+For our website we are using [Gatsby](https://www.gatsbyjs.com/) as a static site generator.
+
+#### commands
+
+1. Run `npm run serve-website` to run the website for development
+2. Run `npm run build-website` to create a production build of the website
 
 ### Use Design System
 
@@ -48,7 +59,6 @@ We are using [Storybook](https://storybook.js.org/) for our design system. If yo
 
 1. Run `npm run serve-design-system` to run the design system
 2. Run `npm run build-design-system` to create a production build of the design system
-
 
 ### Write commit messages
 
