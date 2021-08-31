@@ -38,6 +38,9 @@
     },
     "react-components": {
       "tags": []
+    },
+    "website": {
+      "tags": []
     }
   }
 }

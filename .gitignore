@@ -41,3 +41,7 @@ Thumbs.db
 
 # design-system
 libs/design-system/src/styles.css
+
+/apps/website/node_modules
+/apps/website/public
+/apps/website/.cache

@@ -125,6 +125,50 @@
           }
         }
       }
+    },
+    "website": {
+      "root": "apps/website",
+      "sourceRoot": "apps/website/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/gatsby:build",
+          "options": {
+            "outputPath": "apps/website/public",
+            "uglify": true,
+            "color": true,
+            "profile": false
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/gatsby:server",
+          "options": {
+            "buildTarget": "website:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "website:build:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/website/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/website"],
+          "options": {
+            "jestConfig": "apps/website/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
@@ -135,6 +179,12 @@
       "application": {
         "babel": true
       }
+    },
+    "@nrwl/gatsby": {
+      "application": {
+        "style": "none"
+      }
     }
-  }
+  },
+  "defaultProject": "website"
 }
