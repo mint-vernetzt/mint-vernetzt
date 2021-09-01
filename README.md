@@ -40,14 +40,13 @@ By passing arguments to the script call (e.g. `npm run create-react-app -- --nam
 
 ### Website
 
-For our website we are Wordpress for backend using [Gatsby](https://www.gatsbyjs.com/) for static site generation.
+For our website we are using Wordpress as backend and [Gatsby](https://www.gatsbyjs.com/) for static site generation.
 
 #### Set up Wordpress locally and connect Gatsby
 
 1. An easy way to run Wordpress locally is using [Local](https://localwp.com/). Just follow the ["Getting Started" instruction](https://localwp.com/help-docs/getting-started/installing-local/) on their website and create your local Wordpress installation.
 2. You have to install the following plugins to extend you Wordpress installation with GraphQL and make it accessible for Gatsby: _WPGatsby_ and _WP GraphQL_.
-3. Add the files `.env.development` and `.env.production` to the website root and add the environment variable `CMS_URL` with the url of your local Wordpress installation (e.g. `CMS_URL=mywordpress.local/graphql`).
-4. Now, if you run Wordpress and the website in parallel, Gatsby reads all data from the GraphQL-API.
+3. Create the files `.env.development` and `.env.production` in the website root (`apps/website`) and add the environment variable `CMS_URL` with the url of your local Wordpress installation (e.g. `CMS_URL=https://mywordpress.local/graphql`).
 
 ##### Troubleshooting
 
@@ -55,19 +54,24 @@ If you have trouble with the self signed certificate on you Mac while using Loca
 
 If you get an error regarding the self signed certificate while running Gatsby follow this instruction: [Using self-signed certificates](https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-source-wordpress/docs/tutorials/using-self-signed-certificates.md)
 
-#### Enable Advanced Custom Fields for Gatsby
-
-To provide custom content elements we are using "Advanced Custom Fields" (ACF).
-
-1. You have to install the following plugins: _Advanced Custom Fields_, _Custom Post Type UI_, and [_WPGraphQL for Advanced Custom Fields_](https://www.wpgraphql.com/acf/) (needs to be manually installed).
-2. Create a new Post Type in Wordpress (_CPT UI_ > _Add/Edit Post Types_).
-3. In the _Add/Edit Post Types_ View scroll down to the _WPGraphQL_ section and set _Show in GraphQL_ to `True`.
-4. Now you can use the custom content type querying for `allWpSingularLabel` (e.g. `allWpOrganization`).
+4. Now, if you run Wordpress and the website in parallel, Gatsby reads all data from the GraphQL-API.
 
 #### commands
 
 1. Run `npm run serve-website` to run the website for development
 2. Run `npm run build-website` to create a production build of the website
+
+If you run the website on this state of installation you will receive an error regarding custom fields we are using (e.g. Organization).
+
+#### Enable Advanced Custom Fields for Gatsby
+
+To provide custom content elements we are using "Advanced Custom Fields" (ACF).
+
+- You have to install the following plugins: _Advanced Custom Fields_, _Custom Post Type UI_, and [_WPGraphQL for Advanced Custom Fields_](https://www.wpgraphql.com/acf/) (needs to be manually installed).
+- Create a new Post Type in Wordpress (_CPT UI_ > _Add/Edit Post Types_).
+- In the _Add/Edit Post Types_ View scroll down to the _WPGraphQL_ section and set _Show in GraphQL_ to `True` and activate the Taxonomies _Categories (WP Core)_ and _Tags (WP Core)_.
+- Please create following post types to your Wordpress installation: _Organizations_.
+- Now you can use the custom content type querying for `allWpSingularLabel` (e.g. `allWpOrganization`).
 
 ### Use Design System
 
