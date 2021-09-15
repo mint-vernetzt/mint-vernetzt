@@ -4,7 +4,7 @@ const colors = {
   "lilac-500": "#b16fab",
   "lilac-300": "#d0a9cd",
   green: "#66cbaf",
-  yellow: "#fdd05c",
+  yellow: "#fdd670",
   salmon: "#f5adac",
 };
 

@@ -15,7 +15,7 @@ export const Colors: Story = () => {
       <div className="p-2 bg-secondary text-blue">secondary</div>
       <div className="p-2 bg-green text-blue">green #66cbaf</div>
       <div className="p-2 bg-success text-blue">success</div>
-      <div className="p-2 bg-yellow text-blue">yellow #fdd05c</div>
+      <div className="p-2 bg-yellow text-blue">yellow #fdd670</div>
       <div className="p-2 bg-warning text-blue">warning</div>
       <div className="p-2 bg-salmon text-blue">salmon #f5adac</div>
       <div className="p-2 bg-danger text-blue">danger</div>
