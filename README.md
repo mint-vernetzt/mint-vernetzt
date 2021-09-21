@@ -44,11 +44,24 @@ For our website we are using Wordpress as backend and [Gatsby](https://www.gatsb
 
 #### Set up Wordpress locally and connect Gatsby
 
+##### Option 1: DDEV and Bedrock _(recommended)_
+
+We provide a WordPress installation set up with <a href="https://ddev.readthedocs.io/en/stable/" target="_blank">DDEV</a> and Roots' <a href="https://roots.io/bedrock/" target="_blank">Bedrock</a> in `apps/website-backend`. To run this setup you have to <a href="https://docs.docker.com/engine/install/" target="_blank">install docker</a> on your machine first. If docker is installed follow the <a href="https://ddev.readthedocs.io/en/latest/#installation" target="_blank">installation manual</a> provided by DDEV.
+
+Next steps after installation:
+
+- Run `ddev composer install` to install the dependencies
+- Run `ddev wp plugin activate --all` to activate the installed WordPress plugins
+- Create an `.env` in the backend root (`apps/website-backend`) an set all environment variables (`DB_NAME`, `DB_USER`, `DB_PASSWORD`, `DB_HOST`, `DB_PREFIX`, `WP_ENV`, `WP_HOME`, `WP_SITE_URL`) (_Hint_: The values can be found in `apps/website-backend/wp-config-ddev.php`)
+- Run `ddev launch` to open the site in your browser
+
+##### Option 2: Local
+
 1. An easy way to run Wordpress locally is using [Local](https://localwp.com/). Just follow the ["Getting Started" instruction](https://localwp.com/help-docs/getting-started/installing-local/) on their website and create your local Wordpress installation.
 2. You have to install the following plugins to extend you Wordpress installation with GraphQL and make it accessible for Gatsby: _WPGatsby_ and _WP GraphQL_.
 3. Create the files `.env.development` and `.env.production` in the website root (`apps/website`) and add the environment variable `CMS_URL` with the url of your local Wordpress installation (e.g. `CMS_URL=https://mywordpress.local/graphql`).
 
-##### Troubleshooting
+###### Troubleshooting
 
 If you have trouble with the self signed certificate on you Mac while using Local follow this instruction: [Managing a Local site’s SSL certificate in macOS](https://localwp.com/help-docs/ssl/managing-local-sites-ssl-certificate-in-macos/).
 
@@ -67,7 +80,7 @@ If you run the website on this state of installation you will receive an error r
 
 To provide custom content elements we are using "Advanced Custom Fields" (ACF).
 
-- You have to install the following plugins: _Advanced Custom Fields_, _Custom Post Type UI_, and [_WPGraphQL for Advanced Custom Fields_](https://www.wpgraphql.com/acf/) (needs to be manually installed).
+- If you are using Local you have to install the following plugins: _Advanced Custom Fields_, _Custom Post Type UI_, and [_WPGraphQL for Advanced Custom Fields_](https://www.wpgraphql.com/acf/) (needs to be manually installed).
 - Create a new Post Type in Wordpress (_CPT UI_ > _Add/Edit Post Types_).
 - In the _Add/Edit Post Types_ View scroll down to the _WPGraphQL_ section and set _Show in GraphQL_ to `True` and activate the Taxonomies _Categories (WP Core)_ and _Tags (WP Core)_.
 - Please create following post types to your Wordpress installation: _Organizations_.
