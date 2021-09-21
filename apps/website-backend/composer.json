@@ -47,7 +47,12 @@
     "roots/bedrock-disallow-indexing": "^2.0",
     "roots/wordpress": "5.8",
     "roots/wp-config": "1.0.0",
-    "roots/wp-password-bcrypt": "1.0.0"
+    "roots/wp-password-bcrypt": "1.0.0",
+    "wpackagist-plugin/wp-graphql": "^1.6",
+    "wpackagist-plugin/wp-gatsby": "^1.1",
+    "wpackagist-plugin/advanced-custom-fields": "^5.10",
+    "wpackagist-plugin/custom-post-type-ui": "^1.9",
+    "wp-graphql/wp-graphql-acf": "^0.5.3"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.6.0",
