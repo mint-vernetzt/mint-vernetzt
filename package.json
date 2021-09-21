@@ -12,7 +12,8 @@
     "serve-design-system": "nx tailwind design-system | nx storybook design-system",
     "build-design-system": "nx build-tailwind design-system && nx build-storybook design-system",
     "serve-website": "nx tailwind design-system | nx serve website",
-    "build-website": "nx build-tailwind design-system && nx build website"
+    "build-website": "nx build-tailwind design-system && nx build website",
+    "serve-website-backend": "cd apps/website-backend && ddev start && ddev launch"
   },
   "dependencies": {
     "core-js": "^3.6.5",
