@@ -50,10 +50,12 @@ We provide a WordPress installation set up with <a href="https://ddev.readthedoc
 
 Next steps after installation:
 
-- Run `ddev composer install` to install the dependencies
-- Run `ddev wp plugin activate --all` to activate the installed WordPress plugins
-- Create an `.env` in the backend root (`apps/website-backend`) an set all environment variables (`DB_NAME`, `DB_USER`, `DB_PASSWORD`, `DB_HOST`, `DB_PREFIX`, `WP_ENV`, `WP_HOME`, `WP_SITE_URL`) (_Hint_: The values can be found in `apps/website-backend/wp-config-ddev.php`)
-- Run `ddev launch` to open the site in your browser
+1. Run `ddev composer install` to install the dependencies
+2. Create an `.env` in the backend root (`apps/website-backend`) an set all environment variables (`DB_NAME`, `DB_USER`, `DB_PASSWORD`, `DB_HOST`, `DB_PREFIX`, `WP_ENV`, `WP_HOME`, `WP_SITE_URL`) (_Hint_: The values can be found in `apps/website-backend/wp-config-ddev.php`)
+3. Run `ddev launch` and configure your WordPress installation
+4. Run `ddev wp plugin activate --all` to activate the installed WordPress plugins
+5. Run `ddev launch` to open the site in your browser
+6. Create the files `.env.development` and `.env.production` in the website root (`apps/website`) and add the environment variable `CMS_URL` with the value `https://website-backend.ddev.site/wp/graphql`.
 
 ##### Option 2: Local
 
