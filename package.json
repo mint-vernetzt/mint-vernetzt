@@ -51,6 +51,7 @@
     "@nrwl/workspace": "12.6.2",
     "@storybook/addon-a11y": "^6.3.6",
     "@storybook/addon-essentials": "~6.3.0",
+    "@storybook/builder-webpack5": "^6.3.8",
     "@storybook/manager-webpack5": "^6.3.7",
     "@storybook/react": "~6.3.0",
     "@svgr/webpack": "^5.4.0",
