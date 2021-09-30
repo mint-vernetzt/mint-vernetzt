@@ -1,8 +1,6 @@
-import { render } from "@testing-library/react";
+import { findByText, render, screen } from "@testing-library/react";
 
 import UserCard, { UserCardProps } from "./UserCard";
-
-// #TODO: write tests (test props are rendered correctly)
 
 describe("UserCard", () => {
   it("should render successfully", () => {
@@ -22,5 +20,43 @@ describe("UserCard", () => {
     };
     const { baseElement } = render(<UserCard {...props} />);
     expect(baseElement).toBeTruthy();
+  });
+
+  test("render and find all props", () => {
+    const props: UserCardProps = {
+      name: "Cute Kitten",
+      position: "Cuteness Officer",
+      avatar: {
+        src: "https://placekitten.com/200/150",
+        alt: "Cute Kitten Pic",
+      },
+      organizationUrl: "https://placekitten.com",
+      organizationLogo: {
+        src: "https://placekitten.com/400/300",
+        alt: "Cute Kitten Corp.",
+      },
+    };
+    render(<UserCard {...props} />);
+
+    const nameDom = screen.getByTestId("name");
+    expect(nameDom.innerHTML).toBe(props.name);
+
+    const positionDom = screen.getByTestId("position");
+    expect(positionDom.innerHTML).toBe(props.position);
+
+    const avatarDom = screen.getByTestId("avatar");
+    expect(avatarDom.getAttribute("src")).toBe(props.avatar.src);
+    expect(avatarDom.getAttribute("alt")).toBe(props.avatar.alt);
+
+    const organizationUrlDom = screen.getByTestId("organizationUrl");
+    expect(organizationUrlDom.getAttribute("href")).toBe(props.organizationUrl);
+
+    const organizationLogoDom = screen.getByTestId("organizationLogo");
+    expect(organizationLogoDom.getAttribute("src")).toBe(
+      props.organizationLogo.src
+    );
+    expect(organizationLogoDom.getAttribute("alt")).toBe(
+      props.organizationLogo.alt
+    );
   });
 });
