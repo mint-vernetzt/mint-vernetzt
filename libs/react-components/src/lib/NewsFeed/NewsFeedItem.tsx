@@ -1,10 +1,13 @@
-/* eslint-disable-next-line */
-export interface NewsFeedItemProps {}
+export interface NewsFeedItemProps {
+  headline: string;
+  body: string;
+}
 
-export function NewsFeedItem(props: NewsFeedItemProps) {
+export function NewsFeedItem({ headline, body }: NewsFeedItemProps) {
   return (
     <div>
-      <h1>Welcome to NewsFeedItem!</h1>
+      <h1>{headline}</h1>
+      <p data-testid="body">{body}</p>
     </div>
   );
 }

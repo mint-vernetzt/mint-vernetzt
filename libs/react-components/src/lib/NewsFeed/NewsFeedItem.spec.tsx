@@ -1,10 +1,18 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import faker from "faker";
 
 import NewsFeedItem from "./NewsFeedItem";
 
-describe("NewsFeedItem", () => {
-  it("should render successfully", () => {
-    const { baseElement } = render(<NewsFeedItem />);
-    expect(baseElement).toBeTruthy();
-  });
+test("render content elements", () => {
+  const props = {
+    headline: faker.lorem.words(),
+    body: faker.lorem.paragraphs(),
+  };
+  render(<NewsFeedItem {...props} />);
+
+  const headlineDom = screen.getByRole("heading");
+  expect(headlineDom.textContent).toBe(props.headline);
+
+  const bodyDom = screen.getByTestId("body");
+  expect(bodyDom.textContent).toBe(props.body);
 });
