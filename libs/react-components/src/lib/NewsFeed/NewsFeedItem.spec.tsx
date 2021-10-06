@@ -5,10 +5,15 @@ import { formatDate } from "./utils";
 import NewsFeedItem from "./NewsFeedItem";
 
 test("render content elements", () => {
+  const tagProps1 = { title: faker.lorem.word() };
+  const tagProps2 = { title: faker.lorem.word() };
+  const tagProps3 = { title: faker.lorem.word() };
+
   const props = {
     headline: faker.lorem.words(),
     body: faker.lorem.paragraphs(),
-    date: faker.date.future(), //?
+    date: faker.date.future(),
+    tagsProps: [tagProps1, tagProps2, tagProps3],
   };
 
   render(<NewsFeedItem {...props} />);
@@ -21,4 +26,13 @@ test("render content elements", () => {
 
   const dateDom = screen.getByTestId("date");
   expect(dateDom.textContent).toBe(formatDate(props.date));
+
+  const tags = screen.getAllByTestId("tag");
+  expect(tags.length).toBe(props.tagsProps.length);
+  const tag1Dom = tags[0];
+  expect(tag1Dom.textContent).toBe(tagProps1.title);
+  const tag2Dom = tags[1];
+  expect(tag2Dom.textContent).toBe(tagProps2.title);
+  const tag3Dom = tags[2];
+  expect(tag3Dom.textContent).toBe(tagProps3.title);
 });
