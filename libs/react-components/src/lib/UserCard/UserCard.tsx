@@ -23,7 +23,6 @@ export function UserCard(props: UserCardProps) {
       />
       <p
         data-testid="name"
-        role="name"
         className="mb-1 text-based font-bold text-neutral-700"
       >
         {name}
