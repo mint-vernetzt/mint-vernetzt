@@ -17,7 +17,7 @@ export function UserCardContainer({
         role="heading"
         className="text-primary normal-case pb-6"
         style={{
-          // temporary inline styles – have to move to theme presets
+          // TODO: temporary inline styles – have to move to theme presets
           fontSize: "64px",
           letterSpacing: "-1.28px",
           lineHeight: "64px",
