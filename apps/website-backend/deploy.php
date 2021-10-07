@@ -68,6 +68,12 @@ task('deploy:copy_dirs', function () {
     }
 });
 
+task('wp:plugin:activate:all', function () {
+  cd('{{deploy_path}}/current');
+  $result = run("{{deploy_path}}/current/vendor/bin/wp plugin activate --all");
+  writeln($result);
+});
+
 // Tasks
 desc('Build website-backend');
 task('build', function () {
@@ -89,6 +95,7 @@ task('release', [
   'rsync',
   'deploy:shared',
   'deploy:symlink',
+  'wp:plugin:activate:all'
 //  'deploy:opcode',
 ]);
 
