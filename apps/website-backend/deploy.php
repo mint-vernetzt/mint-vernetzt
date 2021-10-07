@@ -8,8 +8,8 @@ inventory('deployer/inventory.yml');
 
 set('application', 'website-backend');
 set('ssh_multiplexing', true);
-//set('repository', 'https://github.com/mint-vernetzt/mint-vernetzt.git');
-set('repository', '/git/');
+set('repository', 'https://github.com/mint-vernetzt/mint-vernetzt.git');
+//set('repository', '/git/');
 set('build_path', '/tmp/build');
 set('allow_anonymous_stats', false);
 set('git_tty', true);
