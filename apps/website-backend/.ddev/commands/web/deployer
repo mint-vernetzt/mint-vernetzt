@@ -1,0 +1,7 @@
+#!/bin/bash
+
+## Description: Run deployer inside the web container
+## Usage: deployer [flags] [args]
+## Example: "ddev deployer deploy dev"
+
+./vendor/bin/dep $@
