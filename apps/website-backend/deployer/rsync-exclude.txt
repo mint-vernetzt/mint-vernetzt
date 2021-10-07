@@ -1,0 +1,16 @@
+.env*
+.idea
+/*.md
+/.ddev/
+*.sql.gz
+.git*
+/composer.*
+deploy.php
+rsync-exclude.txt
+inventory.yml
+/.gitattributes
+/.gitignore
+/.phpspec.yml
+/web/app/uploads/*
+phpcs.xml
+/deployer/

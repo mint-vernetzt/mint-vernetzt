@@ -39,7 +39,7 @@
     }
   ],
   "require": {
-    "php": ">=7.1",
+    "php": ">=7.4",
     "composer/installers": "^1.11",
     "vlucas/phpdotenv": "^5.3",
     "oscarotero/env": "^2.1",
@@ -52,11 +52,14 @@
     "wpackagist-plugin/wp-gatsby": "^1.1",
     "wpackagist-plugin/advanced-custom-fields": "^5.10",
     "wpackagist-plugin/custom-post-type-ui": "^1.9",
-    "wp-graphql/wp-graphql-acf": "^0.5.3"
+    "wp-graphql/wp-graphql-acf": "^0.5.3",
+    "wp-cli/wp-cli": "^2.5",
+    "wp-cli/wp-cli-bundle": "^2.5"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.6.0",
-    "roave/security-advisories": "dev-master"
+    "roave/security-advisories": "dev-master",
+    "deployer/deployer": "^6"
   },
   "config": {
     "optimize-autoloader": true,

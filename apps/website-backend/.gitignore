@@ -23,3 +23,6 @@ web/.htaccess
 
 # WP-CLI
 wp-cli.local.yml
+
+# Deployer
+deployer/inventory.yml

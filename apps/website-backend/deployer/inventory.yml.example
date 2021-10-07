@@ -1,0 +1,23 @@
+prod:
+  hostname: prod.hostname
+  user: prod.username
+  port: prod.port
+  forwardAgent: true
+  multiplexing: true
+  sshOptions:
+    UserKnownHostsFile: /dev/null
+    StrictHostKeyChecking: no
+  stage: prod
+  deploy_path: prod.deploy_path
+
+stage:
+  hostname: stage.hostname
+  user: stage.hostname
+  port: stage.port
+  forwardAgent: true
+  multiplexing: true
+  sshOptions:
+    UserKnownHostsFile: /dev/null
+    StrictHostKeyChecking: no
+  stage: stage
+  deploy_path: stage.deploy_path
