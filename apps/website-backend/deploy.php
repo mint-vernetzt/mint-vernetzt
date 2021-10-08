@@ -99,6 +99,14 @@ task('release', [
 //  'deploy:opcode',
 ]);
 
+task('firstrelease', [
+  'deploy:prepare',
+  'deploy:release',
+  'deploy:copy_dirs',
+  'rsync',
+  'deploy:shared',
+  'deploy:symlink',
+]);
 
 task('deploy', [
   'build',
@@ -107,5 +115,11 @@ task('deploy', [
   'success'
 ]);
 
+task('firstdeploy', [
+  'build',
+  'firstrelease',
+  'cleanup',
+  'success'
+]);
 
 after('deploy:failed', 'deploy:unlock');
