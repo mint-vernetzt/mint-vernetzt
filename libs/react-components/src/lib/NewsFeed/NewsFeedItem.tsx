@@ -43,8 +43,8 @@ export function NewsFeedItem({
         >
           {formatDate(date)}
         </time>
-        {tagsProps.map((tagProps) => {
-          return <Tag {...tagProps} />;
+        {tagsProps.map((tagProps, index) => {
+          return <Tag key={`tag-${index}`} {...tagProps} />;
         })}
       </div>
     </div>
