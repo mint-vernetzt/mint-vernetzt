@@ -8,14 +8,14 @@ export interface NewsFeedItemProps {
   headline: string;
   body: string;
   date: Date;
-  tagsProps: TagProps[];
+  tagsProps?: TagProps[];
 }
 
 export function NewsFeedItem({
   headline,
   body,
   date,
-  tagsProps,
+  tagsProps = [],
 }: NewsFeedItemProps) {
   return (
     <div>
