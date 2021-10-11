@@ -1,13 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import faker from "faker";
-import { formatDate } from "./utils";
+import { formatDate, getTag } from "./utils";
 
 import NewsFeedItem from "./NewsFeedItem";
 
 test("render content elements", () => {
-  const tagProps1 = { title: faker.lorem.word() };
-  const tagProps2 = { title: faker.lorem.word() };
-  const tagProps3 = { title: faker.lorem.word() };
+  const tagProps1 = getTag();
+  const tagProps2 = getTag();
+  const tagProps3 = getTag();
 
   const props = {
     headline: faker.lorem.words(),
