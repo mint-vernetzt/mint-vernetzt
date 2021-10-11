@@ -1,12 +1,20 @@
-import { Story, Meta } from "@storybook/react";
+import { Meta, Story } from "@storybook/react";
+import faker from "faker";
 import { NewsFeedItem, NewsFeedItemProps } from "./NewsFeedItem";
+import { getTag } from "./utils";
 
 export default {
   component: NewsFeedItem,
-  title: "NewsFeedItem",
+  title: "Components/NewsFeed",
 } as Meta;
 
-const Template: Story<NewsFeedItemProps> = (args) => <NewsFeedItem {...args} />;
-
-export const Primary = Template.bind({});
-Primary.args = {};
+export const Item: Story<NewsFeedItemProps> = (args) => (
+  <NewsFeedItem {...args} />
+);
+Item.storyName = "item";
+Item.args = {
+  headline: faker.lorem.words(),
+  body: faker.lorem.paragraph(),
+  date: faker.date.future(),
+  tagsProps: [getTag(), getTag(), getTag()],
+};
