@@ -13,12 +13,12 @@ export function NewsFeed({
 }: NewsFeedProps) {
   return (
     <div>
-      <h3 className="text-primary normal-case" style={{ fontSize: "64px" }}>
+      <h3 className="mb-1 text-primary normal-case text-5xl leading-none md:text-6xl sm:mb-6">
         {headline}
       </h3>
       <p
         data-testid="body"
-        className="text-neutral-800 text-lg leading-6"
+        className="text-neutral-800 text-2xl leading-tight"
         style={{ marginBottom: "7px" }}
       >
         {body}
