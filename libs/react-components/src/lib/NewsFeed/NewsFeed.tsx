@@ -13,8 +13,16 @@ export function NewsFeed({
 }: NewsFeedProps) {
   return (
     <div>
-      <h3>{headline}</h3>
-      <p data-testid="body">{body}</p>
+      <h3 className="text-primary normal-case" style={{ fontSize: "64px" }}>
+        {headline}
+      </h3>
+      <p
+        data-testid="body"
+        className="text-neutral-800 text-lg leading-6"
+        style={{ marginBottom: "7px" }}
+      >
+        {body}
+      </p>
       {newsFeedItemsProps.map((newsFeedItemProps, index) => {
         return (
           <NewsFeedItem
