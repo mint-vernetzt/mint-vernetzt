@@ -52,6 +52,20 @@ const extendedColors = {
   "danger-300": colors["salmon-300"],
 };
 
+const fontSizes = {
+  xs: "0.75rem",
+  sm: "0.875rem",
+  base: "1rem",
+  lg: "1.125rem",
+  xl: "1.1875rem",
+  "2xl": "1.25rem",
+  "3xl": "2rem",
+  "4xl": "2.5rem",
+  "5xl": "4rem",
+  "6xl": "6rem",
+};
+
 module.exports = {
   colors: extendedColors,
+  fontSizes,
 };
