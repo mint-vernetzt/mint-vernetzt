@@ -40,6 +40,7 @@ module.exports = {
     extend: {
       brightness: ["hover", "focus"],
       borderStyle: ["hover", "focus"],
+      borderWidth: ["last"],
     },
   },
   plugins: [
