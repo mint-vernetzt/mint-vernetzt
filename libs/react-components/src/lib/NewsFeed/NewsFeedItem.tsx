@@ -29,7 +29,7 @@ export function NewsFeedItem({
   tagsProps = [],
 }: NewsFeedItemProps) {
   return (
-    <div style={{ width: "704px" }}>
+    <div data-testid="news-feed-item" style={{ width: "704px" }}>
       <h4 className="text-primary text-xl mb-2 normal-case">{headline}</h4>
       <p data-testid="body" className="text-base text-neutral-800 leading-4">
         {body}
