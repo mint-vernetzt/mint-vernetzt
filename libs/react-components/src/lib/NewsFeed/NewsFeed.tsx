@@ -1,10 +1,28 @@
-/* eslint-disable-next-line */
-export interface NewsFeedProps {}
+import NewsFeedItem, { NewsFeedItemProps } from "./NewsFeedItem";
 
-export function NewsFeed(props: NewsFeedProps) {
+export interface NewsFeedProps {
+  headline: string;
+  body: string;
+  newsFeedItemsProps?: NewsFeedItemProps[];
+}
+
+export function NewsFeed({
+  headline,
+  body,
+  newsFeedItemsProps = [],
+}: NewsFeedProps) {
   return (
     <div>
-      <h1>Welcome to NewsFeed!</h1>
+      <h3>{headline}</h3>
+      <p data-testid="body">{body}</p>
+      {newsFeedItemsProps.map((newsFeedItemProps, index) => {
+        return (
+          <NewsFeedItem
+            key={`news-feed-item-${index}`}
+            {...newsFeedItemProps}
+          />
+        );
+      })}
     </div>
   );
 }
