@@ -6,17 +6,22 @@ import { formatDate, getNewsFeedItemProps } from "./utils";
 
 const headline = faker.lorem.words();
 const body = faker.lorem.paragraph();
+const linkToOverview = faker.internet.url();
 
 test("render headline and body", () => {
   const props: NewsFeedProps = {
     headline,
     body,
+    linkToOverview,
   };
 
   render(<NewsFeed {...props} />);
 
   const headlineDom = screen.getByRole("heading");
   expect(headlineDom.textContent).toBe(headline);
+
+  const linkToOverviewDom = within(headlineDom).getByRole("link");
+  expect(linkToOverviewDom.getAttribute("href")).toBe(linkToOverview);
 
   const bodyDom = screen.getByTestId("body");
   expect(bodyDom.textContent).toBe(body);
@@ -32,6 +37,7 @@ test("add news feed items", () => {
   const props = {
     headline,
     body,
+    linkToOverview,
     newsFeedItemsProps: [
       newsFeedItemProps1,
       newsFeedItemProps2,
@@ -42,7 +48,7 @@ test("add news feed items", () => {
 
   // we loop through tags array
   // check assertion count to make sure all assertions were checked
-  expect.assertions(forcedNumberOfTags + 3);
+  expect.assertions(forcedNumberOfTags + 4);
 
   render(<NewsFeed {...props} />);
 
@@ -52,6 +58,8 @@ test("add news feed items", () => {
   const newsFeedItem1Dom = newsFeedItemDom[0];
   const headlineDom = within(newsFeedItem1Dom).getByRole("heading");
   expect(headlineDom.textContent).toBe(newsFeedItemProps1.headline);
+  const linkToOverviewDom = within(headlineDom).getByRole("link");
+  expect(linkToOverviewDom.getAttribute("href")).toBe(newsFeedItemProps1.slug);
 
   // test "body" rendered
   const newsFeedItem2Dom = newsFeedItemDom[1];

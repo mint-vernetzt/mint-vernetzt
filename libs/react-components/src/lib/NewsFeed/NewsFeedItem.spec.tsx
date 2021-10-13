@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import faker from "faker";
 import { formatDate, getTag } from "./utils";
 
@@ -21,6 +21,8 @@ test("render content elements", () => {
 
   const headlineDom = screen.getByRole("heading");
   expect(headlineDom.textContent).toBe(props.headline);
+  const linkToOverviewDom = within(headlineDom).getByRole("link");
+  expect(linkToOverviewDom.getAttribute("href")).toBe(props.slug);
 
   const bodyDom = screen.getByTestId("body");
   expect(bodyDom.textContent).toBe(props.body);
