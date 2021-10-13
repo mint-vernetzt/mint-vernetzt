@@ -1,10 +1,31 @@
-/* eslint-disable-next-line */
-export interface EventFeedProps {}
+import {
+  EventFeedItem,
+  EventFeedItemProps,
+} from "@mint-vernetzt/react-components";
 
-export function EventFeed(props: EventFeedProps) {
+export interface EventFeedProps {
+  headline: string;
+  body: string;
+  eventFeedItemsProps?: EventFeedItemProps[];
+}
+
+export function EventFeed({
+  headline,
+  body,
+  eventFeedItemsProps = [],
+}: EventFeedProps) {
   return (
     <div>
-      <h1>Welcome to EventFeed!</h1>
+      <h3>{headline}</h3>
+      <p data-testid="body">{body}</p>
+      {eventFeedItemsProps.map((eventFeedItemProps, index) => {
+        return (
+          <EventFeedItem
+            key={`event-feed-item-${index}`}
+            {...eventFeedItemProps}
+          />
+        );
+      })}
     </div>
   );
 }

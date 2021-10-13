@@ -15,12 +15,13 @@ export function EventFeedItem({ headline, body, date }: EventFeedItemProps) {
   }, [date]);
   return (
     <div
+      data-testid="event-feed-item"
       className="border-b border-neutral-400 last:border-b-0"
       style={{ paddingBottom: "23px" }}
     >
-      <h3 className="mb-1 text-base md:text-lg font-bold text-primary leading-6">
+      <h4 className="mb-1 text-base md:text-lg font-bold text-primary leading-6">
         {headline}
-      </h3>
+      </h4>
       <p
         data-testid="body"
         className="mb-3 text-sm md:text-base text-neutral-700"
