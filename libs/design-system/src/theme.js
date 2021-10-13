@@ -59,10 +59,11 @@ const fontSizes = {
   lg: "1.125rem",
   xl: "1.1875rem",
   "2xl": "1.25rem",
-  "3xl": "2rem",
-  "4xl": "2.5rem",
-  "5xl": "4rem",
-  "6xl": "6rem",
+  "3xl": "1.5rem",
+  "4xl": "2rem",
+  "5xl": "2.5rem",
+  "6xl": "4rem",
+  "7xl": "6rem",
 };
 
 module.exports = {
