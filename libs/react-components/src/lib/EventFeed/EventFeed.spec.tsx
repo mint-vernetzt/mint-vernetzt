@@ -4,21 +4,16 @@ import EventFeed, { EventFeedProps } from "./EventFeed";
 import { formatDate, getEventFeedItemProps } from "./utils";
 
 const headline = faker.lorem.words();
-const body = faker.lorem.paragraph();
 
 test("render headline and body", () => {
   const props: EventFeedProps = {
     headline,
-    body,
   };
 
   render(<EventFeed {...props} />);
 
   const headlineDom = screen.getByRole("heading");
   expect(headlineDom.textContent).toBe(headline);
-
-  const bodyDom = screen.getByTestId("body");
-  expect(bodyDom.textContent).toBe(body);
 });
 
 test("add event feed items", () => {
@@ -28,7 +23,6 @@ test("add event feed items", () => {
 
   const props = {
     headline,
-    body,
     eventFeedItemsProps: [
       eventFeedItemProps1,
       eventFeedItemProps2,
