@@ -15,6 +15,7 @@ export const Item: Story<EventFeedItemProps> = (args) => (
 Item.args = {
   headline: faker.lorem.words(),
   body: faker.lorem.paragraph(),
+  slug: faker.internet.url(),
   date: faker.date.future(),
 };
 Item.storyName = "item";
@@ -22,6 +23,7 @@ Item.storyName = "item";
 export const Feed: Story<EventFeedProps> = (args) => <EventFeed {...args} />;
 Feed.args = {
   headline: faker.lorem.words(),
+  linkToOverview: faker.internet.url(),
   eventFeedItemsProps: new Array(7).fill(null).map(() => {
     return getEventFeedItemProps();
   }),

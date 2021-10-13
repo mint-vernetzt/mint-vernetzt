@@ -4,16 +4,20 @@ import EventFeed, { EventFeedProps } from "./EventFeed";
 import { formatDate, getEventFeedItemProps } from "./utils";
 
 const headline = faker.lorem.words();
+const linkToOverview = faker.internet.url();
 
 test("render headline and body", () => {
   const props: EventFeedProps = {
     headline,
+    linkToOverview,
   };
 
   render(<EventFeed {...props} />);
 
   const headlineDom = screen.getByRole("heading");
   expect(headlineDom.textContent).toBe(headline);
+  const linkToOverviewDom = within(headlineDom).getByRole("link");
+  expect(linkToOverviewDom.getAttribute("href")).toBe(linkToOverview);
 });
 
 test("add event feed items", () => {
@@ -23,6 +27,7 @@ test("add event feed items", () => {
 
   const props = {
     headline,
+    linkToOverview,
     eventFeedItemsProps: [
       eventFeedItemProps1,
       eventFeedItemProps2,
@@ -38,6 +43,8 @@ test("add event feed items", () => {
   const eventFeedItem1Dom = eventFeedItemDom[0];
   const headlineDom = within(eventFeedItem1Dom).getByRole("heading");
   expect(headlineDom.textContent).toBe(eventFeedItemProps1.headline);
+  const slugDom = within(headlineDom).getByRole("link");
+  expect(slugDom.getAttribute("href")).toBe(eventFeedItemProps1.slug);
 
   // test "body" rendered
   const eventFeedItem2Dom = eventFeedItemDom[1];

@@ -13,7 +13,8 @@ export function formatDate(date: Date): string {
 export function getEventFeedItemProps(): EventFeedItemProps {
   const headline = faker.lorem.words();
   const body = faker.lorem.paragraph();
+  const slug = faker.internet.url();
   const date = faker.date.future();
 
-  return { headline, body, date };
+  return { headline, body, slug, date };
 }

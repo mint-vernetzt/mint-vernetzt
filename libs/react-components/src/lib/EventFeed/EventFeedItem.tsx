@@ -4,10 +4,16 @@ import { formatDate } from "./utils";
 export interface EventFeedItemProps {
   headline: string;
   body: string;
+  slug: string;
   date: Date;
 }
 
-export function EventFeedItem({ headline, body, date }: EventFeedItemProps) {
+export function EventFeedItem({
+  headline,
+  body,
+  slug,
+  date,
+}: EventFeedItemProps) {
   const [formattedDate, setFormattedDate] = React.useState<string>();
 
   React.useEffect(() => {
@@ -21,7 +27,9 @@ export function EventFeedItem({ headline, body, date }: EventFeedItemProps) {
       style={{ padding: "15px 0 23px 0" }}
     >
       <h4 className="mb-1 text-base md:text-lg font-bold text-primary leading-6">
-        {headline}
+        <a href={slug} className="cursor-pointer hover:underline">
+          {headline}
+        </a>
       </h4>
       <p
         data-testid="body"
