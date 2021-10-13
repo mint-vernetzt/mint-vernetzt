@@ -33,7 +33,7 @@ export function EventFeedItem({
       </h4>
       <p
         data-testid="body"
-        className="mb-3 text-sm md:text-base text-neutral-700 leading-tight"
+        className="mb-3 text-sm md:text-base text-neutral-700 leading-tight line-clamp-3 lg:line-clamp-2"
       >
         {body}
       </p>
