@@ -8,7 +8,6 @@ export default {
   component: NewsFeedItem,
   title: "Components/NewsFeed",
 } as Meta;
-const Template: Story<NewsFeedProps> = (args) => <NewsFeed {...args} />;
 
 export const Item: Story<NewsFeedItemProps> = (args) => (
   <NewsFeedItem {...args} />
@@ -21,7 +20,7 @@ Item.args = {
 };
 Item.storyName = "item";
 
-export const Feed = Template.bind({});
+export const Feed: Story<NewsFeedProps> = (args) => <NewsFeed {...args} />;
 Feed.args = {
   headline: faker.lorem.words(),
   body: faker.lorem.paragraph(),
