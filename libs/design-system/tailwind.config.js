@@ -1,6 +1,6 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 const plugin = require("tailwindcss/plugin");
-const { colors } = require("./src/theme");
+const { colors, fontSizes } = require("./src/theme");
 
 let colorSafelist = [];
 Object.keys(colors).forEach((color) => {
@@ -33,12 +33,7 @@ module.exports = {
       sans: ["'Source Sans Pro'", ...defaultTheme.fontFamily.sans],
     },
     fontSize: {
-      ...defaultTheme.fontSize,
-      lg: "1.25rem",
-      xl: "1.5rem",
-      "2xl": "1.875rem",
-      "3xl": "2rem",
-      "4xl": "2.5rem",
+      ...fontSizes,
     },
   },
   variants: {

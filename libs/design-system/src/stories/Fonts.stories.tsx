@@ -32,13 +32,13 @@ export const Sizes: Story = () => {
       <div className="w-1/6 text-xs font-bold">base – 1rem</div>
       <div className="w-5/6 text-base truncate">{text}</div>
       <hr className="w-full border-blue" />
-      <div className="w-1/6 text-xs font-bold">lg – 1.25rem</div>
+      <div className="w-1/6 text-xs font-bold">lg – 1.125rem</div>
       <div className="w-5/6 text-lg truncate">{text}</div>
       <hr className="w-full border-blue" />
-      <div className="w-1/6 text-xs font-bold">xl – 1.5rem</div>
+      <div className="w-1/6 text-xs font-bold">xl – 1.1875rem</div>
       <div className="w-5/6 text-xl truncate">{text}</div>
       <hr className="w-full border-blue" />
-      <div className="w-1/6 text-xs font-bold">2xl – 1.875rem</div>
+      <div className="w-1/6 text-xs font-bold">2xl – 1.25rem</div>
       <div className="w-5/6 text-2xl truncate">{text}</div>
       <hr className="w-full border-blue" />
       <div className="w-1/6 text-xs font-bold">3xl – 2rem</div>
@@ -47,8 +47,11 @@ export const Sizes: Story = () => {
       <div className="w-1/6 text-xs font-bold">4xl – 2.5rem</div>
       <div className="w-5/6 text-4xl truncate">{text}</div>
       <hr className="w-full border-blue" />
-      <div className="w-1/6 text-xs font-bold">5xl – 3rem</div>
+      <div className="w-1/6 text-xs font-bold">5xl – 4rem</div>
       <div className="w-5/6 text-5xl truncate">{text}</div>
+      <hr className="w-full border-blue" />
+      <div className="w-1/6 text-xs font-bold">6xl – 6rem</div>
+      <div className="w-5/6 text-6xl truncate">{text}</div>
     </div>
   );
 };
