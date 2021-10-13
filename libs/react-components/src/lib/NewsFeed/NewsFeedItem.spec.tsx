@@ -13,6 +13,7 @@ test("render content elements", () => {
     headline: faker.lorem.words(),
     body: faker.lorem.paragraphs(),
     date: faker.date.future(),
+    slug: faker.internet.url(),
     tagsProps: [tagProps1, tagProps2, tagProps3],
   };
 

@@ -3,18 +3,22 @@ import NewsFeedItem, { NewsFeedItemProps } from "./NewsFeedItem";
 export interface NewsFeedProps {
   headline: string;
   body: string;
+  linkToOverview: string;
   newsFeedItemsProps?: NewsFeedItemProps[];
 }
 
 export function NewsFeed({
   headline,
   body,
+  linkToOverview,
   newsFeedItemsProps = [],
 }: NewsFeedProps) {
   return (
     <div>
       <h3 className="mb-1 text-primary normal-case text-5xl leading-none md:text-6xl sm:mb-6">
-        {headline}
+        <a className="cursor-pointer hover:underline" href={linkToOverview}>
+          {headline}
+        </a>
       </h3>
       <p
         data-testid="body"

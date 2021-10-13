@@ -16,6 +16,7 @@ Item.args = {
   headline: faker.lorem.words(),
   body: faker.lorem.paragraph(),
   date: faker.date.future(),
+  slug: faker.internet.url(),
   tagsProps: [getTag(), getTag(), getTag()],
 };
 Item.storyName = "item";
@@ -24,6 +25,7 @@ export const Feed: Story<NewsFeedProps> = (args) => <NewsFeed {...args} />;
 Feed.args = {
   headline: faker.lorem.words(),
   body: faker.lorem.paragraph(),
+  linkToOverview: faker.internet.url(),
   newsFeedItemsProps: new Array(7).fill(null).map(() => {
     return getNewsFeedItemProps();
   }),

@@ -19,6 +19,7 @@ export function getNewsFeedItemProps(numberOfTags?: number): NewsFeedItemProps {
   const headline = faker.lorem.words();
   const body = faker.lorem.paragraph();
   const date = faker.date.future();
+  const slug = faker.internet.url();
 
   const tagsProps: TagProps[] = [];
 
@@ -30,5 +31,5 @@ export function getNewsFeedItemProps(numberOfTags?: number): NewsFeedItemProps {
     tagsProps.push(getTag());
   }
 
-  return { headline, body, date, tagsProps };
+  return { headline, body, date, slug, tagsProps };
 }

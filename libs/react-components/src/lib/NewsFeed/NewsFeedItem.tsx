@@ -9,6 +9,7 @@ export interface NewsFeedItemProps {
   headline: string;
   body: string;
   date: Date;
+  slug: string;
   tagsProps?: TagProps[];
 }
 
@@ -27,6 +28,7 @@ export function NewsFeedItem({
   headline,
   body,
   date,
+  slug,
   tagsProps = [],
 }: NewsFeedItemProps) {
   const [formattedDate, setFormattedDate] = React.useState<string>();
@@ -47,7 +49,11 @@ export function NewsFeedItem({
       >
         {formattedDate}
       </time>
-      <h4 className="text-primary text-3xl mb-2 normal-case">{headline}</h4>
+      <h4 className="text-primary text-3xl mb-2 normal-case">
+        <a href={slug} className="cursor-pointer hover:underline">
+          {headline}
+        </a>
+      </h4>
       <p data-testid="body" className="text-base text-neutral-600 leading-4">
         {body}
       </p>
