@@ -1,5 +1,6 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 const plugin = require("tailwindcss/plugin");
+const lineClamp = require("@tailwindcss/line-clamp");
 const { colors, fontSizes } = require("./src/theme");
 
 let colorSafelist = [];
@@ -40,9 +41,11 @@ module.exports = {
     extend: {
       brightness: ["hover", "focus"],
       borderStyle: ["hover", "focus"],
+      borderWidth: ["last"],
     },
   },
   plugins: [
+    lineClamp,
     plugin(({ addBase, theme }) => {
       console.log(theme);
       addBase({
