@@ -34,6 +34,7 @@ export function EventFeedItem({
       >
         {body}
       </p>
+      {/* TODO: add icon before date */}
       <time
         data-testid="date"
         dateTime={date.toISOString()}
