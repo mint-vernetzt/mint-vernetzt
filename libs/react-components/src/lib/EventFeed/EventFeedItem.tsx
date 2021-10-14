@@ -21,11 +21,7 @@ export function EventFeedItem({
   }, [date]);
 
   return (
-    <div
-      data-testid="event-feed-item"
-      className="border-b border-neutral-400 last:border-b-0"
-      style={{ padding: "15px 0 23px 0" }}
-    >
+    <div data-testid="event-feed-item">
       {/* TODO:  remove uppercase in tailwind config and override in component headline */}
       <h4 className="mb-1 text-base lg:text-lg font-bold text-primary leading-6 normal-case">
         <a href={slug} className="cursor-pointer hover:underline">

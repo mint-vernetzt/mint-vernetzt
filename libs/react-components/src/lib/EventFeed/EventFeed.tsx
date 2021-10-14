@@ -20,14 +20,19 @@ export function EventFeed({
             {headline}
           </a>
         </h3>
-        {eventFeedItemsProps.map((eventFeedItemProps, index) => {
-          return (
-            <EventFeedItem
-              key={`event-feed-item-${index}`}
-              {...eventFeedItemProps}
-            />
-          );
-        })}
+        <ul>
+          {eventFeedItemsProps.map((eventFeedItemProps, index) => {
+            return (
+              <li
+                key={`event-feed-item-${index}`}
+                className="border-b border-neutral-400 last:border-b-0"
+                style={{ padding: "15px 0 23px 0" }}
+              >
+                <EventFeedItem {...eventFeedItemProps} />
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </>
   );
