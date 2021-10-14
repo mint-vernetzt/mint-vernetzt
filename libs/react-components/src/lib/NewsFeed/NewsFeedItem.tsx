@@ -40,6 +40,7 @@ export function NewsFeedItem({
   return (
     <div data-testid="news-feed-item" className="flex flex-wrap">
       <time
+        data-testid="date"
         dateTime={date.toISOString()}
         className="mb-2 md:mb-0 md:mr-2 md:py-2 md:pr-3 uppercase font-bold text-neutral-800 text-xs flex-100 md:flex-none md:order-3"
       >
