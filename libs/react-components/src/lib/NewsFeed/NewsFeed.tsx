@@ -27,14 +27,19 @@ export function NewsFeed({
       >
         {body}
       </p>
-      {newsFeedItemsProps.map((newsFeedItemProps, index) => {
-        return (
-          <NewsFeedItem
-            key={`news-feed-item-${index}`}
-            {...newsFeedItemProps}
-          />
-        );
-      })}
+      <ul>
+        {newsFeedItemsProps.map((newsFeedItemProps, index) => {
+          return (
+            <li
+              key={`news-feed-item-${index}`}
+              className="border-b border-neutral-400 last:border-b-0"
+              style={{ padding: "15px 0" }}
+            >
+              <NewsFeedItem {...newsFeedItemProps} />
+            </li>
+          );
+        })}
+      </ul>
     </section>
   );
 }

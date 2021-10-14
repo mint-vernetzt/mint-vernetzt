@@ -38,11 +38,7 @@ export function NewsFeedItem({
   }, [date]);
 
   return (
-    <div
-      data-testid="news-feed-item"
-      className="border-b border-neutral-400 last:border-b-0"
-      style={{ padding: "15px 0" }}
-    >
+    <div data-testid="news-feed-item">
       <time
         dateTime={date.toISOString()}
         className="mb-2 uppercase font-bold text-neutral-800 text-xs md:hidden"
