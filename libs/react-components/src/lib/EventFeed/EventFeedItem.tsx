@@ -27,14 +27,14 @@ export function EventFeedItem({
       style={{ padding: "15px 0 23px 0" }}
     >
       {/* TODO:  remove uppercase in tailwind config and override in component headline */}
-      <h4 className="mb-1 text-base md:text-lg font-bold text-primary leading-6 normal-case">
+      <h4 className="mb-1 text-base lg:text-lg font-bold text-primary leading-6 normal-case">
         <a href={slug} className="cursor-pointer hover:underline">
           {headline}
         </a>
       </h4>
       <p
         data-testid="body"
-        className="mb-3 text-sm md:text-base text-neutral-700 leading-tight line-clamp-3 lg:line-clamp-2"
+        className="mb-3 text-sm lg:text-base text-neutral-700 leading-tight line-clamp-3 lg:line-clamp-2"
       >
         {body}
       </p>
