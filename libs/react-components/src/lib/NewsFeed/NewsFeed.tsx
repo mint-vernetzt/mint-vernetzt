@@ -14,7 +14,7 @@ export function NewsFeed({
   newsFeedItemsProps = [],
 }: NewsFeedProps) {
   return (
-    <div>
+    <section>
       <h3 className="mb-1 text-primary normal-case text-5xl leading-none md:text-6xl sm:mb-6">
         <a className="cursor-pointer hover:underline" href={linkToOverview}>
           {headline}
@@ -35,7 +35,7 @@ export function NewsFeed({
           />
         );
       })}
-    </div>
+    </section>
   );
 }
 
