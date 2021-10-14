@@ -51,7 +51,10 @@ export function NewsFeedItem({
           {headline}
         </a>
       </h4>
-      <p data-testid="body" className="text-base text-neutral-600 leading-4">
+      <p
+        data-testid="body"
+        className="text-base text-neutral-600 leading-4 line-clamp-5 md:line-clamp-none"
+      >
         {body}
       </p>
       <div className="flex items-baseline mt-4">
