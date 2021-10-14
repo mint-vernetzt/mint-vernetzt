@@ -36,6 +36,9 @@ module.exports = {
     fontSize: {
       ...fontSizes,
     },
+    flex: {
+      100: "0 0 100%",
+    },
   },
   variants: {
     extend: {
