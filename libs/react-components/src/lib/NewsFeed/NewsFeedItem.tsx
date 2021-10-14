@@ -45,6 +45,7 @@ export function NewsFeedItem({
       >
         {formattedDate}
       </time>
+      {/* TODO: remove uppercase in tailwind config and override in component headline */}
       <h4 className="text-primary text-3xl mb-2 normal-case">
         <a href={slug} className="cursor-pointer hover:underline">
           {headline}

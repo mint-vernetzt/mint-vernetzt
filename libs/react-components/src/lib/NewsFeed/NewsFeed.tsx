@@ -15,6 +15,7 @@ export function NewsFeed({
 }: NewsFeedProps) {
   return (
     <section>
+      {/* TODO: remove uppercase in tailwind config and override in component headline */}
       <h3 className="mb-1 text-primary normal-case text-5xl leading-none md:text-6xl sm:mb-6">
         <a className="cursor-pointer hover:underline" href={linkToOverview}>
           {headline}
