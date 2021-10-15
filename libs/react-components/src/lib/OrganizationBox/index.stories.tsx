@@ -22,8 +22,6 @@ export const Container: Story<OrganizationBoxContainerProps> = (args) => (
   <OrganizationBoxContainer {...args} />
 );
 Container.args = {
-  headline: faker.lorem.words(),
-  body: faker.lorem.paragraph(),
   organizationBoxProps: new Array(7).fill(null).map(() => {
     return getOrganizationBoxProps();
   }),
