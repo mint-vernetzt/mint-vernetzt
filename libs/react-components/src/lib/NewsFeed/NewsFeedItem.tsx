@@ -38,39 +38,30 @@ export function NewsFeedItem({
   }, [date]);
 
   return (
-    <div data-testid="news-feed-item">
+    <div data-testid="news-feed-item" className="flex flex-wrap">
       <time
+        data-testid="date"
         dateTime={date.toISOString()}
-        className="mb-2 uppercase font-bold text-neutral-800 text-xs md:hidden"
+        className="mb-2 md:mb-0 md:mr-2 md:py-2 md:pr-3 uppercase font-bold text-neutral-800 text-xs flex-100 md:flex-none md:order-3"
       >
         {formattedDate}
       </time>
       {/* TODO: remove uppercase in tailwind config and override in component headline */}
-      <h4 className="text-primary text-3xl mb-2 normal-case">
+      <h4 className="text-primary text-3xl mb-2 normal-case flex-100 md:order-1">
         <a href={slug} className="cursor-pointer hover:underline">
           {headline}
         </a>
       </h4>
       <p
         data-testid="body"
-        className="text-base text-neutral-600 leading-4 line-clamp-5 md:line-clamp-none"
+        className="text-base text-neutral-600 leading-4 line-clamp-5 mb-4 md:line-clamp-none flex-100 md:order-2"
       >
         {body}
       </p>
-      <div className="flex items-baseline mt-4">
-        <time
-          data-testid="date"
-          dateTime={date.toISOString()}
-          className="mr-2 py-2 pr-3 uppercase font-bold text-neutral-800 text-xs hidden md:inline"
-          style={{ letterSpacing: "0.5px" }}
-        >
-          {formattedDate}
-        </time>
-        <div className="flex flex-wrap">
-          {tagsProps.map((tagProps, index) => {
-            return <Tag key={`tag-${index}`} {...tagProps} />;
-          })}
-        </div>
+      <div className="flex flex-wrap md:order-4">
+        {tagsProps.map((tagProps, index) => {
+          return <Tag key={`tag-${index}`} {...tagProps} />;
+        })}
       </div>
     </div>
   );
