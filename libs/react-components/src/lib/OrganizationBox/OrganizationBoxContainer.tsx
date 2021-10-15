@@ -5,8 +5,6 @@ export interface OrganizationBoxContainerProps {
 }
 
 export function OrganizationBoxContainer({
-  headline,
-  body,
   organizationBoxProps = [],
 }: OrganizationBoxContainerProps) {
   return (
