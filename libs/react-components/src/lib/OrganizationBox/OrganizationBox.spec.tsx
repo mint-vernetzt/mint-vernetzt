@@ -1,5 +1,6 @@
+{
+  /*
 import { render } from "@testing-library/react";
-
 import OrganizationBox from "./OrganizationBox";
 
 describe("OrganizationBox", () => {
@@ -8,3 +9,10 @@ describe("OrganizationBox", () => {
     expect(baseElement).toBeTruthy();
   });
 });
+
+*/
+}
+
+{
+  /* TODO: write reasonable tests */
+}
