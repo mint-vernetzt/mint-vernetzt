@@ -52,7 +52,13 @@ test("add news feed items", () => {
 
   render(<NewsFeed {...props} />);
 
-  const newsFeedItemDom = screen.getAllByTestId("news-feed-item");
+  const allListItems = screen.getAllByRole("listitem");
+  // feed items have a list of tags
+  // we can use this to differentiate between tags and news feed items
+  const newsFeedItemDom = allListItems.filter((listitem) => {
+    const list = within(listitem).queryByRole("list");
+    return list !== null;
+  });
 
   // test "headline" rendered
   const newsFeedItem1Dom = newsFeedItemDom[0];
@@ -73,7 +79,7 @@ test("add news feed items", () => {
 
   // test "tags" rendered
   const newsFeedItem4Dom = newsFeedItemDom[3];
-  const tags = within(newsFeedItem4Dom).getAllByTestId("tag");
+  const tags = within(newsFeedItem4Dom).getAllByRole("listitem");
 
   tags.forEach((tag, index) => {
     expect(tag.textContent).toBe(

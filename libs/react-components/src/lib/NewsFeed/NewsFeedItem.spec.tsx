@@ -30,7 +30,7 @@ test("render content elements", () => {
   const dateDom = screen.getByTestId("date");
   expect(dateDom.textContent).toBe(formatDate(props.date));
 
-  const tags = screen.getAllByTestId("tag");
+  const tags = screen.getAllByRole("listitem");
   expect(tags.length).toBe(props.tagsProps.length);
   const tag1Dom = tags[0];
   expect(tag1Dom.textContent).toBe(tagProps1.title);
