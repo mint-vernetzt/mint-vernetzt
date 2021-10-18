@@ -31,4 +31,5 @@ jobs:
           password: ${{ secrets.CMS_HOST_PASSWORD_STAGE }}
           port: ${{ secrets.CMS_HOST_PORT_STAGE }}
           source: "apps/website/public/"
+          strip_components: 3
           target: ${{ secrets.CMS_HOST_TARGET_STAGE }}
