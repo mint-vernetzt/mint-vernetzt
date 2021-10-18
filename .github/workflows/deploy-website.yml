@@ -19,4 +19,4 @@ jobs:
       - run: npx nx test website
       - run: npm run build-website
         env:
-          CMS_URL: ${{secrets.CMS_API_STAGE}}
+          CMS_API: ${{secrets.CMS_API_STAGE}}

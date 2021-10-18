@@ -44,7 +44,7 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        url: `${process.env.CMS_URL}`,
+        url: `${process.env.CMS_API}`,
       },
     },
   ],

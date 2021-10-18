@@ -55,13 +55,13 @@ Next steps after installation:
 3. Run `ddev launch` and configure your WordPress installation
 4. Run `ddev wp plugin activate --all` to activate the installed WordPress plugins
 5. Run `ddev launch` to open the site in your browser
-6. Create the files `.env.development` and `.env.production` in the website root (`apps/website`) and add the environment variable `CMS_URL` with the value `https://website-backend.ddev.site/wp/graphql`.
+6. Create the files `.env.development` and `.env.production` in the website root (`apps/website`) and add the environment variable `CMS_API` with the value `https://website-backend.ddev.site/wp/graphql`.
 
 ##### Option 2: Local
 
 1. An easy way to run Wordpress locally is using [Local](https://localwp.com/). Just follow the ["Getting Started" instruction](https://localwp.com/help-docs/getting-started/installing-local/) on their website and create your local Wordpress installation.
 2. You have to install the following plugins to extend you Wordpress installation with GraphQL and make it accessible for Gatsby: _WPGatsby_ and _WP GraphQL_.
-3. Create the files `.env.development` and `.env.production` in the website root (`apps/website`) and add the environment variable `CMS_URL` with the url of your local Wordpress installation (e.g. `CMS_URL=https://mywordpress.local/graphql`).
+3. Create the files `.env.development` and `.env.production` in the website root (`apps/website`) and add the environment variable `CMS_API` with the url of your local Wordpress installation (e.g. `CMS_API=https://mywordpress.local/graphql`).
 
 ###### Troubleshooting
 
