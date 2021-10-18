@@ -15,8 +15,11 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: "16.x"
-      - run: npm install
-      - run: npx nx test website
-      - run: npm run build-website
+      - name: "install dependencies"
+        run: npm install
+      - name: "run tests"
+        run: npx nx test website
+      - name: "build website"
+        run: npm run build-website
         env:
           CMS_API: ${{secrets.CMS_API_STAGE}}
