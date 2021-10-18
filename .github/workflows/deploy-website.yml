@@ -2,7 +2,7 @@ name: Website
 
 on:
   push:
-    branches: [ feat/#20-frontend_deployment ]
+    branches: [ main ]
   # allow trigger manually
   workflow_dispatch:
 
