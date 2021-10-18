@@ -23,3 +23,12 @@ jobs:
         run: npm run build-website
         env:
           CMS_API: ${{secrets.CMS_API_STAGE}}
+      - name: deploy on server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.CMS_HOST_STAGE }}
+          username: ${{ secrets.CMS_HOST_USERNAME_STAGE }}
+          password: ${{ secrets.CMS_HOST_PASSWORD_STAGE }}
+          port: ${{ secrets.CMS_HOST_PORT_STAGE }}
+          source: "apps/website/public/"
+          target: ${{ secrets.CMS_HOST_TARGET_STAGE }}
