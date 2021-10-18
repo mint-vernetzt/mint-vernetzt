@@ -1,0 +1,22 @@
+name: Website
+
+on:
+  push:
+    branches: [ feat/#20-frontend_deployment ]
+  # allow trigger manually
+  workflow_dispatch:
+
+jobs:
+  website-stage:
+    name: Build and deploy stage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "16.x"
+      - run: npm install
+      - run: npx nx test website
+      - run: npm run build-website
+        env:
+          CMS_URL: ${{secrets.CMS_API_STAGE}}
