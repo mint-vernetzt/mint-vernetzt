@@ -1,0 +1,35 @@
+name: Website
+
+on:
+  push:
+    branches: [ main ]
+  # allow trigger manually
+  workflow_dispatch:
+
+jobs:
+  website-stage:
+    name: Build and deploy stage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "16.x"
+      - name: "install dependencies"
+        run: npm install
+      - name: "run tests"
+        run: npx nx test website
+      - name: "build website"
+        run: npm run build-website
+        env:
+          CMS_API: ${{secrets.CMS_API_STAGE}}
+      - name: deploy on server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.CMS_HOST_STAGE }}
+          username: ${{ secrets.CMS_HOST_USERNAME_STAGE }}
+          password: ${{ secrets.CMS_HOST_PASSWORD_STAGE }}
+          port: ${{ secrets.CMS_HOST_PORT_STAGE }}
+          source: "apps/website/public/"
+          strip_components: 3
+          target: ${{ secrets.CMS_HOST_TARGET_STAGE }}

@@ -13,40 +13,12 @@ exports.createPages = async (props) => {
           slug
         }
       }
-      allWpOrganization {
-        nodes {
-          content
-          slug
-          title
-          tags {
-            nodes {
-              name
-              slug
-            }
-          }
-          featuredImage {
-            node {
-              altText
-              sourceUrl
-            }
-          }
-        }
-      }
     }
   `);
   result.data.allWpPost.nodes.forEach((node) => {
     createPage({
       path: node.slug,
       component: path.resolve(`./src/templates/Post.tsx`),
-      context: {
-        slug: node.slug,
-      },
-    });
-  });
-  result.data.allWpOrganization.nodes.forEach((node) => {
-    createPage({
-      path: node.slug,
-      component: path.resolve(`./src/templates/Organization.tsx`),
       context: {
         slug: node.slug,
       },
