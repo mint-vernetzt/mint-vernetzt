@@ -69,9 +69,9 @@ task('deploy:copy_dirs', function () {
 });
 
 task('wp:plugin:activate:all', function () {
-  cd('{{deploy_path}}/current');
-  $result = run("{{deploy_path}}/current/vendor/bin/wp plugin activate --all");
-  writeln($result);
+    cd('{{deploy_path}}/current');
+    $result = run("{{deploy_path}}/current/vendor/bin/wp plugin activate --all");
+    writeln($result);
 });
 
 // Tasks
@@ -102,7 +102,6 @@ task('release', [
 task('firstrelease', [
   'deploy:prepare',
   'deploy:release',
-  'deploy:copy_dirs',
   'rsync',
   'deploy:shared',
   'deploy:symlink',
