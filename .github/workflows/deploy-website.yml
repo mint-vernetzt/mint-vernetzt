@@ -2,7 +2,7 @@ name: Website
 
 on:
   push:
-    branches: [ feat/#86-cache_for_build_artefacts_(node_modules) ]
+    branches: [ main ]
   # allow trigger manually
   workflow_dispatch:
 
