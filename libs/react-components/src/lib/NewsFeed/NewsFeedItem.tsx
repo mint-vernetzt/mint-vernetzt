@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { formatDate } from "./utils";
 
 export interface TagProps {
@@ -31,11 +30,7 @@ export function NewsFeedItem({
   slug,
   tagsProps = [],
 }: NewsFeedItemProps) {
-  const [formattedDate, setFormattedDate] = React.useState<string>();
-
-  useEffect(() => {
-    setFormattedDate(formatDate(date));
-  }, [date]);
+  const formattedDate = formatDate(date);
 
   return (
     <div data-testid="news-feed-item" className="flex flex-wrap">

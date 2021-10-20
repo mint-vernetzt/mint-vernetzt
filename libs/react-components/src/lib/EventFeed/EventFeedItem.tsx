@@ -1,4 +1,3 @@
-import React from "react";
 import { formatDate } from "./utils";
 
 export interface EventFeedItemProps {
@@ -14,11 +13,7 @@ export function EventFeedItem({
   slug,
   date,
 }: EventFeedItemProps) {
-  const [formattedDate, setFormattedDate] = React.useState<string>();
-
-  React.useEffect(() => {
-    setFormattedDate(formatDate(date));
-  }, [date]);
+  const formattedDate = formatDate(date);
 
   return (
     <div data-testid="event-feed-item">
