@@ -69,9 +69,9 @@ task('deploy:copy_dirs', function () {
 });
 
 task('wp:plugin:activate:all', function () {
-  cd('{{deploy_path}}/current');
-  $result = run("{{deploy_path}}/current/vendor/bin/wp plugin activate --all");
-  writeln($result);
+    cd('{{deploy_path}}/current');
+    $result = run("{{deploy_path}}/current/vendor/bin/wp plugin activate --all");
+    writeln($result);
 });
 
 // Tasks
@@ -99,6 +99,13 @@ task('release', [
 //  'deploy:opcode',
 ]);
 
+task('firstrelease', [
+  'deploy:prepare',
+  'deploy:release',
+  'rsync',
+  'deploy:shared',
+  'deploy:symlink',
+]);
 
 task('deploy', [
   'build',
@@ -107,5 +114,11 @@ task('deploy', [
   'success'
 ]);
 
+task('firstdeploy', [
+  'build',
+  'firstrelease',
+  'cleanup',
+  'success'
+]);
 
 after('deploy:failed', 'deploy:unlock');
