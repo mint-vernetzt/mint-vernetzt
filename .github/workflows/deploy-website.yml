@@ -22,6 +22,22 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
+      - name: cache gatsby cache
+        uses: actions/cache@v1
+        id: gatsby-cache-folder
+        with:
+          path: apps/website/.cache
+          key: ${{ runner.os }}-cache-gatsby
+          restore-keys: |
+            ${{ runner.os }}-cache-gatsby
+      - name: cahe gatsby build
+        uses: actions/cache@v1
+        id: gatsby-public-folder
+        with:
+          path: apps/website/public/
+          key: ${{ runner.os }}-public-gatsby
+          restore-keys: |
+            ${{ runner.os }}-public-gatsby
       - name: "install dependencies"
         run: npm install
       - name: "run tests"
