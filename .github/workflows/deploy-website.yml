@@ -2,7 +2,7 @@ name: Website
 
 on:
   push:
-    branches: [ main ]
+    branches: [ feat/#86-cache_for_build_artefacts_(node_modules) ]
   # allow trigger manually
   workflow_dispatch:
 
@@ -15,6 +15,13 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: "16.x"
+      - name: cache npm dependencies
+        uses: actions/cache@v2
+        with:
+          path: '~/.npm'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
       - name: "install dependencies"
         run: npm install
       - name: "run tests"
