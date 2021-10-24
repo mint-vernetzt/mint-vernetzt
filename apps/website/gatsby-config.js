@@ -47,5 +47,16 @@ module.exports = {
         url: `${process.env.CMS_API}`,
       },
     },
+    {
+      resolve: `gatsby-plugin-typegen`,
+      options: {
+        emitSchema: {
+          "src/__generated__/gatsby-introspection.json": true,
+        },
+        emitPluginDocuments: {
+          "src/__generated__/gatsby-plugin-documents.graphql": true,
+        },
+      },
+    },
   ],
 };
