@@ -40,6 +40,12 @@ module.exports = {
       ...defaultTheme.flex,
       100: "0 0 100%",
     },
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: "1.5rem",
+      },
+    },
   },
   variants: {
     extend: {
