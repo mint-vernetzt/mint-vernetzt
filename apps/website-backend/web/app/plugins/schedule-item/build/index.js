@@ -14,7 +14,7 @@
               } = e,
               l = (0, n.useBlockProps)();
             return (0, t.createElement)(
-              "div",
+              "li",
               l,
               (0, t.createElement)(n.RichText, {
                 tagName: "p",
@@ -56,7 +56,7 @@
               } = e,
               c = n.useBlockProps.save();
             return (0, t.createElement)(
-              "div",
+              "li",
               c,
               (0, t.createElement)(n.RichText.Content, {
                 tagName: "p",

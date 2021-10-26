@@ -27,7 +27,11 @@
             return (0, r.createElement)(
               "aside",
               n({ id: "schedule-container" }, e),
-              (0, r.createElement)(t.InnerBlocks, null)
+              (0, r.createElement)(
+                "ul",
+                null,
+                (0, r.createElement)(t.InnerBlocks, null)
+              )
             );
           },
           save: function () {
@@ -35,7 +39,11 @@
             return (0, r.createElement)(
               "aside",
               n({ id: "schedule-container" }, e),
-              (0, r.createElement)(t.InnerBlocks.Content, null)
+              (0, r.createElement)(
+                "ul",
+                null,
+                (0, r.createElement)(t.InnerBlocks.Content, null)
+              )
             );
           },
         });
@@ -55,17 +63,17 @@
         var i = 1 / 0;
         for (s = 0; s < e.length; s++) {
           (r = e[s][0]), (o = e[s][1]), (c = e[s][2]);
-          for (var u = !0, a = 0; a < r.length; a++)
+          for (var l = !0, u = 0; u < r.length; u++)
             (!1 & c || i >= c) &&
             Object.keys(t.O).every(function (e) {
-              return t.O[e](r[a]);
+              return t.O[e](r[u]);
             })
-              ? r.splice(a--, 1)
-              : ((u = !1), c < i && (i = c));
-          if (u) {
+              ? r.splice(u--, 1)
+              : ((l = !1), c < i && (i = c));
+          if (l) {
             e.splice(s--, 1);
-            var l = o();
-            void 0 !== l && (n = l);
+            var a = o();
+            void 0 !== a && (n = a);
           }
         }
         return n;
@@ -86,19 +94,19 @@
           var o,
             c,
             i = r[0],
-            u = r[1],
-            a = r[2],
-            l = 0;
+            l = r[1],
+            u = r[2],
+            a = 0;
           if (
             i.some(function (n) {
               return 0 !== e[n];
             })
           ) {
-            for (o in u) t.o(u, o) && (t.m[o] = u[o]);
-            if (a) var s = a(t);
+            for (o in l) t.o(l, o) && (t.m[o] = l[o]);
+            if (u) var s = u(t);
           }
-          for (n && n(r); l < i.length; l++)
-            (c = i[l]), t.o(e, c) && e[c] && e[c][0](), (e[i[l]] = 0);
+          for (n && n(r); a < i.length; a++)
+            (c = i[a]), t.o(e, c) && e[c] && e[c][0](), (e[i[a]] = 0);
           return t.O(s);
         },
         r = (self.webpackChunkschedule_container =

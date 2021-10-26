@@ -54,7 +54,7 @@ function Edit(props) {
   };
 
   return (
-    <div {...blockProps}>
+    <li {...blockProps}>
       <RichText
         tagName="p"
         placeholder="e.g. 19. September"
@@ -79,7 +79,7 @@ function Edit(props) {
         value={body}
         onChange={onChangeBody}
       />
-    </div>
+    </li>
   );
 }
 

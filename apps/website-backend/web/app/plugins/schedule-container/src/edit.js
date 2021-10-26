@@ -33,7 +33,9 @@ function Edit() {
   const blockProps = useBlockProps();
   return (
     <aside id="schedule-container" {...blockProps}>
-      <InnerBlocks />
+      <ul>
+        <InnerBlocks />
+      </ul>
     </aside>
   );
 }

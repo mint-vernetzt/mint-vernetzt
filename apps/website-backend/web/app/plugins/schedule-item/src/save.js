@@ -30,12 +30,12 @@ function Save(props) {
   const blockProps = useBlockProps.save();
 
   return (
-    <div {...blockProps}>
+    <li {...blockProps}>
       <RichText.Content tagName="p" value={date} />
       <RichText.Content tagName="p" value={`${time} Uhr`} />
       <RichText.Content tagName="h4" value={title} />
       <RichText.Content tagName="p" value={body} />
-    </div>
+    </li>
   );
 }
 

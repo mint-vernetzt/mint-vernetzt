@@ -26,7 +26,9 @@ function Save() {
   const blockProps = useBlockProps.save();
   return (
     <aside id="schedule-container" {...blockProps}>
-      <InnerBlocks.Content />
+      <ul>
+        <InnerBlocks.Content />
+      </ul>
     </aside>
   );
 }
