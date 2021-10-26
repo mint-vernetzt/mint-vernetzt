@@ -1,0 +1,16 @@
+{
+  "apiVersion": 2,
+  "name": "create-block/schedule-container",
+  "version": "0.1.0",
+  "title": "Schedule Container",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "Example block written with ESNext standard and JSX support – build step required.",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "schedule-container",
+  "editorScript": "file:./build/index.js",
+  "editorStyle": "file:./build/index.css",
+  "style": "file:./build/style-index.css"
+}

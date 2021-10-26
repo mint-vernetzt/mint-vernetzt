@@ -14,17 +14,21 @@ import { __ } from "@wordpress/i18n";
 import { useBlockProps } from "@wordpress/block-editor";
 
 /**
- * The edit function describes the structure of your block in the context of the
- * editor. This represents what the editor will render when the block is used.
+ * The save function defines the way in which the different attributes should
+ * be combined into the final markup, which is then serialized by the block
+ * editor into `post_content`.
  *
- * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#edit
+ * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#save
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
+export default function save() {
   return (
-    <p {...useBlockProps()}>
-      {__("Schedule – hello from the editor!", "schedule")}
+    <p {...useBlockProps.save()}>
+      {__(
+        "Schedule Container – hello from the saved content!",
+        "schedule-container"
+      )}
     </p>
   );
 }

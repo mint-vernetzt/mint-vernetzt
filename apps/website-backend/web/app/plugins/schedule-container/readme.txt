@@ -1,4 +1,4 @@
-=== Schedule ===
+=== Schedule Container ===
 Contributors:      The WordPress Contributors
 Tags:              block
 Tested up to:      5.8.0
@@ -21,7 +21,7 @@ This section describes how to install the plugin and get it working.
 
 e.g.
 
-1. Upload the plugin files to the `/wp-content/plugins/schedule` directory, or install the plugin through the WordPress plugins screen directly.
+1. Upload the plugin files to the `/wp-content/plugins/schedule-container` directory, or install the plugin through the WordPress plugins screen directly.
 1. Activate the plugin through the 'Plugins' screen in WordPress
 
 
