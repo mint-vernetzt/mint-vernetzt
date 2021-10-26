@@ -2,30 +2,40 @@
   "use strict";
   var e,
     n = {
-      273: function () {
-        var e = window.wp.blocks,
-          n = window.wp.element,
-          r = window.wp.i18n,
-          t = window.wp.blockEditor;
+      799: function () {
+        var e = window.wp.blocks;
+        function n() {
+          return (
+            (n =
+              Object.assign ||
+              function (e) {
+                for (var n = 1; n < arguments.length; n++) {
+                  var r = arguments[n];
+                  for (var t in r)
+                    Object.prototype.hasOwnProperty.call(r, t) && (e[t] = r[t]);
+                }
+                return e;
+              }),
+            n.apply(this, arguments)
+          );
+        }
+        var r = window.wp.element,
+          t = (window.wp.i18n, window.wp.blockEditor);
         (0, e.registerBlockType)("create-block/schedule-container", {
           edit: function () {
-            return (0, n.createElement)(
-              "p",
-              (0, t.useBlockProps)(),
-              (0, r.__)(
-                "Schedule Container – hello from the editor!",
-                "schedule-container"
-              )
+            const e = (0, t.useBlockProps)();
+            return (0, r.createElement)(
+              "aside",
+              n({ id: "schedule-container" }, e),
+              (0, r.createElement)(t.InnerBlocks, null)
             );
           },
           save: function () {
-            return (0, n.createElement)(
-              "p",
-              t.useBlockProps.save(),
-              (0, r.__)(
-                "Schedule Container – hello from the saved content!",
-                "schedule-container"
-              )
+            const e = t.useBlockProps.save();
+            return (0, r.createElement)(
+              "aside",
+              n({ id: "schedule-container" }, e),
+              (0, r.createElement)(t.InnerBlocks.Content, null)
             );
           },
         });
@@ -45,17 +55,17 @@
         var i = 1 / 0;
         for (s = 0; s < e.length; s++) {
           (r = e[s][0]), (o = e[s][1]), (c = e[s][2]);
-          for (var u = !0, l = 0; l < r.length; l++)
+          for (var u = !0, a = 0; a < r.length; a++)
             (!1 & c || i >= c) &&
             Object.keys(t.O).every(function (e) {
-              return t.O[e](r[l]);
+              return t.O[e](r[a]);
             })
-              ? r.splice(l--, 1)
+              ? r.splice(a--, 1)
               : ((u = !1), c < i && (i = c));
           if (u) {
             e.splice(s--, 1);
-            var a = o();
-            void 0 !== a && (n = a);
+            var l = o();
+            void 0 !== l && (n = l);
           }
         }
         return n;
@@ -77,18 +87,18 @@
             c,
             i = r[0],
             u = r[1],
-            l = r[2],
-            a = 0;
+            a = r[2],
+            l = 0;
           if (
             i.some(function (n) {
               return 0 !== e[n];
             })
           ) {
             for (o in u) t.o(u, o) && (t.m[o] = u[o]);
-            if (l) var s = l(t);
+            if (a) var s = a(t);
           }
-          for (n && n(r); a < i.length; a++)
-            (c = i[a]), t.o(e, c) && e[c] && e[c][0](), (e[i[a]] = 0);
+          for (n && n(r); l < i.length; l++)
+            (c = i[l]), t.o(e, c) && e[c] && e[c][0](), (e[i[l]] = 0);
           return t.O(s);
         },
         r = (self.webpackChunkschedule_container =
@@ -96,7 +106,7 @@
       r.forEach(n.bind(null, 0)), (r.push = n.bind(null, r.push.bind(r)));
     })();
   var o = t.O(void 0, [46], function () {
-    return t(273);
+    return t(799);
   });
   o = t.O(o);
 })();

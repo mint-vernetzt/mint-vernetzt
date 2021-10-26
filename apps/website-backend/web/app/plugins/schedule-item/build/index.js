@@ -1,102 +1,150 @@
 !(function () {
   "use strict";
   var e,
-    r = {
+    t = {
       273: function () {
         var e = window.wp.blocks,
-          r = window.wp.element,
-          n = window.wp.i18n,
-          t = window.wp.blockEditor;
+          t = window.wp.element,
+          n = (window.wp.i18n, window.wp.blockEditor);
         (0, e.registerBlockType)("create-block/schedule-item", {
-          edit: function () {
-            return (0, r.createElement)(
-              "p",
-              (0, t.useBlockProps)(),
-              (0, n.__)(
-                "Schedule Item – hello from the editor!",
-                "schedule-item"
-              )
+          edit: function (e) {
+            const {
+                attributes: { title: r, body: a, date: o, time: i },
+                setAttributes: c,
+              } = e,
+              l = (0, n.useBlockProps)();
+            return (0, t.createElement)(
+              "div",
+              l,
+              (0, t.createElement)(n.RichText, {
+                tagName: "p",
+                placeholder: "e.g. 19. September",
+                value: o,
+                onChange: (e) => {
+                  c({ date: e });
+                },
+              }),
+              (0, t.createElement)(n.RichText, {
+                tagName: "p",
+                placeholder: "e.g. 12:30-14:00",
+                value: i,
+                onChange: (e) => {
+                  c({ time: e });
+                },
+              }),
+              (0, t.createElement)(n.RichText, {
+                tagName: "h4",
+                placeholder: "Title",
+                value: r,
+                onChange: (e) => {
+                  c({ title: e });
+                },
+              }),
+              (0, t.createElement)(n.RichText, {
+                tagName: "p",
+                placeholder: "Body",
+                value: a,
+                onChange: (e) => {
+                  c({ body: e });
+                },
+              })
             );
           },
-          save: function () {
-            return (0, r.createElement)(
-              "p",
-              t.useBlockProps.save(),
-              (0, n.__)(
-                "Schedule Item – hello from the saved content!",
-                "schedule-item"
-              )
+          save: function (e) {
+            const {
+                attributes: { title: r, body: a, date: o, time: i },
+              } = e,
+              c = n.useBlockProps.save();
+            return (0, t.createElement)(
+              "div",
+              c,
+              (0, t.createElement)(n.RichText.Content, {
+                tagName: "p",
+                value: o,
+              }),
+              (0, t.createElement)(n.RichText.Content, {
+                tagName: "p",
+                value: `${i} Uhr`,
+              }),
+              (0, t.createElement)(n.RichText.Content, {
+                tagName: "h4",
+                value: r,
+              }),
+              (0, t.createElement)(n.RichText.Content, {
+                tagName: "p",
+                value: a,
+              })
             );
           },
         });
       },
     },
     n = {};
-  function t(e) {
-    var o = n[e];
-    if (void 0 !== o) return o.exports;
-    var i = (n[e] = { exports: {} });
-    return r[e](i, i.exports, t), i.exports;
+  function r(e) {
+    var a = n[e];
+    if (void 0 !== a) return a.exports;
+    var o = (n[e] = { exports: {} });
+    return t[e](o, o.exports, r), o.exports;
   }
-  (t.m = r),
+  (r.m = t),
     (e = []),
-    (t.O = function (r, n, o, i) {
+    (r.O = function (t, n, a, o) {
       if (!n) {
-        var u = 1 / 0;
-        for (f = 0; f < e.length; f++) {
-          (n = e[f][0]), (o = e[f][1]), (i = e[f][2]);
+        var i = 1 / 0;
+        for (h = 0; h < e.length; h++) {
+          (n = e[h][0]), (a = e[h][1]), (o = e[h][2]);
           for (var c = !0, l = 0; l < n.length; l++)
-            (!1 & i || u >= i) &&
-            Object.keys(t.O).every(function (e) {
-              return t.O[e](n[l]);
+            (!1 & o || i >= o) &&
+            Object.keys(r.O).every(function (e) {
+              return r.O[e](n[l]);
             })
               ? n.splice(l--, 1)
-              : ((c = !1), i < u && (u = i));
+              : ((c = !1), o < i && (i = o));
           if (c) {
-            e.splice(f--, 1);
-            var s = o();
-            void 0 !== s && (r = s);
+            e.splice(h--, 1);
+            var u = a();
+            void 0 !== u && (t = u);
           }
         }
-        return r;
+        return t;
       }
-      i = i || 0;
-      for (var f = e.length; f > 0 && e[f - 1][2] > i; f--) e[f] = e[f - 1];
-      e[f] = [n, o, i];
+      o = o || 0;
+      for (var h = e.length; h > 0 && e[h - 1][2] > o; h--) e[h] = e[h - 1];
+      e[h] = [n, a, o];
     }),
-    (t.o = function (e, r) {
-      return Object.prototype.hasOwnProperty.call(e, r);
+    (r.o = function (e, t) {
+      return Object.prototype.hasOwnProperty.call(e, t);
     }),
     (function () {
       var e = { 826: 0, 46: 0 };
-      t.O.j = function (r) {
-        return 0 === e[r];
+      r.O.j = function (t) {
+        return 0 === e[t];
       };
-      var r = function (r, n) {
-          var o,
-            i,
-            u = n[0],
+      var t = function (t, n) {
+          var a,
+            o,
+            i = n[0],
             c = n[1],
             l = n[2],
-            s = 0;
+            u = 0;
           if (
-            u.some(function (r) {
-              return 0 !== e[r];
+            i.some(function (t) {
+              return 0 !== e[t];
             })
           ) {
-            for (o in c) t.o(c, o) && (t.m[o] = c[o]);
-            if (l) var f = l(t);
+            for (a in c) r.o(c, a) && (r.m[a] = c[a]);
+            if (l) var h = l(r);
           }
-          for (r && r(n); s < u.length; s++)
-            (i = u[s]), t.o(e, i) && e[i] && e[i][0](), (e[u[s]] = 0);
-          return t.O(f);
+          for (t && t(n); u < i.length; u++)
+            (o = i[u]), r.o(e, o) && e[o] && e[o][0](), (e[i[u]] = 0);
+          return r.O(h);
         },
         n = (self.webpackChunkschedule_item =
           self.webpackChunkschedule_item || []);
-      n.forEach(r.bind(null, 0)), (n.push = r.bind(null, n.push.bind(n)));
+      n.forEach(t.bind(null, 0)), (n.push = t.bind(null, n.push.bind(n)));
     })();
-  var o = t.O(void 0, [46], function () {
-    return t(273);
+  var a = r.O(void 0, [46], function () {
+    return r(273);
   });
-  o = t.O(o);
+  a = r.O(a);
 })();
