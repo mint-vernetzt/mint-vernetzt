@@ -26,3 +26,6 @@ wp-cli.local.yml
 
 # Deployer
 deployer/inventory.yml
+
+# Blocks
+!web/app/plugins/schedule*

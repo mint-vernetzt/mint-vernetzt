@@ -1,0 +1,46 @@
+{
+  "apiVersion": 2,
+  "name": "create-block/schedule-item",
+  "version": "0.1.0",
+  "title": "Schedule Item",
+  "category": "widgets",
+  "icon": "smiley",
+  "attributes": {
+    "date": {
+      "type": "string",
+      "source": "html",
+      "selector": "p"
+    },
+    "time": {
+      "type": "string",
+      "source": "html",
+      "selector": "p"
+    },
+    "title": {
+      "type": "string",
+      "source": "html",
+      "selector": "h4"
+    },
+    "body": {
+      "type": "string",
+      "source": "html",
+      "selector": "p"
+    }
+  },
+  "example": {
+    "attributes": {
+      "date": "19. September",
+      "time": "12:30-14:00",
+      "title": "Talk like a pirate workshop",
+      "body": "Arrrr! Beim Klabautermann!, "
+    }
+  },
+  "description": "Example block written with ESNext standard and JSX support – build step required.",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "schedule-item",
+  "editorScript": "file:./build/index.js",
+  "editorStyle": "file:./build/index.css",
+  "style": "file:./build/style-index.css"
+}
