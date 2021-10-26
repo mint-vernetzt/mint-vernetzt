@@ -11,7 +11,7 @@ import { __ } from "@wordpress/i18n";
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from "@wordpress/block-editor";
+import { RichText, useBlockProps } from "@wordpress/block-editor";
 
 /**
  * The save function defines the way in which the different attributes should
@@ -22,10 +22,21 @@ import { useBlockProps } from "@wordpress/block-editor";
  *
  * @return {WPElement} Element to render.
  */
-export default function save() {
+function Save(props) {
+  const {
+    attributes: { title, body, date, time },
+  } = props;
+
+  const blockProps = useBlockProps.save();
+
   return (
-    <p {...useBlockProps.save()}>
-      {__("Schedule Item – hello from the saved content!", "schedule-item")}
-    </p>
+    <div {...blockProps}>
+      <RichText.Content tagName="p" value={date} />
+      <RichText.Content tagName="p" value={`${time} Uhr`} />
+      <RichText.Content tagName="h4" value={title} />
+      <RichText.Content tagName="p" value={body} />
+    </div>
   );
 }
+
+export default Save;

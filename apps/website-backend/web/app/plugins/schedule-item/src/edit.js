@@ -11,7 +11,7 @@ import { __ } from "@wordpress/i18n";
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from "@wordpress/block-editor";
+import { RichText, useBlockProps } from "@wordpress/block-editor";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -29,10 +29,58 @@ import "./editor.scss";
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
+function Edit(props) {
+  const {
+    attributes: { title, body, date, time },
+    setAttributes,
+  } = props;
+
+  const blockProps = useBlockProps();
+
+  const onChangeTitle = (value) => {
+    setAttributes({ title: value });
+  };
+
+  const onChangeBody = (value) => {
+    setAttributes({ body: value });
+  };
+
+  const onChangeDate = (value) => {
+    setAttributes({ date: value });
+  };
+
+  const onChangeTime = (value) => {
+    setAttributes({ time: value });
+  };
+
   return (
-    <p {...useBlockProps()}>
-      {__("Schedule Item – hello from the editor!", "schedule-item")}
-    </p>
+    <div {...blockProps}>
+      <RichText
+        tagName="p"
+        placeholder="e.g. 19. September"
+        value={date}
+        onChange={onChangeDate}
+      />
+      <RichText
+        tagName="p"
+        placeholder="e.g. 12:30-14:00"
+        value={time}
+        onChange={onChangeTime}
+      />
+      <RichText
+        tagName="h4"
+        placeholder="Title"
+        value={title}
+        onChange={onChangeTitle}
+      />
+      <RichText
+        tagName="p"
+        placeholder="Body"
+        value={body}
+        onChange={onChangeBody}
+      />
+    </div>
   );
 }
+
+export default Edit;
