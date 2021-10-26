@@ -37,7 +37,7 @@ test("add event feed items", () => {
 
   render(<EventFeed {...props} />);
 
-  const eventFeedItemDom = screen.getAllByTestId("event-feed-item");
+  const eventFeedItemDom = screen.getAllByRole("listitem");
 
   // test "headline" rendered
   const eventFeedItem1Dom = eventFeedItemDom[0];

@@ -14,10 +14,7 @@ export interface NewsFeedItemProps {
 
 function Tag({ title }: TagProps) {
   return (
-    <div
-      data-testid="tag"
-      className="mr-2 mb-2 px-3 py-2 rounded-lg bg-secondary-300 text-neutral-800 text-sm text-bold"
-    >
+    <div className="mr-2 mb-2 px-3 py-2 rounded-lg bg-secondary-300 text-neutral-800 text-sm text-bold">
       {title}
     </div>
   );
@@ -33,7 +30,7 @@ export function NewsFeedItem({
   const formattedDate = formatDate(date);
 
   return (
-    <div data-testid="news-feed-item" className="flex flex-wrap">
+    <div className="flex flex-wrap">
       <time
         data-testid="date"
         dateTime={date.toISOString()}
@@ -53,11 +50,15 @@ export function NewsFeedItem({
       >
         {body}
       </p>
-      <div className="flex flex-wrap md:order-4">
+      <ul className="flex flex-wrap md:order-4">
         {tagsProps.map((tagProps, index) => {
-          return <Tag key={`tag-${index}`} {...tagProps} />;
+          return (
+            <li key={`tag-${index}`}>
+              <Tag {...tagProps} />
+            </li>
+          );
         })}
-      </div>
+      </ul>
     </div>
   );
 }
