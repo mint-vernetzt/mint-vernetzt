@@ -54,7 +54,8 @@
     "wpackagist-plugin/custom-post-type-ui": "^1.9",
     "wp-graphql/wp-graphql-acf": "^0.5.3",
     "wp-cli/wp-cli": "^2.5",
-    "wp-cli/wp-cli-bundle": "^2.5"
+    "wp-cli/wp-cli-bundle": "^2.5",
+    "pristas-peter/wp-graphql-gutenberg": "^0.3.11"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.6.0",
