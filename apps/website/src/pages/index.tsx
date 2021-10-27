@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 import { EventFeed, EventFeedItemProps } from "@mint-vernetzt/react-components";
 
 import "../../../../libs/design-system/src/styles.css";
@@ -32,7 +32,36 @@ export function transformEventData(eventData: [EventData]) {
   return transformedData;
 }
 
-export function Index({ data }) {
+export function Index() {
+  const data = useStaticQuery(graphql`
+    query {
+      allWpPost(sort: { fields: [date] }) {
+        nodes {
+          title
+          excerpt
+          slug
+        }
+      }
+      allWpEvent {
+        nodes {
+          title
+          excerpt
+          slug
+          tags {
+            nodes {
+              name
+            }
+          }
+          duration {
+            startDate
+            startTime
+            endDate
+            endTime
+          }
+        }
+      }
+    }
+  `);
   return (
     <>
       <h1>Welcome to website!</h1>
@@ -60,32 +89,32 @@ export function Index({ data }) {
 
 export default Index;
 
-export const pageQuery = graphql`
-  query {
-    allWpPost(sort: { fields: [date] }) {
-      nodes {
-        title
-        excerpt
-        slug
-      }
-    }
-    allWpEvent {
-      nodes {
-        title
-        excerpt
-        slug
-        tags {
-          nodes {
-            name
-          }
-        }
-        duration {
-          startDate
-          startTime
-          endDate
-          endTime
-        }
-      }
-    }
-  }
-`;
+// export const pageQuery = graphql`
+//   query {
+//     allWpPost(sort: { fields: [date] }) {
+//       nodes {
+//         title
+//         excerpt
+//         slug
+//       }
+//     }
+//     allWpEvent {
+//       nodes {
+//         title
+//         excerpt
+//         slug
+//         tags {
+//           nodes {
+//             name
+//           }
+//         }
+//         duration {
+//           startDate
+//           startTime
+//           endDate
+//           endTime
+//         }
+//       }
+//     }
+//   }
+// `;
