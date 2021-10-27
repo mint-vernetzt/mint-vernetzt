@@ -25,3 +25,16 @@ exports.createPages = async (props) => {
     });
   });
 };
+
+// Prevents following error:
+// Type with name "WpBlockAttributesObject" does not exists.
+// See: https://github.com/wp-graphql/wp-graphql/issues/1460#issuecomment-742235504
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  const typeDefs = `
+    type WpBlockAttributesObject {
+      foobar: String
+    }
+  `;
+  createTypes(typeDefs);
+};
