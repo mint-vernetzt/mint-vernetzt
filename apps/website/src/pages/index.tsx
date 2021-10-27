@@ -19,8 +19,8 @@ export type EventData = {
   };
 };
 
-export function transformEventData(eventData: [EventData]) {
-  const transformedData: Array<EventFeedItemProps> = [];
+export function transformEventData(eventData: EventData[]) {
+  const transformedData: EventFeedItemProps[] = [];
   eventData.forEach((eventDataItem) => {
     transformedData.push({
       headline: eventDataItem.title,
