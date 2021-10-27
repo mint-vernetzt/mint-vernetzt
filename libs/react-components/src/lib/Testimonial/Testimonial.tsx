@@ -1,4 +1,5 @@
 /* eslint-disable-next-line */
+import * as React from "react";
 export interface TestimonialProps {
   name: string;
   jobTitle: string;
