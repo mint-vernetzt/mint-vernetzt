@@ -1,7 +1,36 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
+import { EventFeed, EventFeedItemProps } from "@mint-vernetzt/react-components";
 
 import "../../../../libs/design-system/src/styles.css";
+
+export type EventData = {
+  title: string;
+  excerpt: string;
+  slug: string;
+  tags: {
+    nodes: [string];
+  };
+  duration: {
+    startDate: string;
+    startTime: string | null;
+    endDate: string | null;
+    endTime: string | null;
+  };
+};
+
+export function transformEventData(eventData: [EventData]) {
+  const transformedData: Array<EventFeedItemProps> = [];
+  eventData.forEach((eventDataItem) => {
+    transformedData.push({
+      headline: eventDataItem.title,
+      body: eventDataItem.excerpt,
+      slug: eventDataItem.slug,
+      date: new Date(eventDataItem.duration.startDate),
+    });
+  });
+  return transformedData;
+}
 
 export function Index({ data }) {
   return (
@@ -20,6 +49,11 @@ export function Index({ data }) {
           />
         </div>
       ))}
+      <EventFeed
+        headline="Veranstaltungen"
+        linkToOverview="/"
+        eventFeedItemsProps={transformEventData(data.allWpEvent.nodes)}
+      />
     </>
   );
 }
