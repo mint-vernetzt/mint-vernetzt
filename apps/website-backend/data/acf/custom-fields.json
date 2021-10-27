@@ -1,0 +1,99 @@
+[
+  {
+    "key": "group_617684481faae",
+    "title": "Duration",
+    "fields": [
+      {
+        "key": "field_6176858492f63",
+        "label": "Start Date",
+        "name": "start_date",
+        "type": "date_picker",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "show_in_graphql": 1,
+        "display_format": "F j, Y",
+        "return_format": "Y-m-d",
+        "first_day": 1
+      },
+      {
+        "key": "field_61795efdaff8a",
+        "label": "Start Time",
+        "name": "start_time",
+        "type": "time_picker",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "show_in_graphql": 1,
+        "display_format": "H:i",
+        "return_format": "H:i:s"
+      },
+      {
+        "key": "field_6176875192f64",
+        "label": "End Date",
+        "name": "end_date",
+        "type": "date_picker",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "show_in_graphql": 1,
+        "display_format": "F j, Y",
+        "return_format": "Y-m-d",
+        "first_day": 1
+      },
+      {
+        "key": "field_61795f43aff8b",
+        "label": "End Time",
+        "name": "end_time",
+        "type": "time_picker",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "show_in_graphql": 1,
+        "display_format": "H:i",
+        "return_format": "H:i:s"
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "post_type",
+          "operator": "==",
+          "value": "events"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_graphql": 1,
+    "graphql_field_name": "duration",
+    "map_graphql_types_from_location_rules": 0,
+    "graphql_types": ""
+  }
+]
