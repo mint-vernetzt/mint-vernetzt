@@ -1,3 +1,4 @@
+import React from "react"; // TODO: unnecessary import since React 17
 import { EventFeedItem, EventFeedItemProps } from "./EventFeedItem";
 
 export interface EventFeedProps {
