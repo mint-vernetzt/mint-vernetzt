@@ -1,4 +1,4 @@
-import { EventFeedItemProps } from "@mint-vernetzt/react-components";
+import { EventFeedItemProps } from "./EventFeedItem";
 import faker from "faker";
 
 export function formatDate(date: Date): string {
