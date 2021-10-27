@@ -35,5 +35,23 @@ export const pageQuery = graphql`
         slug
       }
     }
+    allWpEvent {
+      nodes {
+        title
+        excerpt
+        slug
+        tags {
+          nodes {
+            name
+          }
+        }
+        duration {
+          startDate
+          startTime
+          endDate
+          endTime
+        }
+      }
+    }
   }
 `;
