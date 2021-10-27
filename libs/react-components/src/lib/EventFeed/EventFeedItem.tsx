@@ -1,3 +1,4 @@
+import React from "react"; // TODO: unnecessary import since React 17
 import { formatDate } from "./utils";
 
 export interface EventFeedItemProps {
