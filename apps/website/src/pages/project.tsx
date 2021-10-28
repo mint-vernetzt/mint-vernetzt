@@ -1,48 +1,58 @@
-import Layout from "../components/layout";
+import { graphql, Link } from "gatsby";
+
+import "../../../../libs/design-system/src/styles.css";
+import {
+  getPaktDataByCategory,
+  PaktDataByCategory,
+} from "../utils/dataTransformer";
+import Img from "gatsby-image";
 
 export function Project({ data }) {
+  const paktDataByCategory: PaktDataByCategory = getPaktDataByCategory(
+    data.paktData.edges
+  );
+  const categories = Object.keys(paktDataByCategory);
+
   return (
-    <Layout>
-      <section className="hero container my-10">
-        <div
-          className="hero bg-yellow-300 px-20 py-40 rounded-3xl"
-          style={{ height: "550px" }}
-        >
-          <h1>MINtvernetzt-Teaser</h1>
-        </div>
-      </section>
-
-      <section className="container my-10">
-        <div className="bg-yellow-300 p-20 rounded-3xl">
-          <h1>4er-Block Erklärungen</h1>
-        </div>
-      </section>
-
-      <section className="container my-10">
-        <div className="bg-yellow-300 p-20 rounded-3xl">
-          <h1>Kontakt-Element</h1>
-        </div>
-      </section>
-
-      <section className="container my-10">
-        <div className="bg-yellow-300 p-20 rounded-3xl">
-          <h1>UserCardContainer</h1>
-        </div>
-      </section>
-
-      <section className="container my-10">
-        <div className="bg-yellow-300 p-20 rounded-3xl">
-          <h1>UserCardContainer</h1>
-        </div>
-      </section>
-
-      <section className="container my-10">
-        <div className="bg-yellow-300 p-20 rounded-3xl">
-          <h1>Pakt</h1>
-        </div>
-      </section>
-    </Layout>
+    <>
+      <h1>Projekt</h1>
+      <ul>
+        {categories.map((category, index) => (
+          <li key={category} id={`category${index}`}>
+            <h2>
+              <a href={`#category${index}`}>{category}</a>
+            </h2>
+            <ul>
+              {paktDataByCategory[category].map((member) => (
+                <li>
+                  <Link to={`/pakt/${member.slug}`}>{member.name}</Link>
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
+      <Link to="/">Home</Link>
+    </>
   );
 }
 
 export default Project;
+
+export const pageQuery = graphql`
+  query {
+    paktData: allMarkdownRemark(
+      sort: { fields: [frontmatter___category, frontmatter___name], order: ASC }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            slug
+            name
+            category
+          }
+        }
+      }
+    }
+  }
+`;

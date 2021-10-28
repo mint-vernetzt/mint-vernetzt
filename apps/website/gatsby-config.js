@@ -6,6 +6,10 @@ module.exports = {
     description: `This is a gatsby application created by Nx.`,
   },
   plugins: [
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-transformer-remark`,
     {
       resolve: "gatsby-plugin-svgr",
       options: {
@@ -13,7 +17,6 @@ module.exports = {
         ref: true,
       },
     },
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -21,14 +24,13 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
     {
       resolve: require.resolve(`@nrwl/gatsby/plugins/nx-gatsby-ext-plugin`),
       options: {
         path: __dirname,
       },
     },
-    `gatsby-plugin-sharp`,
+
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -56,6 +58,13 @@ module.exports = {
         emitPluginDocuments: {
           "src/__generated__/gatsby-plugin-documents.graphql": true,
         },
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pakt`,
+        path: `src/data/pakt/`,
       },
     },
   ],
