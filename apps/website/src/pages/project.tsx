@@ -5,6 +5,7 @@ import {
   getPaktDataByCategory,
   PaktDataByCategory,
 } from "../utils/dataTransformer";
+import Img from "gatsby-image";
 
 export function Project({ data }) {
   const paktDataByCategory: PaktDataByCategory = getPaktDataByCategory(
@@ -21,13 +22,19 @@ export function Project({ data }) {
             <h2>
               <a href={`#category${index}`}>{category}</a>
             </h2>
-            <ul className="category-members">
+
+            <div className="flex flex-wrap -mb-4">
               {paktDataByCategory[category].map((member) => (
-                <li key={member.slug}>
-                  <Link to={`/pakt/${member.slug}`}>{member.name}</Link>
-                </li>
+                <div key={member.slug} className="w-1/10 mb-4 bg-gray-400">
+                  <Link to={`/pakt/${member.slug}`}>
+                    {member.logo && (
+                      <Img fluid={member.logo.childImageSharp.fluid} />
+                    )}
+                    {member.name}
+                  </Link>
+                </div>
               ))}
-            </ul>
+            </div>
           </li>
         ))}
       </ul>
@@ -49,6 +56,13 @@ export const pageQuery = graphql`
             slug
             name
             category
+            logo {
+              childImageSharp {
+                fluid(maxWidth: 300) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }

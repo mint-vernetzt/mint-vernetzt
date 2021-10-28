@@ -1,7 +1,7 @@
 ---
 name: "IG Metall"
 slug: "arbeitgeber-und-arbeitnehmerverbaende/ig-metall"
-logo: "../logos/"
+logo: "../logos/IGMetall-1.png"
 category: "Arbeitgeber- und Arbeitnehmerverbände"
 citeAuthor: ""
 citeAuthorFunction: ""

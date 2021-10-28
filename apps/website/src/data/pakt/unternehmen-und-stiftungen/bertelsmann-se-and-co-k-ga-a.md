@@ -1,7 +1,7 @@
 ---
 name: "Bertelsmann SE & Co. KGaA"
 slug: "unternehmen-und-stiftungen/bertelsmann-se-and-co-k-ga-a"
-logo: "../logos/"
+logo:
 category: "Unternehmen und Stiftungen"
 citeAuthor: ""
 citeAuthorFunction: ""

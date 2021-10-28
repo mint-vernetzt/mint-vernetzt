@@ -2,6 +2,7 @@ export type PaktDataByCategory = {
   [key: string]: {
     name: string;
     slug: string;
+    logo: any;
   }[];
 };
 
@@ -11,6 +12,7 @@ export type PaktDataEdges = {
       slug: string;
       name: string;
       category: string;
+      logo: any;
     };
   };
 }[];
