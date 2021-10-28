@@ -4,7 +4,7 @@ import { Link } from "gatsby";
 export function NavigationBar() {
   const [isExpanded, toggleExpansion] = useState(false);
   return (
-    <div className="header-section py-4">
+    <div className="header-section py-4 shadow-lg">
       <div className="container">
         <div className="flex flex-wrap items-center">
           <div className="logo-mint lg:pr-16">
