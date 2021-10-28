@@ -22,19 +22,13 @@ export function Project({ data }) {
             <h2>
               <a href={`#category${index}`}>{category}</a>
             </h2>
-
-            <div className="flex flex-wrap -mb-4">
+            <ul>
               {paktDataByCategory[category].map((member) => (
-                <div key={member.slug} className="w-1/10 mb-4 bg-gray-400">
-                  <Link to={`/pakt/${member.slug}`}>
-                    {member.logo && (
-                      <Img fluid={member.logo.childImageSharp.fluid} />
-                    )}
-                    {member.name}
-                  </Link>
-                </div>
+                <li>
+                  <Link to={`/pakt/${member.slug}`}>{member.name}</Link>
+                </li>
               ))}
-            </div>
+            </ul>
           </li>
         ))}
       </ul>
@@ -56,13 +50,6 @@ export const pageQuery = graphql`
             slug
             name
             category
-            logo {
-              childImageSharp {
-                fluid(maxWidth: 300) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
           }
         }
       }

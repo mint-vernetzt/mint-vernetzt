@@ -3,4 +3,4 @@
 
 echo ""
 echo "npm install is running in background ..."
-#npm install --quiet --no-progress > "/dev/null" 2>&1 &
+npm install --quiet --no-progress > "/dev/null" 2>&1 &
