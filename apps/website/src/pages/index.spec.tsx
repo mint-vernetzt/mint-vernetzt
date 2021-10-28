@@ -2,7 +2,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 import faker from "faker";
 
-import { EventData, transformEventData } from "./index";
+import { EventData, transformEventData, formatExcerpt } from "./index";
 
 test("transformEventData", () => {
   const eventData: Array<EventData> = [
@@ -22,4 +22,11 @@ test("transformEventData", () => {
 
   const transformedEventData = transformEventData(eventData);
   expect(transformedEventData[0].headline).toBe(eventData[0].title);
+});
+
+test("remove tags from excerpt string", () => {
+  const testString = faker.lorem.words();
+  const excerpt = `<p>${testString} &#8222;Enterprise&#8220;</p>`;
+  const result = formatExcerpt(excerpt);
+  expect(result).toBe(`${testString} "Enterprise"`);
 });

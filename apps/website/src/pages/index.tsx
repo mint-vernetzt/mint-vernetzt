@@ -19,12 +19,19 @@ export type EventData = {
   };
 };
 
+export function formatExcerpt(excerptString: string) {
+  const expression = /<\/?[\w\s]*>|<.+[\W]>/g;
+  const tagsRemoved = excerptString.replace(expression, "");
+  const quotesAdded = tagsRemoved.replace(/(&#8220|&#8222);/g, '"');
+  return quotesAdded;
+}
+
 export function transformEventData(eventData: EventData[]) {
   const transformedData: EventFeedItemProps[] = [];
   eventData.forEach((eventDataItem) => {
     transformedData.push({
       headline: eventDataItem.title,
-      body: eventDataItem.excerpt,
+      body: formatExcerpt(eventDataItem.excerpt),
       slug: eventDataItem.slug,
       date: new Date(eventDataItem.duration.startDate),
     });
