@@ -46,6 +46,10 @@ module.exports = {
         DEFAULT: "1.5rem",
       },
     },
+    height: {
+      ...defaultTheme.height,
+      bighero: "500px",
+    },
   },
   variants: {
     extend: {
