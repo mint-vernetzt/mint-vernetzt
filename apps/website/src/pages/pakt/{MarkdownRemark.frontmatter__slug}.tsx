@@ -1,11 +1,6 @@
-import React from "react";
 import { graphql, Link } from "gatsby";
 import Img from "gatsby-image";
-import {
-  Button,
-  ButtonType,
-  Testimonial,
-} from "@mint-vernetzt/react-components";
+import { Testimonial } from "@mint-vernetzt/react-components";
 
 export default function Template({ data }) {
   const { markdownRemark } = data;
@@ -18,9 +13,9 @@ export default function Template({ data }) {
   return (
     <>
       <div className="container">
-        <Button type={ButtonType.Secondary}>
-          <Link to="/project">zur Übersicht</Link>
-        </Button>
+        <Link className="border-2 p-4" to="/project">
+          zur Übersicht
+        </Link>
 
         <h1>{frontmatter.name}</h1>
 
