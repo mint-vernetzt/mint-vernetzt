@@ -4,7 +4,7 @@ export interface ImprintProps {}
 
 export function Imprint(props: ImprintProps) {
   return (
-    <Layout children="">
+    <Layout>
       <section className="hero container my-10">
         <div className="hero bg-yellow-300 px-20 py-40 rounded-3xl">
           <h1>Welcome to Imprint!</h1>
