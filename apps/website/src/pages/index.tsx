@@ -7,7 +7,10 @@ export function Index({ data }) {
   return (
     <Layout>
       <section className="hero container my-10">
-        <div className="hero h-bighero bg-gray-300 px-20 py-40 rounded-3xl">
+        <div
+          className="hero bg-gray-300 px-20 py-40 rounded-3xl"
+          style={{ height: "550px" }}
+        >
           <h1>Hero-Section</h1>
         </div>
       </section>
