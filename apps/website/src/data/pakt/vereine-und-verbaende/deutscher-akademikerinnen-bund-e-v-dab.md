@@ -4,7 +4,7 @@ slug: "vereine-und-verbaende/deutscher-akademikerinnen-bund-e-v-dab"
 logo: "../logos/dab_web.png"
 category: "Vereine und Verbände"
 citeAuthor: "Dr. Ira Lemm"
-citeAuthorFunction: "Sprecherin des Arbeitskreises "Frauen in Naturwissenschaft und Technik" im Deutschen Akademikerinnenbund e.V."
+citeAuthorFunction: "Sprecherin des Arbeitskreises \"Frauen in Naturwissenschaft und Technik\" im Deutschen Akademikerinnenbund e.V."
 citeQuote: "„Motivation: der AK-FNT setzt sich seit als 30 Jahren ein für Unterstützung von Karriereplanung / beruflicher Weiterentwicklung, Verbesserung der Vereinbarkeit von Beruf und Familie, Motivation von Mädchen für naturwissenschaftlich-technische Berufe, Einbinden von Seniorinnen in ehrenamtliche Projekte zur Förderung des Interesses von Kindern an Naturwissenschaft und Technik.
 
 Projekte des AK-FNT haben wesentlich zur Akzeptanz von Naturwissenschaftlerinnen und Ingenieurinnen sowie zur Heranführung von Schülerinnen an technische Berufsfelder beigetragen.

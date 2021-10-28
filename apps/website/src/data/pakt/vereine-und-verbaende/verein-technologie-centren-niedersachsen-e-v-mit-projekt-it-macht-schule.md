@@ -1,5 +1,5 @@
 ---
-name: "Verein Technologie-Centren Niedersachsen e.V. mit Projekt "IT macht Schule""
+name: 'Verein Technologie-Centren Niedersachsen e.V. mit Projekt "IT macht Schule"'
 slug: "vereine-und-verbaende/verein-technologie-centren-niedersachsen-e-v-mit-projekt-it-macht-schule"
 logo: "../logos/Logo IT macht Schule.png"
 category: "Vereine und Verbände"
