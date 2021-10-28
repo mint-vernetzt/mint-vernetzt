@@ -7,6 +7,9 @@ export function Index({ data }) {
   return (
     <>
       <h1>Welcome to website!</h1>
+
+      <Link to="project">Projekt</Link>
+
       <h4>Posts</h4>
       {data.allWpPost.nodes.map((node, index) => (
         <div key={`post ${index}`}>

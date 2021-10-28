@@ -47,3 +47,4 @@ libs/design-system/src/styles.css
 /apps/website/public
 /apps/website/.cache
 .env.*
+apps/website/src/__generated__
