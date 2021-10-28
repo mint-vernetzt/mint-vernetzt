@@ -1,15 +1,17 @@
 import Layout from "../components/layout";
+/* eslint-disable-next-line */
+export interface ImprintProps {}
 
-export function Topics({ data }) {
+export function Imprint(props: ImprintProps) {
   return (
-    <Layout>
+    <Layout children="">
       <section className="hero container my-10">
         <div className="hero bg-yellow-300 px-20 py-40 rounded-3xl">
-          <h1>Themen</h1>
+          <h1>Welcome to Imprint!</h1>
         </div>
       </section>
     </Layout>
   );
 }
 
-export default Topics;
+export default Imprint;
