@@ -7,11 +7,11 @@ citeAuthor: "Bettina Klaas-Heisener"
 citeAuthorFunction: "Corporate Recruiting & HR Marketing"
 citeQuote: "„Bei HARTING finden Sie Anschlussmöglichkeiten für Ihre Karriere in den MINT-Fachbereichen als Auszubildende, Studierende, Berufseinsteiger/innen und Berufserfahrene. Unser Leitspruch in der Zusammenarbeit mit unseren Mitarbeiter/innen lautet: PEOPLE. POWER. PARTNERSHIP. Er steht für:
 
-PEOPLE. "Unsere Mitarbeiter/innen stehen bei uns jederzeit im Mittelpunkt."
+PEOPLE. \"Unsere Mitarbeiter/innen stehen bei uns jederzeit im Mittelpunkt.\"
 
-POWER. "Mit ihnen erarbeiten wir zukunftsweisende, innovative Produkte für globale Märkte."
+POWER. \"Mit ihnen erarbeiten wir zukunftsweisende, innovative Produkte für globale Märkte.\"
 
-PARTNERSHIP. "Für sie und ihre Region wollen wir uns sozial engagieren und gemeinsam Sorge tragen."
+PARTNERSHIP. \"Für sie und ihre Region wollen wir uns sozial engagieren und gemeinsam Sorge tragen.\"
 
 Haben Sie Lust auf eine starke Verbindung zu echten Möglichkeiten und Perspektiven? Dann werden Sie Teil der großen HARTING Familie.”"
 ---
