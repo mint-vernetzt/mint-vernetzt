@@ -39,6 +39,8 @@ module.exports = {
     flex: {
       ...defaultTheme.flex,
       100: "0 0 100%",
+      "1/3": "0 0 33.3333%",
+      "2/3": "0 0 66.66666%",
     },
     container: {
       center: true,
@@ -60,33 +62,27 @@ module.exports = {
       console.log(theme);
       addBase({
         h1: {
-          fontSize: theme("fontSize.5xl"),
-          textTransform: "uppercase",
+          fontSize: theme("fontSize.7xl"),
           fontWeight: "bold",
         },
         h2: {
           fontSize: theme("fontSize.4xl"),
-          textTransform: "uppercase",
           fontWeight: "bold",
         },
         h3: {
           fontSize: theme("fontSize.3xl"),
-          textTransform: "uppercase",
           fontWeight: "bold",
         },
         h4: {
           fontSize: theme("fontSize.2xl"),
-          textTransform: "uppercase",
           fontWeight: "bold",
         },
         h5: {
           fontSize: theme("fontSize.xl"),
-          textTransform: "uppercase",
           fontWeight: "bold",
         },
         h6: {
           fontSize: theme("fontSize.lg"),
-          textTransform: "uppercase",
           fontWeight: "bold",
         },
         p: { fontSize: theme("fontSize.base") },
