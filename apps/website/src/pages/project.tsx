@@ -68,6 +68,49 @@ export function Project({ data }) {
           </div>
         </div>
       </section>
+
+      <section className="container my-16">
+        <div className="flex flex-wrap md:items-stretch md:-mx-6 md:-mb-12 lg:-mx-10">
+          {[
+            {
+              icon: `none`,
+              title: `Grund`,
+              text: `Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+              sadipscing elitr. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+              sadipscing elitr.`,
+            },
+            {
+              icon: `none`,
+              title: `Auftrag`,
+              text: `At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, 
+              no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr. `,
+            },
+            {
+              icon: `none`,
+              title: `Ziel`,
+              text: `At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, 
+              no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr. `,
+            },
+            {
+              icon: `none`,
+              title: `Benefits`,
+              text: `At vero eos et accusam et justo duo dolores et ea rebum. Stet
+              clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+              dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+              elitr. No sea takimata sanctus est`,
+            },
+          ].map((teaser, index) => (
+            <div
+              key={`teaser-${index}`}
+              className="flex-100 mb-6 md:mb-12 md:flex-1/2 lg:flex-1/4 md:px-6 lg:px-10"
+            >
+              <h4 className="text-2xl text-blue-500 mb-1">{teaser.title}</h4>
+              <p className="text-neutral-600">{teaser.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className="container my-16">
         <h1>Projekt</h1>
 
