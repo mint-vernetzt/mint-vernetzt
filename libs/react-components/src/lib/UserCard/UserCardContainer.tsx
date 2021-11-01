@@ -1,3 +1,4 @@
+import * as React from "react";
 import { UserCard, UserCardProps } from "./UserCard";
 
 export interface UserCardContainerProps {

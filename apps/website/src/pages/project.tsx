@@ -6,12 +6,36 @@ import {
   PaktDataByCategory,
 } from "../utils/dataTransformer";
 import Img from "gatsby-image";
+import { UserCardContainer } from "@mint-vernetzt/react-components";
+import faker from "faker";
 
 export function Project({ data }) {
   const paktDataByCategory: PaktDataByCategory = getPaktDataByCategory(
     data.paktData.edges
   );
   const categories = Object.keys(paktDataByCategory);
+
+  const getUserCardProps = () => {
+    const name = faker.name.findName();
+    const position = faker.name.jobTitle();
+    const avatar = {
+      src: faker.image.avatar(),
+      alt: name,
+    };
+    const organizationUrl = faker.internet.url();
+    const organizationLogo = {
+      src: faker.image.business(),
+      alt: faker.company.companyName(),
+    };
+
+    return {
+      name,
+      position,
+      avatar,
+      organizationUrl,
+      organizationLogo,
+    };
+  };
 
   return (
     <Layout>
@@ -104,11 +128,86 @@ export function Project({ data }) {
               key={`teaser-${index}`}
               className="flex-100 mb-6 md:mb-12 md:flex-1/2 lg:flex-1/4 md:px-6 lg:px-10"
             >
+              <div className="icon w-8 h-8 mb-2 bg-red-600"></div>
               <h4 className="text-2xl text-blue-500 mb-1">{teaser.title}</h4>
               <p className="text-neutral-600">{teaser.text}</p>
             </div>
           ))}
         </div>
+      </section>
+
+      <section className="container my-16">
+        <header className="mb-10 md:text-center">
+          <h2 className="text-5xl leading-tight lg:text-6xl lg:leading-none text-blue-500 mb-2 lg:mb-4">
+            Für jede Frage die richtige Adresse
+          </h2>
+          <p className="lead leading-6 lg:text-2xl md:w-3/4 md:mx-auto text-neutral-600 font-bold lg:font-normal">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+            nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+            volutpat
+          </p>
+        </header>
+        <div className="grid gap-6 lg:gap-20 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {[
+            {
+              title: `Kontakt topic`,
+              text: `Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+              sadipscing elitr.`,
+              phone: `(+49) 0152 836 5193`,
+              mail: `Entwurf@MINTvernetzt.de`,
+            },
+            {
+              title: `Zweites topic`,
+              text: `Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+              sadipscing elitr.`,
+              phone: `(+49) 0152 836 5193`,
+              mail: `kontakt@MINTvernetzt.de`,
+            },
+            {
+              title: `Drittes topic`,
+              text: `Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+              sadipscing elitr.`,
+              phone: `(+49) 0152 836 5193`,
+              mail: `info@MINTvernetzt.de`,
+            },
+          ].map((contactbox, index) => (
+            <div
+              key={`contactbox-${index}`}
+              className="px-4 pt-4 pb-8 rounded-3xl shadow-lg"
+            >
+              <h4 className="text-4xl text-blue-500 mb-2">
+                {contactbox.title}
+              </h4>
+              <p className="text-neutral-600 mb-3 md:mb-6">{contactbox.text}</p>
+              <p className="text-xs text-neutral-800 font-semibold mb-4">
+                <a
+                  href={`tel:${contactbox.phone}`}
+                  className="flex items-center"
+                >
+                  <span className="icon w-4 h-4 mr-2 bg-red-600"></span>
+                  <span>{contactbox.phone}</span>
+                </a>
+              </p>
+              <p className="text-xs text-neutral-800 font-semibold">
+                <a
+                  href={`mailto:${contactbox.mail}`}
+                  className="flex items-center"
+                >
+                  <span className="icon w-4 h-4 mr-2 bg-red-600"></span>
+                  <span>{contactbox.mail}</span>
+                </a>
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="container my-16">
+        <UserCardContainer
+          headline="Das Team"
+          body="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic praesentium, porro iure totam vero expedita maiores dignissimos omnis fugiat sint fuga sequi pariatur odio a impedit ipsum, ut soluta excepturi?"
+          userCardsProps={[...Array(20).keys()].map((i) => getUserCardProps())}
+        />
       </section>
 
       <section className="container my-16">
