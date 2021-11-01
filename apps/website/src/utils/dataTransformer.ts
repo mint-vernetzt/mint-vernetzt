@@ -1,3 +1,5 @@
+import { UserCardProps } from "./../../../../libs/react-components/src/lib/UserCard/UserCard";
+
 export type PaktDataByCategory = {
   [key: string]: {
     name: string;
@@ -6,19 +8,8 @@ export type PaktDataByCategory = {
   }[];
 };
 
-export type PaktDataEdges = {
-  node: {
-    frontmatter: {
-      slug: string;
-      name: string;
-      category: string;
-      logo: any;
-    };
-  };
-}[];
-
 export const getPaktDataByCategory = (
-  paktData: PaktDataEdges
+  paktData: GatsbyTypes.ProjectPageQuery["paktData"]["edges"]
 ): PaktDataByCategory => {
   return paktData.reduce(
     (acc, cur) => ({
@@ -30,4 +21,28 @@ export const getPaktDataByCategory = (
     }),
     {}
   );
+};
+
+export const getUserCardsProps = (
+  usersData: GatsbyTypes.ProjectPageQuery["usersData"]
+): UserCardProps[] => {
+  return usersData.nodes.map((user) => {
+    const fullName = `${user.contactInformations.firstName} ${user.contactInformations.lastName}`;
+    const organisation = user.contactInformations.organization[0];
+
+    return {
+      name: fullName,
+      position: user.contactInformations.position,
+      avatar: {
+        src: user.featuredImage?.node.localFile.childImageSharp.fluid.src ?? "",
+        alt: fullName,
+      },
+      organizationUrl: organisation.organizationInformations.url,
+      organizationLogo: {
+        src: organisation.organizationInformations.logo.localFile
+          .childImageSharp.fluid.src,
+        alt: organisation.title,
+      },
+    };
+  });
 };
