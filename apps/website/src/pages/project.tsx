@@ -137,11 +137,9 @@ export function Project({ data }) {
       </section>
 
       <section className="container my-16">
-        <header className="mb-10 md:text-center">
-          <h2 className="text-5xl leading-tight lg:text-6xl lg:leading-none text-blue-500 mb-2 lg:mb-4">
-            Für jede Frage die richtige Adresse
-          </h2>
-          <p className="lead leading-6 lg:text-2xl md:w-3/4 md:mx-auto text-neutral-600 font-bold lg:font-normal">
+        <header>
+          <h2>Für jede Frage die richtige Adresse</h2>
+          <p className="lead">
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
             nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
             volutpat

@@ -10,3 +10,15 @@
   --tw-bg-opacity: 1;
   background-color: rgba(21, 65, 148, var(--tw-bg-opacity));
 }
+
+section.container header {
+  @apply mb-10 md:text-center;
+}
+
+section.container header h2 {
+  @apply text-5xl leading-tight lg:text-6xl lg:leading-none text-blue-500 mb-2 lg:mb-4;
+}
+
+section.container header p.lead {
+  @apply leading-6 lg:text-2xl md:w-3/4 md:mx-auto text-neutral-600 font-bold lg:font-normal;
+}
