@@ -48,3 +48,4 @@ libs/design-system/src/styles.css
 /apps/website/.cache
 .env.*
 apps/website/src/__generated__
+apps/website-backend/dump.sql.gz
