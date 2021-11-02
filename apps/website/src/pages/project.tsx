@@ -209,32 +209,50 @@ export function Project({ data }) {
       </section>
 
       <section className="container my-16">
-        <h1>Projekt</h1>
+        <header className="text-left">
+          <h2>Die Partnerinnen und Partner</h2>
+          <p className="lead">
+            Über 370 Partnerinnen und Partner aus Wirtschaft, Wissenschaft,
+            Medien und Politik sind mit der Unterzeichnung des Memorandums dem
+            Pakt bereits beigetreten. Unser Netzwerk besteht aus Partnerinnen
+            und Partnern unterschiedlicher Größe aus folgenden Branchen und
+            Bereichen:
+          </p>
+        </header>
 
-        <ul>
+        <ul className="pakt-list">
           {categories.map((category, index) => (
-            <li key={category} id={`category${index}`}>
-              <h2>
-                <a href={`#category${index}`}>{category}</a>
-              </h2>
-              <ul>
+            <li
+              key={category}
+              id={`category${index}`}
+              className="pakt-category relative overflow-hidden"
+            >
+              <input
+                className="absolute opacity-0 -z-1"
+                type="checkbox"
+                id={`opener-${index}`}
+              />
+              <label
+                className="block font-bold text-blue-500 md:text-3xl md:leading-snug py-3 flex item-center select-none"
+                for={`opener-${index}`}
+              >
+                {category}
+              </label>
+              <ul className="pakt-member max-h-0 transition-all ease-in-out duration-300 px-6 md:px-8">
                 {paktDataByCategory[category].map((member) => (
-                  <li>
-                    <Link to={`/pakt/${member.slug}`}>{member.name}</Link>
+                  <li className="py-2">
+                    <Link
+                      to={`/pakt/${member.slug}`}
+                      className="block md:text-2xl"
+                    >
+                      {member.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
             </li>
           ))}
         </ul>
-        <p className="my-8">
-          <Link
-            to="/"
-            className="m-1 px-4 py-2 border-2 inline-block rounded border-transparent text-white focus:border-fill focus:border-dotted focus:outline-none filter hover:brightness-75 bg-primary"
-          >
-            Home
-          </Link>
-        </p>
       </section>
     </Layout>
   );
