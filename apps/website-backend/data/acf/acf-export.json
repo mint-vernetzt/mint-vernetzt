@@ -143,6 +143,31 @@
         "min": "",
         "max": "",
         "return_format": "object"
+      },
+      {
+        "key": "field_6181330bb0cf6",
+        "label": "Photo",
+        "name": "photo",
+        "type": "image",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "show_in_graphql": 1,
+        "return_format": "array",
+        "preview_size": "medium",
+        "library": "all",
+        "min_width": "",
+        "min_height": "",
+        "min_size": "",
+        "max_width": "",
+        "max_height": "",
+        "max_size": "",
+        "mime_types": ""
       }
     ],
     "location": [
@@ -155,7 +180,7 @@
       ]
     ],
     "menu_order": 0,
-    "position": "normal",
+    "position": "side",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
