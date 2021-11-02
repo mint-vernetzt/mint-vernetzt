@@ -1,6 +1,8 @@
 <?php
 namespace Deployer;
 
+use Deployer\Task\Context;
+
 require 'recipe/common.php';
 require 'deployer/rsync.php';
 
@@ -73,6 +75,26 @@ task('deploy:copy_dirs', function () {
             }
         }
     }
+});
+
+task('pull:db', function () {
+  // set('wp_cli', run('which wp'));
+  set('wp_cli', './vendor/bin/wp');
+  set('dump_file_name', 'dump.sql.gz');
+  cd('{{release_path}}');
+  $exportOutput = run('{{wp_cli}} db export - |gzip -9 > {{dump_file_name}}');
+  download('{{release_path}}/{{dump_file_name}}', '{{dump_file_name}}');
+  run('rm {{dump_file_name}}');
+});
+
+task('pull:uploads', function () {
+  $server = Context::get()->getHost();
+  $host = $server->getRealHostname();
+  $port = $server->getPort() ? ' -p' . $server->getPort() : '';
+  $sshArguments = $server->getSshArguments();
+  $user = !$server->getUser() ? '' : $server->getUser() . '@';
+  set('upload_dir', '{{deploy_path}}/shared/web/app/uploads');
+  runLocally("rsync -e 'ssh$port $sshArguments' -avc '$user$host:{{upload_dir}}' web/app/uploads");
 });
 
 task('wp:plugin:activate:all', function () {
