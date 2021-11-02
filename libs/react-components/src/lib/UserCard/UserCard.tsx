@@ -1,3 +1,4 @@
+import * as React from "react";
 export interface Image {
   src: string;
   alt: string;
@@ -14,20 +15,20 @@ export interface UserCardProps {
 export function UserCard(props: UserCardProps) {
   const { name, position, avatar, organizationUrl, organizationLogo } = props;
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center text-center">
       <img
         data-testid="avatar"
-        className="mb-2 w-20 h-20 object-cover rounded-full"
+        className="mb-4 w-20 h-20 object-cover rounded-full"
         src={avatar.src}
         alt={avatar.alt}
       />
       <p
         data-testid="name"
-        className="mb-1 text-based font-bold text-neutral-700"
+        className="mb-1 text-based font-semibold text-neutral-800"
       >
         {name}
       </p>
-      <p className="mb-2 text-sm text-neutral-600" data-testid="position">
+      <p className="mb-2 text-neutral-600" data-testid="position">
         {position}
       </p>
       <div className="h-10 flex flex-wrap content-end">
