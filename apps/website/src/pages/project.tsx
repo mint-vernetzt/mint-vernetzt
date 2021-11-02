@@ -1,41 +1,24 @@
-import Layout from "../components/layout";
+import {
+  UserCardContainer
+} from "@mint-vernetzt/react-components";
 import { graphql, Link } from "gatsby";
-
+import "../../../../libs/design-system/src/styles.css";
+import Layout from "../components/layout";
 import {
   getPaktDataByCategory,
-  PaktDataByCategory,
+  getUserCardsProps,
+  PaktDataByCategory
 } from "../utils/dataTransformer";
-import Img from "gatsby-image";
-import { UserCardContainer } from "@mint-vernetzt/react-components";
-import faker from "faker";
 
-export function Project({ data }) {
+
+
+export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
+  const userCardsProps = getUserCardsProps(data.usersData);
+
   const paktDataByCategory: PaktDataByCategory = getPaktDataByCategory(
     data.paktData.edges
   );
   const categories = Object.keys(paktDataByCategory);
-
-  const getUserCardProps = () => {
-    const name = faker.name.findName();
-    const position = faker.name.jobTitle();
-    const avatar = {
-      src: faker.image.avatar(),
-      alt: name,
-    };
-    const organizationUrl = faker.internet.url();
-    const organizationLogo = {
-      src: faker.image.business(),
-      alt: faker.company.companyName(),
-    };
-
-    return {
-      name,
-      position,
-      avatar,
-      organizationUrl,
-      organizationLogo,
-    };
-  };
 
   return (
     <Layout>
@@ -106,13 +89,13 @@ export function Project({ data }) {
             {
               icon: `none`,
               title: `Auftrag`,
-              text: `At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, 
+              text: `At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
               no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr. `,
             },
             {
               icon: `none`,
               title: `Ziel`,
-              text: `At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, 
+              text: `At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
               no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr. `,
             },
             {
@@ -204,7 +187,7 @@ export function Project({ data }) {
         <UserCardContainer
           headline="Das Team"
           body="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic praesentium, porro iure totam vero expedita maiores dignissimos omnis fugiat sint fuga sequi pariatur odio a impedit ipsum, ut soluta excepturi?"
-          userCardsProps={[...Array(20).keys()].map((i) => getUserCardProps())}
+          userCardsProps={userCardsProps}
         />
       </section>
 
@@ -243,7 +226,7 @@ export function Project({ data }) {
 export default Project;
 
 export const pageQuery = graphql`
-  query {
+  query ProjectPage {
     paktData: allMarkdownRemark(
       sort: { fields: [frontmatter___category, frontmatter___name], order: ASC }
     ) {
@@ -253,6 +236,46 @@ export const pageQuery = graphql`
             slug
             name
             category
+          }
+        }
+      }
+    }
+
+    usersData: allWpContact {
+      nodes {
+        contactInformations {
+          firstName
+          lastName
+          position
+          organization {
+            ... on WpOrganization {
+              id
+              title
+              organizationInformations {
+                url
+                logo {
+                  altText
+                  localFile {
+                    childImageSharp {
+                      fluid(maxWidth: 300) {
+                        src
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          phone
+          photo {
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 300) {
+                  src
+                }
+              }
+            }
+            altText
           }
         }
       }
