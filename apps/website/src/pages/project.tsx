@@ -243,18 +243,6 @@ export const pageQuery = graphql`
 
     usersData: allWpContact {
       nodes {
-        featuredImage {
-          node {
-            sourceUrl
-            localFile {
-              childImageSharp {
-                fluid {
-                  src
-                }
-              }
-            }
-          }
-        }
         contactInformations {
           firstName
           lastName
@@ -277,6 +265,17 @@ export const pageQuery = graphql`
                 }
               }
             }
+          }
+          phone
+          photo {
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 300) {
+                  src
+                }
+              }
+            }
+            altText
           }
         }
       }

@@ -65,9 +65,13 @@ describe("getUserCardsProps", () => {
     const usersData: GatsbyTypes.ProjectPageQuery["usersData"] = {
       nodes: [
         {
-          featuredImage: {
-            node: {
-              sourceUrl: "",
+          contactInformations: {
+            firstName: "MyFirstname",
+            lastName: "MyLastname",
+            position: "MyPosition",
+            phone: "",
+            photo: {
+              altText: "MyFirstname MyLastname",
               localFile: {
                 childImageSharp: {
                   fluid: {
@@ -76,11 +80,6 @@ describe("getUserCardsProps", () => {
                 },
               },
             },
-          },
-          contactInformations: {
-            firstName: "MyFirstname",
-            lastName: "MyLastname",
-            position: "MyPosition",
             organization: [
               {
                 id: "SOMEID",

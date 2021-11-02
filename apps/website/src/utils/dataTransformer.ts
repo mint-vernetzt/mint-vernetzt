@@ -28,13 +28,15 @@ export const getUserCardsProps = (
 ): UserCardProps[] => {
   return usersData.nodes.map((user) => {
     const fullName = `${user.contactInformations.firstName} ${user.contactInformations.lastName}`;
-    const organisation = user.contactInformations.organization[0];
+    const organisation = user.contactInformations.organization[0] ?? null;
 
     return {
       name: fullName,
       position: user.contactInformations.position,
       avatar: {
-        src: user.featuredImage?.node.localFile.childImageSharp.fluid.src ?? "",
+        src:
+          user.contactInformations.photo.localFile.childImageSharp.fluid.src ??
+          "",
         alt: fullName,
       },
       organizationUrl: organisation.organizationInformations.url,
