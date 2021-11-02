@@ -22,6 +22,8 @@ export const Container: Story<OrganizationBoxContainerProps> = (args) => (
   <OrganizationBoxContainer {...args} />
 );
 Container.args = {
+  headline: "The Headline",
+  body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, laudantium!",
   organizationBoxProps: new Array(7).fill(null).map(() => {
     return getOrganizationBoxProps();
   }),

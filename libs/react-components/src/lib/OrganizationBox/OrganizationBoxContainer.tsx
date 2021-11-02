@@ -1,14 +1,25 @@
 import { OrganizationBox, OrganizationBoxProps } from "./OrganizationBox";
 
 export interface OrganizationBoxContainerProps {
+  headline: string;
+  body: string;
   organizationBoxProps?: OrganizationBoxProps[];
 }
 
 export function OrganizationBoxContainer({
   organizationBoxProps = [],
+  headline = "",
+  body = "",
 }: OrganizationBoxContainerProps) {
   return (
     <section>
+      <header>
+        <h2 role="heading">{headline}</h2>
+        <p data-testid="body" className="lead">
+          {body}
+        </p>
+      </header>
+
       <div
         data-testid="grid"
         className="flex flex-row flex-wrap justify-center	-mx-2 lg:-mx-3 items-stretch pt-14"
