@@ -87,7 +87,7 @@ task('pull:uploads', function () {
   $sshArguments = $server->getSshArguments();
   $user = !$server->getUser() ? '' : $server->getUser() . '@';
   set('upload_dir', '{{deploy_path}}/shared/web/app/uploads');
-  runLocally("rsync -e 'ssh$port $sshArguments' -avc '$user$host:{{upload_dir}}' web/app/uploads");
+  runLocally("rsync -e 'ssh$port $sshArguments' -avc '$user$host:{{upload_dir}}' web/app/");
 });
 
 task('wp:plugin:activate:all', function () {
