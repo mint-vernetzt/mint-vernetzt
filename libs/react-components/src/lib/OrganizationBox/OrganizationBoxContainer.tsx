@@ -3,14 +3,12 @@ import { OrganizationBox, OrganizationBoxProps } from "./OrganizationBox";
 export interface OrganizationBoxContainerProps {
   headline: string;
   body: string;
-  organizationBoxProps?: OrganizationBoxProps[];
+  organisations: OrganizationBoxProps[];
 }
 
-export function OrganizationBoxContainer({
-  organizationBoxProps = [],
-  headline = "",
-  body = "",
-}: OrganizationBoxContainerProps) {
+export function OrganizationBoxContainer(props: OrganizationBoxContainerProps) {
+  const { headline, body, organisations } = props;
+
   return (
     <section>
       <header>
@@ -24,7 +22,7 @@ export function OrganizationBoxContainer({
         data-testid="grid"
         className="flex flex-row flex-wrap justify-center	-mx-2 lg:-mx-3 items-stretch pt-14"
       >
-        {organizationBoxProps.map((useBoxProps, index) => {
+        {organisations.map((useBoxProps, index) => {
           return (
             <div
               key={`organization-box-container-item-${index}`}

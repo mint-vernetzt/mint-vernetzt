@@ -1,5 +1,4 @@
 import { Meta, Story } from "@storybook/react";
-import faker from "faker";
 import { OrganizationBox, OrganizationBoxProps } from "./OrganizationBox";
 import {
   OrganizationBoxContainer,
@@ -24,7 +23,7 @@ export const Container: Story<OrganizationBoxContainerProps> = (args) => (
 Container.args = {
   headline: "The Headline",
   body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, laudantium!",
-  organizationBoxProps: new Array(7).fill(null).map(() => {
+  organisations: new Array(7).fill(null).map(() => {
     return getOrganizationBoxProps();
   }),
 };
