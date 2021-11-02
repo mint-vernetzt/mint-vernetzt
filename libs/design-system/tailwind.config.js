@@ -20,7 +20,7 @@ Object.keys(colors).forEach((color) => {
 
 module.exports = {
   purge: {
-    content: ["../**/*.ts", "../**/*.tsx"],
+    content: ["../**/*.ts", "../**/*.tsx", "../../apps/website/**/*.tsx"],
     safelist: [...colorSafelist],
   },
   darkMode: false, // or 'media' or 'class'
