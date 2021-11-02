@@ -1,7 +1,7 @@
-import { getPaktDataByCategory, PaktDataEdges } from "./dataTransformer";
+import { getPaktDataByCategory, getUserCardsProps } from "./dataTransformer";
 
 describe("getPaktDataByCategory", () => {
-  const edges: PaktDataEdges = [
+  const edges: GatsbyTypes.ProjectPageQuery["paktData"]["edges"] = [
     {
       node: {
         frontmatter: {
@@ -56,6 +56,70 @@ describe("getPaktDataByCategory", () => {
 
     expect(packByCategory["category2"]).toStrictEqual([
       edges[2].node.frontmatter,
+    ]);
+  });
+});
+
+describe("getUserCardsProps", () => {
+  test("transformation as expected", () => {
+    const usersData: GatsbyTypes.ProjectPageQuery["usersData"] = {
+      nodes: [
+        {
+          contactInformations: {
+            firstName: "MyFirstname",
+            lastName: "MyLastname",
+            position: "MyPosition",
+            phone: "",
+            photo: {
+              altText: "MyFirstname MyLastname",
+              localFile: {
+                childImageSharp: {
+                  fluid: {
+                    src: "users-image.jpg",
+                  },
+                },
+              },
+            },
+            organization: [
+              {
+                id: "SOMEID",
+                title: "Organizationname",
+                organizationInformations: {
+                  url: "https://some-url.test/",
+                  logo: {
+                    altText: "Organizationname",
+                    localFile: {
+                      childImageSharp: {
+                        fluid: {
+                          src: "organisation-logo.png",
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            ],
+          },
+        },
+      ],
+    };
+
+    const userCardProps = getUserCardsProps(usersData);
+
+    expect(userCardProps).toStrictEqual([
+      {
+        name: "MyFirstname MyLastname",
+        position: "MyPosition",
+        avatar: {
+          src: "users-image.jpg",
+          alt: "MyFirstname MyLastname",
+        },
+        organizationUrl: "https://some-url.test/",
+        organizationLogo: {
+          src: "organisation-logo.png",
+          alt: "Organizationname",
+        },
+      },
     ]);
   });
 });

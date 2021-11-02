@@ -10,15 +10,18 @@ export function Testimonial(props: TestimonialProps) {
   const { name, jobTitle, description } = props;
   return (
     <div>
-      <div className="flex flex-col p-4 pb-15 md:pb-5 bg-gray-50 rounded-lg shadow-lg h-full">
-        <div className="bg-red-700" style={{ height: 32, width: 32 }} />
-        <h2 className="text-primary normal-case text-xl" data-testid="name">
+      <div className="flex flex-col p-4 pb-8 pb-15 md:pb-5 bg-gray-50 rounded-lg shadow-lg">
+        <div className="bg-red-700 w-8 h-8 mb-2" />
+        <h2 className="text-primary text-3xl" data-testid="name">
           {name}
         </h2>
-        <span className="neutral-600 block" data-testid="jobTitle">
+        <span
+          className="neutral-600 block text-sm mb-4 font-semibold"
+          data-testid="jobTitle"
+        >
           {jobTitle}
         </span>
-        <p data-testid="description" className="text-based text-neutral-700">
+        <p data-testid="description" className="text-based text-neutral-600">
           {description}
         </p>
       </div>
