@@ -15,20 +15,20 @@ export default function Template({ data }) {
     <Layout>
       <section className="container my-8">
         <Link
-          className="border border-neutral-400 py-3 px-4 mb-4 text-neutral-800 text-semibold uppercase rounded-lg"
+          className="inline-block border border-neutral-400 py-3 px-4 mb-4 text-neutral-800 text-semibold uppercase rounded-lg"
           to="/project"
         >
           zur Übersicht
         </Link>
 
-        <div className="flex flex-wrap items-center md:-mx-4 lg:-mx-6">
+        <div className="flex flex-wrap items-center md:-mx-4 lg:-mx-6 ">
           <div className="flex-100 md:flex-1/3 pb-8 md:pb-0 md:px-4 lg:px-6 md:order-2">
             {frontmatter.logo && (
               <Img fluid={frontmatter.logo.childImageSharp.fluid} />
             )}
           </div>
           <div className="flex-100 md:flex-2/3 pb-8 md:pb-0 md:px-4 lg:px-6 md:order-1">
-            <h1 className="text-5xl leading-tight lg:text-6xl lg:leading-none text-blue-500 mb-2 lg:mb-4">
+            <h1 className="text-5xl leading-tight lg:text-6xl lg:leading-none text-blue-500 mb-8">
               {frontmatter.name}
             </h1>
           </div>
