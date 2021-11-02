@@ -22,3 +22,15 @@ section.container header h2 {
 section.container header p.lead {
   @apply leading-6 lg:text-2xl md:w-3/4 md:mx-auto text-neutral-600 font-bold lg:font-normal;
 }
+
+.blog-post-content p {
+  @apply mb-6 text-neutral-600;
+}
+
+.blog-post-content p:last-child {
+  @apply mb-0;
+}
+
+.blog-post-content p a {
+  @apply text-lilac-500 font-bold;
+}
