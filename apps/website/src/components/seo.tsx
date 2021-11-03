@@ -1,9 +1,16 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
-const SEO = ({ title, description, image, slug, children }) => {
+export interface SEOProps {
+  title: string;
+  description: string;
+  image: string;
+  slug: string;
+  children: React.ReactNode;
+}
+
+const SEO = ({ title, description, image, slug, children }: SEOProps) => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -56,14 +63,6 @@ const SEO = ({ title, description, image, slug, children }) => {
       {children}
     </Helmet>
   );
-};
-
-SEO.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  image: PropTypes.string,
-  slug: PropTypes.string,
-  children: PropTypes.node,
 };
 
 export default SEO;
