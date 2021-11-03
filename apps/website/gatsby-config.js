@@ -4,9 +4,7 @@ module.exports = {
   siteMetadata: {
     title: `MINTvernetzt`,
     description: `MINTvernetzt ist die Service- und Anlaufstelle für die Community der MINT-Akteur:innen in Deutschland.`,
-    // TODO add SITE_URL to .env
-    //siteUrl: `${process.env.SITE_URL}`,
-    siteUrl: `http://localhost:4200/`,
+    siteUrl: `${process.env.SITE_URL}`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
