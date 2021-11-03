@@ -1,10 +1,12 @@
 import { graphql, Link } from "gatsby";
 
 import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 export function Index({ data }) {
   return (
     <Layout>
+      <SEO title="Willkommen" slug="/" image="https://placeimg.com/300/300" />
       <section className="hero container my-10">
         <div
           className="hero bg-gray-300 px-20 py-40 rounded-3xl"

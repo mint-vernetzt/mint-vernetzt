@@ -4,6 +4,11 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap");
 
+body p {
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
 .header-section nav a[aria-current="page"] {
   --tw-text-opacity: 1;
   color: rgba(252, 252, 253, var(--tw-text-opacity));
