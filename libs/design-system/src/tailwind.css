@@ -39,3 +39,16 @@ section.container header p.lead {
 .blog-post-content p a {
   @apply text-lilac-500 font-bold;
 }
+
+.pakt-category label::before {
+  content: "\276F";
+  @apply text-center transition-all ease-in-out duration-300 w-6 h-6 md:w-8 md:h-8;
+}
+
+.pakt-category input:checked + label::before {
+  transform: rotate(90deg);
+}
+
+.pakt-category input:checked ~ .pakt-member {
+  max-height: 100vh;
+}

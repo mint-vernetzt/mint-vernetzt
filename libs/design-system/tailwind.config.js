@@ -44,6 +44,10 @@ module.exports = {
       "1/2": "0 0 50%",
       "2/3": "0 0 66.66666%",
     },
+    zIndex: {
+      ...defaultTheme.zIndex,
+      "-1": "-1",
+    },
     container: {
       center: true,
       padding: {
