@@ -2,8 +2,9 @@ require("dotenv").config({ path: `.env.${process.env.NODE_ENV}` });
 
 module.exports = {
   siteMetadata: {
-    title: `website`,
-    description: `This is a gatsby application created by Nx.`,
+    title: `MINTvernetzt`,
+    description: `MINTvernetzt ist die Service- und Anlaufstelle für die Community der MINT-Akteur:innen in Deutschland.`,
+    siteUrl: `${process.env.SITE_URL}`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -34,13 +35,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `website`,
-        short_name: `starter`,
+        name: `MINTvernetzt`,
+        short_name: `MINTvernetzt`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#154194`,
+        theme_color: `#154194`,
         display: `minimal-ui`,
-        icon: `src/images/logo.svg`,
+        icon: `src/images/logo-mint.svg`,
       },
     },
     {

@@ -2,6 +2,7 @@ import { graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 import { Testimonial } from "@mint-vernetzt/react-components";
 import Layout from "../../components/layout";
+import SEO from "../../components/seo";
 
 export default function Template({ data }) {
   const { markdownRemark } = data;
@@ -13,6 +14,10 @@ export default function Template({ data }) {
 
   return (
     <Layout>
+      <SEO
+        title={`Partner: ${frontmatter.name}`}
+        slug={`/pakt/${frontmatter.slug}`}
+      />
       <section className="container my-8">
         <Link
           className="inline-block border border-neutral-400 py-3 px-4 mb-4 text-neutral-800 text-semibold uppercase rounded-lg"
