@@ -67,19 +67,19 @@ export function Header() {
             <ul className="py-8 text-sm leading-6 md:py-0 md:flex md:items-center md:justify-end md:-mx-2">
               {[
                 {
-                  route: `/project`,
+                  route: `/project/`,
                   title: `Projekt`,
                 },
                 {
-                  route: `/news`,
+                  route: `/news/`,
                   title: `Neuigkeiten`,
                 },
                 {
-                  route: `/events`,
+                  route: `/events/`,
                   title: `Veranstaltungen`,
                 },
                 {
-                  route: `/topics`,
+                  route: `/topics/`,
                   title: `Themen`,
                 },
               ].map((link, index) => (
