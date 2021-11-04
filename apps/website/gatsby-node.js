@@ -7,6 +7,7 @@ exports.createPages = async (props) => {
     {
       allWpNewsItem(sort: { fields: [date] }) {
         nodes {
+          id
           date
           title
           content
@@ -43,10 +44,10 @@ exports.createPages = async (props) => {
   `);
   result.data.allWpNewsItem.nodes.forEach((node) => {
     createPage({
-      path: node.slug,
+      path: `/news/${node.slug}`,
       component: path.resolve(`./src/templates/News.tsx`),
       context: {
-        slug: node.slug,
+        id: node.id,
       },
     });
   });

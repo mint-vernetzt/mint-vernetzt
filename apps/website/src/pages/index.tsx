@@ -27,7 +27,7 @@ export function Index({ data }) {
           <h1>News</h1>
           {data.allWpNewsItem.nodes.map((node, index) => (
             <div key={`news-${index}`}>
-              <Link to={node.slug}>
+              <Link to={`/news/${node.slug}`}>
                 <h2>{node.title}</h2>
               </Link>
               <div

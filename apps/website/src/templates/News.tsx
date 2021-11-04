@@ -45,9 +45,10 @@ function News({ data }) {
 export default News;
 
 export const query = graphql`
-  query ($slug: String!) {
-    allWpNewsItem(filter: { slug: { eq: $slug } }) {
+  query ($id: String!) {
+    allWpNewsItem(filter: { id: { eq: $id } }) {
       nodes {
+        id
         date
         title
         content
