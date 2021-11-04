@@ -1,9 +1,13 @@
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
+import { NewsFeed } from "@mint-vernetzt/react-components";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import { getNewsItemsForLandingPage } from "../utils/dataTransformer";
 
 export function Index({ data }) {
+  const newsItems = getNewsItemsForLandingPage(data.newsItems);
+
   return (
     <Layout>
       <SEO title="Willkommen" slug="/" image="https://placeimg.com/300/300" />
@@ -23,27 +27,12 @@ export function Index({ data }) {
       </section>
 
       <section className="container my-10">
-        <div className="bg-yellow-300 p-20 rounded-3xl">
-          <h1>News</h1>
-          {data.allWpNewsItem.nodes.map((node, index) => (
-            <div key={`news-${index}`}>
-              <Link to={`/news/${node.slug}`}>
-                <h2>{node.title}</h2>
-              </Link>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: node.excerpt,
-                }}
-              />
-              <p>{node.date}</p>
-              <ul>
-                {node.tags.nodes.map((tag, index) => {
-                  return <li key={`tag-${index}`}>{tag.name}</li>;
-                })}
-              </ul>
-            </div>
-          ))}
-        </div>
+        <NewsFeed
+          headline="Neuigkeiten"
+          body="Wir blicken in die MINT-Welt und darüber hinaus und informieren Euch regelmäßig über Erkenntnisse, Ereignisse und Innovationen, die für Eure tägliche Arbeit interessant sind."
+          linkToOverview="/news/"
+          newsFeedItemsProps={newsItems}
+        />
       </section>
 
       <section className="container my-10">
@@ -58,8 +47,8 @@ export function Index({ data }) {
 export default Index;
 
 export const pageQuery = graphql`
-  query {
-    allWpNewsItem(sort: { fields: [date] }) {
+  query LandingPage {
+    newsItems: allWpNewsItem(sort: { fields: [date] }) {
       nodes {
         title
         excerpt
