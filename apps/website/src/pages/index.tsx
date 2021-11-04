@@ -25,10 +25,9 @@ export function Index({ data }) {
       <section className="container my-10">
         <div className="bg-yellow-300 p-20 rounded-3xl">
           <h1>News</h1>
-          <h4>Posts</h4>
-          {data.allWpPost.nodes.map((node, index) => (
-            <div key={`post ${index}`}>
-              <Link to={node.slug}>
+          {data.allWpNewsItem.nodes.map((node, index) => (
+            <div key={`news-${index}`}>
+              <Link to={`/news/${node.slug}`}>
                 <h2>{node.title}</h2>
               </Link>
               <div
@@ -36,6 +35,12 @@ export function Index({ data }) {
                   __html: node.excerpt,
                 }}
               />
+              <p>{node.date}</p>
+              <ul>
+                {node.tags.nodes.map((tag, index) => {
+                  return <li key={`tag-${index}`}>{tag.name}</li>;
+                })}
+              </ul>
             </div>
           ))}
         </div>
@@ -54,11 +59,17 @@ export default Index;
 
 export const pageQuery = graphql`
   query {
-    allWpPost(sort: { fields: [date] }) {
+    allWpNewsItem(sort: { fields: [date] }) {
       nodes {
         title
         excerpt
         slug
+        date
+        tags {
+          nodes {
+            name
+          }
+        }
       }
     }
   }

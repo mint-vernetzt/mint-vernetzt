@@ -5,22 +5,49 @@ exports.createPages = async (props) => {
   const { createPage } = actions;
   const result = await graphql(`
     {
-      allWpPost(sort: { fields: [date] }) {
+      allWpNewsItem(sort: { fields: [date] }) {
         nodes {
+          id
+          date
           title
-          excerpt
           content
           slug
+          tags {
+            nodes {
+              name
+            }
+          }
+          documents {
+            documentList {
+              document {
+                title
+                mimeType
+                link
+                caption
+              }
+            }
+          }
+          featuredImage {
+            node {
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 1024) {
+                    src
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
   `);
-  result.data.allWpPost.nodes.forEach((node) => {
+  result.data.allWpNewsItem.nodes.forEach((node) => {
     createPage({
-      path: node.slug,
-      component: path.resolve(`./src/templates/Post.tsx`),
+      path: `/news/${node.slug}`,
+      component: path.resolve(`./src/templates/News.tsx`),
       context: {
-        slug: node.slug,
+        id: node.id,
       },
     });
   });
