@@ -17,7 +17,11 @@ body p {
 }
 
 section.container header {
-  @apply mb-10 md:text-center;
+  @apply mb-10;
+}
+
+section.container header:not(.text-left) {
+  @apply md:text-center;
 }
 
 section.container header h2 {
@@ -25,7 +29,11 @@ section.container header h2 {
 }
 
 section.container header p.lead {
-  @apply leading-6 lg:text-2xl md:w-3/4 md:mx-auto text-neutral-600 font-bold lg:font-normal;
+  @apply leading-6 lg:text-2xl text-neutral-600 font-bold lg:font-normal;
+}
+
+section.container header:not(.text-left) p.lead {
+  @apply md:w-3/4 md:mx-auto;
 }
 
 .blog-post-content p {
