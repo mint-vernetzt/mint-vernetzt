@@ -1,4 +1,10 @@
-import { getPaktDataByCategory, getUserCardsProps } from "./dataTransformer";
+import { formatDate, NewsFeedItemProps } from "@mint-vernetzt/react-components";
+import faker from "faker";
+import {
+  getNewsItemsForLandingPage,
+  getPaktDataByCategory,
+  getUserCardsProps,
+} from "./dataTransformer";
 
 describe("getPaktDataByCategory", () => {
   const edges: GatsbyTypes.ProjectPageQuery["paktData"]["edges"] = [
@@ -122,4 +128,38 @@ describe("getUserCardsProps", () => {
       },
     ]);
   });
+});
+
+test("transform news items for landing page", () => {
+  const date = faker.date.future();
+  const title = faker.lorem.words();
+  const excerpt = faker.lorem.paragraph();
+  const slug = faker.lorem.slug();
+  const tagName = faker.lorem.word();
+
+  const input: GatsbyTypes.LandingPageQuery["newsItems"] = {
+    nodes: [
+      {
+        date: date.toISOString(),
+        title,
+        excerpt: `<p>${excerpt}</p>`,
+        slug,
+        tags: {
+          nodes: [
+            {
+              name: tagName,
+            },
+          ],
+        },
+      },
+    ],
+  };
+
+  const result: NewsFeedItemProps[] = getNewsItemsForLandingPage(input);
+
+  expect(result[0].headline).toBe(title);
+  expect(formatDate(result[0].date)).toBe(formatDate(date));
+  expect(result[0].body).toBe(excerpt);
+  expect(result[0].slug).toBe(`/news/${slug}`);
+  expect(result[0].tagsProps[0].title).toBe(tagName);
 });
