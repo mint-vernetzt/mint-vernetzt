@@ -5,12 +5,18 @@ export interface TagProps {
   title: string;
 }
 
+export interface Image {
+  src: string;
+  alt: string;
+}
+
 export interface NewsFeedItemProps {
   headline: string;
   body: string;
   date: Date;
   slug: string;
   tagsProps?: TagProps[];
+  image?: Image;
 }
 
 function Tag({ title }: TagProps) {
@@ -27,11 +33,13 @@ export function NewsFeedItem({
   date,
   slug,
   tagsProps = [],
+  image,
 }: NewsFeedItemProps) {
   const formattedDate = formatDate(date);
 
   return (
     <div className="flex flex-wrap">
+      {image !== undefined ? <img src={image.src} alt={image.alt} /> : null}
       <time
         data-testid="date"
         dateTime={date.toISOString()}

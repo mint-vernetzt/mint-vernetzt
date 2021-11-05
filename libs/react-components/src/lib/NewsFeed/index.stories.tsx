@@ -21,6 +21,22 @@ Item.args = {
 };
 Item.storyName = "item";
 
+export const ItemWithImage: Story<NewsFeedItemProps> = (args) => (
+  <NewsFeedItem {...args} />
+);
+ItemWithImage.args = {
+  headline: faker.lorem.words(),
+  body: faker.lorem.paragraph(),
+  date: faker.date.future(),
+  slug: faker.internet.url(),
+  tagsProps: [getTag(), getTag(), getTag()],
+  image: {
+    src: faker.image.image(),
+    alt: faker.lorem.words(),
+  },
+};
+ItemWithImage.storyName = "with image";
+
 export const Feed: Story<NewsFeedProps> = (args) => <NewsFeed {...args} />;
 Feed.args = {
   headline: faker.lorem.words(),
