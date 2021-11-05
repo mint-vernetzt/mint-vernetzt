@@ -1,4 +1,4 @@
-import { render, screen, within, logRoles } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import faker from "faker";
 import { formatDate, getTag } from "./utils";
 
@@ -54,7 +54,6 @@ test("show image", () => {
   };
 
   const { container } = render(<NewsFeedItem {...props} />);
-  logRoles(container);
   const imageDom = screen.getByRole("img");
   expect(imageDom.getAttribute("src")).toBe(props.image.src);
   expect(imageDom.getAttribute("alt")).toBe(props.image.alt);
