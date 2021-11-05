@@ -1,16 +1,23 @@
-import { graphql } from "gatsby";
-import { NewsFeed } from "@mint-vernetzt/react-components";
-
+import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { getNewsItems } from "../utils/dataTransformer";
+
+import { NewsFeed } from "@mint-vernetzt/react-components";
+import { OrganizationBoxContainer } from "@mint-vernetzt/react-components";
 
 export function Index({ data }) {
   const newsItems = getNewsItems(data.newsItems);
 
   return (
     <Layout>
-      <SEO title="Willkommen" slug="/" image="https://placeimg.com/300/300" />
+      <SEO
+        title="Willkommen"
+        slug="/"
+        image="https://placeimg.com/300/300"
+        description={""}
+        children={""}
+      />
       <section className="hero container my-10">
         <div
           className="hero bg-gray-300 px-20 py-40 rounded-3xl"
@@ -36,9 +43,11 @@ export function Index({ data }) {
       </section>
 
       <section className="container my-10">
-        <div className="bg-yellow-300 p-20 rounded-3xl">
-          <h1>Verbundpartner</h1>
-        </div>
+        <OrganizationBoxContainer
+          headline="Der Verbund"
+          body="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat"
+          organisations={[]}
+        />
       </section>
     </Layout>
   );

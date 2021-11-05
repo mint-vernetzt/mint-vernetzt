@@ -1,7 +1,4 @@
-export interface Image {
-  src: string;
-  alt: string;
-}
+import { Image } from "@mint-vernetzt/react-components";
 
 export interface OrganizationBoxProps {
   name: string;
