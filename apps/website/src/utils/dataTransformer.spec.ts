@@ -1,7 +1,7 @@
 import { formatDate, NewsFeedItemProps } from "@mint-vernetzt/react-components";
 import faker from "faker";
 import {
-  getNewsItemsForLandingPage,
+  getNewsItems,
   getPaktDataByCategory,
   getUserCardsProps,
 } from "./dataTransformer";
@@ -130,14 +130,20 @@ describe("getUserCardsProps", () => {
   });
 });
 
-test("transform news items for landing page", () => {
+test("transform news items", () => {
   const date = faker.date.future();
   const title = faker.lorem.words();
   const excerpt = faker.lorem.paragraph();
   const slug = faker.lorem.slug();
   const tagName = faker.lorem.word();
+  const image = {
+    src: faker.image.image(),
+    alt: faker.lorem.words(),
+  };
 
-  const input: GatsbyTypes.LandingPageQuery["newsItems"] = {
+  const input:
+    | GatsbyTypes.LandingPageQuery["newsItems"]
+    | GatsbyTypes.NewsFeedQuery["allItems"] = {
     nodes: [
       {
         date: date.toISOString(),
@@ -151,15 +157,29 @@ test("transform news items for landing page", () => {
             },
           ],
         },
+        featuredImage: {
+          node: {
+            altText: image.alt,
+            localFile: {
+              childImageSharp: {
+                fluid: {
+                  src: image.src,
+                },
+              },
+            },
+          },
+        },
       },
     ],
   };
 
-  const result: NewsFeedItemProps[] = getNewsItemsForLandingPage(input);
+  const result: NewsFeedItemProps[] = getNewsItems(input);
 
   expect(result[0].headline).toBe(title);
   expect(formatDate(result[0].date)).toBe(formatDate(date));
   expect(result[0].body).toBe(excerpt);
   expect(result[0].slug).toBe(`/news/${slug}`);
   expect(result[0].tagsProps[0].title).toBe(tagName);
+  expect(result[0].image.src).toBe(image.src);
+  expect(result[0].image.alt).toBe(image.alt);
 });

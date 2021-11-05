@@ -3,10 +3,10 @@ import { NewsFeed } from "@mint-vernetzt/react-components";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import { getNewsItemsForLandingPage } from "../utils/dataTransformer";
+import { getNewsItems } from "../utils/dataTransformer";
 
 export function Index({ data }) {
-  const newsItems = getNewsItemsForLandingPage(data.newsItems);
+  const newsItems = getNewsItems(data.newsItems);
 
   return (
     <Layout>
