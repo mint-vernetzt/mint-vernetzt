@@ -3,8 +3,8 @@ import NewsFeedItem, { NewsFeedItemProps } from "./NewsFeedItem";
 
 export interface NewsFeedProps {
   headline: string;
-  body: string;
-  linkToOverview: string;
+  body?: string;
+  linkToOverview?: string;
   newsFeedItemsProps?: NewsFeedItemProps[];
 }
 
@@ -18,17 +18,23 @@ export function NewsFeed({
     <section>
       {/* TODO: remove uppercase in tailwind config and override in component headline */}
       <h3 className="mb-1 text-primary normal-case text-5xl leading-none lg:text-6xl sm:mb-6">
-        <a className="cursor-pointer hover:underline" href={linkToOverview}>
-          {headline}
-        </a>
+        {linkToOverview !== undefined ? (
+          <a className="cursor-pointer hover:underline" href={linkToOverview}>
+            {headline}
+          </a>
+        ) : (
+          headline
+        )}
       </h3>
-      <p
-        data-testid="body"
-        className="text-neutral-800 text-base lg:text-2xl font-bold lg:font-normal leading-tight"
-        style={{ marginBottom: "7px" }}
-      >
-        {body}
-      </p>
+      {body !== undefined ? (
+        <p
+          data-testid="body"
+          className="text-neutral-800 text-base lg:text-2xl font-bold lg:font-normal leading-tight"
+          style={{ marginBottom: "7px" }}
+        >
+          {body}
+        </p>
+      ) : null}
       <ul>
         {newsFeedItemsProps.map((newsFeedItemProps, index) => {
           return (
