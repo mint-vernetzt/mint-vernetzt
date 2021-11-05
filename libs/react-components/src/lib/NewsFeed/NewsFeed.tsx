@@ -1,3 +1,4 @@
+import React from "react";
 import NewsFeedItem, { NewsFeedItemProps } from "./NewsFeedItem";
 
 export interface NewsFeedProps {

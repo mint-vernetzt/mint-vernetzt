@@ -1,4 +1,8 @@
-import { UserCardProps } from "./../../../../libs/react-components/src/lib/UserCard/UserCard";
+import {
+  NewsFeedItemProps,
+  TagProps,
+  UserCardProps,
+} from "@mint-vernetzt/react-components";
 
 export type PaktDataByCategory = {
   [key: string]: {
@@ -45,6 +49,23 @@ export const getUserCardsProps = (
           .childImageSharp.fluid.src,
         alt: organisation.title,
       },
+    };
+  });
+};
+
+export const getNewsItemsForLandingPage = (
+  newsItems: GatsbyTypes.LandingPageQuery["newsItems"]
+): NewsFeedItemProps[] => {
+  return newsItems.nodes.map((newsItem) => {
+    const tagsProps: TagProps[] = newsItem.tags.nodes.map((tag) => {
+      return { title: tag.name };
+    });
+    return {
+      headline: newsItem.title,
+      body: newsItem.excerpt.replace(/<[^>]*>/g, ""),
+      date: new Date(newsItem.date),
+      slug: `/news/${newsItem.slug}`,
+      tagsProps,
     };
   });
 };
