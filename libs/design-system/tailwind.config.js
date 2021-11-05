@@ -70,28 +70,37 @@ module.exports = {
         h1: {
           fontSize: theme("fontSize.7xl"),
           fontWeight: "bold",
+          color: theme("colors.blue-500"),
         },
         h2: {
           fontSize: theme("fontSize.4xl"),
           fontWeight: "bold",
+          color: theme("colors.blue-500"),
         },
         h3: {
           fontSize: theme("fontSize.3xl"),
           fontWeight: "bold",
+          color: theme("colors.blue-500"),
         },
         h4: {
           fontSize: theme("fontSize.2xl"),
           fontWeight: "bold",
+          color: theme("colors.blue-500"),
         },
         h5: {
           fontSize: theme("fontSize.xl"),
           fontWeight: "bold",
+          color: theme("colors.blue-500"),
         },
         h6: {
           fontSize: theme("fontSize.lg"),
           fontWeight: "bold",
+          color: theme("colors.blue-500"),
         },
-        p: { fontSize: theme("fontSize.base") },
+        p: {
+          fontSize: theme("fontSize.base"),
+          color: theme("colors.text-neutral-600"),
+        },
       });
     }),
   ],

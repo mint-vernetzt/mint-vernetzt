@@ -4,9 +4,22 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap");
 
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
 body p {
   -webkit-hyphens: auto;
   hyphens: auto;
+}
+
+p {
+  @apply leading-6 mb-6;
+}
+
+div p:last-child {
+  @apply mb-0;
 }
 
 .header-section nav a[aria-current="page"] {
@@ -21,19 +34,11 @@ section.container header {
 }
 
 section.container header h2 {
-  @apply text-5xl leading-tight lg:text-6xl lg:leading-none text-blue-500 mb-2 lg:mb-4;
+  @apply text-5xl leading-tight lg:text-6xl lg:leading-none mb-2 lg:mb-4;
 }
 
 section.container header p.lead {
-  @apply leading-6 lg:text-2xl md:w-3/4 md:mx-auto text-neutral-600 font-bold lg:font-normal;
-}
-
-.blog-post-content p {
-  @apply mb-6 text-neutral-600;
-}
-
-.blog-post-content p:last-child {
-  @apply mb-0;
+  @apply leading-6 lg:text-2xl md:w-3/4 md:mx-auto font-bold lg:font-normal;
 }
 
 .blog-post-content p a {
@@ -51,4 +56,8 @@ section.container header p.lead {
 
 .pakt-category input:checked ~ .pakt-member {
   max-height: 100vh;
+}
+
+.document-list p {
+  @apply font-bold p-0 m-0 text-lg leading-tight;
 }
