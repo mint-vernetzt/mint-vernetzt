@@ -12,7 +12,9 @@ function News({ data }) {
           return <li key={`tag-${index}`}>{tag.name}</li>;
         })}
       </ul>
-      <Img fluid={props.featuredImage.node.localFile.childImageSharp.fluid} />
+      {props.featuredImage !== null ? (
+        <Img fluid={props.featuredImage.node.localFile.childImageSharp.fluid} />
+      ) : null}
       <h1>{props.title}</h1>
       <div
         dangerouslySetInnerHTML={{
@@ -21,22 +23,24 @@ function News({ data }) {
       />
       <h2>Documents</h2>
       <ul>
-        {props.documents.documentList.map((documentListItem, index) => {
-          const { document } = documentListItem;
-          return (
-            <li key={`document-${index}`}>
-              {document.mimeType}
-              <br />
-              <a
-                href={document.localFile.publicURL}
-                target="_blank"
-                dangerouslySetInnerHTML={{
-                  __html: document.caption,
-                }}
-              ></a>
-            </li>
-          );
-        })}
+        {props.documents.documentList !== null
+          ? props.documents.documentList.map((documentListItem, index) => {
+              const { document } = documentListItem;
+              return (
+                <li key={`document-${index}`}>
+                  {document.mimeType}
+                  <br />
+                  <a
+                    href={document.localFile.publicURL}
+                    target="_blank"
+                    dangerouslySetInnerHTML={{
+                      __html: document.caption,
+                    }}
+                  ></a>
+                </li>
+              );
+            })
+          : null}
       </ul>
     </div>
   );
