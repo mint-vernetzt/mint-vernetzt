@@ -53,19 +53,33 @@ export const getUserCardsProps = (
   });
 };
 
-export const getNewsItemsForLandingPage = (
-  newsItems: GatsbyTypes.LandingPageQuery["newsItems"]
+export const getNewsItems = (
+  newsItems:
+    | GatsbyTypes.LandingPageQuery["newsItems"]
+    | GatsbyTypes.NewsFeedQuery["allItems"]
 ): NewsFeedItemProps[] => {
   return newsItems.nodes.map((newsItem) => {
     const tagsProps: TagProps[] = newsItem.tags.nodes.map((tag) => {
       return { title: tag.name };
     });
+
+    let image;
+    if (
+      newsItem.featuredImage !== undefined &&
+      newsItem.featuredImage !== null
+    ) {
+      image = {
+        src: newsItem.featuredImage.node.localFile.childImageSharp.fluid.src,
+        alt: newsItem.featuredImage.node.altText,
+      };
+    }
     return {
       headline: newsItem.title,
       body: newsItem.excerpt.replace(/<[^>]*>/g, ""),
       date: new Date(newsItem.date),
       slug: `/news/${newsItem.slug}`,
       tagsProps,
+      image,
     };
   });
 };

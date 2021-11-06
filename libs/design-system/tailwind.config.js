@@ -36,6 +36,10 @@ module.exports = {
     fontSize: {
       ...fontSizes,
     },
+    lineHeight: {
+      ...defaultTheme.lineHeight,
+      snug: "1.333333",
+    },
     flex: {
       ...defaultTheme.flex,
       100: "0 0 100%",
@@ -43,6 +47,10 @@ module.exports = {
       "1/3": "0 0 33.3333%",
       "1/2": "0 0 50%",
       "2/3": "0 0 66.66666%",
+    },
+    minHeight: {
+      ...defaultTheme.minHeight,
+      12.5: "12.5rem",
     },
     zIndex: {
       ...defaultTheme.zIndex,
@@ -60,6 +68,7 @@ module.exports = {
       brightness: ["hover", "focus"],
       borderStyle: ["hover", "focus"],
       borderWidth: ["last"],
+      padding: ["first"],
     },
   },
   plugins: [
