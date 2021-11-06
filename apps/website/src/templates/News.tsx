@@ -11,7 +11,7 @@ function News({ data }) {
     <Layout>
       <SEO title={`${props.title}`} slug={`/news/${props.slug}`} />
 
-      <section className="container my-4 md:my-8">
+      <section className="container py-4 md:py-8">
         <Link
           className="inline-block border border-neutral-400 py-3 px-4 mb-6 text-neutral-800 text-semibold uppercase rounded-lg"
           to="/news"
