@@ -15,9 +15,9 @@ export function News({ data }) {
           <h1>News-Hero</h1>
         </div>
       </section>
-      <div className="container">
+      <section className="container my-10">
         <NewsFeed headline="Neuigkeiten" newsFeedItemsProps={newsItems} />
-      </div>
+      </section>
     </Layout>
   );
 }

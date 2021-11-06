@@ -38,36 +38,46 @@ export function NewsFeedItem({
   const formattedDate = formatDate(date);
 
   return (
-    <div className="flex flex-wrap">
-      {image !== undefined ? <img src={image.src} alt={image.alt} /> : null}
-      <time
-        data-testid="date"
-        dateTime={date.toISOString()}
-        className="mb-2 md:mb-0 md:mr-2 md:py-2 md:pr-3 uppercase font-bold text-neutral-800 text-xs flex-100 md:flex-none md:order-3"
-      >
-        {formattedDate}
-      </time>
-      {/* TODO: remove uppercase in tailwind config and override in component headline */}
-      <h4 className="text-primary text-3xl mb-2 normal-case flex-100 md:order-1">
-        <a href={slug} className="cursor-pointer hover:underline">
-          {headline}
-        </a>
-      </h4>
-      <p
-        data-testid="body"
-        className="text-base text-neutral-600 leading-4 line-clamp-5 mb-4 md:line-clamp-none flex-100 md:order-2"
-      >
-        {body}
-      </p>
-      <ul className="flex flex-wrap md:order-4">
-        {tagsProps.map((tagProps, index) => {
-          return (
-            <li key={`tag-${index}`}>
-              <Tag {...tagProps} />
-            </li>
-          );
-        })}
-      </ul>
+    <div className="flex flex-wrap md:flex-nowrap md:-mx-2 lg-mx-4 md:items-stretch">
+      {image !== undefined ? (
+        <div className="flex-100 mb-2 md:mb-0 md:px-2 lg:px-4 md:flex-1/3 lg:min-h-12.5">
+          <img
+            src={image.src}
+            alt={image.alt}
+            className="w-full h-auto md:h-full md:object-cover rounded-lg"
+          />
+        </div>
+      ) : null}
+      <div className="md:flex-auto md:px-2 lg:px-4 flex flex-wrap lg:self-center">
+        <time
+          data-testid="date"
+          dateTime={date.toISOString()}
+          className="mb-2 md:mb-0 md:mr-2 md:py-2 md:pr-3 uppercase font-bold text-neutral-800 text-xs flex-100 md:flex-none md:order-3"
+        >
+          {formattedDate}
+        </time>
+        {/* TODO: remove uppercase in tailwind config and override in component headline */}
+        <h4 className="text-primary text-3xl leading-snug mb-2 normal-case flex-100 md:order-1">
+          <a href={slug} className="cursor-pointer hover:underline">
+            {headline}
+          </a>
+        </h4>
+        <p
+          data-testid="body"
+          className="line-clamp-5 mb-4 md:line-clamp-none flex-100 md:order-2"
+        >
+          {body}
+        </p>
+        <ul className="flex flex-wrap md:order-4">
+          {tagsProps.map((tagProps, index) => {
+            return (
+              <li key={`tag-${index}`}>
+                <Tag {...tagProps} />
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
   );
 }
