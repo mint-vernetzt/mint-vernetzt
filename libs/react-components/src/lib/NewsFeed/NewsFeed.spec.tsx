@@ -32,7 +32,10 @@ test("add news feed items", () => {
   const newsFeedItemProps2 = getNewsFeedItemProps();
   const newsFeedItemProps3 = getNewsFeedItemProps();
   const forcedNumberOfTags = 5;
-  const newsFeedItemProps4 = getNewsFeedItemProps(forcedNumberOfTags);
+  const newsFeedItemProps4 = getNewsFeedItemProps({
+    numberOfTags: forcedNumberOfTags,
+  });
+  const newsFeedItemProps5 = getNewsFeedItemProps({ withImage: true });
 
   const props = {
     headline,
@@ -43,12 +46,13 @@ test("add news feed items", () => {
       newsFeedItemProps2,
       newsFeedItemProps3,
       newsFeedItemProps4,
+      newsFeedItemProps5,
     ],
   };
 
   // we loop through tags array
   // check assertion count to make sure all assertions were checked
-  expect.assertions(forcedNumberOfTags + 4);
+  expect.assertions(forcedNumberOfTags + 6);
 
   render(<NewsFeed {...props} />);
 
@@ -87,4 +91,13 @@ test("add news feed items", () => {
       (newsFeedItemProps4.tagsProps as TagProps[])[index].title
     );
   });
+
+  // test "image" rendered
+  const newsFeedItem5Dom = newsFeedItemDom[4];
+  const imageDom = within(newsFeedItem5Dom).getByRole("img");
+  if (newsFeedItemProps5.image !== undefined) {
+    // condition is used to prevent "Object is possibly 'undefined'"
+    expect(imageDom.getAttribute("src")).toBe(newsFeedItemProps5.image.src);
+    expect(imageDom.getAttribute("alt")).toBe(newsFeedItemProps5.image.alt);
+  }
 });

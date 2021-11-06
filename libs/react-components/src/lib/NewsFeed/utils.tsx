@@ -15,7 +15,19 @@ export function getTag(): TagProps {
   return { title };
 }
 
-export function getNewsFeedItemProps(numberOfTags?: number): NewsFeedItemProps {
+export interface GetNewsFeedItemPropsOptions {
+  numberOfTags?: number;
+  withImage?: boolean;
+}
+
+export function getNewsFeedItemProps(
+  options?: GetNewsFeedItemPropsOptions
+): NewsFeedItemProps {
+  const {
+    numberOfTags = Math.floor(Math.random() * (5 + 1)), // add up to 5 tags
+    withImage,
+  } = options || {};
+
   const headline = faker.lorem.words();
   const body = faker.lorem.paragraph();
   const date = faker.date.future();
@@ -23,13 +35,15 @@ export function getNewsFeedItemProps(numberOfTags?: number): NewsFeedItemProps {
 
   const tagsProps: TagProps[] = [];
 
-  if (numberOfTags === undefined) {
-    // add up to 5 tags
-    numberOfTags = Math.floor(Math.random() * (5 + 1));
-  }
   for (let i = 0; i < numberOfTags; i++) {
     tagsProps.push(getTag());
   }
 
-  return { headline, body, date, slug, tagsProps };
+  let image;
+
+  if (withImage) {
+    image = { src: faker.image.image(), alt: faker.lorem.words() };
+  }
+
+  return { headline, body, date, slug, tagsProps, image };
 }
