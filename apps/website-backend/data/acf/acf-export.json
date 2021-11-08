@@ -214,7 +214,29 @@
         "min": 0,
         "max": 0,
         "layout": "table",
-        "button_label": ""
+        "button_label": "",
+        "sub_fields": [
+          {
+            "key": "field_6183c8acb3e66",
+            "label": "Document",
+            "name": "document",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "",
+              "class": "",
+              "id": ""
+            },
+            "show_in_graphql": 1,
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
+          }
+        ]
       }
     ],
     "location": [
@@ -312,6 +334,28 @@
         "show_in_graphql": 1,
         "display_format": "H:i",
         "return_format": "H:i:s"
+      },
+      {
+        "key": "field_61891499a7318",
+        "label": "Contact Person",
+        "name": "contact_person",
+        "type": "relationship",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "show_in_graphql": 1,
+        "post_type": ["contacts"],
+        "taxonomy": "",
+        "filters": ["search"],
+        "elements": "",
+        "min": 0,
+        "max": 1,
+        "return_format": "object"
       }
     ],
     "location": [
