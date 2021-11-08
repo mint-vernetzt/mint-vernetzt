@@ -81,7 +81,7 @@
     "has_archive_string": "",
     "exclude_from_search": "false",
     "capability_type": "post",
-    "hierarchical": "false",
+    "hierarchical": "true",
     "rewrite": "true",
     "rewrite_slug": "",
     "rewrite_withfront": "true",
@@ -91,7 +91,7 @@
     "show_in_menu": "true",
     "show_in_menu_string": "",
     "menu_icon": "",
-    "supports": ["title", "editor", "thumbnail", "excerpt"],
+    "supports": ["title", "editor", "thumbnail", "excerpt", "page-attributes"],
     "taxonomies": ["post_tag", "eventcategory"],
     "labels": {
       "parent": "Events:",
