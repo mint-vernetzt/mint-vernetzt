@@ -92,7 +92,7 @@ export const getParentEventItems = (
   return graphqlResult.nodes.map((event) => ({
     headline: event.title,
     body: event.excerpt.replace(/<[^>]*>/g, ""),
-    slug: event.slug,
+    slug: `/event/${event.slug}`,
     date: new Date(event.eventInformations.startDate),
   }));
 };
