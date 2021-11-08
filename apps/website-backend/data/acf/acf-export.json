@@ -214,29 +214,7 @@
         "min": 0,
         "max": 0,
         "layout": "table",
-        "button_label": "",
-        "sub_fields": [
-          {
-            "key": "field_6183c8acb3e66",
-            "label": "Document",
-            "name": "document",
-            "type": "file",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-              "width": "",
-              "class": "",
-              "id": ""
-            },
-            "show_in_graphql": 1,
-            "return_format": "array",
-            "library": "all",
-            "min_size": "",
-            "max_size": "",
-            "mime_types": ""
-          }
-        ]
+        "button_label": ""
       }
     ],
     "location": [
@@ -363,6 +341,26 @@
     "title": "Organization Informations",
     "fields": [
       {
+        "key": "field_6188db3b463b5",
+        "label": "Name",
+        "name": "name",
+        "type": "text",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "show_in_graphql": 1,
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
         "key": "field_617ae76ea2325",
         "label": "Url",
         "name": "url",
@@ -406,6 +404,26 @@
         "max_height": "",
         "max_size": "",
         "mime_types": ""
+      },
+      {
+        "key": "field_6188dad2aa067",
+        "label": "Description",
+        "name": "description",
+        "type": "textarea",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "show_in_graphql": 1,
+        "default_value": "",
+        "placeholder": "",
+        "maxlength": "",
+        "rows": "",
+        "new_lines": ""
       }
     ],
     "location": [
