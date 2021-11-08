@@ -18,6 +18,19 @@ export function EventFeedItem({
 
   return (
     <div>
+      {/* TODO: add icon before date */}
+      <div className="inline-block icon w-3 h-3 bg-red-600"></div>{" "}
+      <time
+        data-testid="date"
+        dateTime={date.toISOString()}
+        className="uppercase font-bold text-neutral-800 text-xs"
+      >
+        {formattedDate}
+      </time>
+      <div className="inline-block icon ml-3 w-3 h-3 bg-red-600"></div>{" "}
+      <div className="inline-block uppercase font-bold text-neutral-800 text-xs">
+        Digitale Veranstaltung
+      </div>
       {/* TODO:  remove uppercase in tailwind config and override in component headline */}
       <h4 className="mb-1 text-base lg:text-lg font-bold text-primary leading-6 normal-case">
         <a href={slug} className="cursor-pointer hover:underline">
@@ -30,14 +43,6 @@ export function EventFeedItem({
       >
         {body}
       </p>
-      {/* TODO: add icon before date */}
-      <time
-        data-testid="date"
-        dateTime={date.toISOString()}
-        className="uppercase font-bold text-neutral-800 text-xs"
-      >
-        {formattedDate}
-      </time>
     </div>
   );
 }

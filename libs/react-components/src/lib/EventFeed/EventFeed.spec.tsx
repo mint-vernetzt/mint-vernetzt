@@ -6,20 +6,6 @@ import { formatDate, getEventFeedItemProps } from "./utils";
 const headline = faker.lorem.words();
 const linkToOverview = faker.internet.url();
 
-test("render headline and body", () => {
-  const props: EventFeedProps = {
-    headline,
-    linkToOverview,
-  };
-
-  render(<EventFeed {...props} />);
-
-  const headlineDom = screen.getByRole("heading");
-  expect(headlineDom.textContent).toBe(headline);
-  const linkToOverviewDom = within(headlineDom).getByRole("link");
-  expect(linkToOverviewDom.getAttribute("href")).toBe(linkToOverview);
-});
-
 test("add event feed items", () => {
   const eventFeedItemProps1 = getEventFeedItemProps();
   const eventFeedItemProps2 = getEventFeedItemProps();
