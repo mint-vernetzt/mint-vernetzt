@@ -1,5 +1,4 @@
 import { Meta, Story } from "@storybook/react";
-import faker from "faker";
 import { EventFeed, EventFeedProps } from "./EventFeed";
 import { EventFeedItem, EventFeedItemProps } from "./EventFeedItem";
 import { getEventFeedItemProps } from "./utils";
