@@ -2,6 +2,7 @@ import {
   NewsFeedItemProps,
   TagProps,
   UserCardProps,
+  OrganizationBoxProps,
 } from "@mint-vernetzt/react-components";
 
 export type PaktDataByCategory = {
@@ -84,9 +85,9 @@ export const getNewsItems = (
   });
 };
 
-export const getOrganizationsDataForLandingPage = (
+export const getOrganizationsData = (
   organisations: GatsbyTypes.LandingPageQuery["organizationsData"]
-) => {
+): OrganizationBoxProps[] => {
   return organisations.nodes.map((organisation) => ({
     name: organisation.organizationInformations.name,
     description: organisation.organizationInformations.description,

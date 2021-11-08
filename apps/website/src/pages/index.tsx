@@ -1,7 +1,7 @@
 import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import { getNewsItems } from "../utils/dataTransformer";
+import { getNewsItems, getOrganizationsData } from "../utils/dataTransformer";
 
 import {
   NewsFeed,
@@ -11,14 +11,7 @@ import { OrganizationBoxContainer } from "@mint-vernetzt/react-components";
 
 export function Index({ data }) {
   const newsItems = getNewsItems(data.newsItems);
-import {
-  getOrganizationsDataForLandingPage,
-} from "../utils/dataTransformer";
-
-export function Index({ data }) {
-  const newsItems = getNewsItemsForLandingPage(data.newsItems);
-  const organisations: OrganizationBoxProps[] =
-    getOrganizationsDataForLandingPage(data.organizationsData);
+  const organisations = getOrganizationsData(data.organizationsData);
 
   return (
     <Layout>

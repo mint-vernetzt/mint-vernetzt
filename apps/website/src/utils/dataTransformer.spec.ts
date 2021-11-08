@@ -6,7 +6,7 @@ import {
 import faker from "faker";
 import {
   getNewsItems,
-  getOrganizationsDataForLandingPage,
+  getOrganizationsData,
   getPaktDataByCategory,
   getUserCardsProps,
 } from "./dataTransformer";
@@ -224,7 +224,7 @@ test("transform organisation items for landing page", () => {
     ],
   };
 
-  const transformedOrganisations = getOrganizationsDataForLandingPage(input);
+  const transformedOrganisations = getOrganizationsData(input);
 
   expect(transformedOrganisations).toStrictEqual(output);
 });
