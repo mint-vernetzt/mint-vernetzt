@@ -9,7 +9,13 @@ function News({ data }) {
   const props = data.allWpNewsItem.nodes[0];
   return (
     <Layout>
-      <SEO title={`${props.title}`} slug={`/news/${props.slug}`} />
+      <SEO
+        title={`${props.title}`}
+        slug={`/news/${props.slug}`}
+        description=""
+        image=""
+        children=""
+      />
 
       <section className="container my-4 md:my-8">
         <Link
@@ -53,36 +59,38 @@ function News({ data }) {
               }}
             />
           </div>
-          <div className="flex-100 md:flex-1/3 md:px-2 lg:px-6">
-            <h4 className="text-3xl leading-5 pb-4">Documents</h4>
-            <ul className="document-list">
-              {props.documents.documentList.map((documentListItem, index) => {
-                const { document } = documentListItem;
-                return (
-                  <li key={`document-${index}`} className="mb-2">
-                    <a
-                      href={document.localFile.publicURL}
-                      target="_blank"
-                      className="flex item-center bg-beige-300 border border-neutral-400 rounded-lg"
-                    >
-                      <div className="icon w-8 h-8 mb-2 bg-red-600 m-4 mr-0"></div>
-                      <div className="my-3 mx-4">
-                        <span className="block text-xs text-neutral-600 uppercase">
-                          {document.mimeType}
-                        </span>
-                        <div
-                          dangerouslySetInnerHTML={{
-                            __html: document.caption,
-                          }}
-                        />
-                      </div>
-                      <div className="icon w-8 h-8 mb-2 bg-red-600 m-4 ml-auto"></div>
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+          {props.documents && (
+            <div className="flex-100 md:flex-1/3 md:px-2 lg:px-6">
+              <h4 className="text-3xl leading-5 pb-4">Documents</h4>
+              <ul className="document-list">
+                {props.documents.documentList.map((documentListItem, index) => {
+                  const { document } = documentListItem;
+                  return (
+                    <li key={`document-${index}`} className="mb-2">
+                      <a
+                        href={document.localFile.publicURL}
+                        target="_blank"
+                        className="flex item-center bg-beige-300 border border-neutral-400 rounded-lg"
+                      >
+                        <div className="icon w-8 h-8 mb-2 bg-red-600 m-4 mr-0"></div>
+                        <div className="my-3 mx-4">
+                          <span className="block text-xs text-neutral-600 uppercase">
+                            {document.mimeType}
+                          </span>
+                          <div
+                            dangerouslySetInnerHTML={{
+                              __html: document.caption,
+                            }}
+                          />
+                        </div>
+                        <div className="icon w-8 h-8 mb-2 bg-red-600 m-4 ml-auto"></div>
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          )}
         </div>
       </section>
     </Layout>

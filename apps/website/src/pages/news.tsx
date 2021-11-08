@@ -9,7 +9,13 @@ export function News({ data }) {
 
   return (
     <Layout>
-      <SEO title="Neuigkeiten" slug="/news" />
+      <SEO
+        title="Neuigkeiten"
+        slug="/news"
+        children=""
+        description=""
+        image=""
+      />
       <section className="hero container my-10">
         <div className="hero bg-yellow-300 px-20 py-40 rounded-3xl">
           <h1>News-Hero</h1>
