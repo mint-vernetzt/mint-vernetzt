@@ -1,13 +1,9 @@
 import React from "react";
+import { Image } from "../types";
 import { formatDate } from "./utils";
 
 export interface TagProps {
   title: string;
-}
-
-export interface Image {
-  src: string;
-  alt: string;
 }
 
 export interface NewsFeedItemProps {

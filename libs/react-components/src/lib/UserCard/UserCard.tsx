@@ -1,8 +1,5 @@
 import * as React from "react";
-export interface Image {
-  src: string;
-  alt: string;
-}
+import { Image } from "../types";
 
 export interface UserCardProps {
   name: string;
