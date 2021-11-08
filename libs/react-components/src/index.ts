@@ -1,3 +1,4 @@
+export * from "./lib/ContactCard/ContactCard";
 export * from "./lib/Button";
 export * from "./lib/NewsFeed/NewsFeed";
 export * from "./lib/NewsFeed/NewsFeedItem";
