@@ -3,11 +3,22 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { getNewsItems } from "../utils/dataTransformer";
 
-import { NewsFeed } from "@mint-vernetzt/react-components";
+import {
+  NewsFeed,
+  OrganizationBoxProps,
+} from "@mint-vernetzt/react-components";
 import { OrganizationBoxContainer } from "@mint-vernetzt/react-components";
 
 export function Index({ data }) {
   const newsItems = getNewsItems(data.newsItems);
+import {
+  getOrganizationsDataForLandingPage,
+} from "../utils/dataTransformer";
+
+export function Index({ data }) {
+  const newsItems = getNewsItemsForLandingPage(data.newsItems);
+  const organisations: OrganizationBoxProps[] =
+    getOrganizationsDataForLandingPage(data.organizationsData);
 
   return (
     <Layout>
@@ -46,7 +57,7 @@ export function Index({ data }) {
         <OrganizationBoxContainer
           headline="Der Verbund"
           body="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat"
-          organisations={[]}
+          organisations={organisations}
         />
       </section>
     </Layout>
@@ -66,6 +77,27 @@ export const pageQuery = graphql`
         tags {
           nodes {
             name
+          }
+        }
+      }
+    }
+    organizationsData: allWpOrganization(
+      sort: { fields: organizationInformations___name, order: ASC }
+    ) {
+      nodes {
+        organizationInformations {
+          name
+          description
+          url
+          logo {
+            altText
+            localFile {
+              childImageSharp {
+                fluid {
+                  src
+                }
+              }
+            }
           }
         }
       }

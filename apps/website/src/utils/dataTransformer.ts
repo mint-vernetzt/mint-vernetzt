@@ -83,3 +83,18 @@ export const getNewsItems = (
     };
   });
 };
+
+export const getOrganizationsDataForLandingPage = (
+  organisations: GatsbyTypes.LandingPageQuery["organizationsData"]
+) => {
+  return organisations.nodes.map((organisation) => ({
+    name: organisation.organizationInformations.name,
+    description: organisation.organizationInformations.description,
+    organizationUrl: organisation.organizationInformations.url,
+    organizationLogo: {
+      src: organisation.organizationInformations.logo.localFile.childImageSharp
+        .fluid.src,
+      alt: organisation.organizationInformations.logo.altText,
+    },
+  }));
+};
