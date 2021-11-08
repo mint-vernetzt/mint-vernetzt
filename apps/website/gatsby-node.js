@@ -5,6 +5,17 @@ exports.createPages = async (props) => {
   const { createPage } = actions;
   const result = await graphql(`
     {
+      allWpEvent {
+        nodes {
+          id
+          slug
+          wpParent {
+            node {
+              slug
+            }
+          }
+        }
+      }
       allWpNewsItem(sort: { fields: [date] }) {
         nodes {
           id
@@ -46,6 +57,21 @@ exports.createPages = async (props) => {
     createPage({
       path: `/news/${node.slug}`,
       component: path.resolve(`./src/templates/News.tsx`),
+      context: {
+        id: node.id,
+      },
+    });
+  });
+
+  result.data.allWpEvent.nodes.forEach((node) => {
+    const slug =
+      node.wpParent !== null
+        ? [node.wpParent.node.slug, node.slug].join("/")
+        : node.slug;
+
+    createPage({
+      path: `/event/${slug}`,
+      component: path.resolve(`./src/templates/Event.tsx`),
       context: {
         id: node.id,
       },
