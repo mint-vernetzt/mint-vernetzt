@@ -1,3 +1,4 @@
+import * as React from "react";
 import { EventFeedItem, EventFeedItemProps } from "./EventFeedItem";
 
 export interface EventFeedProps {
