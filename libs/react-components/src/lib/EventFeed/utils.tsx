@@ -15,6 +15,7 @@ export function getEventFeedItemProps(): EventFeedItemProps {
   const body = faker.lorem.paragraph();
   const slug = faker.internet.url();
   const date = faker.date.future();
-
-  return { headline, body, slug, date };
+  const category = faker.lorem.words();
+  const tags = faker.lorem.words(4).split(" ");
+  return { headline, body, slug, date, category, tags };
 }

@@ -1,10 +1,6 @@
 import { render, screen, within } from "@testing-library/react";
-import faker from "faker";
 import EventFeed, { EventFeedProps } from "./EventFeed";
 import { formatDate, getEventFeedItemProps } from "./utils";
-
-const headline = faker.lorem.words();
-const linkToOverview = faker.internet.url();
 
 test("add event feed items", () => {
   const eventFeedItemProps1 = getEventFeedItemProps();
@@ -12,8 +8,6 @@ test("add event feed items", () => {
   const eventFeedItemProps3 = getEventFeedItemProps();
 
   const props = {
-    headline,
-    linkToOverview,
     eventFeedItemsProps: [
       eventFeedItemProps1,
       eventFeedItemProps2,
@@ -23,7 +17,7 @@ test("add event feed items", () => {
 
   render(<EventFeed {...props} />);
 
-  const eventFeedItemDom = screen.getAllByRole("listitem");
+  const eventFeedItemDom = screen.getAllByTestId("event-item");
 
   // test "headline" rendered
   const eventFeedItem1Dom = eventFeedItemDom[0];
