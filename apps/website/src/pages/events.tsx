@@ -94,6 +94,11 @@ export const pageQuery = graphql`
             name
           }
         }
+        tags {
+          nodes {
+            name
+          }
+        }
         title
         slug
       }
