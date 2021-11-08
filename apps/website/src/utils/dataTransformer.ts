@@ -1,3 +1,4 @@
+import { EventFeedItemProps } from "./../../../../dist/libs/react-components/lib/EventFeed/EventFeedItem.d";
 import {
   NewsFeedItemProps,
   TagProps,
@@ -83,6 +84,17 @@ export const getNewsItems = (
       image,
     };
   });
+};
+
+export const getParentEventItems = (
+  graphqlResult: GatsbyTypes.EventFeedQuery["events"]
+): EventFeedItemProps[] => {
+  return graphqlResult.nodes.map((event) => ({
+    headline: event.title,
+    body: event.excerpt.replace(/<[^>]*>/g, ""),
+    slug: event.slug,
+    date: new Date(event.eventInformations.startDate),
+  }));
 };
 
 export const getOrganizationsData = (

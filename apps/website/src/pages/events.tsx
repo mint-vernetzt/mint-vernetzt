@@ -1,23 +1,54 @@
+import { EventFeed } from "@mint-vernetzt/react-components";
+import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import { getParentEventItems } from "../utils/dataTransformer";
 
-export function Events({ data }) {
+export function Events({ data }: { data: GatsbyTypes.EventFeedQuery }) {
+  const events = getParentEventItems(data.events);
   return (
     <Layout>
-      <SEO title="Veranstaltungen" slug="/events" />
-      <section className="hero container py-10">
-        <div className="hero bg-yellow-300 px-20 py-40 rounded-3xl">
-          <h1>Events Teaser 2Spalter</h1>
-        </div>
-      </section>
+      <SEO
+        title="Veranstaltungen"
+        slug="/events"
+        children=""
+        image=""
+        description=""
+      />
 
-      <section className="container py-10">
-        <div className="bg-yellow-300 p-20 rounded-3xl">
-          <h1>Events Feed Modul</h1>
-        </div>
-      </section>
+      <EventFeed
+        headline="Headline"
+        linkToOverview=""
+        eventFeedItemsProps={events}
+      />
     </Layout>
   );
 }
+export const pageQuery = graphql`
+  query EventFeed {
+    events: allWpEvent(
+      filter: { parentId: { eq: null } }
+      sort: { fields: eventInformations___startDate, order: DESC }
+    ) {
+      nodes {
+        excerpt
+        content
+        eventInformations {
+          startTime
+          startDate
+          endTime
+          endDate
+        }
+        eventCategories {
+          nodes {
+            name
+          }
+        }
+        title
+        slug
+      }
+    }
+  }
+`;
 
 export default Events;
