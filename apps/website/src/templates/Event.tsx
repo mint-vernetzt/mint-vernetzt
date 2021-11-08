@@ -5,8 +5,23 @@ import { formatDate } from "@mint-vernetzt/react-components";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
+const getImage = (data: GatsbyTypes.EventQuery) => {
+  if (data.event.parent === null) {
+    return (
+      data.event.featuredImage.node.localFile.childImageSharp.fluid ?? null
+    );
+  } else {
+    return (
+      data.event.parent?.node?.featuredImage?.node?.localFile?.childImageSharp
+        ?.fluid ?? null
+    );
+  }
+};
+
 function Event({ data }: { data: GatsbyTypes.EventQuery }) {
   const { event } = data;
+  const image = getImage(data);
+
   return (
     <Layout>
       <SEO
@@ -22,7 +37,7 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
           className="inline-block border border-neutral-400 py-3 px-4 mb-4 text-neutral-800 text-semibold uppercase rounded-lg"
           to="/events"
         >
-          zur Übersicht
+          Zur Veranstaltungs Übersicht
         </Link>
 
         <div className="flex flex-wrap items-center md:-mx-4 lg:-mx-6 ">
@@ -34,6 +49,7 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
             <h1 className="text-5xl leading-tight lg:text-6xl lg:leading-none text-blue-500 mb-8">
               {event.title}
             </h1>
+            {image && <Img fluid={image} className="rounded-sm" />}
           </div>
         </div>
 
@@ -112,7 +128,18 @@ export const query = graphql`
           name
         }
       }
-
+      featuredImage {
+        node {
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 1200, maxHeight: 398) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          altText
+        }
+      }
       parent: wpParent {
         node {
           ... on WpEvent {
@@ -128,8 +155,8 @@ export const query = graphql`
               node {
                 localFile {
                   childImageSharp {
-                    fluid {
-                      src
+                    fluid(maxWidth: 1200, maxHeight: 398) {
+                      ...GatsbyImageSharpFluid
                     }
                   }
                 }
@@ -139,7 +166,6 @@ export const query = graphql`
           }
         }
       }
-
       allChildren: wpChildren {
         nodes {
           ... on WpEvent {
@@ -156,7 +182,6 @@ export const query = graphql`
           }
         }
       }
-
       allSiblings: wpParent {
         node {
           ... on WpEvent {
