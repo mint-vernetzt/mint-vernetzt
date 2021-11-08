@@ -20,7 +20,13 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
 
   return (
     <Layout>
-      <SEO title="Projekt" slug="/project" />
+      <SEO
+        title="Projekt"
+        slug="/project"
+        description=""
+        image=""
+        children=""
+      />
       <section className="container my-16">
         <div className="flex flex-wrap content-center items-center md:-mx-6 lg:-mx-10">
           <div className="flex-100 md:flex-1/3 pb-8 md:pb-0 md:px-6 lg:px-10">

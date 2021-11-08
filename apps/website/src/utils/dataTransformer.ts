@@ -2,6 +2,7 @@ import {
   NewsFeedItemProps,
   TagProps,
   UserCardProps,
+  OrganizationBoxProps,
 } from "@mint-vernetzt/react-components";
 
 export type PaktDataByCategory = {
@@ -82,4 +83,19 @@ export const getNewsItems = (
       image,
     };
   });
+};
+
+export const getOrganizationsData = (
+  organisations: GatsbyTypes.LandingPageQuery["organizationsData"]
+): OrganizationBoxProps[] => {
+  return organisations.nodes.map((organisation) => ({
+    name: organisation.organizationInformations.name,
+    description: organisation.organizationInformations.description,
+    organizationUrl: organisation.organizationInformations.url,
+    organizationLogo: {
+      src: organisation.organizationInformations.logo.localFile.childImageSharp
+        .fluid.src,
+      alt: organisation.organizationInformations.logo.altText,
+    },
+  }));
 };

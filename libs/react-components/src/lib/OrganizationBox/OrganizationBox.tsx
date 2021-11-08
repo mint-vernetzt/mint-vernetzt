@@ -1,7 +1,5 @@
-export interface Image {
-  src: string;
-  alt: string;
-}
+import * as React from "react";
+import { Image } from "@mint-vernetzt/react-components";
 
 export interface OrganizationBoxProps {
   name: string;
@@ -10,8 +8,12 @@ export interface OrganizationBoxProps {
   organizationLogo: Image;
 }
 
-export function OrganizationBox(props: OrganizationBoxProps) {
-  const { name, description, organizationUrl, organizationLogo } = props;
+export function OrganizationBox({
+  name,
+  description,
+  organizationUrl,
+  organizationLogo,
+}: OrganizationBoxProps) {
   return (
     <div className="flex flex-col p-4 pb-15 md:pb-5 bg-gray-50 rounded-lg shadow-lg h-full">
       <a href={organizationUrl} data-testid="organizationUrl">
