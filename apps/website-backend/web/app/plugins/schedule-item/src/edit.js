@@ -11,7 +11,7 @@ import { __ } from "@wordpress/i18n";
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { RichText, useBlockProps } from "@wordpress/block-editor";
+import { InnerBlocks, RichText, useBlockProps } from "@wordpress/block-editor";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -31,54 +31,50 @@ import "./editor.scss";
  */
 function Edit(props) {
   const {
-    attributes: { title, body, date, time },
+    attributes: { headline, from, to },
     setAttributes,
   } = props;
 
   const blockProps = useBlockProps();
 
-  const onChangeTitle = (value) => {
-    setAttributes({ title: value });
+  const onChangeHeadline = (value) => {
+    setAttributes({ headline: value });
   };
 
-  const onChangeBody = (value) => {
-    setAttributes({ body: value });
+  const onChangeFrom = (value) => {
+    setAttributes({ from: value });
   };
 
-  const onChangeDate = (value) => {
-    setAttributes({ date: value });
-  };
-
-  const onChangeTime = (value) => {
-    setAttributes({ time: value });
+  const onChangeTo = (value) => {
+    setAttributes({ to: value });
   };
 
   return (
     <li {...blockProps}>
       <RichText
         tagName="p"
-        placeholder="e.g. 19. September"
-        value={date}
-        onChange={onChangeDate}
+        placeholder="9:00"
+        value={from}
+        onChange={onChangeFrom}
+        className="from"
       />
       <RichText
         tagName="p"
-        placeholder="e.g. 12:30-14:00"
-        value={time}
-        onChange={onChangeTime}
+        placeholder="10:00"
+        value={to}
+        onChange={onChangeTo}
+        className="to"
       />
       <RichText
         tagName="h4"
-        placeholder="Title"
-        value={title}
-        onChange={onChangeTitle}
+        placeholder="Headline"
+        value={headline}
+        onChange={onChangeHeadline}
+        className="headline"
       />
-      <RichText
-        tagName="p"
-        placeholder="Body"
-        value={body}
-        onChange={onChangeBody}
-      />
+      <div>
+        <InnerBlocks />
+      </div>
     </li>
   );
 }
