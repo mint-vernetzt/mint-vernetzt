@@ -39,3 +39,22 @@ test("render content elements", () => {
   const tag3Dom = tags[2];
   expect(tag3Dom.textContent).toBe(tagProps3.title);
 });
+
+test("show image", () => {
+  const props = {
+    headline: faker.lorem.words(),
+    body: faker.lorem.paragraphs(),
+    date: faker.date.future(),
+    slug: faker.internet.url(),
+    tagsProps: [],
+    image: {
+      src: faker.image.image(),
+      alt: faker.lorem.words(),
+    },
+  };
+
+  const { container } = render(<NewsFeedItem {...props} />);
+  const imageDom = screen.getByRole("img");
+  expect(imageDom.getAttribute("src")).toBe(props.image.src);
+  expect(imageDom.getAttribute("alt")).toBe(props.image.alt);
+});

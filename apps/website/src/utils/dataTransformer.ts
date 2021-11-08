@@ -1,4 +1,9 @@
-import { UserCardProps } from "./../../../../libs/react-components/src/lib/UserCard/UserCard";
+import {
+  NewsFeedItemProps,
+  TagProps,
+  UserCardProps,
+  OrganizationBoxProps,
+} from "@mint-vernetzt/react-components";
 
 export type PaktDataByCategory = {
   [key: string]: {
@@ -47,4 +52,50 @@ export const getUserCardsProps = (
       },
     };
   });
+};
+
+export const getNewsItems = (
+  newsItems:
+    | GatsbyTypes.LandingPageQuery["newsItems"]
+    | GatsbyTypes.NewsFeedQuery["allItems"]
+): NewsFeedItemProps[] => {
+  return newsItems.nodes.map((newsItem) => {
+    const tagsProps: TagProps[] = newsItem.tags.nodes.map((tag) => {
+      return { title: tag.name };
+    });
+
+    let image;
+    if (
+      newsItem.featuredImage !== undefined &&
+      newsItem.featuredImage !== null
+    ) {
+      image = {
+        src: newsItem.featuredImage.node.localFile.childImageSharp.fluid.src,
+        alt: newsItem.featuredImage.node.altText,
+      };
+    }
+    return {
+      headline: newsItem.title,
+      body: newsItem.excerpt.replace(/<[^>]*>/g, ""),
+      date: new Date(newsItem.date),
+      slug: `/news/${newsItem.slug}`,
+      tagsProps,
+      image,
+    };
+  });
+};
+
+export const getOrganizationsData = (
+  organisations: GatsbyTypes.LandingPageQuery["organizationsData"]
+): OrganizationBoxProps[] => {
+  return organisations.nodes.map((organisation) => ({
+    name: organisation.organizationInformations.name,
+    description: organisation.organizationInformations.description,
+    organizationUrl: organisation.organizationInformations.url,
+    organizationLogo: {
+      src: organisation.organizationInformations.logo.localFile.childImageSharp
+        .fluid.src,
+      alt: organisation.organizationInformations.logo.altText,
+    },
+  }));
 };

@@ -193,8 +193,55 @@
     "graphql_types": ""
   },
   {
+    "key": "group_6183c856a27b5",
+    "title": "Documents",
+    "fields": [
+      {
+        "key": "field_6183c866b3e65",
+        "label": "Document List",
+        "name": "document_list",
+        "type": "repeater",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "show_in_graphql": 1,
+        "collapsed": "field_6183c8acb3e66",
+        "min": 0,
+        "max": 0,
+        "layout": "table",
+        "button_label": ""
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "post_type",
+          "operator": "==",
+          "value": "news"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_graphql": 1,
+    "graphql_field_name": "documents",
+    "map_graphql_types_from_location_rules": 0,
+    "graphql_types": ""
+  },
+  {
     "key": "group_617684481faae",
-    "title": "Duration",
+    "title": "Event Informations",
     "fields": [
       {
         "key": "field_6176858492f63",
@@ -285,7 +332,7 @@
     "active": true,
     "description": "",
     "show_in_graphql": 1,
-    "graphql_field_name": "duration",
+    "graphql_field_name": "eventInformations",
     "map_graphql_types_from_location_rules": 0,
     "graphql_types": ""
   },
@@ -293,6 +340,26 @@
     "key": "group_617ae74cd2863",
     "title": "Organization Informations",
     "fields": [
+      {
+        "key": "field_6188db3b463b5",
+        "label": "Name",
+        "name": "name",
+        "type": "text",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "show_in_graphql": 1,
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
       {
         "key": "field_617ae76ea2325",
         "label": "Url",
@@ -337,6 +404,26 @@
         "max_height": "",
         "max_size": "",
         "mime_types": ""
+      },
+      {
+        "key": "field_6188dad2aa067",
+        "label": "Description",
+        "name": "description",
+        "type": "textarea",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "show_in_graphql": 1,
+        "default_value": "",
+        "placeholder": "",
+        "maxlength": "",
+        "rows": "",
+        "new_lines": ""
       }
     ],
     "location": [

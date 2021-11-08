@@ -1,11 +1,27 @@
 import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import { getNewsItems, getOrganizationsData } from "../utils/dataTransformer";
+
+import {
+  NewsFeed,
+  OrganizationBoxProps,
+} from "@mint-vernetzt/react-components";
+import { OrganizationBoxContainer } from "@mint-vernetzt/react-components";
 
 export function Index({ data }) {
+  const newsItems = getNewsItems(data.newsItems);
+  const organisations = getOrganizationsData(data.organizationsData);
+
   return (
     <Layout>
-      <SEO title="Willkommen" slug="/" image="https://placeimg.com/300/300" />
+      <SEO
+        title="Willkommen"
+        slug="/"
+        image="https://placeimg.com/300/300"
+        description={""}
+        children={""}
+      />
       <section className="hero container my-10">
         <div
           className="hero bg-gray-300 px-20 py-40 rounded-3xl"
@@ -37,7 +53,7 @@ export function Index({ data }) {
             {
               image: `https://picsum.photos/id/1053/420/210`,
               title: `Mintvernetzt informiert`,
-              text: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy 
+              text: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
               nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat`,
               link: `/project `,
             },
@@ -71,44 +87,28 @@ export function Index({ data }) {
         </div>
       </section>
 
-      <section className="container my-20">
+      <div className="container my-10">
         <div className="flex flex-wrap md:-mx-2 lg:-mx-4">
           <div className="flex-100 md:flex-2/3 md:px-2 lg:px-4">
-            <header className="text-left">
-              <h2>Neuigkeiten</h2>
-              <p className="lead">
-                Wir blicken in die MINT-Welt und darüber hinaus und informieren
-                Euch regelmäßig über Erkenntnisse, Ereignisse  und Innovationen,
-                die für Eure tägliche Arbeit interessant sind.
-              </p>
-            </header>
-            <div className="bg-yellow-300 p-20 rounded-3xl">
-              <p>News-Modul</p>
-              {data.allWpPost.nodes.map((node, index) => (
-                <div key={`post ${index}`}>
-                  <Link to={node.slug}>
-                    <h2>{node.title}</h2>
-                  </Link>
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: node.excerpt,
-                    }}
-                  />
-                </div>
-              ))}
-            </div>
+            <NewsFeed
+              headline="Neuigkeiten"
+              body="Wir blicken in die MINT-Welt und darüber hinaus und informieren Euch regelmäßig über Erkenntnisse, Ereignisse und Innovationen, die für Eure tägliche Arbeit interessant sind."
+              linkToOverview="/news/"
+              newsFeedItemsProps={newsItems}
+            />
           </div>
-
           <div className="flex-100 md:flex-1/3 pb-8 md:pb-0 md:px-2 lg:px-4">
             <div className="bg-yellow-300 p-20 rounded-3xl">Events-Modul</div>
           </div>
         </div>
-      </section>
+      </div>
 
       <section className="container my-10">
-        <div className="bg-yellow-300 p-20 rounded-3xl">
-          <h1>Verbundpartner</h1>
-        </div>
+        <OrganizationBoxContainer
+          headline="Der Verbund"
+          body="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat"
+          organisations={organisations}
+        />
       </section>
     </Layout>
   );
@@ -117,12 +117,39 @@ export function Index({ data }) {
 export default Index;
 
 export const pageQuery = graphql`
-  query {
-    allWpPost(sort: { fields: [date] }) {
+  query LandingPage {
+    newsItems: allWpNewsItem(sort: { fields: [date] }) {
       nodes {
         title
         excerpt
         slug
+        date
+        tags {
+          nodes {
+            name
+          }
+        }
+      }
+    }
+    organizationsData: allWpOrganization(
+      sort: { fields: organizationInformations___name, order: ASC }
+    ) {
+      nodes {
+        organizationInformations {
+          name
+          description
+          url
+          logo {
+            altText
+            localFile {
+              childImageSharp {
+                fluid {
+                  src
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
