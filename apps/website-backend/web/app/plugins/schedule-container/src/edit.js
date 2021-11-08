@@ -34,7 +34,7 @@ function Edit() {
   return (
     <section id="schedule" {...blockProps}>
       <ul>
-        <InnerBlocks />
+        <InnerBlocks allowedBlocks={["create-block/schedule-item"]} />
       </ul>
     </section>
   );

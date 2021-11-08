@@ -29,5 +29,6 @@
   "textdomain": "schedule-item",
   "editorScript": "file:./build/index.js",
   "editorStyle": "file:./build/index.css",
-  "style": "file:./build/style-index.css"
+  "style": "file:./build/style-index.css",
+  "parent": ["create-block/schedule-container"]
 }
