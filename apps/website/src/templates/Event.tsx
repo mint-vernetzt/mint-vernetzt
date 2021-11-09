@@ -19,10 +19,19 @@ const getImage = (data: GatsbyTypes.EventQuery) => {
   }
 };
 
+const getContactPerson = (
+  data: GatsbyTypes.EventQuery
+): GatsbyTypes.EventQuery["event"]["eventInformations"]["contactPerson"] => {
+  return data.event.parent?.node?.eventInformations?.contactPerson?.length
+    ? data.event.parent?.node?.eventInformations?.contactPerson
+    : data.event.eventInformations.contactPerson;
+};
+
 function Event({ data }: { data: GatsbyTypes.EventQuery }) {
   const { event } = data;
   const image = getImage(data);
   const relatedEvents = getRelatedEvents(data);
+  const contactPerson = getContactPerson(data);
 
   return (
     <Layout>
@@ -127,6 +136,26 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
                 )}
               />
             )}
+
+            {contactPerson !== null && (
+              <div>
+                <div>
+                  <Img
+                    fluid={
+                      contactPerson[0].contactInformations.photo.localFile
+                        .childImageSharp.fluid
+                    }
+                  />
+                  {contactPerson[0].contactInformations.firstName}
+                  {contactPerson[0].contactInformations.lastName}
+                </div>
+                <div>{contactPerson[0].contactInformations.position}</div>
+                <ul>
+                  <li>{contactPerson[0].contactInformations.phone}</li>
+                  <li>{contactPerson[0].contactInformations.email}</li>
+                </ul>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -150,7 +179,11 @@ export const query = graphql`
           name
         }
       }
-
+      eventCategories {
+        nodes {
+          name
+        }
+      }
       featuredImage {
         node {
           localFile {
@@ -174,6 +207,11 @@ export const query = graphql`
                 name
               }
             }
+            eventCategories {
+              nodes {
+                name
+              }
+            }
             featuredImage {
               node {
                 localFile {
@@ -184,6 +222,30 @@ export const query = graphql`
                   }
                 }
                 altText
+              }
+            }
+            eventInformations {
+              contactPerson {
+                ... on WpContact {
+                  id
+                  contactInformations {
+                    phone
+                    firstName
+                    lastName
+                    email
+                    position
+                    photo {
+                      altText
+                      localFile {
+                        childImageSharp {
+                          fluid(maxWidth: 100, maxHeight: 100) {
+                            ...GatsbyImageSharpFluid
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
               }
             }
           }
@@ -220,6 +282,30 @@ export const query = graphql`
                     startTime
                     endDate
                     endTime
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      eventInformations {
+        contactPerson {
+          ... on WpContact {
+            id
+            contactInformations {
+              phone
+              firstName
+              lastName
+              email
+              position
+              photo {
+                altText
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 100, maxHeight: 100) {
+                      ...GatsbyImageSharpFluid
+                    }
                   }
                 }
               }
