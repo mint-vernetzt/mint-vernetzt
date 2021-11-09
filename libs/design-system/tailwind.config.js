@@ -51,6 +51,12 @@ module.exports = {
     minHeight: {
       ...defaultTheme.minHeight,
       12.5: "12.5rem",
+      "3/4": "75%",
+    },
+    maxWidth: {
+      ...defaultTheme.maxWidth,
+      "1/2": "50%",
+      "3/4": "75%",
     },
     zIndex: {
       ...defaultTheme.zIndex,
