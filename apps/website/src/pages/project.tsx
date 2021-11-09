@@ -190,7 +190,7 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
       <section className="container my-16">
         <UserCardContainer
           headline="Das Team"
-          body="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic praesentium, porro iure totam vero expedita maiores dignissimos omnis fugiat sint fuga sequi pariatur odio a impedit ipsum, ut soluta excepturi?"
+          body="Wir sind MINTvernetzt – ein junges, engagiertes Team mit unterschiedlichen Erfahrungen, Kompetenzen und Hintergründen. Hier findet Ihr alle Teammitglieder mit ihren Aufgaben und Kontaktdaten. Wir freuen uns auf den Austausch mit Euch."
           userCardsProps={userCardsProps}
         />
       </section>
