@@ -38,15 +38,15 @@ export function Footer() {
             <ul className="meta_nav md:flex text-neutral-600 text-sm leading-4 font-semibold">
               {[
                 {
-                  route: `/imprint`,
+                  route: `/imprint/`,
                   title: `Impressum`,
                 },
                 {
-                  route: `/privacy`,
+                  route: `/privacy/`,
                   title: `Datenschutz`,
                 },
                 {
-                  route: `/project#contact-details`,
+                  route: `/project/#contact-details`,
                   title: `Kontakt`,
                 },
               ].map((link, index) => (
