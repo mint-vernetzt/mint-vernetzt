@@ -11,6 +11,7 @@ export const EventNavigationStory: Story<EventNavigationProps> = (args) => (
   <EventNavigation {...args} />
 );
 EventNavigationStory.args = {
+  headline: "Veranstaltungstage",
   items: Array(5)
     .fill(null)
     .map((item, index) => ({

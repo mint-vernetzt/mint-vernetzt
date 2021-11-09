@@ -29,7 +29,14 @@ describe("Event Navigation", () => {
       },
     ];
 
-    render(<EventNavigation items={items} />);
+    render(<EventNavigation headline="The Headline" items={items} />);
+
+    // expect one headline
+    const header = screen.getAllByRole("heading", { level: 2 });
+    expect(header.length).toBe(1);
+
+    // expect headline to match the headline prop
+    expect(header[0].textContent).toBe("The Headline");
 
     // expect two items
     const navigationItems = screen.getAllByRole("listitem");
