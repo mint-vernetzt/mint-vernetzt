@@ -8,7 +8,7 @@ import SEO from "../components/seo";
 const getImage = (data: GatsbyTypes.EventQuery) => {
   if (data.event.parent === null) {
     return (
-      data.event.featuredImage.node.localFile.childImageSharp.fluid ?? null
+      data.event.featuredImage?.node?.localFile?.childImageSharp?.fluid ?? null
     );
   } else {
     return (
@@ -32,7 +32,7 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
         children=""
       />
 
-      <section className="container my-8">
+      <section className="container my-4 md:my-8">
         <Link
           className="inline-block border border-neutral-400 py-3 px-4 mb-4 text-neutral-800 text-semibold uppercase rounded-lg"
           to="/events"
@@ -40,32 +40,41 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
           Zur Veranstaltungs Übersicht
         </Link>
 
-        <div className="flex flex-wrap items-center md:-mx-4 lg:-mx-6 ">
-          <div className="flex-100 md:flex-2/3 pb-8 md:pb-0 md:px-4 lg:px-6 md:order-1">
-            <div className="mb-2 md:mb-0 md:mr-2 md:py-2 md:pr-3 font-semibold text-neutral-800 text-xs flex-100 md:flex-none md:order-2">
-              {formatDate(new Date(event.date))}
-            </div>
-
-            <h1 className="text-5xl leading-tight lg:text-6xl lg:leading-none text-blue-500 mb-8">
-              {event.title}
-            </h1>
-            {image && <Img fluid={image} className="rounded-sm" />}
+        <div className="flex flex-wrap mb-8">
+          <div className="mb-2 md:mb-0 md:mr-2 md:py-2 md:pr-3 font-semibold text-neutral-800 text-xs flex-100 md:flex-none md:order-2">
+            {formatDate(new Date(event.date))}
           </div>
+          <h1 className="flex-100 md:order-1 text-5xl lg:text-4xl leading-tight lg:leading-none mb-2">
+            {event.title}
+          </h1>
+          <ul className="flex flex-wrap md:order-3">
+            {event.tags.nodes.map((tag, index) => {
+              return (
+                <li
+                  key={`tag-${index}`}
+                  className="mr-2 mb-2 px-3 py-2 rounded-lg bg-secondary-300 text-neutral-800 text-sm text-bold"
+                >
+                  {tag.name}
+                </li>
+              );
+            })}
+          </ul>
         </div>
 
-        <div className="flex flex-wrap md:-mx-4 lg:-mx-6">
-          <div className="flex-100 md:flex-2/3 pb-8 md:pb-0 md:px-4 lg:px-6 md:order-1">
-            <div
-              className="blog-post-content"
-              dangerouslySetInnerHTML={{ __html: event.content }}
-            />
-          </div>
+        {image && <Img fluid={image} className="rounded-3xl w-100 h-auto" />}
 
-          <ul>
-            {event.allChildren &&
-              event.allChildren.nodes.map((childEvent) => (
-                <>
-                  <li key={childEvent.id}>
+        <div className="flex flex-wrap mt-4 md:mt-10 lg:mt-20 mb-8 md:-mx-2 lg:-mx-6 ">
+          <div className="flex-100 md:flex-2/3 pb-8 md:pb-0 md:px-2 lg:px-6">
+            <div
+              dangerouslySetInnerHTML={{
+                __html: event.content,
+              }}
+            />
+
+            <ul>
+              {event.allChildren &&
+                event.allChildren.nodes.map((childEvent) => (
+                  <li key={childEvent.id} className="mb-2">
                     <time
                       data-testid="date"
                       dateTime="2021-11-04T13:25:36.000Z"
@@ -90,23 +99,27 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
                       {childEvent.excerpt.replace(/<[^>]*>/g, "")}
                     </p>
                   </li>
-                </>
-              ))}
-          </ul>
+                ))}
+            </ul>
 
-          <div className="flex-100 md:flex-1/3 pb-8 md:pb-0 md:px-4 lg:px-6 md:order-2">
-            {event.allSiblings &&
-              event.allSiblings.node.wpChildren.nodes.map((sibling) => (
-                <div>
-                  <Link to={`/event/${event.parent.node.slug}/${sibling.slug}`}>
-                    {sibling.title}
-                  </Link>
-                </div>
-              ))}
+            <div className="flex-100 md:flex-1/3 pb-8 md:pb-0 md:px-4 lg:px-6 md:order-2">
+              {event.allSiblings &&
+                event.allSiblings.node.wpChildren.nodes.map((sibling) => (
+                  <div>
+                    <Link
+                      to={`/event/${event.parent.node.slug}/${sibling.slug}`}
+                    >
+                      {sibling.title}
+                    </Link>
+                  </div>
+                ))}
+            </div>
+          </div>
+
+          <div className="flex-100 md:flex-1/3 md:px-2 lg:px-6">
+            <h4 className="text-3xl leading-5 pb-4">Veranstaltungstage</h4>
           </div>
         </div>
-
-        <div>{/* -- MAIN CONTENT -- */}</div>
       </section>
     </Layout>
   );
