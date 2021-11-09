@@ -35,6 +35,15 @@ function EventHeader(event: GatsbyTypes.EventQuery["event"]) {
         {formatDate(new Date(parentEvent.date))}
       </div>
 
+      {parentEvent.eventCategories.nodes.map((category) => (
+        <>
+          <div className="inline-block icon ml-3 w-3 h-3 bg-red-600"></div>{" "}
+          <div className="inline-block uppercase font-bold text-neutral-800 text-xs">
+            {category.name}
+          </div>
+        </>
+      ))}
+
       {event.parent ? (
         <h2 className="flex-100 md:order-1 text-5xl lg:text-4xl leading-tight lg:leading-none mb-2">
           {parentEvent.title}
@@ -87,7 +96,9 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
 
         {EventHeader(event)}
 
-        {image && <Img fluid={image} className="rounded-3xl w-100 h-auto" />}
+        {image !== null && (
+          <Img fluid={image} className="rounded-3xl w-100 h-auto" />
+        )}
 
         {event.parent && (
           <Link
