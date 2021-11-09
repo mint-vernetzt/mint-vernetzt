@@ -63,19 +63,16 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
             </h1>
 
             <p className="lg:text-3xl text-neutral-600 mb-4 font-bold">
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit,{" "}
+              Die Service- und Anlaufstelle für MINT-Akteur:innen in Deutschland
             </p>
 
             <p className="lg:text-xl text-neutral-600 mb-4">
-              At vero eos et accusam et justo duo dolores et ea rebum. Stet
-              clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-              dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
-              elitr. No sea takimata sanctus est
-            </p>
-
-            <p className="lg:text-xl text-neutral-600">
-              Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-              sadipscing elitr.
+              Die MINT-Vernetzungsstelle, kurz MINTvernetzt, ist das Dach für
+              die außerschulische MINT-Bildung in Deutschland. MINTvernetzt wird
+              vom Bundesministerium für Bildung und Forschung gefördert und von
+              Mitarbeitenden der Körber-Stiftung, der matrix gGmbH, dem
+              Nationalen MINTForum e.V., dem Stifterverband und der Universität
+              Regensburg als Verbund gemeinsam umgesetzt. 
             </p>
           </div>
         </div>
