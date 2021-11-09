@@ -1,7 +1,8 @@
-import { graphql, Link } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { getNewsItems, getOrganizationsData } from "../utils/dataTransformer";
+import Img from "gatsby-image";
 
 import {
   NewsFeed,
@@ -22,16 +23,34 @@ export function Index({ data }) {
         description={""}
         children={""}
       />
-      <section className="hero container my-10">
-        <div
-          className="hero bg-gray-300 px-20 py-40 rounded-3xl"
-          style={{ height: "550px" }}
-        >
-          <h1>Hero-Section</h1>
+      <section className="container pt-2 md:pt-10">
+        <div className="hero hero-index flex items-end rounded-3xl relative overflow-hidden">
+          <Img
+            fluid={data.HeroImage.childImageSharp.fluid}
+            className="w-full h-auto md:h-full"
+          />
+
+          <div className="hero-text absolute top-0 left-0 min-h-3/4 md:min-h-full right-0 pt-12 px-4 md:pt-20 md:px-12 lg:pt-60 lg:px-22">
+            <div>
+              <h1 className="text-6xl lg:text-7xl leading-none text-blue-500 mb-2">
+                MINT{" "}
+                <span className="font-normal block md:inline">vernetzt</span>
+              </h1>
+              <p className="font-bold mb-4 md:max-w-1/2 lg:text-3xl lg:leading-snug">
+                die Service- und Anlaufstelle der MINT-Akteur:innen in
+                Deutschland.
+              </p>
+              <p>
+                <a href="#" className="btn-primary">
+                  Erfahre mehr
+                </a>
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="container my-20">
+      <section className="container pt-10 lg:pt-20">
         <header>
           <h2>Aktiv werden</h2>
           <p className="lead">
@@ -87,7 +106,7 @@ export function Index({ data }) {
         </div>
       </section>
 
-      <div className="container my-10">
+      <section className="container pt-10 lg:pt-20">
         <div className="flex flex-wrap md:-mx-2 lg:-mx-4">
           <div className="flex-100 md:flex-2/3 md:px-2 lg:px-4">
             <NewsFeed
@@ -101,7 +120,7 @@ export function Index({ data }) {
             <div className="bg-yellow-300 p-20 rounded-3xl">Events-Modul</div>
           </div>
         </div>
-      </div>
+      </section>
 
       <section className="container my-10">
         <OrganizationBoxContainer
@@ -118,6 +137,13 @@ export default Index;
 
 export const pageQuery = graphql`
   query LandingPage {
+    HeroImage: file(relativePath: { eq: "home_hero.jpeg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1488) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
     newsItems: allWpNewsItem(sort: { fields: [date] }) {
       nodes {
         title

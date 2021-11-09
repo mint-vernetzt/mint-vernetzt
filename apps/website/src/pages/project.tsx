@@ -56,7 +56,7 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
           </div>
 
           <div className="flex-100 md:flex-2/3 md:px-6 lg:px-10">
-            <h1 className="text-5xl leading-tight lg:text-7xl lg:leading-none text-blue-500 mb-2">
+            <h1 className="text-5xl leading-tight lg:text-7xl lg:leading-none mb-2">
               Was ist
               <br />
               MINT<span className="font-normal">vernetzt</span>?
