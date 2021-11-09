@@ -1,7 +1,11 @@
 import { graphql, Link } from "gatsby";
 import React from "react";
 import Img from "gatsby-image";
-import { EventNavigation, formatDate } from "@mint-vernetzt/react-components";
+import {
+  ContactCard,
+  EventNavigation,
+  formatDate,
+} from "@mint-vernetzt/react-components";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { getRelatedEvents } from "../utils/dataTransformer";
@@ -163,25 +167,18 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
               />
             )}
 
-            {contactPerson !== null && (
-              <div>
-                <div>
-                  <Img
-                    fluid={
-                      contactPerson[0].contactInformations.photo.localFile
-                        .childImageSharp.fluid
-                    }
-                  />
-                  {contactPerson[0].contactInformations.firstName}
-                  {contactPerson[0].contactInformations.lastName}
-                </div>
-                <div>{contactPerson[0].contactInformations.position}</div>
-                <ul>
-                  <li>{contactPerson[0].contactInformations.phone}</li>
-                  <li>{contactPerson[0].contactInformations.email}</li>
-                </ul>
-              </div>
-            )}
+            <ContactCard
+              headline="Ansprechpartner:In"
+              name={`${contactPerson[0].contactInformations.firstName} ${contactPerson[0].contactInformations.lastName}`}
+              position={contactPerson[0].contactInformations.position}
+              phone={contactPerson[0].contactInformations.phone}
+              email={contactPerson[0].contactInformations.email}
+              avatar={{
+                src: contactPerson[0].contactInformations.photo.localFile
+                  .childImageSharp.fluid.src,
+                alt: `${contactPerson[0].contactInformations.firstName} ${contactPerson[0].contactInformations.lastName}`,
+              }}
+            />
           </div>
         </div>
       </section>
@@ -267,6 +264,7 @@ export const query = graphql`
                         childImageSharp {
                           fluid(maxWidth: 100, maxHeight: 100) {
                             ...GatsbyImageSharpFluid
+                            src
                           }
                         }
                       }
@@ -332,6 +330,7 @@ export const query = graphql`
                   childImageSharp {
                     fluid(maxWidth: 100, maxHeight: 100) {
                       ...GatsbyImageSharpFluid
+                      src
                     }
                   }
                 }
