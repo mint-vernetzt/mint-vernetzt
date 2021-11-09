@@ -118,61 +118,70 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
         <header>
           <h2>Für jede Frage die richtige Adresse</h2>
           <p className="lead">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-            nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-            volutpat
+            Ihr habt eine Frage, sucht Informationen oder möchtet eine Idee mit
+            uns teilen? Wir sind als Ansprechpartner:innen von MINTvernetzt
+            gerne für Euch da.
           </p>
         </header>
-        <div className="grid gap-6 lg:gap-20 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
           {[
             {
-              title: `Kontakt topic`,
-              text: `Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-              sadipscing elitr.`,
-              phone: `(+49) 0152 836 5193`,
-              mail: `Entwurf@MINTvernetzt.de`,
+              title: `Service-Hotline`,
+              text: `Ihr habt allgemeine Fragen, Informationen oder Ideen? Dann richtet diese gerne an Ina Liebmann, unser Gesicht hinter der Service-Hotline.`,
+              phone: `(+49) 040 882 15690`,
+              mail: `info@mint-vernetzt.de`,
             },
             {
-              title: `Zweites topic`,
-              text: `Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-              sadipscing elitr.`,
-              phone: `(+49) 0152 836 5193`,
-              mail: `kontakt@MINTvernetzt.de`,
+              title: `Community & MINTvernetzt-Plattform`,
+              text: `Erste Ansprechperson für alle Belange rund um unsere digitale Community-Plattform ist Anna Schröter. Ihr erreicht sie auf diesem Wege:`,
+              phone: `(+49) 0211 757 0762`,
+              mail: `anna.schroeter@mint-vernetzt.de`,
             },
             {
-              title: `Drittes topic`,
-              text: `Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-              sadipscing elitr.`,
-              phone: `(+49) 0152 836 5193`,
-              mail: `info@MINTvernetzt.de`,
+              title: `Veranstaltungen`,
+              text: `Julia Novik erweckt unsere Veranstaltungen zum Leben und freut sich über Eure Fragen und Tipps.`,
+              phone: `(+49) 0160 944 06027 `,
+              mail: `julia.novik@mint-vernetzt.de`,
+            },
+            {
+              title: `Kommunikation`,
+              text: `Den Blick nach außen hat bei uns Anna Kellner. Für Presse- und Öffentlichkeitsarbeit, Kooperationen und Kampagnen ist sie die richtige Adresse.`,
+              phone: `(+49) 0175 841 1669`,
+              mail: `anna.kellner@mint-vernetzt.de`,
             },
           ].map((contactbox, index) => (
             <div
               key={`contactbox-${index}`}
-              className="px-4 pt-4 pb-8 rounded-3xl shadow-lg"
+              className="flex flex-wrap content-between px-4 pt-4 pb-8 rounded-3xl shadow-lg"
             >
-              <h4 className="text-4xl text-blue-500 mb-2">
-                {contactbox.title}
-              </h4>
-              <p className="text-neutral-600 mb-3 md:mb-6">{contactbox.text}</p>
-              <p className="text-xs text-neutral-800 font-semibold mb-4">
-                <a
-                  href={`tel:${contactbox.phone}`}
-                  className="flex items-center"
-                >
-                  <span className="icon w-4 h-4 mr-2 bg-red-600"></span>
-                  <span>{contactbox.phone}</span>
-                </a>
-              </p>
-              <p className="text-xs text-neutral-800 font-semibold">
-                <a
-                  href={`mailto:${contactbox.mail}`}
-                  className="flex items-center"
-                >
-                  <span className="icon w-4 h-4 mr-2 bg-red-600"></span>
-                  <span>{contactbox.mail}</span>
-                </a>
-              </p>
+              <div className="mb-4">
+                <h4 className="text-4xl text-blue-500 mb-2 leading-tight">
+                  {contactbox.title}
+                </h4>
+                <p className="text-neutral-600 mb-3 md:mb-6">
+                  {contactbox.text}
+                </p>
+              </div>
+              <div>
+                <p className="text-xs text-neutral-800 font-semibold mb-4">
+                  <a
+                    href={`tel:${contactbox.phone}`}
+                    className="flex items-center"
+                  >
+                    <span className="icon w-4 h-4 mr-2 bg-red-600"></span>
+                    <span>{contactbox.phone}</span>
+                  </a>
+                </p>
+                <p className="text-xs text-neutral-800 font-semibold">
+                  <a
+                    href={`mailto:${contactbox.mail}`}
+                    className="flex items-center"
+                  >
+                    <span className="icon w-4 h-4 mr-2 bg-red-600"></span>
+                    <span>{contactbox.mail}</span>
+                  </a>
+                </p>
+              </div>
             </div>
           ))}
         </div>
