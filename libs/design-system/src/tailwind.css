@@ -82,10 +82,11 @@ section.container header:not(.text-left) p.lead {
   @apply px-4 py-3 rounded-lg bg-primary text-neutral-200 font-semibold inline-block;
 }
 
-.hero-index {
+.hero-index,
+.hero-news {
   height: 540px;
 }
-.hero-index .hero-text {
+.hero-text {
   background-image: linear-gradient(
     to bottom,
     #efe8e6,
@@ -108,10 +109,25 @@ section.container header:not(.text-left) p.lead {
     );
     @apply pb-16;
   }
+  .hero-news .hero-text {
+    background-image: linear-gradient(
+      to right,
+      rgba(239, 232, 230, 0.9),
+      rgba(239, 232, 230, 0) 77%,
+      rgba(239, 232, 230, 0) 95%
+    );
+    @apply pb-12;
+  }
+  .hero-news {
+    height: 288px;
+  }
 }
 
 @screen lg {
   .hero-index {
     height: 760px;
+  }
+  .hero-news {
+    height: 464px;
   }
 }
