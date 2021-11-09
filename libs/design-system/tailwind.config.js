@@ -68,6 +68,10 @@ module.exports = {
         DEFAULT: "1.5rem",
       },
     },
+    screens: {
+      xs: "475px",
+      ...defaultTheme.screens,
+    },
   },
   variants: {
     extend: {
