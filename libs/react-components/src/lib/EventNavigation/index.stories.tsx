@@ -13,11 +13,12 @@ export const EventNavigationStory: Story<EventNavigationProps> = (args) => (
 EventNavigationStory.args = {
   items: Array(5)
     .fill(null)
-    .map((item) => ({
+    .map((item, index) => ({
       headline: faker.lorem.words(),
       date: faker.date.future(),
-      url: faker.internet.url(),
+      url: `https://some-url-${index}.test/`,
     })),
+  currentUrl: `https://some-url-1.test/`,
 };
 
 EventNavigationStory.storyName = "navigation";

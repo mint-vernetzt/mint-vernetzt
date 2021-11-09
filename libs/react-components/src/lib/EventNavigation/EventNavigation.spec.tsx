@@ -52,6 +52,37 @@ describe("Event Navigation", () => {
     ).toBe("https://someurl.test/");
   });
 
+  it("should highlight active url", () => {
+    const items = [
+      {
+        headline: "headline 1",
+        date: new Date("2021-11-11"),
+        url: "https://someurl.test/",
+      },
+      {
+        headline: "headline 2",
+        date: new Date("2021-12-12"),
+        url: "https://anotherurl.test/",
+      },
+    ];
+
+    const currentUrl = "https://anotherurl.test/";
+    const { container } = render(
+      <EventNavigation items={items} currentUrl={currentUrl} />
+    );
+    const activeItems = container.getElementsByClassName("active");
+
+    // only one is active
+    expect(activeItems.length).toBe(1);
+
+    // active item should contain link with current url
+    expect(
+      within(activeItems[0] as HTMLElement)
+        .getByRole("link")
+        .getAttribute("href")
+    ).toBe(currentUrl);
+  });
+
   it("should use linkWrapper", () => {
     const items = [
       {
