@@ -67,7 +67,7 @@ export function Footer() {
               role="img"
             >
               <title id="bmbf-title">
-                Logo: Gefördert vom Bundesministerium für Bildung unfd Forschung
+                Logo: Gefördert vom Bundesministerium für Bildung und Forschung
               </title>
               <g fill-rule="nonzero" fill="none">
                 <path
