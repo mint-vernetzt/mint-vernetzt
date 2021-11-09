@@ -23,7 +23,6 @@ export function News({ data }) {
             fluid={data.HeroImage.childImageSharp.fluid}
             className="w-full h-auto md:h-full"
           />
-          <div className="absolute w-full h-full opacity-50 bg-gradient-to-r from-white to-transparent" />
 
           <div className="hero-text absolute top-0 left-0 min-h-3/4 md:min-h-full right-0 pt-12 px-4 md:px-12 md:flex md:items-center lg:px-20">
             <div className="md:flex-100">
