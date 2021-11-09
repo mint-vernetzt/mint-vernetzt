@@ -197,13 +197,16 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
 
       <section className="container my-16">
         <header className="text-left">
-          <h2>Die Partnerinnen und Partner</h2>
+          <h2>Der Nationale Pakt für Frauen in MINT-Berufen</h2>
           <p className="lead">
-            Über 370 Partnerinnen und Partner aus Wirtschaft, Wissenschaft,
-            Medien und Politik sind mit der Unterzeichnung des Memorandums dem
-            Pakt bereits beigetreten. Unser Netzwerk besteht aus Partnerinnen
-            und Partnern unterschiedlicher Größe aus folgenden Branchen und
-            Bereichen:
+            Seit 2008 haben sich über 370 Partnerinnen und Partner aus
+            Wirtschaft, Wissenschaft, Medien und Politik im Nationalen Pakt für
+            Frauen in MINT-Berufen zusammengeschlossen. Ihr erklärtes Ziel ist
+            es, mehr Mädchen und Frauen für eine Karriere in MINT-Berufen zu
+            begeistern. Der Pakt ist im Mai 2021 von MINTvernetzt übernommen
+            worden und wird gemeinsam mit den Partner:innen weiterentwickelt.
+            Dies ist eine Übersich, der aktuellen Pakt-Partner:innen, die seit
+            der Unterschrift des Memorandums für das Thema eintreten:
           </p>
         </header>
 
