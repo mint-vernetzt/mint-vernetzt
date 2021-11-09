@@ -9,14 +9,13 @@ export function EventFeed({ eventFeedItemsProps = [] }: EventFeedProps) {
   return (
     <>
       {/* TODO: replace default shadows with shadows from design in tailwind config */}
-      <section className="py-6 rounded-lg bg-neutral-200">
+      <section>
         <ul>
           {eventFeedItemsProps.map((eventFeedItemProps, index) => {
             return (
               <li
                 key={`event-feed-item-${index}`}
-                className="border-b border-neutral-400 last:border-b-0"
-                style={{ padding: "15px 0 23px 0" }}
+                className="event-item"
                 data-testid="event-item"
               >
                 <EventFeedItem {...eventFeedItemProps} />

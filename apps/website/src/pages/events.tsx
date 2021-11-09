@@ -17,12 +17,12 @@ export function Events({ data }: { data: GatsbyTypes.EventFeedQuery }) {
         description=""
       />
 
-      <section className="container my-16">
-        <div className="flex flex-wrap content-center items-center md:-mx-6 lg:-mx-10">
-          <div className="flex-100 md:flex-1/3 pb-8 md:pb-0 md:px-6 lg:px-10">
+      <section className="container mt-4 md:mt-10">
+        <div className="flex flex-wrap md:-mx-6 lg:-mx-10">
+          <div className="flex-100 md:flex-1/3 md:order-2 pb-4 md:pb-0 md:px-6 lg:px-10">
             <Img
               fluid={data.HeaderImage.childImageSharp.fluid}
-              className="w-full h-auto rounded-xl"
+              className="w-full h-auto rounded-3xl"
             />
           </div>
 
@@ -31,7 +31,7 @@ export function Events({ data }: { data: GatsbyTypes.EventFeedQuery }) {
               MINT<span className="font-normal">events</span>
             </h1>
 
-            <p className="lg:text-3xl text-neutral-600 mb-4 font-bold">
+            <p className="lg:text-3xl lg:leading-snug text-neutral-600 mb-4 font-bold">
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit,{" "}
             </p>
 
@@ -50,7 +50,7 @@ export function Events({ data }: { data: GatsbyTypes.EventFeedQuery }) {
         </div>
       </section>
 
-      <section className="container my-16">
+      <section className="container event-list my-10 lg:my-20">
         <EventFeed eventFeedItemsProps={events} />
       </section>
     </Layout>
