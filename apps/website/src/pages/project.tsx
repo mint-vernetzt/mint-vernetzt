@@ -124,7 +124,7 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
         </div>
       </section>
 
-      <section className="container my-16">
+      <section className="container my-16" id="contact-details">
         <header>
           <h2>Für jede Frage die richtige Adresse</h2>
           <p className="lead">

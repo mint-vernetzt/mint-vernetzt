@@ -16,12 +16,12 @@ export function News({ data }) {
         description=""
         image=""
       />
-      <section className="hero container my-10">
+      <section className="hero container py-10">
         <div className="hero bg-yellow-300 px-20 py-40 rounded-3xl">
           <h1>News-Hero</h1>
         </div>
       </section>
-      <section className="container my-10">
+      <section className="container py-10">
         <NewsFeed headline="Neuigkeiten" newsFeedItemsProps={newsItems} />
       </section>
     </Layout>

@@ -18,7 +18,7 @@ export default function Template({ data }) {
         title={`Partner: ${frontmatter.name}`}
         slug={`/pakt/${frontmatter.slug}`}
       />
-      <section className="container my-8">
+      <section className="container py-8">
         <Link
           className="inline-block border border-neutral-400 py-3 px-4 mb-4 text-neutral-800 text-semibold uppercase rounded-lg"
           to="/project"

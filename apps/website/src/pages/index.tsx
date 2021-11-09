@@ -22,7 +22,7 @@ export function Index({ data }) {
         description={""}
         children={""}
       />
-      <section className="hero container my-10">
+      <section className="hero container py-10">
         <div
           className="hero bg-gray-300 px-20 py-40 rounded-3xl"
           style={{ height: "550px" }}
@@ -31,7 +31,7 @@ export function Index({ data }) {
         </div>
       </section>
 
-      <section className="container my-20">
+      <section className="container py-20">
         <header>
           <h2>Aktiv werden</h2>
           <p className="lead">
@@ -87,7 +87,7 @@ export function Index({ data }) {
         </div>
       </section>
 
-      <div className="container my-10">
+      <div className="container py-10">
         <div className="flex flex-wrap md:-mx-2 lg:-mx-4">
           <div className="flex-100 md:flex-2/3 md:px-2 lg:px-4">
             <NewsFeed
@@ -103,7 +103,7 @@ export function Index({ data }) {
         </div>
       </div>
 
-      <section className="container my-10">
+      <section className="container py-10">
         <OrganizationBoxContainer
           headline="Der Verbund"
           body="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat"
