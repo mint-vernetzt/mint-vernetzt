@@ -41,9 +41,9 @@ export function Index({ data }) {
                 Deutschland.
               </p>
               <p>
-                <a href="#" className="btn-primary">
+                <Link to="/project/" className="btn-primary">
                   Erfahre mehr
-                </a>
+                </Link>
               </p>
             </div>
           </div>
