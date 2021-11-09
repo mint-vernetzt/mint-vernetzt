@@ -1,29 +1,21 @@
 import { Meta, Story } from "@storybook/react";
-import faker from "faker";
 import { EventFeed, EventFeedProps } from "./EventFeed";
 import { EventFeedItem, EventFeedItemProps } from "./EventFeedItem";
 import { getEventFeedItemProps } from "./utils";
 
 export default {
   component: EventFeed,
-  title: "Components/EventFeed",
+  title: "Components/Event",
 } as Meta;
 
 export const Item: Story<EventFeedItemProps> = (args) => (
   <EventFeedItem {...args} />
 );
-Item.args = {
-  headline: faker.lorem.words(),
-  body: faker.lorem.paragraph(),
-  slug: faker.internet.url(),
-  date: faker.date.future(),
-};
+Item.args = getEventFeedItemProps();
 Item.storyName = "item";
 
 export const Feed: Story<EventFeedProps> = (args) => <EventFeed {...args} />;
 Feed.args = {
-  headline: faker.lorem.words(),
-  linkToOverview: faker.internet.url(),
   eventFeedItemsProps: new Array(7).fill(null).map(() => {
     return getEventFeedItemProps();
   }),

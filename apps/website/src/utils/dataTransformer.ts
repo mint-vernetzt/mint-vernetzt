@@ -3,6 +3,8 @@ import {
   TagProps,
   UserCardProps,
   OrganizationBoxProps,
+  EventNavigationItemProps,
+  EventFeedItemProps,
 } from "@mint-vernetzt/react-components";
 
 export type PaktDataByCategory = {
@@ -85,6 +87,20 @@ export const getNewsItems = (
   });
 };
 
+export const getParentEventItems = (
+  graphqlResult: GatsbyTypes.EventFeedQuery["events"]
+): EventFeedItemProps[] => {
+  return graphqlResult.nodes.map((event) => ({
+    headline: event.title,
+    body: event.excerpt.replace(/<[^>]*>/g, ""),
+    slug: `/event/${event.slug}`,
+    date: new Date(event.eventInformations.startDate),
+    category:
+      event.eventCategories.nodes.map((category) => category.name)[0] ?? null,
+    tags: event.tags.nodes.map((tag) => tag.name) ?? [],
+  }));
+};
+
 export const getOrganizationsData = (
   organisations: GatsbyTypes.LandingPageQuery["organizationsData"]
 ): OrganizationBoxProps[] => {
@@ -98,4 +114,26 @@ export const getOrganizationsData = (
       alt: organisation.organizationInformations.logo.altText,
     },
   }));
+};
+
+export const getRelatedEvents = (
+  data: GatsbyTypes.EventQuery
+): EventNavigationItemProps[] => {
+  if (data.event.allChildren.nodes.length > 0) {
+    return data.event.allChildren.nodes.map((item) => ({
+      headline: item.title,
+      date: new Date(item.eventInformations.startDate),
+      url: `/event/${item.slug}`,
+    }));
+  }
+
+  if (data.event.allSiblings?.node?.wpChildren?.nodes?.length) {
+    return data.event.allSiblings.node.wpChildren.nodes.map((item) => ({
+      headline: item.title,
+      date: new Date(item.eventInformations.startDate),
+      url: `/event/${item.slug}`,
+    }));
+  }
+
+  return [];
 };
