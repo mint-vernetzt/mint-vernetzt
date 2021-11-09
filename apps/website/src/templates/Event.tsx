@@ -27,6 +27,40 @@ const getContactPerson = (
     : data.event.eventInformations.contactPerson;
 };
 
+function EventHeader(event: GatsbyTypes.EventQuery["event"]) {
+  const parentEvent = event.parent === null ? event : event.parent.node;
+  return (
+    <div className="flex flex-wrap mb-8">
+      <div className="mb-2 md:mb-0 md:mr-2 md:py-2 md:pr-3 font-semibold text-neutral-800 text-xs flex-100 md:flex-none md:order-2">
+        {formatDate(new Date(parentEvent.date))}
+      </div>
+
+      {event.parent ? (
+        <h2 className="flex-100 md:order-1 text-5xl lg:text-4xl leading-tight lg:leading-none mb-2">
+          {parentEvent.title}
+        </h2>
+      ) : (
+        <h1 className="flex-100 md:order-1 text-5xl lg:text-4xl leading-tight lg:leading-none mb-2">
+          {parentEvent.title}
+        </h1>
+      )}
+
+      {parentEvent.tags && (
+        <ul className="flex flex-wrap md:order-3">
+          {parentEvent.tags.nodes.map((tag, index) => (
+            <li
+              key={`tag-${index}`}
+              className="mr-2 mb-2 px-3 py-2 rounded-lg bg-secondary-300 text-neutral-800 text-sm text-bold"
+            >
+              {tag.name}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
 function Event({ data }: { data: GatsbyTypes.EventQuery }) {
   const { event } = data;
   const image = getImage(data);
@@ -51,27 +85,7 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
           Zur Veranstaltungs Übersicht
         </Link>
 
-        <div className="flex flex-wrap mb-8">
-          <div className="mb-2 md:mb-0 md:mr-2 md:py-2 md:pr-3 font-semibold text-neutral-800 text-xs flex-100 md:flex-none md:order-2">
-            {formatDate(new Date(event.date))}
-          </div>
-          <h1 className="flex-100 md:order-1 text-5xl lg:text-4xl leading-tight lg:leading-none mb-2">
-            {event.title}
-          </h1>
-
-          <ul className="flex flex-wrap md:order-3">
-            {event.tags.nodes.map((tag, index) => {
-              return (
-                <li
-                  key={`tag-${index}`}
-                  className="mr-2 mb-2 px-3 py-2 rounded-lg bg-secondary-300 text-neutral-800 text-sm text-bold"
-                >
-                  {tag.name}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        {EventHeader(event)}
 
         {image && <Img fluid={image} className="rounded-3xl w-100 h-auto" />}
 
@@ -86,6 +100,7 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
 
         <div className="flex flex-wrap mt-4 md:mt-10 lg:mt-20 mb-8 md:-mx-2 lg:-mx-6 ">
           <div className="flex-100 md:flex-2/3 pb-8 md:pb-0 md:px-2 lg:px-6">
+            {event.parent && <h1 className="text-xl">{event.title}</h1>}
             <div
               dangerouslySetInnerHTML={{
                 __html: event.content,
@@ -201,6 +216,7 @@ export const query = graphql`
           ... on WpEvent {
             id
             title
+            date
             slug
             tags {
               nodes {
