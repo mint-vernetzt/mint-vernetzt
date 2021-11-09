@@ -1,9 +1,10 @@
-import { EventFeedItemProps } from "./../../../../dist/libs/react-components/lib/EventFeed/EventFeedItem.d";
 import {
   NewsFeedItemProps,
   TagProps,
   UserCardProps,
   OrganizationBoxProps,
+  EventNavigationItemProps,
+  EventFeedItemProps,
 } from "@mint-vernetzt/react-components";
 
 export type PaktDataByCategory = {
@@ -113,4 +114,26 @@ export const getOrganizationsData = (
       alt: organisation.organizationInformations.logo.altText,
     },
   }));
+};
+
+export const getRelatedEvents = (
+  data: GatsbyTypes.EventQuery
+): EventNavigationItemProps[] => {
+  if (data.event.allChildren.nodes.length > 0) {
+    return data.event.allChildren.nodes.map((item) => ({
+      headline: item.title,
+      date: new Date(item.eventInformations.startDate),
+      url: `/event/${item.slug}`,
+    }));
+  }
+
+  if (data.event.allSiblings?.node?.wpChildren?.nodes?.length) {
+    return data.event.allSiblings.node.wpChildren.nodes.map((item) => ({
+      headline: item.title,
+      date: new Date(item.eventInformations.startDate),
+      url: `/event/${item.slug}`,
+    }));
+  }
+
+  return [];
 };

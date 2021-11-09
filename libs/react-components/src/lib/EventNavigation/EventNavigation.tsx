@@ -31,11 +31,7 @@ export function EventNavigation(props: EventNavigationProps) {
 
   return (
     <div className="flex flex-col p-4 pb-15 md:pb-5 bg-gray-50 rounded-lg shadow-lg h-full">
-      {headline && (
-        <header>
-          <h2>{headline}</h2>
-        </header>
-      )}
+      {headline && <h2 className="lg:text-2xl">{headline}</h2>}
       <ul className="event-sidebar-navigation">
         {items.map((item, index) => (
           <li

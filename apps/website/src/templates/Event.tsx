@@ -1,9 +1,10 @@
 import { graphql, Link } from "gatsby";
 import React from "react";
 import Img from "gatsby-image";
-import { formatDate } from "@mint-vernetzt/react-components";
+import { EventNavigation, formatDate } from "@mint-vernetzt/react-components";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import { getRelatedEvents } from "../utils/dataTransformer";
 
 const getImage = (data: GatsbyTypes.EventQuery) => {
   if (data.event.parent === null) {
@@ -21,6 +22,7 @@ const getImage = (data: GatsbyTypes.EventQuery) => {
 function Event({ data }: { data: GatsbyTypes.EventQuery }) {
   const { event } = data;
   const image = getImage(data);
+  const relatedEvents = getRelatedEvents(data);
 
   return (
     <Layout>
@@ -71,9 +73,9 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
               }}
             />
 
-            <ul>
-              {event.allChildren &&
-                event.allChildren.nodes.map((childEvent) => (
+            {event.allChildren && (
+              <ul>
+                {event.allChildren.nodes.map((childEvent) => (
                   <li key={childEvent.id} className="mb-2">
                     <time
                       data-testid="date"
@@ -86,7 +88,7 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
                     </time>
                     <h4 className="text-primary text-3xl leading-snug mb-2 normal-case flex-100 md:order-1">
                       <Link
-                        to={`/event/${event.slug}/${childEvent.slug}`}
+                        to={`/event/${childEvent.slug}`}
                         className="cursor-pointer hover:underline"
                       >
                         {childEvent.title}
@@ -100,24 +102,21 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
                     </p>
                   </li>
                 ))}
-            </ul>
-
-            <div className="flex-100 md:flex-1/3 pb-8 md:pb-0 md:px-4 lg:px-6 md:order-2">
-              {event.allSiblings &&
-                event.allSiblings.node.wpChildren.nodes.map((sibling) => (
-                  <div>
-                    <Link
-                      to={`/event/${event.parent.node.slug}/${sibling.slug}`}
-                    >
-                      {sibling.title}
-                    </Link>
-                  </div>
-                ))}
-            </div>
+              </ul>
+            )}
           </div>
 
           <div className="flex-100 md:flex-1/3 md:px-2 lg:px-6">
-            <h4 className="text-3xl leading-5 pb-4">Veranstaltungstage</h4>
+            {relatedEvents.length && (
+              <EventNavigation
+                headline="Veranstaltungstage"
+                items={relatedEvents}
+                currentUrl={`/event/${event.slug}`}
+                linkWrapper={(url, children) => (
+                  <Link to={url}>{children}</Link>
+                )}
+              />
+            )}
           </div>
         </div>
       </section>
@@ -141,6 +140,7 @@ export const query = graphql`
           name
         }
       }
+
       featuredImage {
         node {
           localFile {
@@ -168,7 +168,7 @@ export const query = graphql`
               node {
                 localFile {
                   childImageSharp {
-                    fluid(maxWidth: 1200, maxHeight: 398) {
+                    fluid(maxWidth: 1200, maxHeight: 250) {
                       ...GatsbyImageSharpFluid
                     }
                   }
@@ -203,8 +203,14 @@ export const query = graphql`
                 ... on WpEvent {
                   id
                   title
-                  slug
                   excerpt
+                  slug
+                  eventInformations {
+                    startDate
+                    startTime
+                    endDate
+                    endTime
+                  }
                 }
               }
             }

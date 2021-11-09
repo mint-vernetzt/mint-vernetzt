@@ -64,13 +64,8 @@ exports.createPages = async (props) => {
   });
 
   result.data.allWpEvent.nodes.forEach((node) => {
-    const slug =
-      node.wpParent !== null
-        ? [node.wpParent.node.slug, node.slug].join("/")
-        : node.slug;
-
     createPage({
-      path: `/event/${slug}`,
+      path: `/event/${node.slug}`,
       component: path.resolve(`./src/templates/Event.tsx`),
       context: {
         id: node.id,
