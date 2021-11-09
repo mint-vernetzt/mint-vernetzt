@@ -63,19 +63,16 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
             </h1>
 
             <p className="lg:text-3xl text-neutral-600 mb-4 font-bold">
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit,{" "}
+              Die Service- und Anlaufstelle für MINT-Akteur:innen in Deutschland
             </p>
 
             <p className="lg:text-xl text-neutral-600 mb-4">
-              At vero eos et accusam et justo duo dolores et ea rebum. Stet
-              clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-              dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
-              elitr. No sea takimata sanctus est
-            </p>
-
-            <p className="lg:text-xl text-neutral-600">
-              Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-              sadipscing elitr.
+              Die MINT-Vernetzungsstelle, kurz MINTvernetzt, ist das Dach für
+              die außerschulische MINT-Bildung in Deutschland. MINTvernetzt wird
+              vom Bundesministerium für Bildung und Forschung gefördert und von
+              Mitarbeitenden der Körber-Stiftung, der matrix gGmbH, dem
+              Nationalen MINTForum e.V., dem Stifterverband und der Universität
+              Regensburg als Verbund gemeinsam umgesetzt.
             </p>
           </div>
         </div>
@@ -86,35 +83,28 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
           {[
             {
               icon: `none`,
-              title: `Grund`,
-              text: `Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-              sadipscing elitr. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-              sadipscing elitr.`,
+              title: `Motivation`,
+              text: `MINT-Kompetenzen sind Zukunftskompetenzen. Ohne die Stärkung der MINT-Bildung und Aktivierung neuer MINT-Talente wird Deutschland als Innovationsstandort an Bedeutung verlieren und wichtige Beiträge zur Lösungsfindung globaler Herausforderungen wie dem Klimawandel nicht leisten können. Kindern und Jugendlichen Kompetenzen in Mathematik, Informatik, Naturwissenschaften und Technik zu vermitteln und ihnen den Zugang zu MINT-Arbeitsplätzen zu ermöglichen, sind zentrale Schlüssel für mehr Gleichberechtigung und Teilhabe.`,
             },
             {
               icon: `none`,
-              title: `Auftrag`,
-              text: `At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-              no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr. `,
+              title: `Mission`,
+              text: `Wir wollen Kindern und Jugendlichen eine gute MINT-Bildung ermöglichen, die schulisches und außerschulisches Lernen miteinander verzahnt und anwendungsorientiert sowie praxisnah gestaltet ist. Dafür stärken wir das Feld der außerschulischen MINT-Bildung, sorgen für Vernetzung, Sichtbarkeit und Professionalisierung der MINT-Akteur:innen und setzen uns für das Zusammenwirken von Schulen und außerschulischen Partner:innen ein.`,
             },
             {
               icon: `none`,
               title: `Ziel`,
-              text: `At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-              no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr. `,
+              text: `Wir unterstützen Engagierte der MINT-Bildung durch Vernetzungsräume, Transferangebote und Innovationsimpulse darin, noch bessere Bildungsangebote für Kinder und Jugendliche zu machen und dabei breitere und diversere Zielgruppen anzusprechen. Hierzu zählen insbesondere Mädchen und junge Frauen.`,
             },
             {
               icon: `none`,
-              title: `Benefits`,
-              text: `At vero eos et accusam et justo duo dolores et ea rebum. Stet
-              clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-              dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
-              elitr. No sea takimata sanctus est`,
+              title: `Vision`,
+              text: `Mit MINTvernetzt schaffen wir ein lebendiges, diverses und nachhaltig wachsendes Netzwerk für die MINT-Bildungslandschaft. Wir stellen praxisorientierte Informationen bereit, bieten echten Transfer in die Bildungspraxis und geben den Raum für Diskurse und praktischen Austausch. MINT-Akteur:innen werden sichtbar, begreifen sich als Gemeinschaft und verzahnen ihre Angebote enger mit schulischen Aktivitäten. Sie nehmen neue Themenimpulse auf, gestalten innovative Angebote und erreichen diversere Zielgruppen. Dadurch fördern wir gesellschaftliche Teilhabe und Innovation.`,
             },
           ].map((teaser, index) => (
             <div
               key={`teaser-${index}`}
-              className="flex-100 mb-6 md:mb-12 md:flex-1/2 lg:flex-1/4 md:px-6 lg:px-10"
+              className="flex-100 mb-6 lg:flex-1/2 md:px-6 lg:px-10"
             >
               <div className="icon w-8 h-8 mb-2 bg-red-600"></div>
               <h4 className="text-2xl text-blue-500 mb-1">{teaser.title}</h4>
@@ -128,61 +118,70 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
         <header>
           <h2>Für jede Frage die richtige Adresse</h2>
           <p className="lead">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-            nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-            volutpat
+            Ihr habt eine Frage, sucht Informationen oder möchtet eine Idee mit
+            uns teilen? Wir sind als Ansprechpartner:innen von MINTvernetzt
+            gerne für Euch da.
           </p>
         </header>
-        <div className="grid gap-6 lg:gap-20 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
           {[
             {
-              title: `Kontakt topic`,
-              text: `Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-              sadipscing elitr.`,
-              phone: `(+49) 0152 836 5193`,
-              mail: `Entwurf@MINTvernetzt.de`,
+              title: `Service-Hotline`,
+              text: `Ihr habt allgemeine Fragen, Informationen oder Ideen? Dann richtet diese gerne an Ina Liebmann, unser Gesicht hinter der Service-Hotline.`,
+              phone: `(+49) 040 882 15690`,
+              mail: `info@mint-vernetzt.de`,
             },
             {
-              title: `Zweites topic`,
-              text: `Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-              sadipscing elitr.`,
-              phone: `(+49) 0152 836 5193`,
-              mail: `kontakt@MINTvernetzt.de`,
+              title: `Community & MINTvernetzt-Plattform`,
+              text: `Erste Ansprechperson für alle Belange rund um unsere digitale Community-Plattform ist Anna Schröter. Ihr erreicht sie auf diesem Wege:`,
+              phone: `(+49) 0211 757 0762`,
+              mail: `anna.schroeter@mint-vernetzt.de`,
             },
             {
-              title: `Drittes topic`,
-              text: `Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-              sadipscing elitr.`,
-              phone: `(+49) 0152 836 5193`,
-              mail: `info@MINTvernetzt.de`,
+              title: `Veranstaltungen`,
+              text: `Julia Novik erweckt unsere Veranstaltungen zum Leben und freut sich über Eure Fragen und Tipps.`,
+              phone: `(+49) 0160 944 06027 `,
+              mail: `julia.novik@mint-vernetzt.de`,
+            },
+            {
+              title: `Kommunikation`,
+              text: `Den Blick nach außen hat bei uns Anna Kellner. Für Presse- und Öffentlichkeitsarbeit, Kooperationen und Kampagnen ist sie die richtige Adresse.`,
+              phone: `(+49) 0175 841 1669`,
+              mail: `anna.kellner@mint-vernetzt.de`,
             },
           ].map((contactbox, index) => (
             <div
               key={`contactbox-${index}`}
-              className="px-4 pt-4 pb-8 rounded-3xl shadow-lg"
+              className="flex flex-wrap content-between px-4 pt-4 pb-8 rounded-3xl shadow-lg"
             >
-              <h4 className="text-4xl text-blue-500 mb-2">
-                {contactbox.title}
-              </h4>
-              <p className="text-neutral-600 mb-3 md:mb-6">{contactbox.text}</p>
-              <p className="text-xs text-neutral-800 font-semibold mb-4">
-                <a
-                  href={`tel:${contactbox.phone}`}
-                  className="flex items-center"
-                >
-                  <span className="icon w-4 h-4 mr-2 bg-red-600"></span>
-                  <span>{contactbox.phone}</span>
-                </a>
-              </p>
-              <p className="text-xs text-neutral-800 font-semibold">
-                <a
-                  href={`mailto:${contactbox.mail}`}
-                  className="flex items-center"
-                >
-                  <span className="icon w-4 h-4 mr-2 bg-red-600"></span>
-                  <span>{contactbox.mail}</span>
-                </a>
-              </p>
+              <div className="mb-4">
+                <h4 className="text-4xl text-blue-500 mb-2 leading-tight">
+                  {contactbox.title}
+                </h4>
+                <p className="text-neutral-600 mb-3 md:mb-6">
+                  {contactbox.text}
+                </p>
+              </div>
+              <div>
+                <p className="text-xs text-neutral-800 font-semibold mb-4">
+                  <a
+                    href={`tel:${contactbox.phone}`}
+                    className="flex items-center"
+                  >
+                    <span className="icon w-4 h-4 mr-2 bg-red-600"></span>
+                    <span>{contactbox.phone}</span>
+                  </a>
+                </p>
+                <p className="text-xs text-neutral-800 font-semibold">
+                  <a
+                    href={`mailto:${contactbox.mail}`}
+                    className="flex items-center"
+                  >
+                    <span className="icon w-4 h-4 mr-2 bg-red-600"></span>
+                    <span>{contactbox.mail}</span>
+                  </a>
+                </p>
+              </div>
             </div>
           ))}
         </div>
@@ -191,20 +190,23 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
       <section className="container my-16">
         <UserCardContainer
           headline="Das Team"
-          body="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic praesentium, porro iure totam vero expedita maiores dignissimos omnis fugiat sint fuga sequi pariatur odio a impedit ipsum, ut soluta excepturi?"
+          body="Wir sind MINTvernetzt – ein junges, engagiertes Team mit unterschiedlichen Erfahrungen, Kompetenzen und Hintergründen. Hier findet Ihr alle Teammitglieder mit ihren Aufgaben und Kontaktdaten. Wir freuen uns auf den Austausch mit Euch."
           userCardsProps={userCardsProps}
         />
       </section>
 
       <section className="container my-16">
         <header className="text-left">
-          <h2>Die Partnerinnen und Partner</h2>
+          <h2>Der Nationale Pakt für Frauen in MINT-Berufen</h2>
           <p className="lead">
-            Über 370 Partnerinnen und Partner aus Wirtschaft, Wissenschaft,
-            Medien und Politik sind mit der Unterzeichnung des Memorandums dem
-            Pakt bereits beigetreten. Unser Netzwerk besteht aus Partnerinnen
-            und Partnern unterschiedlicher Größe aus folgenden Branchen und
-            Bereichen:
+            Seit 2008 haben sich über 370 Partnerinnen und Partner aus
+            Wirtschaft, Wissenschaft, Medien und Politik im Nationalen Pakt für
+            Frauen in MINT-Berufen zusammengeschlossen. Ihr erklärtes Ziel ist
+            es, mehr Mädchen und Frauen für eine Karriere in MINT-Berufen zu
+            begeistern. Der Pakt ist im Mai 2021 von MINTvernetzt übernommen
+            worden und wird gemeinsam mit den Partner:innen weiterentwickelt.
+            Dies ist eine Übersich, der aktuellen Pakt-Partner:innen, die seit
+            der Unterschrift des Memorandums für das Thema eintreten:
           </p>
         </header>
 

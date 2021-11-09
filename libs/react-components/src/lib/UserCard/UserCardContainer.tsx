@@ -13,24 +13,26 @@ export function UserCardContainer({
   userCardsProps = [],
 }: UserCardContainerProps) {
   return (
-    <section className="bg-tertiary-300 rounded-3xl py-16">
+    <section className="bg-tertiary-300 rounded-3xl py-4 md:py-10 lg:py-24 px-2">
       <header>
-        <h2 role="heading">{headline}</h2>
-        <p data-testid="body" className="lead">
+        <h2 role="heading" className="text-center">
+          {headline}
+        </h2>
+        <p data-testid="body" className="lead font-bold px-4 md:px-10">
           {body}
         </p>
       </header>
       <div
         data-testid="grid"
-        className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:grid-cols-5 gap-y-8"
+        className="grid grid-cols-1 gap-8 xs:grid-cols-3 md:grid-cols-5 gap-y-8"
       >
-        {userCardsProps.map((useCardProps, index) => {
+        {userCardsProps.map((userCardProps, index) => {
           return (
             <div
               key={`user-card-container-item-${index}`}
               data-testid="gridcell"
             >
-              <UserCard {...useCardProps} />
+              <UserCard {...userCardProps} />
             </div>
           );
         })}

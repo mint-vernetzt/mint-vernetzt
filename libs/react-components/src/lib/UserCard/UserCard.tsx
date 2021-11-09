@@ -29,7 +29,7 @@ export function UserCard(props: UserCardProps) {
         {position}
       </p>
       <div className="h-10 flex flex-wrap content-end">
-        <a href={organizationUrl} data-testid="organizationUrl">
+        <a href={organizationUrl} data-testid="organizationUrl" target="_blank">
           <img
             data-testid="organizationLogo"
             className="max-h-10"
