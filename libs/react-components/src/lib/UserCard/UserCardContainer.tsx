@@ -24,13 +24,13 @@ export function UserCardContainer({
         data-testid="grid"
         className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:grid-cols-5 gap-y-8"
       >
-        {userCardsProps.map((useCardProps, index) => {
+        {userCardsProps.map((userCardProps, index) => {
           return (
             <div
               key={`user-card-container-item-${index}`}
               data-testid="gridcell"
             >
-              <UserCard {...useCardProps} />
+              <UserCard {...userCardProps} />
             </div>
           );
         })}
