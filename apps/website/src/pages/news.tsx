@@ -17,7 +17,6 @@ export function News({ data }) {
         description=""
         image=""
       />
-
       <section className="container pt-2 md:pt-10">
         <div className="hero hero-news flex items-end rounded-3xl relative overflow-hidden">
           <Img
@@ -38,7 +37,6 @@ export function News({ data }) {
           </div>
         </div>
       </section>
-
       <section className="container my-10">
         <NewsFeed headline="Neuigkeiten" newsFeedItemsProps={newsItems} />
       </section>

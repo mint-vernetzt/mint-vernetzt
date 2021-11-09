@@ -23,7 +23,6 @@ export function Index({ data }) {
         description={""}
         children={""}
       />
-
       <section className="container pt-2 md:pt-10">
         <div className="hero hero-index flex items-end rounded-3xl relative overflow-hidden">
           <Img
@@ -106,7 +105,6 @@ export function Index({ data }) {
           ))}
         </div>
       </section>
-
       <section className="container pt-10 lg:pt-20">
         <div className="flex flex-wrap md:-mx-2 lg:-mx-4">
           <div className="flex-100 md:flex-2/3 md:px-2 lg:px-4">
@@ -123,7 +121,7 @@ export function Index({ data }) {
         </div>
       </section>
 
-      <section className="container my-10">
+      <section className="container py-10">
         <OrganizationBoxContainer
           headline="Der Verbund"
           body="Herausforderungen lösen wir gemeinsam. MINT-Potenziale heben wir im Team. MINTvernetzt ist ein Verbundprojekt, das gemeinsam von Mitarbeitenden der Körber-Stiftung, 
