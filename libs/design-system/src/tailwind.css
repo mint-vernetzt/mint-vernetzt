@@ -46,7 +46,7 @@ section.container header p.lead {
 }
 
 section.container header:not(.text-left) p.lead {
-  @apply md:w-3/4 md:mx-auto;
+  /*@apply md:w-3/4 md:mx-auto;*/
 }
 
 .blog-post-content p {

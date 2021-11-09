@@ -34,7 +34,7 @@ export function Index({ data }) {
           <div className="hero-text absolute top-0 left-0 min-h-3/4 md:min-h-full right-0 pt-12 px-4 md:pt-20 md:px-12 lg:pt-60 lg:px-20">
             <div>
               <h1 className="text-6xl lg:text-7xl leading-none text-blue-500 mb-2">
-                MINT{" "}
+                MINT
                 <span className="font-normal block md:inline">vernetzt</span>
               </h1>
               <p className="font-bold mb-4 md:max-w-1/2 lg:text-3xl lg:leading-snug">
@@ -61,7 +61,7 @@ export function Index({ data }) {
           </p>
         </header>
 
-        <div className="grid gap-6 lg:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 lg:gap-8 grid-cols-1 md:grid-cols-3">
           {[
             {
               image: `https://picsum.photos/id/101/420/210`,
@@ -87,20 +87,20 @@ export function Index({ data }) {
           ].map((teaserbox, index) => (
             <div
               key={`teaserbox-${index}`}
-              className="p-2 rounded-lg bg-beige-500"
+              className="p-4 pb-8 md:p-2 md:pb-8 lg:p-4 lg:pb-8 rounded-lg bg-beige-500"
             >
               <a href={`${teaserbox.link}`} className="flex flex-col h-100">
-                <div className="rounded-lg overflow-hidden mb-4">
+                <div className="rounded-lg overflow-hidden mb-2 lg:mb-4">
                   <img
                     src={`${teaserbox.image}`}
                     alt={`${teaserbox.title}`}
                     className="w-full h-auto"
                   />
                 </div>
-                <h4 className="text-blue-500 mx-1 mb-2">{teaserbox.title}</h4>
-                <p className="text-sm text-neutral-600 mx-1 mb-4">
-                  {teaserbox.text}
-                </p>
+                <h4 className="text-base lg:text-3xl lg:leading-snug lg:mx-2 mb-2">
+                  {teaserbox.title}
+                </h4>
+                <p className="lg:mx-2">{teaserbox.text}</p>
               </a>
             </div>
           ))}
@@ -126,7 +126,9 @@ export function Index({ data }) {
       <section className="container my-10">
         <OrganizationBoxContainer
           headline="Der Verbund"
-          body="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat"
+          body="Herausforderungen lösen wir gemeinsam. MINT-Potenziale heben wir im Team. MINTvernetzt ist ein Verbundprojekt, das gemeinsam von Mitarbeitenden der Körber-Stiftung, 
+          der matrix gGmbH, des Nationales MINTForums e.V., des Stifterverbands und der Universität Regensburg umgesetzt wird. Zusammen blicken wir auf viel Erfahrung in der MINT-Bildung, 
+          die wir bei MINTvernetzt bündeln und weiterentwickeln wollen. Hier findet Ihr die unterschiedlichen Zuständigkeiten der Verbundpartner bei MINTvernetzt."
           organisations={organisations}
         />
       </section>
