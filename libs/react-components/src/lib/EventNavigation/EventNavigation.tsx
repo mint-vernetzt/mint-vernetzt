@@ -19,7 +19,7 @@ const defaultLinkWrapper = (url: string, children: React.ReactChild) => {
 
 export function EventNavigation(props: EventNavigationProps) {
   const { headline, items, currentUrl } = props;
-  const linkWrappper = props.linkWrapper ?? defaultLinkWrapper;
+  const linkWrapper = props.linkWrapper ?? defaultLinkWrapper;
 
   const activeClass = (url: string) => {
     return url === currentUrl ? "active" : "";
@@ -43,7 +43,7 @@ export function EventNavigation(props: EventNavigationProps) {
             <h3
               className={`${activTextColor(item.url)} block text-sm font-bold `}
             >
-              {linkWrappper(item.url, item.headline)}
+              {linkWrapper(item.url, item.headline)}
             </h3>
             <time
               data-testid="date"
