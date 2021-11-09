@@ -11,7 +11,7 @@ import { __ } from "@wordpress/i18n";
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { RichText, useBlockProps } from "@wordpress/block-editor";
+import { RichText, InnerBlocks, useBlockProps } from "@wordpress/block-editor";
 
 /**
  * The save function defines the way in which the different attributes should
@@ -24,17 +24,19 @@ import { RichText, useBlockProps } from "@wordpress/block-editor";
  */
 function Save(props) {
   const {
-    attributes: { title, body, date, time },
+    attributes: { headline, from, to },
   } = props;
 
   const blockProps = useBlockProps.save();
 
   return (
     <li {...blockProps}>
-      <RichText.Content tagName="p" value={date} />
-      <RichText.Content tagName="p" value={`${time} Uhr`} />
-      <RichText.Content tagName="h4" value={title} />
-      <RichText.Content tagName="p" value={body} />
+      <RichText.Content tagName="p" value={from} className="from" />
+      <RichText.Content tagName="p" value={to} className="to" />
+      <RichText.Content tagName="h4" value={headline} className="headline" />
+      <div>
+        <InnerBlocks.Content />
+      </div>
     </li>
   );
 }

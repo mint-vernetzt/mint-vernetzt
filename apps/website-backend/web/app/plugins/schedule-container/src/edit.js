@@ -32,11 +32,11 @@ import "./editor.scss";
 function Edit() {
   const blockProps = useBlockProps();
   return (
-    <aside id="schedule-container" {...blockProps}>
+    <section id="schedule" {...blockProps}>
       <ul>
-        <InnerBlocks />
+        <InnerBlocks allowedBlocks={["create-block/schedule-item"]} />
       </ul>
-    </aside>
+    </section>
   );
 }
 

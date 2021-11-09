@@ -9,71 +9,75 @@
         (0, e.registerBlockType)("create-block/schedule-item", {
           edit: function (e) {
             const {
-                attributes: { title: r, body: a, date: o, time: i },
-                setAttributes: c,
+                attributes: { headline: r, from: a, to: l },
+                setAttributes: o,
               } = e,
-              l = (0, n.useBlockProps)();
+              c = (0, n.useBlockProps)();
             return (0, t.createElement)(
               "li",
-              l,
+              c,
               (0, t.createElement)(n.RichText, {
                 tagName: "p",
-                placeholder: "e.g. 19. September",
-                value: o,
+                placeholder: "9:00",
+                value: a,
                 onChange: (e) => {
-                  c({ date: e });
+                  o({ from: e });
                 },
+                className: "from",
               }),
               (0, t.createElement)(n.RichText, {
                 tagName: "p",
-                placeholder: "e.g. 12:30-14:00",
-                value: i,
+                placeholder: "10:00",
+                value: l,
                 onChange: (e) => {
-                  c({ time: e });
+                  o({ to: e });
                 },
+                className: "to",
               }),
               (0, t.createElement)(n.RichText, {
                 tagName: "h4",
-                placeholder: "Title",
+                placeholder: "Headline",
                 value: r,
                 onChange: (e) => {
-                  c({ title: e });
+                  o({ headline: e });
                 },
+                className: "headline",
               }),
-              (0, t.createElement)(n.RichText, {
-                tagName: "p",
-                placeholder: "Body",
-                value: a,
-                onChange: (e) => {
-                  c({ body: e });
-                },
-              })
+              (0, t.createElement)(
+                "div",
+                null,
+                (0, t.createElement)(n.InnerBlocks, null)
+              )
             );
           },
           save: function (e) {
             const {
-                attributes: { title: r, body: a, date: o, time: i },
+                attributes: { headline: r, from: a, to: l },
               } = e,
-              c = n.useBlockProps.save();
+              o = n.useBlockProps.save();
             return (0, t.createElement)(
               "li",
-              c,
+              o,
               (0, t.createElement)(n.RichText.Content, {
                 tagName: "p",
-                value: o,
+                value: a,
+                className: "from",
               }),
               (0, t.createElement)(n.RichText.Content, {
                 tagName: "p",
-                value: `${i} Uhr`,
+                value: l,
+                className: "to",
               }),
               (0, t.createElement)(n.RichText.Content, {
                 tagName: "h4",
                 value: r,
+                className: "headline",
               }),
-              (0, t.createElement)(n.RichText.Content, {
-                tagName: "p",
-                value: a,
-              })
+              (0, t.createElement)(
+                "div",
+                null,
+                (0, t.createElement)(n.InnerBlocks.Content, null)
+              )
             );
           },
         });
@@ -83,34 +87,34 @@
   function r(e) {
     var a = n[e];
     if (void 0 !== a) return a.exports;
-    var o = (n[e] = { exports: {} });
-    return t[e](o, o.exports, r), o.exports;
+    var l = (n[e] = { exports: {} });
+    return t[e](l, l.exports, r), l.exports;
   }
   (r.m = t),
     (e = []),
-    (r.O = function (t, n, a, o) {
+    (r.O = function (t, n, a, l) {
       if (!n) {
-        var i = 1 / 0;
-        for (h = 0; h < e.length; h++) {
-          (n = e[h][0]), (a = e[h][1]), (o = e[h][2]);
-          for (var c = !0, l = 0; l < n.length; l++)
-            (!1 & o || i >= o) &&
+        var o = 1 / 0;
+        for (s = 0; s < e.length; s++) {
+          (n = e[s][0]), (a = e[s][1]), (l = e[s][2]);
+          for (var c = !0, i = 0; i < n.length; i++)
+            (!1 & l || o >= l) &&
             Object.keys(r.O).every(function (e) {
-              return r.O[e](n[l]);
+              return r.O[e](n[i]);
             })
-              ? n.splice(l--, 1)
-              : ((c = !1), o < i && (i = o));
+              ? n.splice(i--, 1)
+              : ((c = !1), l < o && (o = l));
           if (c) {
-            e.splice(h--, 1);
+            e.splice(s--, 1);
             var u = a();
             void 0 !== u && (t = u);
           }
         }
         return t;
       }
-      o = o || 0;
-      for (var h = e.length; h > 0 && e[h - 1][2] > o; h--) e[h] = e[h - 1];
-      e[h] = [n, a, o];
+      l = l || 0;
+      for (var s = e.length; s > 0 && e[s - 1][2] > l; s--) e[s] = e[s - 1];
+      e[s] = [n, a, l];
     }),
     (r.o = function (e, t) {
       return Object.prototype.hasOwnProperty.call(e, t);
@@ -122,22 +126,22 @@
       };
       var t = function (t, n) {
           var a,
-            o,
-            i = n[0],
+            l,
+            o = n[0],
             c = n[1],
-            l = n[2],
+            i = n[2],
             u = 0;
           if (
-            i.some(function (t) {
+            o.some(function (t) {
               return 0 !== e[t];
             })
           ) {
             for (a in c) r.o(c, a) && (r.m[a] = c[a]);
-            if (l) var h = l(r);
+            if (i) var s = i(r);
           }
-          for (t && t(n); u < i.length; u++)
-            (o = i[u]), r.o(e, o) && e[o] && e[o][0](), (e[i[u]] = 0);
-          return r.O(h);
+          for (t && t(n); u < o.length; u++)
+            (l = o[u]), r.o(e, l) && e[l] && e[l][0](), (e[o[u]] = 0);
+          return r.O(s);
         },
         n = (self.webpackChunkschedule_item =
           self.webpackChunkschedule_item || []);

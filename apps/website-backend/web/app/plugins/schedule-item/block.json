@@ -6,33 +6,20 @@
   "category": "widgets",
   "icon": "smiley",
   "attributes": {
-    "date": {
+    "from": {
       "type": "string",
       "source": "html",
-      "selector": "p"
+      "selector": ".from"
     },
-    "time": {
+    "to": {
       "type": "string",
       "source": "html",
-      "selector": "p"
+      "selector": ".to"
     },
-    "title": {
+    "headline": {
       "type": "string",
       "source": "html",
-      "selector": "h4"
-    },
-    "body": {
-      "type": "string",
-      "source": "html",
-      "selector": "p"
-    }
-  },
-  "example": {
-    "attributes": {
-      "date": "19. September",
-      "time": "12:30-14:00",
-      "title": "Talk like a pirate workshop",
-      "body": "Arrrr! Beim Klabautermann!, "
+      "selector": ".headline"
     }
   },
   "description": "Example block written with ESNext standard and JSX support – build step required.",
@@ -42,5 +29,6 @@
   "textdomain": "schedule-item",
   "editorScript": "file:./build/index.js",
   "editorStyle": "file:./build/index.css",
-  "style": "file:./build/style-index.css"
+  "style": "file:./build/style-index.css",
+  "parent": ["create-block/schedule-container"]
 }
