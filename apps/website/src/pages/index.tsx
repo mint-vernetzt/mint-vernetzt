@@ -29,7 +29,6 @@ export function Index({ data }) {
             fluid={data.HeroImage.childImageSharp.fluid}
             className="w-full h-auto md:h-full"
           />
-          <div className="absolute w-full h-full opacity-50 bg-gradient-to-r from-white to-transparent" />
           <div className="hero-text absolute top-0 left-0 min-h-3/4 md:min-h-full right-0 pt-12 px-4 md:pt-20 md:px-12 lg:pt-60 lg:px-20">
             <div>
               <h1 className="text-6xl lg:text-7xl leading-none text-blue-500 mb-2">
