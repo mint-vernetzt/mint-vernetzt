@@ -49,6 +49,7 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
           <h1 className="flex-100 md:order-1 text-5xl lg:text-4xl leading-tight lg:leading-none mb-2">
             {event.title}
           </h1>
+
           <ul className="flex flex-wrap md:order-3">
             {event.tags.nodes.map((tag, index) => {
               return (
@@ -64,6 +65,15 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
         </div>
 
         {image && <Img fluid={image} className="rounded-3xl w-100 h-auto" />}
+
+        {event.parent && (
+          <Link
+            to={`/event/${event.parent.node.slug}`}
+            className="mt-3 text-lilac-500"
+          >
+            &lt; Zurück zur Übersicht
+          </Link>
+        )}
 
         <div className="flex flex-wrap mt-4 md:mt-10 lg:mt-20 mb-8 md:-mx-2 lg:-mx-6 ">
           <div className="flex-100 md:flex-2/3 pb-8 md:pb-0 md:px-2 lg:px-6">
