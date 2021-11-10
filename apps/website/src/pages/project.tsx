@@ -273,6 +273,7 @@ export const pageQuery = graphql`
         contactInformations {
           firstName
           lastName
+          title
           position
           organization {
             ... on WpOrganization {

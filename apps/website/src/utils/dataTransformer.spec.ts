@@ -83,6 +83,7 @@ describe("getUserCardsProps", () => {
             firstName: "MyFirstname",
             lastName: "MyLastname",
             position: "MyPosition",
+            title: null,
             phone: "",
             photo: {
               altText: "MyFirstname MyLastname",
@@ -135,6 +136,56 @@ describe("getUserCardsProps", () => {
         },
       },
     ]);
+  });
+
+  test("transform user data with title", () => {
+    const usersData: GatsbyTypes.ProjectPageQuery["usersData"] = {
+      nodes: [
+        {
+          contactInformations: {
+            firstName: "MyFirstname",
+            lastName: "MyLastname",
+            position: "MyPosition",
+            title: "Dr.",
+            phone: "",
+            photo: {
+              altText: "MyFirstname MyLastname",
+              localFile: {
+                childImageSharp: {
+                  fluid: {
+                    src: "users-image.jpg",
+                  },
+                },
+              },
+            },
+            organization: [
+              {
+                id: "SOMEID",
+                title: "Organizationname",
+                organizationInformations: {
+                  url: "https://some-url.test/",
+                  logo: {
+                    altText: "Organizationname",
+                    localFile: {
+                      childImageSharp: {
+                        fluid: {
+                          src: "organisation-logo.png",
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            ],
+          },
+        },
+      ],
+    };
+    const userCardProps = getUserCardsProps(usersData);
+
+    expect(userCardProps[0].name).toBe(
+      `${usersData.nodes[0].contactInformations.title} ${usersData.nodes[0].contactInformations.firstName} ${usersData.nodes[0].contactInformations.lastName}`
+    );
   });
 });
 

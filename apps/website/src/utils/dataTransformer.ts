@@ -34,7 +34,10 @@ export const getUserCardsProps = (
   usersData: GatsbyTypes.ProjectPageQuery["usersData"]
 ): UserCardProps[] => {
   return usersData.nodes.map((user) => {
-    const fullName = `${user.contactInformations.firstName} ${user.contactInformations.lastName}`;
+    const fullName =
+      user.contactInformations.title !== null
+        ? `${user.contactInformations.title} ${user.contactInformations.firstName} ${user.contactInformations.lastName}`
+        : `${user.contactInformations.firstName} ${user.contactInformations.lastName}`;
     const organisation = user.contactInformations.organization[0] ?? null;
 
     return {
