@@ -30,25 +30,28 @@ export function EventNavigation(props: EventNavigationProps) {
   };
 
   return (
-    <div className="flex flex-col p-4 pb-15 md:pb-5 bg-gray-50 rounded-lg shadow-lg h-full">
-      {headline && <h2 className="lg:text-2xl">{headline}</h2>}
+    <div className="flex flex-col px-4 py-8 lg:px-8 bg-neutral-200 rounded-3xl shadow-boxes mb-6 lg:mb-16">
+      {headline && <h2 className="text-3xl leading-snug">{headline}</h2>}
       <ul className="event-sidebar-navigation">
         {items.map((item, index) => (
           <li
             key={`event-${index}`}
-            className={`relative p-5 border-b border-neutral-400 last:border-b-0 ${activeClass(
+            className={`relative py-4 pl-10 lg:pl-14 lg:pr-3 border-b border-neutral-400 last:border-b-0 ${activeClass(
               item.url
             )}`}
           >
+            <div className="absolute left-0 lg:left-2 top-5 icon w-5 h-3 bg-red-600"></div>
             <h3
-              className={`${activTextColor(item.url)} block text-sm font-bold `}
+              className={`${activTextColor(
+                item.url
+              )} text-sm leading-snug font-normal lg:font-semibold lg:text-lg mb-1 lg:mb-2`}
             >
               {linkWrapper(item.url, item.headline)}
             </h3>
             <time
               data-testid="date"
               dateTime={item.date.toUTCString()}
-              className="mb-2 md:mb-0 md:mr-2 md:py-2 md:pr-3 uppercase text-neutral-800 text-xs flex-100 md:flex-none md:order-3"
+              className="text-xs lg:text-base"
             >
               {formatDate(item.date)}
             </time>

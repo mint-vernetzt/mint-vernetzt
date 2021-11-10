@@ -4,6 +4,10 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap");
 
+body {
+  @apply text-neutral-600;
+}
+
 body h1,
 body h2,
 body h3,
@@ -163,4 +167,28 @@ section.container header:not(.text-left) p.lead {
 
 .event-teaser-list .event-item p {
   @apply mb-3 text-neutral-700 leading-tight line-clamp-3 lg:line-clamp-2;
+}
+
+.event-description {
+  @apply mb-8;
+}
+
+.event-description h2 {
+  @apply text-3xl leading-snug mb-2 lg:text-5xl lg:leading-none;
+}
+
+.event-description p {
+  @apply lg:text-xl;
+}
+
+.event-sidebar-navigation li {
+}
+
+.event-sidebar-navigation li a::after {
+  position: absolute;
+  content: " ";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
