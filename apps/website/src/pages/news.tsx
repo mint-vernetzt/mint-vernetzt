@@ -53,7 +53,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allItems: allWpNewsItem(sort: { fields: [date] }) {
+    allItems: allWpNewsItem(sort: { fields: [date], order: DESC }) {
       nodes {
         title
         excerpt
