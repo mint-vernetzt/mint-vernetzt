@@ -1,12 +1,16 @@
 import { Story, Meta } from "@storybook/react";
-import { Icon, IconProps } from "./Icon";
+import { Icon, IconProps, IconType } from "./Icon";
 
 export default {
   component: Icon,
   title: "Icon",
 } as Meta;
 
-const Template: Story<IconProps> = (args) => <Icon {...args} />;
+export const Component: Story<IconProps> = (args) => (
+  <Icon type={IconType.Flag} />
+);
+Component.args = {
+  type: IconType.Flag,
+};
 
-export const Primary = Template.bind({});
-Primary.args = {};
+Component.storyName = "component";
