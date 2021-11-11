@@ -19,12 +19,12 @@ describe("Event Navigation", () => {
     const items = [
       {
         headline: "headline 1",
-        date: new Date("2021-11-11"),
+        date: new Date("2021-11-11T00:00:00Z"),
         url: "https://someurl.test/",
       },
       {
         headline: "headline 2",
-        date: new Date("2021-12-12"),
+        date: new Date("2021-12-12T00:00:00Z"),
         url: "https://anotherurl.test/",
       },
     ];
@@ -48,7 +48,7 @@ describe("Event Navigation", () => {
 
     // expect formatted date
     expect(within(navigationItems[1]).queryByTestId("date")?.textContent).toBe(
-      "11. Dezember 2021"
+      "12. Dezember 2021"
     );
 
     // expect link
