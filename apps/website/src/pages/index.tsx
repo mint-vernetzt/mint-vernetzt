@@ -168,11 +168,7 @@ export const pageQuery = graphql`
           logo {
             altText
             localFile {
-              childImageSharp {
-                fluid {
-                  src
-                }
-              }
+              publicURL
             }
           }
         }

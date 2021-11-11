@@ -104,11 +104,7 @@ describe("getUserCardsProps", () => {
                   logo: {
                     altText: "Organizationname",
                     localFile: {
-                      childImageSharp: {
-                        fluid: {
-                          src: "organisation-logo.png",
-                        },
-                      },
+                      publicURL: "organisation-logo.png",
                     },
                   },
                 },
@@ -167,11 +163,7 @@ describe("getUserCardsProps", () => {
                   logo: {
                     altText: "Organizationname",
                     localFile: {
-                      childImageSharp: {
-                        fluid: {
-                          src: "organisation-logo.png",
-                        },
-                      },
+                      publicURL: "organisation-logo.png",
                     },
                   },
                 },
@@ -315,11 +307,7 @@ test("transform organisation items for landing page", () => {
           logo: {
             altText: output[0].organizationLogo.alt,
             localFile: {
-              childImageSharp: {
-                fluid: {
-                  src: output[0].organizationLogo.src,
-                },
-              },
+              publicURL: output[0].organizationLogo.src,
             },
           },
         },
