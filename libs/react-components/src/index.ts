@@ -7,6 +7,7 @@ export * from "./lib/NewsFeed/NewsFeedItem";
 export * from "./lib/NewsFeed/utils";
 export * from "./lib/EventFeed/EventFeed";
 export * from "./lib/EventFeed/EventFeedItem";
+export * from "./lib/EventTeaser/EventTeaser";
 export * from "./lib/EventNavigation/EventNavigation";
 export * from "./lib/Text";
 export * from "./lib/UserCard/UserCard";

@@ -1,18 +1,18 @@
-import { graphql, Link, useStaticQuery } from "gatsby";
+import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { getNewsItems, getOrganizationsData } from "../utils/dataTransformer";
 import Img from "gatsby-image";
 
-import {
-  NewsFeed,
-  OrganizationBoxProps,
-} from "@mint-vernetzt/react-components";
+import { NewsFeed, EventTeaser } from "@mint-vernetzt/react-components";
 import { OrganizationBoxContainer } from "@mint-vernetzt/react-components";
 
-export function Index({ data }) {
+export function Index({ data }: { data: GatsbyTypes.LandingPageQuery }) {
   const newsItems = getNewsItems(data.newsItems);
   const organisations = getOrganizationsData(data.organizationsData);
+  const linkWrapper = (url: string, children: React.ReactChild) => {
+    return <Link to={url}>{children}</Link>;
+  };
 
   return (
     <Layout>
@@ -115,7 +115,17 @@ export function Index({ data }) {
             />
           </div>
           <div className="flex-100 md:flex-1/3 pb-8 md:pb-0 md:px-2 lg:px-4">
-            <div className="bg-yellow-300 p-20 rounded-3xl">Events-Modul</div>
+            <EventTeaser
+              headline="MINTevents"
+              linkToOverview="/events/"
+              linkWrapper={linkWrapper}
+              items={data.events.nodes.map((event) => ({
+                headline: event.title,
+                body: event.excerpt.replace(/<[^>]*>/g, "").substr(0, 100),
+                date: new Date(event.eventInformations.startDate),
+                url: `/event/${event.slug}/`,
+              }))}
+            />
           </div>
         </div>
       </section>
@@ -172,6 +182,23 @@ export const pageQuery = graphql`
             }
           }
         }
+      }
+    }
+    events: allWpEvent(
+      filter: { parentId: { eq: null } }
+      sort: { fields: eventInformations___startDate, order: DESC }
+      limit: 4
+    ) {
+      nodes {
+        excerpt
+        eventInformations {
+          startTime
+          startDate
+          endTime
+          endDate
+        }
+        title
+        slug
       }
     }
   }
