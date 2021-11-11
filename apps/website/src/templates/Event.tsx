@@ -162,7 +162,7 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
           </div>
 
           <div className="flex-100 md:flex-1/3 md:px-2 lg:px-6">
-            {relatedEvents.length && (
+            {relatedEvents.length > 0 && (
               <EventNavigation
                 headline="Veranstaltungstage"
                 items={relatedEvents}
