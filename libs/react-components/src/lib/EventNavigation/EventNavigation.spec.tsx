@@ -48,7 +48,7 @@ describe("Event Navigation", () => {
 
     // expect formatted date
     expect(within(navigationItems[1]).queryByTestId("date")?.textContent).toBe(
-      "12. Dezember 2021"
+      "11. Dezember 2021"
     );
 
     // expect link
