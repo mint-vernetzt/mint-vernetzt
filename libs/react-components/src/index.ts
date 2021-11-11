@@ -1,3 +1,4 @@
+export * from "./lib/Icon/Icon";
 export * from "./lib/ContactCard/ContactCard";
 export * from "./lib/EventNavigation/EventNavigation";
 export * from "./lib/Button";
