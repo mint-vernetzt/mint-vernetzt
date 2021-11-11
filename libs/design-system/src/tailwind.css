@@ -4,6 +4,10 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap");
 
+body {
+  @apply text-neutral-600;
+}
+
 body h1,
 body h2,
 body h3,
@@ -130,4 +134,83 @@ section.container header:not(.text-left) p.lead {
   .hero-news {
     height: 464px;
   }
+}
+
+.event-list > section > ul > li *:last-child {
+  margin-bottom: 0;
+}
+
+.event-list .event-item {
+  @apply border-b border-neutral-400 last:border-b-0 pt-4 pb-6 lg:pt-6 lg:pb-8;
+}
+
+@screen lg {
+  .event-list .event-item > div {
+    width: 75%;
+  }
+}
+.event-list .event-item p {
+  @apply mb-2;
+}
+
+.event-teaser-list > section {
+  @apply py-6 rounded-lg bg-neutral-200;
+}
+
+.event-list .event-item {
+  @apply border-b border-neutral-400 last:border-b-0 pt-4 pb-6;
+}
+
+.event-teaser-list .event-item h4 {
+  @apply mb-3 text-neutral-700 leading-tight line-clamp-3 lg:line-clamp-2;
+}
+
+.event-teaser-list .event-item p {
+  @apply mb-3 text-neutral-700 leading-tight line-clamp-3 lg:line-clamp-2;
+}
+
+.event-description {
+  @apply mb-8;
+}
+
+.event-description h2 {
+  @apply text-3xl leading-snug mb-2 lg:text-5xl lg:leading-none;
+}
+
+.event-description p {
+}
+
+.event-sidebar-navigation li {
+}
+
+.event-sidebar-navigation li a::after {
+  position: absolute;
+  content: " ";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+#schedule ul li {
+  @apply border-b border-neutral-400 last:border-b-0 pl-8 pt-2 pb-4;
+}
+
+#schedule p.to,
+#schedule p.from {
+  @apply inline text-neutral-700 m-0;
+}
+
+#schedule p.to::before {
+  content: "\002D";
+  margin: 0 3px 0 5px;
+}
+
+#schedule > ul > li > h4 {
+  @apply relative;
+}
+
+#schedule h4.headline::before {
+  content: "\276F";
+  @apply absolute text-center transition-all ease-in-out duration-300 w-6 h-6 md:w-8 md:h-8 -left-8;
 }

@@ -58,6 +58,11 @@ module.exports = {
       "1/2": "50%",
       "3/4": "75%",
     },
+    spacing: {
+      ...defaultTheme.spacing,
+      18: "4.5rem",
+      22: "5.5rem",
+    },
     zIndex: {
       ...defaultTheme.zIndex,
       "-1": "-1",
@@ -71,6 +76,10 @@ module.exports = {
     screens: {
       xs: "475px",
       ...defaultTheme.screens,
+    },
+    boxShadow: {
+      ...defaultTheme.boxShadow,
+      boxes: "0 7px 38px -4px rgba(0, 0, 0, 0.2)",
     },
   },
   variants: {
