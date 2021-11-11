@@ -266,11 +266,14 @@ export const pageQuery = graphql`
       }
     }
 
-    usersData: allWpContact {
+    usersData: allWpContact(
+      sort: { fields: contactInformations___lastName, order: ASC }
+    ) {
       nodes {
         contactInformations {
           firstName
           lastName
+          title
           position
           organization {
             ... on WpOrganization {
