@@ -1,6 +1,11 @@
 # Application
 web/app/plugins/*
 !web/app/plugins/.gitkeep
+# MV Core Plugin
+!web/app/plugins/mv-core-functions
+# Blocks
+!web/app/plugins/schedule*
+
 web/app/mu-plugins/*/
 web/app/upgrade
 web/app/uploads/*
@@ -27,6 +32,5 @@ wp-cli.local.yml
 # Deployer
 deployer/inventory.yml
 
-# Blocks
-!web/app/plugins/schedule*
+# Dumpfiles
 dump.sql.gz
