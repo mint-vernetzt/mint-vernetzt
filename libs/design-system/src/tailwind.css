@@ -178,7 +178,6 @@ section.container header:not(.text-left) p.lead {
 }
 
 .event-description p {
-  @apply lg:text-xl;
 }
 
 .event-sidebar-navigation li {
@@ -191,4 +190,27 @@ section.container header:not(.text-left) p.lead {
   left: 0;
   bottom: 0;
   right: 0;
+}
+
+#schedule ul li {
+  @apply border-b border-neutral-400 last:border-b-0 pl-8 pt-2 pb-4;
+}
+
+#schedule p.to,
+#schedule p.from {
+  @apply inline text-neutral-700 m-0;
+}
+
+#schedule p.to::before {
+  content: "\002D";
+  margin: 0 3px 0 5px;
+}
+
+#schedule > ul > li > h4 {
+  @apply relative;
+}
+
+#schedule h4.headline::before {
+  content: "\276F";
+  @apply absolute text-center transition-all ease-in-out duration-300 w-6 h-6 md:w-8 md:h-8 -left-8;
 }

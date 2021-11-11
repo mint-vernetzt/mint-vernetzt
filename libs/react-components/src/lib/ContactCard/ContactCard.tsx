@@ -40,22 +40,16 @@ export function ContactCard({
         </div>
       </div>
       <div className="pl-22">
-        <p
-          data-testid="phone"
-          className="text-xs text-neutral-800 font-semibold mb-2"
-        >
+        <p className="text-xs text-neutral-800 font-semibold mb-2">
           <a href={`tel:${phone}`} className="flex items-center">
             <span className="icon w-4 h-4 mr-2 bg-red-600"></span>
-            {phone}
+            <span data-testid="phone">{phone}</span>
           </a>
         </p>
-        <p
-          data-testid="email"
-          className="text-xs text-neutral-800 font-semibold"
-        >
+        <p className="text-xs text-neutral-800 font-semibold">
           <a href={`mailto:${email}`} className="flex items-center">
             <span className="icon w-4 h-4 mr-2 bg-red-600"></span>
-            {email}
+            <span data-testid="email">{email}</span>
           </a>
         </p>
       </div>
