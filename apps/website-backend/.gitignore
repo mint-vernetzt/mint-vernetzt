@@ -1,8 +1,6 @@
 # Application
 web/app/plugins/*
 !web/app/plugins/.gitkeep
-# MV Core Plugin
-!web/app/plugins/mv-core-functions
 # Blocks
 !web/app/plugins/schedule*
 
