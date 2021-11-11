@@ -144,7 +144,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    newsItems: allWpNewsItem(sort: { fields: [date] }) {
+    newsItems: allWpNewsItem(sort: { fields: [date], order: DESC }, limit: 3) {
       nodes {
         title
         excerpt
