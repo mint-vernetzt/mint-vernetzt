@@ -51,8 +51,7 @@ export const getUserCardsProps = (
       },
       organizationUrl: organisation.organizationInformations.url,
       organizationLogo: {
-        src: organisation.organizationInformations.logo.localFile
-          .childImageSharp.fluid.src,
+        src: organisation.organizationInformations.logo.localFile.publicURL,
         alt: organisation.title,
       },
     };
@@ -112,8 +111,7 @@ export const getOrganizationsData = (
     description: organisation.organizationInformations.description,
     organizationUrl: organisation.organizationInformations.url,
     organizationLogo: {
-      src: organisation.organizationInformations.logo.localFile.childImageSharp
-        .fluid.src,
+      src: organisation.organizationInformations.logo.localFile.publicURL,
       alt: organisation.organizationInformations.logo.altText,
     },
   }));
