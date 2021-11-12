@@ -117,24 +117,48 @@ export const getOrganizationsData = (
   }));
 };
 
+export const sortRelatedEvents = (events: EventNavigationItemProps[]) => {
+  return events.sort((a, b) => {
+    if (a.date < b.date) return -1;
+    if (a.date > b.date) return 1;
+
+    return 0;
+  });
+};
+
+const TIME_PATTERN = /^(?:(?:([01]?\d|2[0-3]):)?([0-5]?\d):)?([0-5]?\d)$/;
+export const createDateTimeFrom = (date: string, time: string) => {
+  return TIME_PATTERN.test(time) ? new Date(`${date}T${time}`) : new Date(date);
+};
+
 export const getRelatedEvents = (
   data: GatsbyTypes.EventQuery
 ): EventNavigationItemProps[] => {
+  let relatedEvents = [];
+
   if (data.event.allChildren.nodes.length > 0) {
-    return data.event.allChildren.nodes.map((item) => ({
+    relatedEvents = data.event.allChildren.nodes.map((item) => ({
       headline: item.title,
-      date: new Date(item.eventInformations.startDate),
+      date: createDateTimeFrom(
+        item.eventInformations.startDate,
+        item.eventInformations.startTime
+      ),
       url: `/event/${item.slug}`,
     }));
   }
 
   if (data.event.allSiblings?.node?.wpChildren?.nodes?.length) {
-    return data.event.allSiblings.node.wpChildren.nodes.map((item) => ({
-      headline: item.title,
-      date: new Date(item.eventInformations.startDate),
-      url: `/event/${item.slug}`,
-    }));
+    relatedEvents = data.event.allSiblings.node.wpChildren.nodes.map(
+      (item) => ({
+        headline: item.title,
+        date: createDateTimeFrom(
+          item.eventInformations.startDate,
+          item.eventInformations.startTime
+        ),
+        url: `/event/${item.slug}`,
+      })
+    );
   }
 
-  return [];
+  return sortRelatedEvents(relatedEvents);
 };
