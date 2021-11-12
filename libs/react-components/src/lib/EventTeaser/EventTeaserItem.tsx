@@ -18,9 +18,18 @@ export function EventTeaserItem(props: EventTeaserItemProps) {
 
   return (
     <div>
-      <h3>{linkWrapper(url, headline)}</h3>
-      <p>{body}</p>
-      <div data-testid="date">[ICON] {formatDate(date)}</div>
+      <h4 className="mb-1 text-neutral-600 leading-tight text-base lg:text-lg">
+        {linkWrapper(url, headline)}
+      </h4>
+      <p className="mb-1 text-neutral-600 leading-tight line-clamp-3 lg:line-clamp-2 text-sm lg:text-base">
+        {body}
+      </p>
+      <div
+        data-testid="date"
+        className="text-neutral-800 leading-tight text-xs font-semibold"
+      >
+        [ICON] {formatDate(date)}
+      </div>
     </div>
   );
 }

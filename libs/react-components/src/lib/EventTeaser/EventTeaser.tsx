@@ -16,14 +16,17 @@ export function EventTeaser(props: EventTeaserProps) {
   const linkWrapper = props.linkWrapper ?? defaultLinkWrapper;
 
   return (
-    <div className="flex flex-col p-4 pb-15 md:pb-5 bg-gray-50 rounded-lg shadow-lg h-full">
-      <h2 className="text-4xl">
+    <div className="flex flex-col p-4 pb-15 md:pb-5 py-6 rounded-lg bg-neutral-200 shadow-lg">
+      <h2 className="text-3xl leading-snug lg:text-4xl lg:mb-2">
         {linkToOverview ? linkWrapper(linkToOverview, headline) : headline}
       </h2>
       {items?.length > 0 && (
         <ul>
           {items.map((item, index) => (
-            <li key={index}>
+            <li
+              key={index}
+              className="border-b border-neutral-400 last:border-b-0 pt-4 pb-6"
+            >
               <EventTeaserItem
                 headline={item.headline}
                 body={item.body}

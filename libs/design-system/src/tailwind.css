@@ -153,34 +153,12 @@ section.container header:not(.text-left) p.lead {
   @apply mb-2;
 }
 
-.event-teaser-list > section {
-  @apply py-6 rounded-lg bg-neutral-200;
-}
-
-.event-list .event-item {
-  @apply border-b border-neutral-400 last:border-b-0 pt-4 pb-6;
-}
-
-.event-teaser-list .event-item h4 {
-  @apply mb-3 text-neutral-700 leading-tight line-clamp-3 lg:line-clamp-2;
-}
-
-.event-teaser-list .event-item p {
-  @apply mb-3 text-neutral-700 leading-tight line-clamp-3 lg:line-clamp-2;
-}
-
 .event-description {
   @apply mb-8;
 }
 
 .event-description h2 {
   @apply text-3xl leading-snug mb-2 lg:text-5xl lg:leading-none;
-}
-
-.event-description p {
-}
-
-.event-sidebar-navigation li {
 }
 
 .event-sidebar-navigation li a::after {
