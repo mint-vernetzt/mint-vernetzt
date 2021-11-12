@@ -86,6 +86,10 @@ section.container header:not(.text-left) p.lead {
   @apply px-4 py-3 rounded-lg bg-primary text-neutral-200 font-semibold inline-block;
 }
 
+.btn-white {
+  @apply px-4 py-3 bg-white font-semibold inline-block;
+}
+
 .hero-index,
 .hero-news {
   height: 540px;
