@@ -35,7 +35,11 @@ export function Topics({ data }) {
       <section className="container my-10">
         <div className="flex flex-wrap content-center items-center md:-mx-6 lg:-mx-10">
           <div className="flex-100 pb-6 md:pb-0 md:flex-1/3 lg:flex-1/4 md:px-6 lg:px-10">
-            TODO: Rakete
+            <img
+              className="w-full h-auto"
+              src="/images/Badge_02Rocket.svg"
+              alt="MINTrakete"
+            />
           </div>
 
           <div className="flex-100 md:flex-2/3 md:px-6 lg:px-10">
