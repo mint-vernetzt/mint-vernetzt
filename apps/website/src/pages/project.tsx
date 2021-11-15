@@ -1,4 +1,8 @@
-import { UserCardContainer } from "@mint-vernetzt/react-components";
+import {
+  Icon,
+  IconType,
+  UserCardContainer,
+} from "@mint-vernetzt/react-components";
 import { graphql, Link } from "gatsby";
 import { useEffect } from "react";
 import "../../../../libs/design-system/src/styles.css";
@@ -107,22 +111,24 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
         <div className="flex flex-wrap md:items-stretch md:-mx-6 md:-mb-12 lg:-mx-10">
           {[
             {
-              icon: `none`,
+              icon: (
+                <Icon type={IconType.LightBulb} width="2rem" height="2rem" />
+              ),
               title: `Motivation`,
               text: `MINT-Kompetenzen sind Zukunftskompetenzen. Ohne die Stärkung der MINT-Bildung und Aktivierung neuer MINT-Talente wird Deutschland als Innovationsstandort an Bedeutung verlieren und wichtige Beiträge zur Lösungsfindung globaler Herausforderungen wie dem Klimawandel nicht leisten können. Kindern und Jugendlichen Kompetenzen in Mathematik, Informatik, Naturwissenschaften und Technik zu vermitteln und ihnen den Zugang zu MINT-Arbeitsplätzen zu ermöglichen, sind zentrale Schlüssel für mehr Gleichberechtigung und Teilhabe.`,
             },
             {
-              icon: `none`,
+              icon: <Icon type={IconType.Magic} width="2rem" height="2rem" />,
               title: `Mission`,
               text: `Wir wollen Kindern und Jugendlichen eine gute MINT-Bildung ermöglichen, die schulisches und außerschulisches Lernen miteinander verzahnt und anwendungsorientiert sowie praxisnah gestaltet ist. Dafür stärken wir das Feld der außerschulischen MINT-Bildung, sorgen für Vernetzung, Sichtbarkeit und Professionalisierung der MINT-Akteur:innen und setzen uns für das Zusammenwirken von Schulen und außerschulischen Partner:innen ein.`,
             },
             {
-              icon: `none`,
+              icon: <Icon type={IconType.Flag} width="2rem" height="2rem" />,
               title: `Ziel`,
               text: `Wir unterstützen Engagierte der MINT-Bildung durch Vernetzungsräume, Transferangebote und Innovationsimpulse darin, noch bessere Bildungsangebote für Kinder und Jugendliche zu machen und dabei breitere und diversere Zielgruppen anzusprechen. Hierzu zählen insbesondere Mädchen und junge Frauen.`,
             },
             {
-              icon: `none`,
+              icon: <Icon type={IconType.Gem} width="2rem" height="2rem" />,
               title: `Vision`,
               text: `Mit MINTvernetzt schaffen wir ein lebendiges, diverses und nachhaltig wachsendes Netzwerk für die MINT-Bildungslandschaft. Wir stellen praxisorientierte Informationen bereit, bieten echten Transfer in die Bildungspraxis und geben den Raum für Diskurse und praktischen Austausch. MINT-Akteur:innen werden sichtbar, begreifen sich als Gemeinschaft und verzahnen ihre Angebote enger mit schulischen Aktivitäten. Sie nehmen neue Themenimpulse auf, gestalten innovative Angebote und erreichen diversere Zielgruppen. Dadurch fördern wir gesellschaftliche Teilhabe und Innovation.`,
             },
@@ -131,7 +137,9 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
               key={`teaser-${index}`}
               className="flex-100 mb-6 lg:flex-1/2 md:px-6 lg:px-10"
             >
-              <div className="icon w-8 h-8 mb-2 bg-red-600"></div>
+              <div className="icon w-8 h-8 mb-2 border border-secondary-500 rounded-full">
+                {teaser.icon}
+              </div>
               <h4 className="text-2xl text-blue-500 mb-1">{teaser.title}</h4>
               <p className="text-neutral-600">{teaser.text}</p>
             </div>
@@ -193,7 +201,9 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
                     href={`tel:${contactbox.phone}`}
                     className="flex items-center"
                   >
-                    <span className="icon w-4 h-4 mr-2 bg-red-600"></span>
+                    <span className="icon w-4 h-4 mr-2">
+                      <Icon type={IconType.Telephone} />
+                    </span>
                     <span>{contactbox.phone}</span>
                   </a>
                 </p>
@@ -202,7 +212,9 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
                     href={`mailto:${contactbox.mail}`}
                     className="flex items-center"
                   >
-                    <span className="icon w-4 h-4 mr-2 bg-red-600"></span>
+                    <span className="icon w-4 h-4 mr-2 ">
+                      <Icon type={IconType.Envelope} />
+                    </span>
                     <span>{contactbox.mail}</span>
                   </a>
                 </p>

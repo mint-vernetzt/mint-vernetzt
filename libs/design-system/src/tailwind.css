@@ -203,7 +203,7 @@ section.container header:not(.text-left) p.lead {
 }
 
 #schedule h4.headline::before {
-  content: "\276F";
+  /*  content: "\276F"; */
   @apply absolute text-center transition-all ease-in-out duration-300 w-6 h-6 md:w-8 md:h-8 -left-8;
 }
 

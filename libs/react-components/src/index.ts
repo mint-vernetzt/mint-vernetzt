@@ -1,3 +1,4 @@
+export * from "./lib/Icon/Icon";
 export * from "./lib/EventTeaser/EventTeaser";
 export * from "./lib/ContactCard/ContactCard";
 export * from "./lib/EventNavigation/EventNavigation";

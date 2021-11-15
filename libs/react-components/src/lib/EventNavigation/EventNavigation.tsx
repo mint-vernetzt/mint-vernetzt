@@ -1,4 +1,5 @@
 import { formatDate } from "../NewsFeed/utils";
+import { Icon, IconType } from "../Icon/Icon";
 import * as React from "react";
 import { defaultLinkWrapper } from "../EventTeaser/defaultLinkWrapper";
 export interface EventNavigationItemProps {
@@ -37,7 +38,9 @@ export function EventNavigation(props: EventNavigationProps) {
               item.url
             )}`}
           >
-            <div className="absolute left-0 lg:left-2 top-5 icon w-5 h-3 bg-red-600"></div>
+            <div className="absolute left-0 lg:left-2 top-5 icon">
+              <Icon type={IconType.Calendar} />
+            </div>
             <h3
               className={`${activTextColor(
                 item.url

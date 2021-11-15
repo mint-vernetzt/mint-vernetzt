@@ -4,6 +4,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { getParentEventItems } from "../utils/dataTransformer";
 import Img from "gatsby-image";
+import MoodImage from "../images/events_overview.svg";
 
 export function Events({ data }: { data: GatsbyTypes.EventFeedQuery }) {
   const events = getParentEventItems(data.events);
@@ -20,9 +21,10 @@ export function Events({ data }: { data: GatsbyTypes.EventFeedQuery }) {
       <section className="container mt-4 md:mt-10">
         <div className="flex flex-wrap md:-mx-6 lg:-mx-10">
           <div className="flex-100 md:flex-1/3 md:order-2 pb-4 md:pb-0 md:px-6 lg:px-10">
-            <Img
-              fluid={data.HeaderImage.childImageSharp.fluid}
+            <img
+              src={MoodImage}
               className="w-full h-auto rounded-3xl"
+              alt="MINTevents"
             />
           </div>
 
@@ -32,19 +34,16 @@ export function Events({ data }: { data: GatsbyTypes.EventFeedQuery }) {
             </h1>
 
             <p className="lg:text-3xl lg:leading-snug text-neutral-600 mb-4 font-bold">
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit,{" "}
+              Gemeinsam die bunte Vielfalt der MINT-Bildungswelt zeigen.{" "}
             </p>
 
             <p className="lg:text-xl text-neutral-600 mb-4">
-              At vero eos et accusam et justo duo dolores et ea rebum. Stet
-              clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-              dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
-              elitr. No sea takimata sanctus est
-            </p>
-
-            <p className="lg:text-xl text-neutral-600">
-              Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-              sadipscing elitr.
+              Dafür entwickeln wir bedarfsorientiert analoge und digitale
+              Veranstaltungsformate. Um Euch besser kennenzulernen, legen wir,
+              so es die Umstände erlauben, einen besonderen Schwerpunkt auf
+              Kontakte vor Ort und Präsenzveranstaltungen, die von digitalen
+              Formaten (z. B. virtuellen Stammtischen und Dialogformaten)
+              flankiert werden.
             </p>
           </div>
         </div>
@@ -58,13 +57,6 @@ export function Events({ data }: { data: GatsbyTypes.EventFeedQuery }) {
 }
 export const pageQuery = graphql`
   query EventFeed {
-    HeaderImage: file(relativePath: { eq: "events_overview.jpeg" }) {
-      childImageSharp {
-        fluid(maxWidth: 540) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
     events: allWpEvent(
       filter: { parentId: { eq: null } }
       sort: { fields: eventInformations___startDate, order: DESC }
