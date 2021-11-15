@@ -1,5 +1,6 @@
 import { UserCardContainer } from "@mint-vernetzt/react-components";
 import { graphql, Link } from "gatsby";
+import { useEffect } from "react";
 import "../../../../libs/design-system/src/styles.css";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -10,6 +11,10 @@ import {
   PaktDataByCategory,
 } from "../utils/dataTransformer";
 
+const getCategorySlugFromMember = (slug: string) => {
+  return slug.split("/")[0] ?? "no-category";
+};
+
 export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
   const userCardsProps = getUserCardsProps(data.usersData);
 
@@ -17,6 +22,26 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
     data.paktData.edges
   );
   const categories = Object.keys(paktDataByCategory);
+
+  useEffect(() => {
+    // accordeon toggle
+    document.querySelectorAll(".pakt-category").forEach(($category) => {
+      $category.addEventListener("click", (event) => {
+        // event.preventDefault();
+        document
+          .querySelectorAll(".pakt-category.active")
+          .forEach(($active) => {
+            if ($category !== $active) {
+              $active.classList.remove("active");
+            }
+          });
+        $category.classList.toggle("active");
+        setTimeout(() => {
+          $category.scrollIntoView({ block: "start", behavior: "smooth" });
+        }, 500);
+      });
+    });
+  }, []);
 
   return (
     <Layout>
@@ -211,37 +236,38 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
         </header>
 
         <ul className="pakt-list">
-          {categories.map((category, index) => (
-            <li
-              key={category}
-              id={`category${index}`}
-              className="pakt-category relative overflow-hidden"
-            >
-              <input
-                className="absolute opacity-0 -z-1"
-                type="checkbox"
-                id={`opener-${index}`}
-              />
-              <label
-                className="block font-bold text-blue-500 md:text-3xl md:leading-snug py-3 flex item-center select-none"
-                for={`opener-${index}`}
+          {categories.map((category, index) => {
+            const categorySlug = getCategorySlugFromMember(
+              paktDataByCategory[category][0].slug
+            );
+
+            return (
+              <li
+                key={category}
+                id={categorySlug}
+                className="pakt-category relative overflow-hidden"
               >
-                {category}
-              </label>
-              <ul className="pakt-member max-h-0 transition-all ease-in-out duration-300 px-6 md:px-8">
-                {paktDataByCategory[category].map((member) => (
-                  <li className="py-2">
-                    <Link
-                      to={`/pakt/${member.slug}`}
-                      className="block md:text-2xl"
-                    >
-                      {member.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </li>
-          ))}
+                <a
+                  href={`#${categorySlug}`}
+                  className="block font-bold text-blue-500 md:text-3xl md:leading-snug py-3 flex item-center"
+                >
+                  {category}
+                </a>
+                <ul className="pakt-member max-h-0 transition-all ease-in-out duration-300 px-6 md:px-8">
+                  {paktDataByCategory[category].map((member) => (
+                    <li key={member.slug} className="py-2">
+                      <Link
+                        to={`/pakt/${member.slug}`}
+                        className="block md:text-2xl"
+                      >
+                        {member.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            );
+          })}
         </ul>
       </section>
     </Layout>
