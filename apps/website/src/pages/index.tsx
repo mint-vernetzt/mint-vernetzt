@@ -109,7 +109,11 @@ export function Index({ data }: { data: GatsbyTypes.LandingPageQuery }) {
         <div className="flex flex-wrap md:-mx-2 lg:-mx-4">
           <div className="flex-100 md:flex-2/3 md:px-2 lg:px-4">
             <NewsFeed
-              headline="Neuigkeiten"
+              headline={
+                <>
+                  MINT<span className="font-normal">news</span>
+                </>
+              }
               body="Wir blicken in die MINT-Welt und darüber hinaus und informieren Euch regelmäßig über Erkenntnisse, Ereignisse und Innovationen, die für Eure tägliche Arbeit interessant sind."
               linkToOverview="/news/"
               newsFeedItemsProps={newsItems}
