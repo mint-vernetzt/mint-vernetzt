@@ -21,11 +21,11 @@ export function Mintmachen({
         children=""
       />
 
-      <section className="container my-10 lg:my-20">
+      <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap items-center md:-mx-4">
           <div className="flex-100 pb-4 md:pb-0 md:flex-5/12 md:px-4">
-            <Img
-              fluid={data.HeroImage.childImageSharp.fluid}
+            <img
+              src="../images/mintmachen_header.svg"
               className="w-full h-auto"
             />
           </div>
@@ -52,7 +52,7 @@ export function Mintmachen({
         </div>
       </section>
 
-      <section className="container my-10 lg:my-20">
+      <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap content-center items-center md:-mx-6 lg:-mx-10">
           <div className="flex-100 pb-4 md:pb-0 md:flex-1/3 lg:flex-1/4 md:px-6 lg:px-10">
             <img
@@ -85,7 +85,7 @@ export function Mintmachen({
         </div>
       </section>
 
-      <section className="container my-10 lg:my-20">
+      <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap md:-mx-4">
           <div className="flex-100 pb-4 md:pb-0 md:flex-1/2 md:px-4 md:order-2">
             <Img
@@ -115,7 +115,7 @@ export function Mintmachen({
         </div>
       </section>
 
-      <section className="container my-10 lg:my-20">
+      <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap md:-mx-4">
           <div className="flex-100 pb-4 md:pb-0 md:flex-1/2 md:px-4">
             <Img
@@ -166,13 +166,6 @@ export default Mintmachen;
 
 export const pageQuery = graphql`
   query MintmachenPage {
-    HeroImage: file(relativePath: { eq: "mintmachen_header.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 560) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
     SurveyImage: file(relativePath: { eq: "mintmachen_survey.png" }) {
       childImageSharp {
         fluid(maxWidth: 560) {

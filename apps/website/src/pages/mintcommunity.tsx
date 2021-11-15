@@ -21,11 +21,11 @@ export function Mintcommunity({
         children=""
       />
 
-      <section className="container my-10 lg:my-20">
+      <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap items-center md:-mx-4">
           <div className="flex-100 pb-4 md:pb-0 md:flex-5/12 md:px-4">
-            <Img
-              fluid={data.HeroImage.childImageSharp.fluid}
+            <img
+              src="../images/mintcommunity_header.svg"
               className="w-full h-auto"
             />
           </div>
@@ -55,10 +55,10 @@ export function Mintcommunity({
         </div>
       </section>
 
-      <section className="container my-10 lg:my-20">
+      <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap md:-mx-4">
           <div className="flex-100 pb-4 md:pb-0 md:flex-1/2 lg:flex-5/12 md:px-4 md:order-2 relative">
-            <div className="raketeimage absolute left-4 top-0">
+            <div className="raketeimage md:absolute md:left-4 md:top-0">
               <Img
                 fixed={data.RaketeImage.childImageSharp.fixed}
                 className="rounded-2xl shadow-md"
@@ -66,14 +66,14 @@ export function Mintcommunity({
               />
             </div>
 
-            <div className="zoomimage absolute">
+            <div className="zoomimage md:absolute ml-auto text-right -mt-8 md:m-0">
               <Img
                 fixed={data.ZoomImage.childImageSharp.fixed}
                 className="rounded-2xl shadow-md"
                 alt=""
               />
             </div>
-            <div className="puzzleimage absolute">
+            <div className="puzzleimage md:absolute -mt-8 md:m-0">
               <Img
                 fixed={data.PuzzleImage.childImageSharp.fixed}
                 className="rounded-2xl shadow-md absolute"
@@ -118,7 +118,7 @@ export function Mintcommunity({
         </div>
       </section>
 
-      <section className="container my-10 lg:my-20">
+      <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap md:-mx-4">
           <div className="flex-100 md:flex-1/2 lg:flex-7/12 md:px-4 md:self-center md:order-1">
             <h3 className="text-5xl leading-tight lg:leading-none mb-2 lg:mb-4">
@@ -155,7 +155,7 @@ export function Mintcommunity({
         </div>
       </section>
 
-      <section className="container my-10 lg:my-20">
+      <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap md:-mx-4">
           <div className="flex-100 pb-4 md:pb-0 md:flex-1/2 md:px-4">
             <Img
@@ -194,13 +194,6 @@ export default Mintcommunity;
 
 export const pageQuery = graphql`
   query MintCommunityPage {
-    HeroImage: file(relativePath: { eq: "mintcommunity_header.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 560) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
     HackathonImage: file(relativePath: { eq: "mintcommunity_hackathon.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 560) {

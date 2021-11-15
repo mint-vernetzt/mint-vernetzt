@@ -22,11 +22,11 @@ export function Mintvernetzt({
         children=""
       />
 
-      <section className="container my-10 lg:my-20">
+      <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap md:-mx-4">
-          <div className="flex-100 pb-4 md:pb-0 md:flex-5/12 md:px-4">
-            <Img
-              fluid={data.HeroImage.childImageSharp.fluid}
+          <div className="flex-100 md:flex-5/12 md:px-4">
+            <img
+              src="../images/mintvernetzt_header.svg"
               className="w-full h-auto"
             />
           </div>
@@ -42,7 +42,7 @@ export function Mintvernetzt({
               haben wir verschiedene Kanäle aufgebaut, auf denen Ihr aktuelle
               Informationen aus der MINT-Welt findet.
             </p>
-            <div className="lg:-mx-8 pb-6">
+            <div className="lg:-mx-8">
               <ContactCard
                 headline=""
                 name={`${pageContact.firstName} ${pageContact.lastName}`}
@@ -59,9 +59,9 @@ export function Mintvernetzt({
         </div>
       </section>
 
-      <section className="container my-10 lg:my-20">
+      <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap md:-mx-4 lg:-mx-20">
-          <div className="flex-100 pb-10 md:pb-0 md:flex-1/2 md:px-4 lg:px-20">
+          <div className="flex-100 pb-8 md:pb-0 md:flex-1/2 md:px-4 lg:px-20">
             <Img
               fluid={data.NewsImage.childImageSharp.fluid}
               className="w-full h-auto rounded-2xl shadow-md mb-6"
@@ -108,9 +108,9 @@ export function Mintvernetzt({
         </div>
       </section>
 
-      <section className="container my-10 lg:my-20">
+      <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap md:-mx-4 lg:-mx-20">
-          <div className="flex-100 pb-10 md:pb-0 md:flex-1/2 md:px-4 lg:px-20">
+          <div className="flex-100 pb-8 md:pb-0 md:flex-1/2 md:px-4 lg:px-20">
             <Img
               fluid={data.SocialmediaImage.childImageSharp.fluid}
               className="w-full h-auto rounded-2xl shadow-md mb-6"
@@ -190,14 +190,6 @@ export default Mintvernetzt;
 
 export const pageQuery = graphql`
   query MintvernetztPage {
-    HeroImage: file(relativePath: { eq: "mintvernetzt_header.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 560) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-
     PageContact: wpContact(
       contactInformations: { lastName: { eq: "Klauke" } }
     ) {
