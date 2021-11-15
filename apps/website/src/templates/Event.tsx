@@ -5,6 +5,8 @@ import {
   ContactCard,
   EventNavigation,
   formatDate,
+  Icon,
+  IconType,
 } from "@mint-vernetzt/react-components";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -33,17 +35,33 @@ const getContactPerson = (
 
 function EventHeader(event: GatsbyTypes.EventQuery["event"]) {
   const parentEvent = event.parent === null ? event : event.parent.node;
+  const date = new Date(parentEvent.date);
+  const formattedDate = formatDate(date);
   return (
     <div className="flex flex-wrap mb-8">
       <div className="mb-2 md:mb-0 md:mr-2 md:py-2 md:pr-3 font-semibold uppercase text-neutral-800 text-xs flex-100 md:flex-none md:order-2">
-        <div className="inline-block icon mr-2 w-3 h-3 bg-red-600"></div>{" "}
+        <p className="text-xs text-neutral-800 font-semibold mb-4 flex items-center">
+          <span className="icon w-4 h-4 mr-2">
+            <Icon type={IconType.Calendar} />
+          </span>
+          <span>
+            <time
+              data-testid="date"
+              dateTime={date.toISOString()}
+              className="uppercase font-semibold text-neutral-800 text-xs mr-4"
+            >
+              {formatDate(new Date(parentEvent.date))}
+            </time>
+          </span>
+        </p>
+        {/* <div className="inline-block icon mr-2 w-3 h-3 bg-red-600"></div>{" "}
         {formatDate(new Date(parentEvent.date))}
         {parentEvent.eventCategories.nodes.map((category) => (
           <>
             <div className="inline-block icon ml-3 mr-2 w-3 h-3 bg-red-600"></div>{" "}
             <div className="inline-block">{category.name}</div>
           </>
-        ))}
+        ))} */}
       </div>
 
       {event.parent ? (
