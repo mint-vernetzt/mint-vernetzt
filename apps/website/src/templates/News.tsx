@@ -54,6 +54,7 @@ function News({ data }) {
         <div className="flex flex-wrap mt-4 md:mt-10 lg:mt-20 mb-8 md:-mx-2 lg:-mx-6 ">
           <div className="flex-100 md:flex-2/3 pb-8 md:pb-0 md:px-2 lg:px-6">
             <div
+              className="blog-post-content"
               dangerouslySetInnerHTML={{
                 __html: props.content,
               }}

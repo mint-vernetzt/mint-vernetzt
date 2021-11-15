@@ -47,6 +47,8 @@ module.exports = {
       "1/3": "0 0 33.3333%",
       "1/2": "0 0 50%",
       "2/3": "0 0 66.66666%",
+      "5/12": "0 0 41.66666667%",
+      "7/12": "0 0 58.33333333%;",
     },
     minHeight: {
       ...defaultTheme.minHeight,
@@ -79,7 +81,9 @@ module.exports = {
     },
     boxShadow: {
       ...defaultTheme.boxShadow,
-      boxes: "0 7px 38px -4px rgba(0, 0, 0, 0.2)",
+      DEFAULT: "0 2px 16px 0 rgba(0, 0, 0, 0.17)",
+      md: "0 2px 16px 0 rgba(0, 0, 0, 0.37)",
+      lg: "0 7px 38px -4px rgba(0, 0, 0, 0.2)",
     },
   },
   variants: {

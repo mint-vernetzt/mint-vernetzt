@@ -1,3 +1,4 @@
+import { Link } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
@@ -62,12 +63,12 @@ export function Topics({ data }) {
               Auswahlprozess.
             </p>
             <p>
-              <a href="" className="btn-primary">
+              <Link
+                to="/news/mintrakete-didaktik-als-schluessel-jetzt-bewerben"
+                className="btn-primary"
+              >
                 Teilnehmen
-              </a>{" "}
-              <a href="#" className="btn-white">
-                Mehr lesen
-              </a>
+              </Link>
             </p>
           </div>
         </div>

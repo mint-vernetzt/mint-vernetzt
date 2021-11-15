@@ -18,12 +18,18 @@ body p {
   hyphens: auto;
 }
 
-p {
+p,
+ul {
   @apply leading-6 mb-6;
 }
 
-div p:last-child {
+div p:last-child,
+div ul:last-child {
   @apply mb-0;
+}
+
+li::marker {
+  @apply text-neutral-600;
 }
 
 .header-section nav a[aria-current="page"] {
@@ -63,6 +69,10 @@ section.container header:not(.text-left) p.lead {
 
 .blog-post-content p a {
   @apply text-lilac-500 font-bold;
+}
+
+.blog-post-content ul {
+  @apply list-disc list-outside leading-6 mb-6 pl-5;
 }
 
 .pakt-category label::before {
@@ -181,12 +191,6 @@ section.container header:not(.text-left) p.lead {
   @apply text-3xl leading-snug mb-2 lg:text-5xl lg:leading-none;
 }
 
-.event-description p {
-}
-
-.event-sidebar-navigation li {
-}
-
 .event-sidebar-navigation li a::after {
   position: absolute;
   content: " ";
@@ -217,4 +221,14 @@ section.container header:not(.text-left) p.lead {
 #schedule h4.headline::before {
   content: "\276F";
   @apply absolute text-center transition-all ease-in-out duration-300 w-6 h-6 md:w-8 md:h-8 -left-8;
+}
+
+.zoomimage {
+  top: 130px;
+  left: 170px;
+}
+
+.puzzleimage {
+  top: 264px;
+  left: 45px;
 }
