@@ -35,7 +35,7 @@ const getContactPerson = (
 
 function EventHeader(event: GatsbyTypes.EventQuery["event"]) {
   const parentEvent = event.parent === null ? event : event.parent.node;
-  const date = new Date(parentEvent.date);
+  const date = new Date(parentEvent.eventInformations.startDate);
   const formattedDate = formatDate(date);
   return (
     <div className="flex flex-wrap mb-8">
@@ -50,7 +50,7 @@ function EventHeader(event: GatsbyTypes.EventQuery["event"]) {
               dateTime={date.toISOString()}
               className="uppercase font-semibold text-neutral-800 text-xs mr-4"
             >
-              {formatDate(new Date(event.eventInformations.startDate))}
+              {formattedDate}
             </time>
           </span>
         </p>
