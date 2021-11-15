@@ -8,7 +8,6 @@ export interface EventFeedProps {
 export function EventFeed({ eventFeedItemsProps = [] }: EventFeedProps) {
   return (
     <>
-      {/* TODO: replace default shadows with shadows from design in tailwind config */}
       <section>
         <ul>
           {eventFeedItemsProps.map((eventFeedItemProps, index) => {

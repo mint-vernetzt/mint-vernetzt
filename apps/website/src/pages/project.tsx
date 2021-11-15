@@ -152,7 +152,7 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
           ].map((contactbox, index) => (
             <div
               key={`contactbox-${index}`}
-              className="flex flex-wrap content-between px-4 pt-4 pb-8 rounded-3xl shadow-lg"
+              className="flex flex-wrap content-between px-4 pt-4 pb-8 rounded-3xl shadow"
             >
               <div className="mb-4">
                 <h4 className="text-4xl text-blue-500 mb-2 leading-tight">

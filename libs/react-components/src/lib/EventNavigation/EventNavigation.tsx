@@ -30,7 +30,7 @@ export function EventNavigation(props: EventNavigationProps) {
   };
 
   return (
-    <div className="flex flex-col px-4 py-8 lg:px-8 bg-neutral-200 rounded-3xl shadow-boxes mb-6 lg:mb-16">
+    <div className="flex flex-col px-4 py-8 lg:px-8 bg-neutral-200 rounded-3xl shadow-lg mb-6 lg:mb-16">
       {headline && <h2 className="text-3xl leading-snug">{headline}</h2>}
       <ul className="event-sidebar-navigation">
         {items.map((item, index) => (

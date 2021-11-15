@@ -10,7 +10,7 @@ export function Testimonial(props: TestimonialProps) {
   const { name, jobTitle, description } = props;
   return (
     <div>
-      <div className="flex flex-col p-4 pb-8 pb-15 md:pb-5 bg-gray-50 rounded-lg shadow-lg">
+      <div className="flex flex-col p-4 pb-8 pb-15 md:pb-5 bg-gray-50 rounded-sm shadow">
         <div className="bg-red-700 w-8 h-8 mb-2" />
         <h2 className="text-primary text-3xl" data-testid="name">
           {name}

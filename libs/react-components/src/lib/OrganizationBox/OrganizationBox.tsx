@@ -15,7 +15,7 @@ export function OrganizationBox({
   organizationLogo,
 }: OrganizationBoxProps) {
   return (
-    <div className="flex flex-col p-4 pb-15 md:pb-5 bg-gray-50 rounded-lg shadow-lg h-full">
+    <div className="flex flex-col p-4 pb-15 md:pb-5 bg-gray-50 rounded-lg shadow h-full">
       <a href={organizationUrl} data-testid="organizationUrl">
         <img
           data-testid="organizationLogo"
