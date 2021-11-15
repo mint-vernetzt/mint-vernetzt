@@ -34,6 +34,7 @@ export function EventFeedItem({
       >
         {formattedDate}
       </time>
+      {/*
       <div className="inline-block icon ml-3 w-3 h-3 bg-red-600"></div>{" "}
       <div className="inline-block uppercase font-semibold text-neutral-800 text-xs">
         {category}
