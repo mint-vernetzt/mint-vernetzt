@@ -3,7 +3,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Img from "gatsby-image";
 
-import { ContactCard } from "@mint-vernetzt/react-components";
+import { ContactCard, Icon, IconType } from "@mint-vernetzt/react-components";
 
 export function Mintvernetzt({
   data,
@@ -125,26 +125,37 @@ export function Mintvernetzt({
               moderne WWW geschaffen, damit wir Euch auch dort mit Informationen
               versorgen können: #MINTvernetzt
             </p>
-            <p>
-              <a href="https://twitter.com/mintvernetzt" target="_blank">
-                Icon-twitter
-              </a>
-              <a href="https://www.instagram.com/mintvernetzt/" target="_blank">
-                Icon-instagram
-              </a>
-              <a
-                href="https://www.linkedin.com/company/mintvernetzt"
-                target="_blank"
-              >
-                Icon-linkin
-              </a>
-              <a
-                href="https://www.youtube.com/channel/UCVQSAkscPmmPmjYWDVuvQYg"
-                target="_blank"
-              >
-                Icon-youtube
-              </a>
-            </p>
+            <div className="flex">
+              <div className="icon w-8 h-8 mb-2 border border-secondary-500 rounded-full mr-2">
+                <a href="https://twitter.com/mintvernetzt" target="_blank">
+                  <Icon type={IconType.Twitter} width="32" height="32" />
+                </a>
+              </div>
+              <div className="icon w-8 h-8 mb-2 border border-secondary-500 rounded-full mr-2">
+                <a
+                  href="https://www.instagram.com/mintvernetzt/"
+                  target="_blank"
+                >
+                  <Icon type={IconType.Instagram} width="32" height="32" />
+                </a>
+              </div>
+              <div className="icon w-8 h-8 mb-2 border border-secondary-500 rounded-full mr-2">
+                <a
+                  href="https://www.linkedin.com/company/mintvernetzt"
+                  target="_blank"
+                >
+                  <Icon type={IconType.LinkedIn} width="32" height="32" />
+                </a>
+              </div>
+              <div className="icon w-8 h-8 mb-2 border border-secondary-500 rounded-full">
+                <a
+                  href="https://www.youtube.com/channel/UCVQSAkscPmmPmjYWDVuvQYg"
+                  target="_blank"
+                >
+                  <Icon type={IconType.Youtube} width="32" height="32" />
+                </a>
+              </div>
+            </div>
           </div>
 
           <div className="flex-100 md:flex-1/2 md:px-4 lg:px-20">
