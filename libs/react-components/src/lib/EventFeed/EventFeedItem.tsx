@@ -31,10 +31,12 @@ export function EventFeedItem({
       >
         {formattedDate}
       </time>
+      {/*
       <div className="inline-block icon ml-3 w-3 h-3 bg-red-600"></div>{" "}
       <div className="inline-block uppercase font-semibold text-neutral-800 text-xs">
         {category}
       </div>
+      */}
       <h4 className="text-3xl leading-snug mt-2 mb-2">
         <a href={slug} className="cursor-pointer hover:underline">
           {headline}
