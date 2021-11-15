@@ -20,11 +20,18 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
   const categories = Object.keys(paktDataByCategory);
 
   useEffect(() => {
-    // toggle active class on pakt li
-    document.querySelectorAll(".pakt-category").forEach((category) => {
-      category.addEventListener("click", (event) => {
+    // accordeon toggle
+    document.querySelectorAll(".pakt-category").forEach(($category) => {
+      $category.addEventListener("click", (event) => {
         event.preventDefault();
-        category.classList.toggle("active");
+        document
+          .querySelectorAll(".pakt-category.active")
+          .forEach(($active) => {
+            if ($category !== $active) {
+              $active.classList.remove("active");
+            }
+          });
+        $category.classList.toggle("active");
       });
     });
   }, []);
@@ -228,20 +235,15 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
               id={`category${index}`}
               className="pakt-category relative overflow-hidden"
             >
-              <input
-                className="absolute opacity-0 -z-1"
-                type="checkbox"
-                id={`opener-${index}`}
-              />
-              <label
-                className="block font-bold text-blue-500 md:text-3xl md:leading-snug py-3 flex item-center select-none pakt-category"
-                htmlFor={`opener-${index}`}
+              <a
+                href={`#pakt-category-${index}`}
+                className="block font-bold text-blue-500 md:text-3xl md:leading-snug py-3 flex item-center"
               >
                 {category}
-              </label>
+              </a>
               <ul className="pakt-member max-h-0 transition-all ease-in-out duration-300 px-6 md:px-8">
                 {paktDataByCategory[category].map((member) => (
-                  <li className="py-2">
+                  <li key={member.slug} className="py-2">
                     <Link
                       to={`/pakt/${member.slug}`}
                       className="block md:text-2xl"

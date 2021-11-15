@@ -65,16 +65,16 @@ section.container header:not(.text-left) p.lead {
   @apply text-lilac-500 font-bold;
 }
 
-.pakt-category label::before {
+.pakt-category > a::before {
   content: "\276F";
   @apply text-center transition-all ease-in-out duration-300 w-6 h-6 md:w-8 md:h-8;
 }
 
-.pakt-category input:checked + label::before {
+.pakt-category.active > a::before {
   transform: rotate(90deg);
 }
 
-.pakt-category input:checked ~ .pakt-member {
+.pakt-category.active .pakt-member {
   max-height: 100vh;
 }
 
