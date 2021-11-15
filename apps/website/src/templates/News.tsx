@@ -63,7 +63,7 @@ function News({ data }) {
           </div>
           {props.documents && props.documents.documentList !== null && (
             <div className="flex-100 md:flex-1/3 md:px-2 lg:px-6">
-              <h4 className="text-3xl leading-5 pb-4">Documents</h4>
+              <h4 className="text-3xl leading-5 pb-4">Anhänge</h4>
               <ul className="document-list">
                 {props.documents.documentList.map((documentListItem, index) => {
                   const { document } = documentListItem;
