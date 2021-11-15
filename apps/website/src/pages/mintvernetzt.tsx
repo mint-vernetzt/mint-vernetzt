@@ -5,7 +5,13 @@ import Img from "gatsby-image";
 
 import { ContactCard } from "@mint-vernetzt/react-components";
 
-export function Mintvernetzt({ data }) {
+export function Mintvernetzt({
+  data,
+}: {
+  data: GatsbyTypes.MintvernetztPageQuery;
+}) {
+  const pageContact = data.PageContact.contactInformations;
+
   return (
     <Layout>
       <SEO
@@ -39,11 +45,14 @@ export function Mintvernetzt({ data }) {
             <div className="lg:-mx-8 pb-6">
               <ContactCard
                 headline=""
-                name="Arne Klauke"
-                position="Projekt Koordinator"
-                phone="(+49) 0152 836 5193"
-                email="Entwurf@MINTvernetzt.de"
-                avatar=""
+                name={`${pageContact.firstName} ${pageContact.lastName}`}
+                position={pageContact.position}
+                phone={pageContact.phone}
+                email={pageContact.email}
+                avatar={{
+                  src: pageContact.photo.localFile.childImageSharp.fluid.src,
+                  alt: `${pageContact.firstName} ${pageContact.lastName}`,
+                }}
               />
             </div>
           </div>
@@ -158,9 +167,9 @@ export function Mintvernetzt({ data }) {
                 width="100%"
                 height="700px"
                 src="https://ce0c4c32.sibforms.com/serve/MUIEADIw3mjL_TRpeKjMOqlVzfZeBFxOlaMblMiGnRTPjm2qdRgiZ1_Ot8EiKwf77H3Pe7c8sTq2BcYsphUq4BtTdaILzAONTZrS1F0zJx7hdFaexKl84ZxgoGoUFDMvhFTM9DRmjJW2a6Y1YS7-DhkWJrby6GmL7KDuegzukDXFhwkB_hftIUGRSSI3Ka4aU4i_LNUPdgFosFmp"
-                frameborder="0"
+                frameBorder="0"
                 scrolling="auto"
-                allowfullscreen=""
+                allowFullScreen={true}
                 style={{
                   display: "block",
                   marginLeft: "auto",
@@ -188,6 +197,28 @@ export const pageQuery = graphql`
         }
       }
     }
+
+    PageContact: wpContact(
+      contactInformations: { lastName: { eq: "Klauke" } }
+    ) {
+      contactInformations {
+        firstName
+        lastName
+        position
+        email
+        phone
+        photo {
+          localFile {
+            childImageSharp {
+              fluid {
+                src
+              }
+            }
+          }
+        }
+      }
+    }
+
     NewsImage: file(relativePath: { eq: "mood_news.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 560) {

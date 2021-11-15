@@ -5,7 +5,12 @@ import Img from "gatsby-image";
 
 import { ContactCard } from "@mint-vernetzt/react-components";
 
-export function Mintcommunity({ data }) {
+export function Mintcommunity({
+  data,
+}: {
+  data: GatsbyTypes.MintCommunityPageQuery;
+}) {
+  const pageContact = data.PageContact.contactInformations;
   return (
     <Layout>
       <SEO
@@ -98,12 +103,15 @@ export function Mintcommunity({ data }) {
 
             <div className="lg:-mx-8 pb-6">
               <ContactCard
-                headline="Meldet euch bei:"
-                name="Arne Klauke"
-                position="Projekt Koordinator"
-                phone="(+49) 0152 836 5193"
-                email="Entwurf@MINTvernetzt.de"
-                avatar=""
+                headline=""
+                name={`${pageContact.firstName} ${pageContact.lastName}`}
+                position={pageContact.position}
+                phone={pageContact.phone}
+                email={pageContact.email}
+                avatar={{
+                  src: pageContact.photo.localFile.childImageSharp.fluid.src,
+                  alt: `${pageContact.firstName} ${pageContact.lastName}`,
+                }}
               />
             </div>
           </div>
@@ -218,6 +226,27 @@ export const pageQuery = graphql`
       childImageSharp {
         fixed(width: 280, height: 200) {
           ...GatsbyImageSharpFixed
+        }
+      }
+    }
+
+    PageContact: wpContact(
+      contactInformations: { lastName: { eq: "Klauke" } }
+    ) {
+      contactInformations {
+        firstName
+        lastName
+        position
+        email
+        phone
+        photo {
+          localFile {
+            childImageSharp {
+              fluid {
+                src
+              }
+            }
+          }
         }
       }
     }
