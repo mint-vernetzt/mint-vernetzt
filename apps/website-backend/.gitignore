@@ -1,6 +1,9 @@
 # Application
 web/app/plugins/*
 !web/app/plugins/.gitkeep
+# Blocks
+!web/app/plugins/schedule*
+
 web/app/mu-plugins/*/
 web/app/upgrade
 web/app/uploads/*
@@ -27,6 +30,5 @@ wp-cli.local.yml
 # Deployer
 deployer/inventory.yml
 
-# Blocks
-!web/app/plugins/schedule*
+# Dumpfiles
 dump.sql.gz

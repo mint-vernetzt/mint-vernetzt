@@ -54,12 +54,13 @@ function News({ data }) {
         <div className="flex flex-wrap mt-4 md:mt-10 lg:mt-20 mb-8 md:-mx-2 lg:-mx-6 ">
           <div className="flex-100 md:flex-2/3 pb-8 md:pb-0 md:px-2 lg:px-6">
             <div
+              className="blog-post-content"
               dangerouslySetInnerHTML={{
                 __html: props.content,
               }}
             />
           </div>
-          {props.documents && (
+          {props.documents && props.documents.documentList !== null && (
             <div className="flex-100 md:flex-1/3 md:px-2 lg:px-6">
               <h4 className="text-3xl leading-5 pb-4">Documents</h4>
               <ul className="document-list">

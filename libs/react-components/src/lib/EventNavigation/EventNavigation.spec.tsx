@@ -19,12 +19,12 @@ describe("Event Navigation", () => {
     const items = [
       {
         headline: "headline 1",
-        date: new Date("2021-11-11"),
+        date: new Date("2021-11-11T00:00:00Z"),
         url: "https://someurl.test/",
       },
       {
         headline: "headline 2",
-        date: new Date("2021-12-12"),
+        date: new Date("2021-12-12T00:00:00Z"),
         url: "https://anotherurl.test/",
       },
     ];

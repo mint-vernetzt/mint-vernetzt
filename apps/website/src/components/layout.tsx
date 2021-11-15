@@ -4,7 +4,7 @@ import "../../../../libs/design-system/src/styles.css";
 
 function Layout({ children }) {
   return (
-    <div className="flex flex-col min-h-screen font-sans text-gray-900">
+    <div className="flex flex-col min-h-screen font-sans text-gray-600">
       <header>
         <Header />
       </header>

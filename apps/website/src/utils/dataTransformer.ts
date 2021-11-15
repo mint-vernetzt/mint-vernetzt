@@ -34,7 +34,10 @@ export const getUserCardsProps = (
   usersData: GatsbyTypes.ProjectPageQuery["usersData"]
 ): UserCardProps[] => {
   return usersData.nodes.map((user) => {
-    const fullName = `${user.contactInformations.firstName} ${user.contactInformations.lastName}`;
+    const fullName =
+      user.contactInformations.title !== null
+        ? `${user.contactInformations.title} ${user.contactInformations.firstName} ${user.contactInformations.lastName}`
+        : `${user.contactInformations.firstName} ${user.contactInformations.lastName}`;
     const organisation = user.contactInformations.organization[0] ?? null;
 
     return {
@@ -48,8 +51,7 @@ export const getUserCardsProps = (
       },
       organizationUrl: organisation.organizationInformations.url,
       organizationLogo: {
-        src: organisation.organizationInformations.logo.localFile
-          .childImageSharp.fluid.src,
+        src: organisation.organizationInformations.logo.localFile.publicURL,
         alt: organisation.title,
       },
     };
@@ -109,8 +111,7 @@ export const getOrganizationsData = (
     description: organisation.organizationInformations.description,
     organizationUrl: organisation.organizationInformations.url,
     organizationLogo: {
-      src: organisation.organizationInformations.logo.localFile.childImageSharp
-        .fluid.src,
+      src: organisation.organizationInformations.logo.localFile.publicURL,
       alt: organisation.organizationInformations.logo.altText,
     },
   }));

@@ -35,25 +35,23 @@ function EventHeader(event: GatsbyTypes.EventQuery["event"]) {
   const parentEvent = event.parent === null ? event : event.parent.node;
   return (
     <div className="flex flex-wrap mb-8">
-      <div className="mb-2 md:mb-0 md:mr-2 md:py-2 md:pr-3 font-semibold text-neutral-800 text-xs flex-100 md:flex-none md:order-2">
+      <div className="mb-2 md:mb-0 md:mr-2 md:py-2 md:pr-3 font-semibold uppercase text-neutral-800 text-xs flex-100 md:flex-none md:order-2">
+        <div className="inline-block icon mr-2 w-3 h-3 bg-red-600"></div>{" "}
         {formatDate(new Date(parentEvent.date))}
+        {parentEvent.eventCategories.nodes.map((category) => (
+          <>
+            <div className="inline-block icon ml-3 mr-2 w-3 h-3 bg-red-600"></div>{" "}
+            <div className="inline-block">{category.name}</div>
+          </>
+        ))}
       </div>
 
-      {parentEvent.eventCategories.nodes.map((category) => (
-        <>
-          <div className="inline-block icon ml-3 w-3 h-3 bg-red-600"></div>{" "}
-          <div className="inline-block uppercase font-bold text-neutral-800 text-xs">
-            {category.name}
-          </div>
-        </>
-      ))}
-
       {event.parent ? (
-        <h2 className="flex-100 md:order-1 text-5xl lg:text-4xl leading-tight lg:leading-none mb-2">
+        <h2 className="flex-100 md:order-1 text-5xl lg:text-7xl leading-tight lg:leading-none mb-2 lg:mb-8">
           {parentEvent.title}
         </h2>
       ) : (
-        <h1 className="flex-100 md:order-1 text-5xl lg:text-4xl leading-tight lg:leading-none mb-2">
+        <h1 className="flex-100 md:order-1 text-5xl lg:text-7xl leading-tight lg:leading-none mb-2 lg:mb-8">
           {parentEvent.title}
         </h1>
       )}
@@ -95,28 +93,33 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
           className="inline-block border border-neutral-400 py-3 px-4 mb-4 text-neutral-800 text-semibold uppercase rounded-lg"
           to="/events"
         >
-          Zur Veranstaltungs Übersicht
+          Zur Veranstaltungsübersicht
         </Link>
 
         {EventHeader(event)}
 
         {image !== null && (
-          <Img fluid={image} className="rounded-3xl w-100 h-auto" />
+          <Img fluid={image} className="rounded-3xl w-100 h-auto lg:mb-20" />
         )}
 
         {event.parent && (
-          <Link
-            to={`/event/${event.parent.node.slug}`}
-            className="mt-3 text-lilac-500"
-          >
-            &lt; Zurück zur Übersicht
-          </Link>
+          <div className="mt-6 md:mt-8 lg:mt-20">
+            <Link
+              to={`/event/${event.parent.node.slug}`}
+              className="inline-block text-bold text-lilac-500"
+            >
+              &lt; Zurück zur Übersicht
+            </Link>
+          </div>
         )}
 
-        <div className="flex flex-wrap mt-4 md:mt-10 lg:mt-20 mb-8 md:-mx-2 lg:-mx-6 ">
+        <div className="flex flex-wrap mt-6 md:mt-8 lg:mt-10 mb-8 md:-mx-2 lg:-mx-6 ">
           <div className="flex-100 md:flex-2/3 pb-8 md:pb-0 md:px-2 lg:px-6">
-            {event.parent && <h1 className="text-xl">{event.title}</h1>}
+            {event.parent && (
+              <h1 className="text-4xl leading-snug mb-2">{event.title}</h1>
+            )}
             <div
+              className="event-description"
               dangerouslySetInnerHTML={{
                 __html: event.content,
               }}
@@ -125,7 +128,10 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
             {event.allChildren && (
               <ul>
                 {event.allChildren.nodes.map((childEvent) => (
-                  <li key={childEvent.id} className="mb-2">
+                  <li
+                    key={childEvent.id}
+                    className="border-b border-neutral-400 last:border-b-0 pt-4 pb-6"
+                  >
                     <time
                       data-testid="date"
                       dateTime="2021-11-04T13:25:36.000Z"
@@ -135,7 +141,7 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
                         new Date(childEvent.eventInformations.startDate)
                       )}
                     </time>
-                    <h4 className="text-primary text-3xl leading-snug mb-2 normal-case flex-100 md:order-1">
+                    <h4 className="text-3xl leading-snug mb-2 flex-100 md:order-1">
                       <Link
                         to={`/event/${childEvent.slug}`}
                         className="cursor-pointer hover:underline"
@@ -156,7 +162,7 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
           </div>
 
           <div className="flex-100 md:flex-1/3 md:px-2 lg:px-6">
-            {relatedEvents.length && (
+            {relatedEvents.length > 0 && (
               <EventNavigation
                 headline="Veranstaltungstage"
                 items={relatedEvents}

@@ -1,4 +1,4 @@
-import { graphql, Link, useStaticQuery } from "gatsby";
+import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { getNewsItems, getOrganizationsData } from "../utils/dataTransformer";
@@ -53,34 +53,35 @@ export function Index({ data }) {
         <header>
           <h2>Aktiv werden</h2>
           <p className="lead">
-            Proin id turpis quis massa mattis consequat. Maecenas semper, et
-            laoreet risus lorem id lorem. Etiam imperdiet. Felis vel auctor
-            consequatProin id turpis quis massa mattis consequat.{" "}
+            Wir entwickeln mit Euch die MINTvernetzt Plattform, denn gemeinsam
+            entstehen die besten Ideen. Hier könnt Ihr Euch vernetzen,
+            Erfahrungen teilen und Kooperationen aufbauen. So machen
+            wir zusammen MINT-Bildung noch besser.{" "}
           </p>
         </header>
 
         <div className="grid gap-4 lg:gap-8 grid-cols-1 md:grid-cols-3">
           {[
             {
-              image: `https://picsum.photos/id/101/420/210`,
-              title: `Aktiv werden`,
-              text: `Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-              sadipscing elitr.`,
-              link: `/project `,
+              image: data.MintmachenImage.childImageSharp.fluid,
+              title: `MI(N)Tmachen`,
+              text: `Wir machen die MINT-Akteur:innen Deutschlands sichtbar und vernetzen Euch. Aber dafür brauchen wir Eure Hilfe! Bringt Euch jetzt aktiv ein und helft 
+              einander mehr und bessere MINT-Angebote zu schaffen. `,
+              link: `/mintmachen `,
             },
             {
-              image: `https://picsum.photos/id/1053/420/210`,
-              title: `Mintvernetzt informiert`,
-              text: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-              nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat`,
-              link: `/project `,
+              image: data.MintvernetztImage.childImageSharp.fluid,
+              title: `MINTvernetzt informiert`,
+              text: `Informieren, inspirieren, Emotionen wecken: Wir geben Euch Einblicke in die MINT-Welt und schauen auch über den Tellerrand: 
+              Hier findet Ihr Newsletter, MINTNews & Co.  `,
+              link: `/mintvernetzt `,
             },
             {
-              image: `https://picsum.photos/id/24/420/210`,
-              title: `Werde teil der MINTcommunity`,
-              text: `Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-              sadipscing elitr. Lorem ipsum dolor sit amet.`,
-              link: `/topics `,
+              image: data.MintcommunityImage.childImageSharp.fluid,
+              title: `Werde Teil der MINTcommunity`,
+              text: `Wir bauen einen Marktplatz für die MINTcommunity Deutschlands: Die MINTvernetzt-Plattform. Und zwar mit Euch! Bringt Euch jetzt aktiv ein und werdet 
+              BETA-Tester:in.`,
+              link: `/mintcommunity `,
             },
           ].map((teaserbox, index) => (
             <div
@@ -89,12 +90,12 @@ export function Index({ data }) {
             >
               <a href={`${teaserbox.link}`} className="flex flex-col h-100">
                 <div className="rounded-lg overflow-hidden mb-2 lg:mb-4">
-                  <img
-                    src={`${teaserbox.image}`}
-                    alt={`${teaserbox.title}`}
-                    className="w-full h-auto"
+                  <Img
+                    fluid={teaserbox.image}
+                    className="w-full h-auto md:h-full"
                   />
                 </div>
+
                 <h4 className="text-base lg:text-3xl lg:leading-snug lg:mx-2 mb-2">
                   {teaserbox.title}
                 </h4>
@@ -144,7 +145,32 @@ export const pageQuery = graphql`
         }
       }
     }
-    newsItems: allWpNewsItem(sort: { fields: [date] }) {
+    MintmachenImage: file(relativePath: { eq: "landingpage_mintmachen.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 560) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    MintvernetztImage: file(
+      relativePath: { eq: "landingpage_mintvernetzt.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 560) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    MintcommunityImage: file(
+      relativePath: { eq: "landingpage_mintcommunity.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 560) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    newsItems: allWpNewsItem(sort: { fields: [date], order: DESC }, limit: 3) {
       nodes {
         title
         excerpt
@@ -168,11 +194,7 @@ export const pageQuery = graphql`
           logo {
             altText
             localFile {
-              childImageSharp {
-                fluid {
-                  src
-                }
-              }
+              publicURL
             }
           }
         }

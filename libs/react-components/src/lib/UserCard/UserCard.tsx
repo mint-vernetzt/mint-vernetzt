@@ -32,7 +32,7 @@ export function UserCard(props: UserCardProps) {
         <a href={organizationUrl} data-testid="organizationUrl" target="_blank">
           <img
             data-testid="organizationLogo"
-            className="max-h-10"
+            className="max-h-10 w-full"
             src={organizationLogo.src}
             alt={organizationLogo.alt}
           />

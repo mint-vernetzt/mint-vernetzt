@@ -152,7 +152,7 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
           ].map((contactbox, index) => (
             <div
               key={`contactbox-${index}`}
-              className="flex flex-wrap content-between px-4 pt-4 pb-8 rounded-3xl shadow-lg"
+              className="flex flex-wrap content-between px-4 pt-4 pb-8 rounded-3xl shadow"
             >
               <div className="mb-4">
                 <h4 className="text-4xl text-blue-500 mb-2 leading-tight">
@@ -266,11 +266,14 @@ export const pageQuery = graphql`
       }
     }
 
-    usersData: allWpContact {
+    usersData: allWpContact(
+      sort: { fields: contactInformations___lastName, order: ASC }
+    ) {
       nodes {
         contactInformations {
           firstName
           lastName
+          title
           position
           organization {
             ... on WpOrganization {
@@ -281,11 +284,7 @@ export const pageQuery = graphql`
                 logo {
                   altText
                   localFile {
-                    childImageSharp {
-                      fluid(maxWidth: 300) {
-                        src
-                      }
-                    }
+                    publicURL
                   }
                 }
               }
