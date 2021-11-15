@@ -37,7 +37,7 @@ function EventHeader(event: GatsbyTypes.EventQuery["event"]) {
     <div className="flex flex-wrap mb-8">
       <div className="mb-2 md:mb-0 md:mr-2 md:py-2 md:pr-3 font-semibold uppercase text-neutral-800 text-xs flex-100 md:flex-none md:order-2">
         <div className="inline-block icon mr-2 w-3 h-3 bg-red-600"></div>{" "}
-        {formatDate(new Date(parentEvent.date))}
+        {formatDate(new Date(event.eventInformations.startDate))}
         {parentEvent.eventCategories.nodes.map((category) => (
           <>
             <div className="inline-block icon ml-3 mr-2 w-3 h-3 bg-red-600"></div>{" "}
@@ -134,7 +134,7 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
                   >
                     <time
                       data-testid="date"
-                      dateTime="2021-11-04T13:25:36.000Z"
+                      dateTime={childEvent.eventInformations.startDate}
                       className="mb-2 md:mb-0 md:mr-2 md:py-2 md:pr-3 uppercase font-bold text-neutral-800 text-xs flex-100 md:flex-none md:order-3"
                     >
                       {formatDate(
@@ -200,11 +200,16 @@ export const query = graphql`
   query Event($id: String!) {
     event: wpEvent(id: { eq: $id }) {
       id
-      date
       title
       content
       excerpt
       slug
+      eventInformations {
+        startDate
+        startTime
+        endDate
+        endTime
+      }
       tags {
         nodes {
           name
@@ -232,7 +237,6 @@ export const query = graphql`
           ... on WpEvent {
             id
             title
-            date
             slug
             tags {
               nodes {
@@ -257,6 +261,10 @@ export const query = graphql`
               }
             }
             eventInformations {
+              startDate
+              startTime
+              endDate
+              endTime
               contactPerson {
                 ... on WpContact {
                   id
