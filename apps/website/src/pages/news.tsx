@@ -46,9 +46,9 @@ export function News({ data }) {
 
 export const pageQuery = graphql`
   query NewsFeed {
-    HeroImage: file(relativePath: { eq: "news_overview.jpeg" }) {
+    HeroImage: file(relativePath: { eq: "news_overview_large.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1488) {
+        fluid(maxWidth: 1488, quality: 80) {
           ...GatsbyImageSharpFluid
         }
       }
@@ -69,7 +69,7 @@ export const pageQuery = graphql`
             altText
             localFile {
               childImageSharp {
-                fluid(maxWidth: 300) {
+                fluid(maxWidth: 500, quality: 80) {
                   src
                 }
               }
