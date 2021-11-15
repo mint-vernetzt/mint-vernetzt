@@ -35,7 +35,7 @@ const getContactPerson = (
 
 function EventHeader(event: GatsbyTypes.EventQuery["event"]) {
   const parentEvent = event.parent === null ? event : event.parent.node;
-  const date = new Date(parentEvent.eventInformations.startDate);
+  const date = new Date(event.eventInformations.startDate);
   const formattedDate = formatDate(date);
   return (
     <div className="flex flex-wrap mb-8">
