@@ -11,7 +11,7 @@ export interface EventNavigationProps {
   headline?: string;
   items: EventNavigationItemProps[];
   currentUrl?: string;
-  linkWrapper?: (url: string, children: React.ReactChild) => React.ReactElement;
+  linkWrapper?: (url: string, children: React.ReactNode) => React.ReactElement;
 }
 
 export function EventNavigation(props: EventNavigationProps) {

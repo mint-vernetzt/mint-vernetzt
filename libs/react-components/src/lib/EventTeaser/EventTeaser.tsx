@@ -5,10 +5,10 @@ import EventTeaserItem, { EventTeaserItemProps } from "./EventTeaserItem";
 
 /* eslint-disable-next-line */
 export interface EventTeaserProps {
-  headline: string;
+  headline: string | React.ReactNode;
   linkToOverview: string;
   items: EventTeaserItemProps[];
-  linkWrapper?: (url: string, children: React.ReactChild) => React.ReactElement;
+  linkWrapper?: (url: string, children: React.ReactNode) => React.ReactElement;
 }
 
 export function EventTeaser(props: EventTeaserProps) {

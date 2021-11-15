@@ -10,7 +10,7 @@ import { OrganizationBoxContainer } from "@mint-vernetzt/react-components";
 export function Index({ data }: { data: GatsbyTypes.LandingPageQuery }) {
   const newsItems = getNewsItems(data.newsItems);
   const organisations = getOrganizationsData(data.organizationsData);
-  const linkWrapper = (url: string, children: React.ReactChild) => {
+  const linkWrapper = (url: string, children: React.ReactNode) => {
     return <Link to={url}>{children}</Link>;
   };
 
@@ -116,7 +116,11 @@ export function Index({ data }: { data: GatsbyTypes.LandingPageQuery }) {
           </div>
           <div className="flex-100 md:flex-1/3 pb-8 md:pb-0 md:px-2 lg:px-4">
             <EventTeaser
-              headline="MINTevents"
+              headline={
+                <>
+                  MINT<span>events</span>
+                </>
+              }
               linkToOverview="/events/"
               linkWrapper={linkWrapper}
               items={data.events.nodes.map((event) => ({

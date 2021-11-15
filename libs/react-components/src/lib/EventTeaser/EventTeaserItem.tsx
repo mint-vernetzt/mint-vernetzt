@@ -9,7 +9,7 @@ export interface EventTeaserItemProps {
   body: string;
   date: Date;
   url: string;
-  linkWrapper?: (url: string, children: React.ReactChild) => React.ReactElement;
+  linkWrapper?: (url: string, children: React.ReactNode) => React.ReactElement;
 }
 
 export function EventTeaserItem(props: EventTeaserItemProps) {
