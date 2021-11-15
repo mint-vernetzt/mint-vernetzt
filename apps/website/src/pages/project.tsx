@@ -176,7 +176,9 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
                     href={`tel:${contactbox.phone}`}
                     className="flex items-center"
                   >
-                    <span className="icon w-4 h-4 mr-2 bg-red-600"></span>
+                    <span className="icon w-4 h-4 mr-2">
+                      <Icon type={IconType.Telephone} />
+                    </span>
                     <span>{contactbox.phone}</span>
                   </a>
                 </p>
@@ -185,7 +187,9 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
                     href={`mailto:${contactbox.mail}`}
                     className="flex items-center"
                   >
-                    <span className="icon w-4 h-4 mr-2 bg-red-600"></span>
+                    <span className="icon w-4 h-4 mr-2 ">
+                      <Icon type={IconType.Envelope} />
+                    </span>
                     <span>{contactbox.mail}</span>
                   </a>
                 </p>
