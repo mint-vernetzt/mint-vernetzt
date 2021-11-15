@@ -12,19 +12,24 @@ export default function Template({ data }) {
     frontmatter.citeAuthorFunction &&
     frontmatter.citeQuote;
 
+  const categoryHash = frontmatter.slug.split("/")[0] ?? "/";
+
   return (
     <Layout>
       <SEO
         title={`Partner: ${frontmatter.name}`}
         slug={`/pakt/${frontmatter.slug}`}
+        description={""}
+        image={""}
+        children={""}
       />
       <section className="container py-8">
-        <Link
+        <a
           className="inline-block border border-neutral-400 py-3 px-4 mb-4 text-neutral-800 text-semibold uppercase rounded-lg"
-          to="/project"
+          href={`/project/#${categoryHash}`}
         >
           zur Übersicht
-        </Link>
+        </a>
 
         <div className="flex flex-wrap items-center md:-mx-4 lg:-mx-6 ">
           <div className="flex-100 md:flex-1/3 pb-8 md:pb-0 md:px-4 lg:px-6 md:order-2">

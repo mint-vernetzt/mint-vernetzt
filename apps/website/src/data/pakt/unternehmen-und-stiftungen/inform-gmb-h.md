@@ -8,8 +8,8 @@ citeAuthorFunction: ""
 citeQuote: ""
 ---
 
-INFORM ist spezialisiert auf die Entwicklung von Optimierungssoftware. Die INFORM-Softwarelösungen automatisieren Entscheidungsprozesse, z.B. an Flughäfen, Containerterminals, im Handel, in Industriebetrieben oder bei Finanzdienstleistern.  
-Seit der Gründung 1969 wächst INFORM, erschließt neue Märkte und investiert stark in Forschung und Entwicklung. Heute arbeiten über 800 Mitarbeiter/innen an maßgeschneiderten Softwarelösungen für mehr als 1.000 Kund/innen weltweit.
+INFORM ist spezialisiert auf die Entwicklung von Optimierungssoftware. Die INFORM-Softwarelösungen automatisieren Entscheidungsprozesse, z.B. an Flughäfen, Containerterminals, im Handel, in Industriebetrieben oder bei Finanzdienstleistern.
+Seit der Gründung 1969 wächst INFORM, erschließt neue Märkte und investiert stark in Forschung und Entwicklung. Heute arbeiten über 850 Mitarbeiter/innen an maßgeschneiderten Softwarelösungen für mehr als 1.000 Kund/innen weltweit.
 
 INFORM wächst stark und ist stets auf der Suche nach qualifizierten Mitarbeiterinnen und Mitarbeiter im IT-Umfeld. Das Unternehmen bietet dazu viele verschiedene Einstiegsmöglichkeiten:
 
