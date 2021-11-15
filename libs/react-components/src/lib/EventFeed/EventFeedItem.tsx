@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Icon, IconType } from "../Icon/Icon";
 import { formatDate } from "./utils";
 
 export interface EventFeedItemProps {
@@ -23,7 +24,9 @@ export function EventFeedItem({
   return (
     <div>
       {/* TODO: add icon before date */}
-      <div className="inline-block icon w-3 h-3 mr-2 bg-red-600"></div>{" "}
+      {/* <div className="inline-block icon w-3 h-3 mr-2 ">
+        <Icon type={IconType.Calendar} width="2rem" height="2rem" />
+      </div>
       <time
         data-testid="date"
         dateTime={date.toISOString()}
@@ -35,8 +38,25 @@ export function EventFeedItem({
       <div className="inline-block icon ml-3 w-3 h-3 bg-red-600"></div>{" "}
       <div className="inline-block uppercase font-semibold text-neutral-800 text-xs">
         {category}
-      </div>
-      */}
+      </div> */}
+      <p className="text-xs text-neutral-800 font-semibold mb-4 flex items-center">
+        <span className="icon w-4 h-4 mr-2">
+          <Icon type={IconType.Calendar} />
+        </span>
+        <span>
+          <time
+            data-testid="date"
+            dateTime={date.toISOString()}
+            className="uppercase font-semibold text-neutral-800 text-xs mr-4"
+          >
+            {formattedDate}
+          </time>
+        </span>
+        {/* <span className="icon w-4 h-4 mr-2">
+          <Icon type={IconType.Calendar} />
+        </span>
+        <span>{category}</span> */}
+      </p>
       <h4 className="text-3xl leading-snug mt-2 mb-2">
         <a href={slug} className="cursor-pointer hover:underline">
           {headline}

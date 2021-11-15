@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Icon, IconType } from "../Icon/Icon";
 import { Image } from "../types.d";
 
 export interface ContactCardProps {
@@ -42,13 +43,17 @@ export function ContactCard({
       <div className="pl-22">
         <p className="text-xs text-neutral-800 font-semibold mb-2">
           <a href={`tel:${phone}`} className="flex items-center">
-            <span className="icon w-4 h-4 mr-2 bg-red-600"></span>
+            <span className="icon w-4 h-4 mr-2">
+              <Icon type={IconType.Telephone} />
+            </span>
             <span data-testid="phone">{phone}</span>
           </a>
         </p>
         <p className="text-xs text-neutral-800 font-semibold">
           <a href={`mailto:${email}`} className="flex items-center">
-            <span className="icon w-4 h-4 mr-2 bg-red-600"></span>
+            <span className="icon w-4 h-4 mr-2 ">
+              <Icon type={IconType.Envelope} />
+            </span>
             <span data-testid="email">{email}</span>
           </a>
         </p>
