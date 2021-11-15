@@ -237,7 +237,7 @@ export const query = graphql`
         node {
           localFile {
             childImageSharp {
-              fluid(maxWidth: 1200, maxHeight: 398) {
+              fluid(maxWidth: 1488, maxHeight: 400, quality: 80) {
                 ...GatsbyImageSharpFluid
               }
             }
@@ -266,7 +266,7 @@ export const query = graphql`
               node {
                 localFile {
                   childImageSharp {
-                    fluid(maxWidth: 1200, maxHeight: 250) {
+                    fluid(maxWidth: 1200, maxHeight: 250, quality: 80) {
                       ...GatsbyImageSharpFluid
                     }
                   }

@@ -65,21 +65,21 @@ export function Index({ data }: { data: GatsbyTypes.LandingPageQuery }) {
             {
               image: data.MintmachenImage.childImageSharp.fluid,
               title: `MI(N)Tmachen`,
-              text: `Wir machen die MINT-Akteur:innen Deutschlands sichtbar und vernetzen Euch. Aber dafür brauchen wir Eure Hilfe! Bringt Euch jetzt aktiv ein und helft 
+              text: `Wir machen die MINT-Akteur:innen Deutschlands sichtbar und vernetzen Euch. Aber dafür brauchen wir Eure Hilfe! Bringt Euch jetzt aktiv ein und helft
               einander mehr und bessere MINT-Angebote zu schaffen. `,
               link: `/mintmachen `,
             },
             {
               image: data.MintvernetztImage.childImageSharp.fluid,
               title: `MINTvernetzt informiert`,
-              text: `Informieren, inspirieren, Emotionen wecken: Wir geben Euch Einblicke in die MINT-Welt und schauen auch über den Tellerrand: 
+              text: `Informieren, inspirieren, Emotionen wecken: Wir geben Euch Einblicke in die MINT-Welt und schauen auch über den Tellerrand:
               Hier findet Ihr Newsletter, MINTNews & Co.  `,
               link: `/mintvernetzt `,
             },
             {
               image: data.MintcommunityImage.childImageSharp.fluid,
               title: `Werde Teil der MINTcommunity`,
-              text: `Wir bauen einen Marktplatz für die MINTcommunity Deutschlands: Die MINTvernetzt-Plattform. Und zwar mit Euch! Bringt Euch jetzt aktiv ein und werdet 
+              text: `Wir bauen einen Marktplatz für die MINTcommunity Deutschlands: Die MINTvernetzt-Plattform. Und zwar mit Euch! Bringt Euch jetzt aktiv ein und werdet
               BETA-Tester:in.`,
               link: `/mintcommunity `,
             },
@@ -152,16 +152,16 @@ export default Index;
 
 export const pageQuery = graphql`
   query LandingPage {
-    HeroImage: file(relativePath: { eq: "home_hero.jpeg" }) {
+    HeroImage: file(relativePath: { eq: "home_hero_large.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1488) {
+        fluid(maxWidth: 1488, quality: 80) {
           ...GatsbyImageSharpFluid
         }
       }
     }
     MintmachenImage: file(relativePath: { eq: "landingpage_mintmachen.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 560) {
+        fluid(maxWidth: 560, quality: 80) {
           ...GatsbyImageSharpFluid
         }
       }
@@ -170,7 +170,7 @@ export const pageQuery = graphql`
       relativePath: { eq: "landingpage_mintvernetzt.jpg" }
     ) {
       childImageSharp {
-        fluid(maxWidth: 560) {
+        fluid(maxWidth: 560, quality: 80) {
           ...GatsbyImageSharpFluid
         }
       }
@@ -179,7 +179,7 @@ export const pageQuery = graphql`
       relativePath: { eq: "landingpage_mintcommunity.jpg" }
     ) {
       childImageSharp {
-        fluid(maxWidth: 560) {
+        fluid(maxWidth: 560, quality: 80) {
           ...GatsbyImageSharpFluid
         }
       }
