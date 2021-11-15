@@ -81,7 +81,6 @@ const Paths = {
 
 export function Icon(props: IconProps) {
   const { type, width = "1rem", height = "1rem" } = props;
-  console.log(type);
   return (
     <svg
       className=""
