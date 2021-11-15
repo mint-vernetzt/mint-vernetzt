@@ -56,7 +56,7 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
         image=""
         children=""
       />
-      <section className="container my-16">
+      <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap content-center items-center md:-mx-6 lg:-mx-10">
           <div className="flex-100 md:flex-1/3 pb-8 md:pb-0 md:px-6 lg:px-10">
             <svg
@@ -107,8 +107,8 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
         </div>
       </section>
 
-      <section className="container my-16">
-        <div className="flex flex-wrap md:items-stretch md:-mx-6 md:-mb-12 lg:-mx-10">
+      <section className="container my-8 md:my-10 lg:my-20">
+        <div className="flex flex-wrap md:items-stretch md:-mx-6 -mb-6 lg:-mx-10">
           {[
             {
               icon: (
@@ -147,7 +147,10 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
         </div>
       </section>
 
-      <section className="container my-16" id="contact-details">
+      <section
+        className="container my-8 md:my-10 lg:my-20"
+        id="contact-details"
+      >
         <header>
           <h2>Für jede Frage die richtige Adresse</h2>
           <p className="lead">
@@ -165,7 +168,7 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
               mail: `info@mint-vernetzt.de`,
             },
             {
-              title: `Community & MINTvernetzt-Plattform`,
+              title: `Community`,
               text: `Erste Ansprechperson für alle Belange rund um unsere digitale Community-Plattform ist Anna Schröter. Ihr erreicht sie auf diesem Wege:`,
               phone: `(+49) 0211 757 0762`,
               mail: `anna.schroeter@mint-vernetzt.de`,
@@ -224,7 +227,7 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
         </div>
       </section>
 
-      <section className="container my-16">
+      <section className="container my-8 md:my-10 lg:my-20">
         <UserCardContainer
           headline="Das Team"
           body="Wir sind MINTvernetzt – ein junges, engagiertes Team mit unterschiedlichen Erfahrungen, Kompetenzen und Hintergründen. Hier findet Ihr alle Teammitglieder mit ihren Aufgaben und Kontaktdaten. Wir freuen uns auf den Austausch mit Euch."
@@ -232,7 +235,7 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
         />
       </section>
 
-      <section className="container my-16">
+      <section className="container my-8 md:my-10 lg:my-20">
         <header className="text-left">
           <h2>Der Nationale Pakt für Frauen in MINT-Berufen</h2>
           <p className="lead">
