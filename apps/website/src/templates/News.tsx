@@ -1,12 +1,13 @@
 import { graphql, Link } from "gatsby";
 import React from "react";
 import Img from "gatsby-image";
-import { formatDate } from "@mint-vernetzt/react-components";
+import { formatDate, Icon, IconType } from "@mint-vernetzt/react-components";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
 function News({ data }) {
   const props = data.allWpNewsItem.nodes[0];
+
   return (
     <Layout>
       <SEO
@@ -66,6 +67,7 @@ function News({ data }) {
               <ul className="document-list">
                 {props.documents.documentList.map((documentListItem, index) => {
                   const { document } = documentListItem;
+
                   return (
                     <li key={`document-${index}`} className="mb-2">
                       <a
@@ -73,7 +75,13 @@ function News({ data }) {
                         target="_blank"
                         className="flex item-center bg-beige-300 border border-neutral-400 rounded-lg"
                       >
-                        <div className="icon w-8 h-8 mb-2 bg-red-600 m-4 mr-0"></div>
+                        <span className="icon w-8 h-8 mb-2 m-4 mr-0">
+                          <Icon
+                            type={IconType.FilePDF}
+                            width="32"
+                            height="32"
+                          />
+                        </span>
                         <div className="my-3 mx-4">
                           <span className="block text-xs text-neutral-600 uppercase">
                             {document.mimeType}
@@ -84,7 +92,13 @@ function News({ data }) {
                             }}
                           />
                         </div>
-                        <div className="icon w-8 h-8 mb-2 bg-red-600 m-4 ml-auto"></div>
+                        <div className="icon w-8 h-8 mb-2 m-4 ml-auto">
+                          <Icon
+                            type={IconType.Download}
+                            width="32"
+                            height="32"
+                          />
+                        </div>
                       </a>
                     </li>
                   );
