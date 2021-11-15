@@ -118,7 +118,7 @@ export function Index({ data }: { data: GatsbyTypes.LandingPageQuery }) {
             <EventTeaser
               headline={
                 <>
-                  MINT<span>events</span>
+                  MINT<span className="font-normal">events</span>
                 </>
               }
               linkToOverview="/events/"
