@@ -1,5 +1,6 @@
 import { UserCardContainer } from "@mint-vernetzt/react-components";
 import { graphql, Link } from "gatsby";
+import { useEffect } from "react";
 import "../../../../libs/design-system/src/styles.css";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -17,6 +18,16 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
     data.paktData.edges
   );
   const categories = Object.keys(paktDataByCategory);
+
+  useEffect(() => {
+    // toggle active class on pakt li
+    document.querySelectorAll(".pakt-category").forEach((category) => {
+      category.addEventListener("click", (event) => {
+        event.preventDefault();
+        category.classList.toggle("active");
+      });
+    });
+  }, []);
 
   return (
     <Layout>
@@ -223,8 +234,8 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
                 id={`opener-${index}`}
               />
               <label
-                className="block font-bold text-blue-500 md:text-3xl md:leading-snug py-3 flex item-center select-none"
-                for={`opener-${index}`}
+                className="block font-bold text-blue-500 md:text-3xl md:leading-snug py-3 flex item-center select-none pakt-category"
+                htmlFor={`opener-${index}`}
               >
                 {category}
               </label>
