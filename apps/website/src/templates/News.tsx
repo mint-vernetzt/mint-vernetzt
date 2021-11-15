@@ -1,7 +1,7 @@
 import { graphql, Link } from "gatsby";
 import React from "react";
 import Img from "gatsby-image";
-import { formatDate } from "@mint-vernetzt/react-components";
+import { formatDate, Icon, IconType } from "@mint-vernetzt/react-components";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
@@ -22,7 +22,10 @@ function News({ data }) {
           className="inline-block border border-neutral-400 py-3 px-4 mb-6 text-neutral-800 text-semibold uppercase rounded-lg"
           to="/news"
         >
-          zur Übersicht
+          <span className="flex items-center">
+            <Icon type={IconType.ChevronLeft} />
+            zur Übersicht
+          </span>
         </Link>
 
         <div className="flex flex-wrap mb-8">
