@@ -86,7 +86,7 @@ export function Index({ data }: { data: GatsbyTypes.LandingPageQuery }) {
               key={`teaserbox-${index}`}
               className="p-4 pb-8 md:p-2 md:pb-8 lg:p-4 lg:pb-8 rounded-lg bg-beige-500"
             >
-              <a href={`${teaserbox.link}`} className="flex flex-col h-100">
+              <Link to={`${teaserbox.link}`} className="flex flex-col h-100">
                 <div className="rounded-lg overflow-hidden mb-2 lg:mb-4">
                   <Img
                     fluid={teaserbox.image}
@@ -98,7 +98,7 @@ export function Index({ data }: { data: GatsbyTypes.LandingPageQuery }) {
                   {teaserbox.title}
                 </h4>
                 <p className="lg:mx-2">{teaserbox.text}</p>
-              </a>
+              </Link>
             </div>
           ))}
         </div>
