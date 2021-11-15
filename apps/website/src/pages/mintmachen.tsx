@@ -1,11 +1,16 @@
-import { graphql, Link } from "gatsby";
+import { GatsbyGraphQLType, graphql, Link } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Img from "gatsby-image";
 
 import { ContactCard } from "@mint-vernetzt/react-components";
 
-export function Mintmachen({ data }) {
+export function Mintmachen({
+  data,
+}: {
+  data: GatsbyTypes.MintmachenPageQuery;
+}) {
+  const pageContact = data.PageContact.contactInformations;
   return (
     <Layout>
       <SEO
@@ -135,11 +140,14 @@ export function Mintmachen({ data }) {
             <div className="lg:-mx-8 pb-6">
               <ContactCard
                 headline=""
-                name="Arne Klauke"
-                position="Projekt Koordinator"
-                phone="(+49) 0152 836 5193"
-                email="Entwurf@MINTvernetzt.de"
-                avatar=""
+                name={`${pageContact.firstName} ${pageContact.lastName}`}
+                position={pageContact.position}
+                phone={pageContact.phone}
+                email={pageContact.email}
+                avatar={{
+                  src: pageContact.photo.localFile.childImageSharp.fluid.src,
+                  alt: `${pageContact.firstName} ${pageContact.lastName}`,
+                }}
               />
             </div>
             <p>
@@ -176,6 +184,26 @@ export const pageQuery = graphql`
       childImageSharp {
         fluid(maxWidth: 560) {
           ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    PageContact: wpContact(
+      contactInformations: { lastName: { eq: "Klauke" } }
+    ) {
+      contactInformations {
+        firstName
+        lastName
+        position
+        email
+        phone
+        photo {
+          localFile {
+            childImageSharp {
+              fluid {
+                src
+              }
+            }
+          }
         }
       }
     }

@@ -1,6 +1,7 @@
 import { formatDate } from "../NewsFeed/utils";
 import { Icon, IconType } from "../Icon/Icon";
 import * as React from "react";
+import { defaultLinkWrapper } from "../EventTeaser/defaultLinkWrapper";
 export interface EventNavigationItemProps {
   headline: string;
   date: Date;
@@ -11,12 +12,8 @@ export interface EventNavigationProps {
   headline?: string;
   items: EventNavigationItemProps[];
   currentUrl?: string;
-  linkWrapper?: (url: string, children: React.ReactChild) => React.ReactElement;
+  linkWrapper?: (url: string, children: React.ReactNode) => React.ReactElement;
 }
-
-const defaultLinkWrapper = (url: string, children: React.ReactChild) => {
-  return <a href={url}>{children}</a>;
-};
 
 export function EventNavigation(props: EventNavigationProps) {
   const { headline, items, currentUrl } = props;

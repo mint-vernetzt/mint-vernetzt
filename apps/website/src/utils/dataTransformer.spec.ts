@@ -12,6 +12,8 @@ import {
   getPaktDataByCategory,
   getUserCardsProps,
   getParentEventItems,
+  getRelatedEvents,
+  createDateTimeFrom,
 } from "./dataTransformer";
 
 describe("getPaktDataByCategory", () => {
@@ -318,4 +320,21 @@ test("transform organisation items for landing page", () => {
   const transformedOrganisations = getOrganizationsData(input);
 
   expect(transformedOrganisations).toStrictEqual(output);
+});
+
+describe("test date creation from string", () => {
+  test("date without time", () => {
+    const dateWithoutTime = createDateTimeFrom("2020-11-03", null);
+    expect(dateWithoutTime).toStrictEqual(new Date("2020-11-03"));
+  });
+
+  test("date with valid time", () => {
+    const dateWithTime = createDateTimeFrom("2020-11-03", "09:00:00");
+    expect(dateWithTime).toStrictEqual(new Date("2020-11-03T09:00:00"));
+  });
+
+  test("date with invalid time", () => {
+    const dateWithWeirdTime = createDateTimeFrom("2020-11-03", "aa:00:00");
+    expect(dateWithWeirdTime).toStrictEqual(new Date("2020-11-03T00:00:00Z"));
+  });
 });
