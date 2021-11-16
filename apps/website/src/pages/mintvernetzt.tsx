@@ -203,7 +203,7 @@ export default Mintvernetzt;
 export const pageQuery = graphql`
   query MintvernetztPage {
     PageContact: wpContact(
-      contactInformations: { lastName: { eq: "Klauke" } }
+      contactInformations: { lastName: { eq: "Kellner" } }
     ) {
       contactInformations {
         firstName
