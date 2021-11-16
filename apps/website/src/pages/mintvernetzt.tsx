@@ -246,28 +246,28 @@ export const pageQuery = graphql`
 
     NewsImage: file(relativePath: { eq: "mood_news.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 560) {
+        fluid(maxWidth: 664, quality: 80) {
           ...GatsbyImageSharpFluid
         }
       }
     }
     BlogImage: file(relativePath: { eq: "mood_wuerfel.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 560) {
+        fluid(maxWidth: 664, quality: 80) {
           ...GatsbyImageSharpFluid
         }
       }
     }
     SocialmediaImage: file(relativePath: { eq: "mood_social-media.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 560) {
+        fluid(maxWidth: 664, quality: 80) {
           ...GatsbyImageSharpFluid
         }
       }
     }
     NewsletterImage: file(relativePath: { eq: "mood_newsletter.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 560) {
+        fluid(maxWidth: 664, quality: 80) {
           ...GatsbyImageSharpFluid
         }
       }
