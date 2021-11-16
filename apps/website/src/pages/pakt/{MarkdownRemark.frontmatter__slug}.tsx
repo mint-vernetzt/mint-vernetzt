@@ -1,6 +1,6 @@
 import { graphql, Link } from "gatsby";
 import Img from "gatsby-image";
-import { Testimonial } from "@mint-vernetzt/react-components";
+import { Icon, IconType, Testimonial } from "@mint-vernetzt/react-components";
 import Layout from "../../components/layout";
 import SEO from "../../components/seo";
 
@@ -28,7 +28,10 @@ export default function Template({ data }) {
           className="inline-block border border-neutral-400 py-3 px-4 mb-4 text-neutral-800 text-semibold uppercase rounded-lg"
           href={`/project/#${categoryHash}`}
         >
-          zur Übersicht
+          <span className="flex items-center">
+            <Icon type={IconType.ChevronLeft} />
+            zur Übersicht
+          </span>
         </a>
 
         <div className="flex flex-wrap items-center md:-mx-4 lg:-mx-6 ">
