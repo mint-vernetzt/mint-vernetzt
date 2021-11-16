@@ -171,14 +171,14 @@ export const pageQuery = graphql`
   query MintmachenPage {
     SurveyImage: file(relativePath: { eq: "mintmachen_survey.png" }) {
       childImageSharp {
-        fluid(maxWidth: 560) {
+        fluid(maxWidth: 728, quality: 80) {
           ...GatsbyImageSharpFluid
         }
       }
     }
     PlatformImage: file(relativePath: { eq: "mintmachen_platform.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 560) {
+        fluid(maxWidth: 728, quality: 80) {
           ...GatsbyImageSharpFluid
         }
       }
