@@ -2,6 +2,8 @@ import { GatsbyGraphQLType, graphql, Link } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Img from "gatsby-image";
+import { ReactComponent as Header } from "../images/mintmachen_header.svg";
+import { ReactComponent as BadgeRocket } from "../images/Badge_02Rocket.svg";
 
 import { ContactCard } from "@mint-vernetzt/react-components";
 
@@ -24,11 +26,12 @@ export function Mintmachen({
       <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap md:-mx-4">
           <div className="flex-100 pb-4 md:pb-0 md:flex-5/12 md:px-4">
-            <img
+            <Header />
+            {/* <img
               src="../images/mintmachen_header.svg"
               className="w-full h-auto"
               alt="MI(N)Tmachen"
-            />
+            /> */}
           </div>
           <div className="flex-100 md:flex-7/12 md:px-4">
             <h1 className="text-5xl leading-tight lg:text-7xl lg:leading-none mb-2 lg:mb-4">
