@@ -23,7 +23,10 @@ function News({ data }) {
           className="inline-block border border-neutral-400 py-3 px-4 mb-6 text-neutral-800 text-semibold uppercase rounded-lg"
           to="/news"
         >
-          zur Übersicht
+          <span className="flex items-center">
+            <Icon type={IconType.ChevronLeft} />
+            zur Übersicht
+          </span>
         </Link>
 
         <div className="flex flex-wrap mb-8">

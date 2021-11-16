@@ -36,8 +36,9 @@ export function Index({ data }: { data: GatsbyTypes.LandingPageQuery }) {
                 <span className="font-normal block md:inline">vernetzt</span>
               </h1>
               <p className="font-bold mb-4 md:max-w-1/2 lg:text-3xl lg:leading-snug">
-                die Service- und Anlaufstelle der MINT-Akteur:innen in
-                Deutschland.
+                die Service- und Anlaufstelle der MINT-
+                <br />
+                Akteur:innen in Deutschland.
               </p>
               <p>
                 <Link to="/project/" className="btn-primary">
@@ -52,11 +53,11 @@ export function Index({ data }: { data: GatsbyTypes.LandingPageQuery }) {
       <section className="container pt-10 lg:pt-20">
         <header>
           <h2>Aktiv werden</h2>
-          <p className="lead">
-            Wir entwickeln mit Euch die MINTvernetzt Plattform, denn gemeinsam
-            entstehen die besten Ideen. Hier könnt Ihr Euch vernetzen,
-            Erfahrungen teilen und Kooperationen aufbauen. So machen
-            wir zusammen MINT-Bildung noch besser.{" "}
+          <p className="lead md:px-8 lg:px-20 ">
+            Wir entwickeln MINTvernetzt mit Euch (weiter)! Hier könnt Ihr Euch
+            vernetzen, gute Praxis teilen und Kooperationen aufbauen. So machen
+            wir zusammen MINT-Bildungsangebote in Deutschland sichtbar, helfen
+            Euch bei der Weiterentwicklung und schaffen Innovationsräume.
           </p>
         </header>
 
@@ -65,30 +66,27 @@ export function Index({ data }: { data: GatsbyTypes.LandingPageQuery }) {
             {
               image: data.MintmachenImage.childImageSharp.fluid,
               title: `MI(N)Tmachen`,
-              text: `Wir machen die MINT-Akteur:innen Deutschlands sichtbar und vernetzen Euch. Aber dafür brauchen wir Eure Hilfe! Bringt Euch jetzt aktiv ein und helft
-              einander mehr und bessere MINT-Angebote zu schaffen. `,
-              link: `/mintmachen `,
+              text: `Wir machen die MINT-Akteur:innen Deutschlands sichtbar und vernetzen Euch. Aber dafür brauchen wir Eure Hilfe! Bringt Euch jetzt aktiv ein und helft einander mehr und bessere MINT-Angebote zu schaffen.`,
+              link: `/mintmachen/`,
             },
             {
               image: data.MintvernetztImage.childImageSharp.fluid,
               title: `MINTvernetzt informiert`,
-              text: `Informieren, inspirieren, Emotionen wecken: Wir geben Euch Einblicke in die MINT-Welt und schauen auch über den Tellerrand:
-              Hier findet Ihr Newsletter, MINTNews & Co.  `,
-              link: `/mintvernetzt `,
+              text: `Informieren, inspirieren, Emotionen wecken: Wir geben Euch Einblicke in die MINT-Welt und schauen auch über den Tellerrand: Hier findet Ihr Newsletter, MINTNews & Co.`,
+              link: `/mintvernetzt/`,
             },
             {
               image: data.MintcommunityImage.childImageSharp.fluid,
               title: `Werde Teil der MINTcommunity`,
-              text: `Wir bauen einen Marktplatz für die MINTcommunity Deutschlands: Die MINTvernetzt-Plattform. Und zwar mit Euch! Bringt Euch jetzt aktiv ein und werdet
-              BETA-Tester:in.`,
-              link: `/mintcommunity `,
+              text: `Wir bauen einen Marktplatz für die MINTcommunity Deutschlands: die MINTvernetzt-Plattform. Und zwar mit Euch! Bringt Euch jetzt aktiv ein und werdet BETA-Tester:in.`,
+              link: `/mintcommunity/`,
             },
           ].map((teaserbox, index) => (
             <div
               key={`teaserbox-${index}`}
               className="p-4 pb-8 md:p-2 md:pb-8 lg:p-4 lg:pb-8 rounded-lg bg-beige-500"
             >
-              <a href={`${teaserbox.link}`} className="flex flex-col h-100">
+              <Link to={`${teaserbox.link}`} className="flex flex-col h-100">
                 <div className="rounded-lg overflow-hidden mb-2 lg:mb-4">
                   <Img
                     fluid={teaserbox.image}
@@ -100,7 +98,7 @@ export function Index({ data }: { data: GatsbyTypes.LandingPageQuery }) {
                   {teaserbox.title}
                 </h4>
                 <p className="lg:mx-2">{teaserbox.text}</p>
-              </a>
+              </Link>
             </div>
           ))}
         </div>
@@ -109,7 +107,11 @@ export function Index({ data }: { data: GatsbyTypes.LandingPageQuery }) {
         <div className="flex flex-wrap md:-mx-2 lg:-mx-4">
           <div className="flex-100 md:flex-2/3 md:px-2 lg:px-4">
             <NewsFeed
-              headline="Neuigkeiten"
+              headline={
+                <>
+                  MINT<span className="font-normal">news</span>
+                </>
+              }
               body="Wir blicken in die MINT-Welt und darüber hinaus und informieren Euch regelmäßig über Erkenntnisse, Ereignisse und Innovationen, die für Eure tägliche Arbeit interessant sind."
               linkToOverview="/news/"
               newsFeedItemsProps={newsItems}
@@ -135,12 +137,10 @@ export function Index({ data }: { data: GatsbyTypes.LandingPageQuery }) {
         </div>
       </section>
 
-      <section className="container py-10">
+      <section className="container py-10 px-10">
         <OrganizationBoxContainer
           headline="Der Verbund"
-          body="Herausforderungen lösen wir gemeinsam. MINT-Potenziale heben wir im Team. MINTvernetzt ist ein Verbundprojekt, das gemeinsam von Mitarbeitenden der Körber-Stiftung, 
-          der matrix gGmbH, des Nationales MINTForums e.V., des Stifterverbands und der Universität Regensburg umgesetzt wird. Zusammen blicken wir auf viel Erfahrung in der MINT-Bildung,
-          die wir bei MINTvernetzt bündeln und weiterentwickeln wollen. Hier findet Ihr die unterschiedlichen Zuständigkeiten der Verbundpartner bei MINTvernetzt."
+          body="Herausforderungen lösen wir gemeinsam. MINT-Potenziale heben wir im Team. MINTvernetzt ist ein Verbundprojekt, das gemeinsam von Mitarbeitenden der Körber-Stiftung, der matrix gGmbH, des Nationalen MINTForums e.V., des Stifterverbands und der Universität Regensburg umgesetzt wird. Zusammen blicken wir auf viel Erfahrung in der MINT-Bildung, die wir bei MINTvernetzt bündeln und weiterentwickeln wollen. Hier findet Ihr die unterschiedlichen Zuständigkeiten der Verbundpartner bei MINTvernetzt."
           organisations={organisations}
         />
       </section>
