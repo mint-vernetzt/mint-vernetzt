@@ -68,7 +68,7 @@ export function Mintmachen({
               MINT<span className="font-normal">rakete</span>
             </h2>
 
-            <p>
+            <p className="lg:text-xl">
               Es gibt schon viele gute Praxis-Beispiele in der MINT-Bildung.
               Reicht jetzt Eure MINTrakete des Monats ein und helft der
               MINT-Community mit Eurem Wissen und Euren Erfahrungen
