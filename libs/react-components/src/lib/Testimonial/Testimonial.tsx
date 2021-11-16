@@ -1,4 +1,5 @@
 /* eslint-disable-next-line */
+import { Icon, IconType } from "@mint-vernetzt/react-components";
 import * as React from "react";
 export interface TestimonialProps {
   name: string;
@@ -11,7 +12,9 @@ export function Testimonial(props: TestimonialProps) {
   return (
     <div>
       <div className="flex flex-col p-4 pb-8 pb-15 md:pb-5 bg-gray-50 rounded-sm shadow">
-        <div className="bg-red-700 w-8 h-8 mb-2" />
+        <div className="w-8 h-8 mb-2">
+          <Icon type={IconType.Quote} width="32" height="32" />
+        </div>
         <h2 className="text-primary text-3xl" data-testid="name">
           {name}
         </h2>
