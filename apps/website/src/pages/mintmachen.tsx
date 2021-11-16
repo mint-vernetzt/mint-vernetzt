@@ -32,7 +32,7 @@ export function Mintmachen({
           </div>
           <div className="flex-100 md:flex-7/12 md:px-4">
             <h1 className="text-5xl leading-tight lg:text-7xl lg:leading-none mb-2 lg:mb-4">
-              MI(N)Tmachen
+              MI(N)T&shy;machen
             </h1>
 
             <p className="lg:text-xl">
