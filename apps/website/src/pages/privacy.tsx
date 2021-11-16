@@ -8,7 +8,7 @@ export function Privacy(props: PrivacyProps) {
   return (
     <Layout children="">
       <SEO title="Datenschutz" slug="/privacy" />
-      <section className="hero container py-10">
+      <section className="hero container my-8 md:my-10 lg:my-20">
         <div className="hero bg-yellow-300 px-20 py-40 rounded-3xl">
           <h1>Welcome to Privacy!</h1>
         </div>

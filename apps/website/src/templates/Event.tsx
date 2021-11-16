@@ -111,7 +111,10 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
           className="inline-block border border-neutral-400 py-3 px-4 mb-4 text-neutral-800 text-semibold uppercase rounded-lg"
           to="/events"
         >
-          Zur Veranstaltungsübersicht
+          <span className="flex items-center">
+            <Icon type={IconType.ChevronLeft} />
+            Zur Veranstaltungsübersicht
+          </span>
         </Link>
 
         {EventHeader(event)}
@@ -126,7 +129,10 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
               to={`/event/${event.parent.node.slug}`}
               className="inline-block text-bold text-lilac-500"
             >
-              &lt; Zurück zur Übersicht
+              <span className="flex items-center font-bold text-lg">
+                <Icon type={IconType.ChevronLeft} />
+                Zurück zur Übersicht
+              </span>
             </Link>
           </div>
         )}

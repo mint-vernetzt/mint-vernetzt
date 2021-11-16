@@ -14,7 +14,7 @@ export function OrganizationBoxContainer({
 }: OrganizationBoxContainerProps) {
   return (
     <section>
-      <header>
+      <header className="md:px-16 lg:px-48">
         <h2>{headline}</h2>
         <p data-testid="body" className="lead">
           {body}
@@ -23,7 +23,7 @@ export function OrganizationBoxContainer({
 
       <div
         data-testid="grid"
-        className="flex flex-row flex-wrap justify-center	-mx-2 lg:-mx-3 items-stretch"
+        className="flex flex-row flex-wrap justify-center lg:mx-3 items-stretch"
       >
         {organisations.map((useBoxProps, index) => (
           <div
