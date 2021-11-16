@@ -230,7 +230,7 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
       <section className="container my-8 md:my-10 lg:my-20">
         <UserCardContainer
           headline="Das Team"
-          body="Wir sind MINTvernetzt – ein junges, engagiertes Team mit unterschiedlichen Erfahrungen, Kompetenzen und Hintergründen. Hier findet Ihr alle Teammitglieder mit ihren Aufgaben und Kontaktdaten. Wir freuen uns auf den Austausch mit Euch."
+          body="Wir sind MINTvernetzt – ein junges, engagiertes Team mit unterschiedlichen Erfahrungen, Kompetenzen und Hintergründen. Hier findet Ihr alle Teammitglieder mit ihren Aufgaben. Wir freuen uns auf den Austausch mit Euch."
           userCardsProps={userCardsProps}
         />
       </section>
