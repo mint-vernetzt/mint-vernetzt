@@ -164,25 +164,25 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
             {
               title: `Service-Hotline`,
               text: `Ihr habt allgemeine Fragen, Informationen oder Ideen? Dann richtet sie gerne an Ina Liebmann, unser Gesicht hinter der Service-Hotline.`,
-              phone: `(+49) 040 882 15690`,
+              phone: `040 88215690`,
               mail: `info@mint-vernetzt.de`,
             },
             {
               title: `Community`,
               text: `Erste Ansprechperson für alle Belange rund um unsere digitale Community-Plattform ist Anna Schröter. Ihr erreicht sie auf diesem Wege:`,
-              phone: `(+49) 0211 757 0762`,
+              phone: `0211 7570762`,
               mail: `anna.schroeter@mint-vernetzt.de`,
             },
             {
               title: `Veranstaltungen`,
               text: `Julia Novik erweckt unsere Veranstaltungen zum Leben und freut sich über Eure Fragen und Tipps.`,
-              phone: `(+49) 0160 944 06027 `,
+              phone: `0160 94406027 `,
               mail: `julia.novik@mint-vernetzt.de`,
             },
             {
               title: `Kommunikation`,
               text: `Den Blick nach außen hat bei uns Anna Kellner. Für Presse- und Öffentlichkeitsarbeit, Kooperationen und Kampagnen ist sie die richtige Adresse.`,
-              phone: `(+49) 0175 841 1669`,
+              phone: `0175 8411669`,
               mail: `anna.kellner@mint-vernetzt.de`,
             },
           ].map((contactbox, index) => (
