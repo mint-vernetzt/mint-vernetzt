@@ -1,6 +1,6 @@
 /* eslint-disable-next-line */
-import { Icon, IconType } from "@mint-vernetzt/react-components";
 import * as React from "react";
+import { Icon, IconType } from "../Icon/Icon";
 export interface TestimonialProps {
   name: string;
   jobTitle: string;
