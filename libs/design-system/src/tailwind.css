@@ -243,3 +243,12 @@ ol {
   top: 264px;
   left: 45px;
 }
+
+.event-teaser ul li h4 a::after {
+  position: absolute;
+  content: " ";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
