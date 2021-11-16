@@ -43,10 +43,10 @@ export function Mintmachen({
             </p>
             <p>
               <a
-                href="mailto:community@MINT-vernetzt.de"
+                href="mailto:community@mint-vernetzt.de"
                 className="text-lilac-500 font-bold"
               >
-                community@MINT-vernetzt.de
+                community@mint-vernetzt.de
               </a>
             </p>
           </div>
@@ -108,10 +108,10 @@ export function Mintmachen({
             </p>
             <p>
               <a
-                href="mailto:community@MINT-vernetzt.de"
+                href="mailto:befragung@mint-vernetzt.de"
                 className="text-lilac-500 font-bold"
               >
-                community@MINT-vernetzt.de
+                befragung@mint-vernetzt.de
               </a>
             </p>
           </div>
