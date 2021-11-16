@@ -27,6 +27,7 @@ export function Mintmachen({
             <img
               src="../images/mintmachen_header.svg"
               className="w-full h-auto"
+              alt="MI(N)Tmachen"
             />
           </div>
           <div className="flex-100 md:flex-7/12 md:px-4">
@@ -73,6 +74,7 @@ export function Mintmachen({
               MINT-Community mit Eurem Wissen und Euren Erfahrungen
               durchzustarten.
             </p>
+            {/*
             <p>
               <Link
                 to="/news/mintrakete-didaktik-als-schluessel-jetzt-bewerben"
@@ -81,6 +83,7 @@ export function Mintmachen({
                 Teilnehmen
               </Link>
             </p>
+            */}
           </div>
         </div>
       </section>

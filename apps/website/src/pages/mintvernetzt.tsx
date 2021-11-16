@@ -28,6 +28,7 @@ export function Mintvernetzt({
             <img
               src="../images/mintvernetzt_header.svg"
               className="w-full h-auto"
+              alt="MINTvernetzt informiert"
             />
           </div>
           <div className="flex-100 md:flex-7/12 md:px-4 md: self-center">

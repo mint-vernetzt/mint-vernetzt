@@ -59,9 +59,11 @@ export function Topics({ data }) {
               präsentieren können. Lernt dabei andere und neue Projektansätze
               kennen und tauscht Euch in verschiedenen Community-Formaten
               darüber aus. Im Fokus steht das gemeinschaftliche von- und
-              miteinander Lernen. Hier gibt’s mehr Infos zur Bewerbung und zum
-              Auswahlprozess.
+              miteinander Lernen.{" "}
+              {/* Hier gibt’s mehr Infos zur Bewerbung und zum
+              Auswahlprozess. */}
             </p>
+            {/*
             <p>
               <Link
                 to="/news/mintrakete-didaktik-als-schluessel-jetzt-bewerben"
@@ -70,6 +72,7 @@ export function Topics({ data }) {
                 Teilnehmen
               </Link>
             </p>
+            */}
           </div>
         </div>
       </section>

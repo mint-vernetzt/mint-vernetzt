@@ -27,6 +27,7 @@ export function Mintcommunity({
             <img
               src="../images/mintcommunity_header.svg"
               className="w-full h-auto"
+              alt="Werde Teil der MINTcommunity"
             />
           </div>
           <div className="flex-100 md:flex-7/12 md:px-4">
