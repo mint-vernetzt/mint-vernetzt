@@ -46,10 +46,10 @@ export function Mintcommunity({
             </p>
             <p>
               <a
-                href="mailto:community@MINT-vernetzt.de"
+                href="mailto:community@mint-vernetzt.de"
                 className="text-lilac-500 font-bold"
               >
-                community@MINT-vernetzt.de
+                community@mint-vernetzt.de
               </a>
             </p>
           </div>
@@ -197,28 +197,28 @@ export const pageQuery = graphql`
   query MintCommunityPage {
     HackathonImage: file(relativePath: { eq: "mintcommunity_hackathon.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 560) {
+        fluid(maxWidth: 728, quality: 80) {
           ...GatsbyImageSharpFluid
         }
       }
     }
     PuzzleImage: file(relativePath: { eq: "mintcommunity_puzzle.jpg" }) {
       childImageSharp {
-        fixed(width: 280, height: 200) {
+        fixed(width: 280, height: 200, quality: 80) {
           ...GatsbyImageSharpFixed
         }
       }
     }
     RaketeImage: file(relativePath: { eq: "mintcommunity_rakete.jpg" }) {
       childImageSharp {
-        fixed(width: 280, height: 200) {
+        fixed(width: 280, height: 200, quality: 80) {
           ...GatsbyImageSharpFixed
         }
       }
     }
     ZoomImage: file(relativePath: { eq: "mintcommunity_zoom.png" }) {
       childImageSharp {
-        fixed(width: 280, height: 200) {
+        fixed(width: 280, height: 200, quality: 80) {
           ...GatsbyImageSharpFixed
         }
       }
