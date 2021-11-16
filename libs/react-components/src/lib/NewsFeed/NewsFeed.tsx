@@ -37,7 +37,7 @@ export function NewsFeed({
           return (
             <li
               key={`news-feed-item-${index}`}
-              className="border-b border-neutral-400 last:border-b-0 pb-4 pt-6 first:pt-0"
+              className="border-b border-neutral-400 last:border-b-0 pb-4 pt-6 first:pt-0 last:pb-0"
             >
               <NewsFeedItem {...newsFeedItemProps} />
             </li>

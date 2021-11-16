@@ -56,7 +56,7 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
         image=""
         children=""
       />
-      <section className="container my-16">
+      <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap content-center items-center md:-mx-6 lg:-mx-10">
           <div className="flex-100 md:flex-1/3 pb-8 md:pb-0 md:px-6 lg:px-10">
             <svg
@@ -107,15 +107,17 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
         </div>
       </section>
 
-      <section className="container my-16">
-        <div className="flex flex-wrap md:items-stretch md:-mx-6 md:-mb-12 lg:-mx-10">
+      <section className="container my-8 md:my-10 lg:my-20">
+        <div className="flex flex-wrap md:items-stretch md:-mx-6 -mb-6 lg:-mx-10">
           {[
             {
               icon: (
                 <Icon type={IconType.LightBulb} width="2rem" height="2rem" />
               ),
               title: `Motivation`,
-              text: `MINT-Kompetenzen sind Zukunftskompetenzen. Ohne die Stärkung der MINT-Bildung und Aktivierung neuer MINT-Talente wird Deutschland als Innovationsstandort an Bedeutung verlieren und wichtige Beiträge zur Lösungsfindung globaler Herausforderungen wie dem Klimawandel nicht leisten können. Kindern und Jugendlichen Kompetenzen in Mathematik, Informatik, Naturwissenschaften und Technik zu vermitteln und ihnen den Zugang zu MINT-Arbeitsplätzen zu ermöglichen, sind zentrale Schlüssel für mehr Gleichberechtigung und Teilhabe.`,
+              text: `MINT-Kompetenzen sind Zukunftskompetenzen. Ohne die Stärkung der MINT-Bildung und Aktivierung neuer MINT-Talente wird Deutschland als Innovationsstandort an Bedeutung verlieren und 
+              wichtige Beiträge zur Lösungsfindung globaler Herausforderungen wie des Klimawandels nicht leisten können. Kindern und Jugendlichen Kompetenzen in Mathematik, Informatik, 
+              Naturwissenschaften und Technik zu vermitteln und ihnen den Zugang zu MINT-Arbeitsplätzen zu ermöglichen, sind zentrale Schlüssel für mehr Gleichberechtigung und Teilhabe.`,
             },
             {
               icon: <Icon type={IconType.Magic} width="2rem" height="2rem" />,
@@ -147,7 +149,10 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
         </div>
       </section>
 
-      <section className="container my-16" id="contact-details">
+      <section
+        className="container my-8 md:my-10 lg:my-20"
+        id="contact-details"
+      >
         <header>
           <h2>Für jede Frage die richtige Adresse</h2>
           <p className="lead">
@@ -160,12 +165,12 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
           {[
             {
               title: `Service-Hotline`,
-              text: `Ihr habt allgemeine Fragen, Informationen oder Ideen? Dann richtet diese gerne an Ina Liebmann, unser Gesicht hinter der Service-Hotline.`,
+              text: `Ihr habt allgemeine Fragen, Informationen oder Ideen? Dann richtet sie gerne an Ina Liebmann, unser Gesicht hinter der Service-Hotline.`,
               phone: `(+49) 040 882 15690`,
               mail: `info@mint-vernetzt.de`,
             },
             {
-              title: `Community & MINTvernetzt-Plattform`,
+              title: `Community`,
               text: `Erste Ansprechperson für alle Belange rund um unsere digitale Community-Plattform ist Anna Schröter. Ihr erreicht sie auf diesem Wege:`,
               phone: `(+49) 0211 757 0762`,
               mail: `anna.schroeter@mint-vernetzt.de`,
@@ -224,7 +229,7 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
         </div>
       </section>
 
-      <section className="container my-16">
+      <section className="container my-8 md:my-10 lg:my-20">
         <UserCardContainer
           headline="Das Team"
           body="Wir sind MINTvernetzt – ein junges, engagiertes Team mit unterschiedlichen Erfahrungen, Kompetenzen und Hintergründen. Hier findet Ihr alle Teammitglieder mit ihren Aufgaben und Kontaktdaten. Wir freuen uns auf den Austausch mit Euch."
@@ -232,20 +237,28 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
         />
       </section>
 
-      <section className="container my-16">
-        <header className="text-left">
-          <h2>Der Nationale Pakt für Frauen in MINT-Berufen</h2>
-          <p className="lead">
-            Seit 2008 haben sich über 370 Partnerinnen und Partner aus
-            Wirtschaft, Wissenschaft, Medien und Politik im Nationalen Pakt für
-            Frauen in MINT-Berufen zusammengeschlossen. Ihr erklärtes Ziel ist
-            es, mehr Mädchen und Frauen für eine Karriere in MINT-Berufen zu
-            begeistern. Der Pakt ist im Mai 2021 von MINTvernetzt übernommen
-            worden und wird gemeinsam mit den Partner:innen weiterentwickelt.
-            Dies ist eine Übersich, der aktuellen Pakt-Partner:innen, die seit
-            der Unterschrift des Memorandums für das Thema eintreten:
-          </p>
-        </header>
+      <section className="container my-8 md:my-10 lg:my-20">
+        <div className="flex flex-wrap md:-mx-4 mb-8">
+          <div className="flex-100 md:flex-1/3 md:px-4">
+            <img src="../images/project_pakt.svg" className="w-full h-auto" />
+          </div>
+          <div className="flex-100 md:flex-2/3 md:px-4">
+            <h3 className="text-5xl leading-tight lg:leading-none mb-2 lg:mb-4">
+              Der Nationale Pakt für Frauen in MINT-Berufen
+            </h3>
+
+            <p className="lg:text-3xl lg:leading-snug">
+              Seit 2008 haben sich über 370 Partner:innen aus Wirtschaft,
+              Wissenschaft, Medien und Politik im Nationalen Pakt für Frauen in
+              MINT-Berufen zusammengeschlossen. Ihr erklärtes Ziel ist es, mehr
+              Mädchen und Frauen für eine Karriere in MINT-Berufen zu
+              begeistern. Der Pakt ist im Mai 2021 von MINTvernetzt übernommen
+              worden und wird gemeinsam mit den Partner:innen weiterentwickelt.
+              Dies ist eine Übersicht über die aktuellen Pakt-Partner:innen, die
+              seit der Unterzeichnung des Memorandums für das Thema eintreten:
+            </p>
+          </div>
+        </div>
 
         <ul className="pakt-list">
           {categories.map((category, index) => {
@@ -265,7 +278,7 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
                 >
                   {category}
                 </a>
-                <ul className="pakt-member max-h-0 transition-all ease-in-out duration-300 px-6 md:px-8">
+                <ul className="pakt-member max-h-0 overflow-hidden transition-all ease-in-out duration-300 px-6 md:px-8">
                   {paktDataByCategory[category].map((member) => (
                     <li key={member.slug} className="py-2">
                       <Link

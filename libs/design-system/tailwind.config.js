@@ -49,6 +49,7 @@ module.exports = {
       "2/3": "0 0 66.66666%",
       "5/12": "0 0 41.66666667%",
       "7/12": "0 0 58.33333333%;",
+      18: "0 0 4.5rem;",
     },
     minHeight: {
       ...defaultTheme.minHeight,
@@ -91,7 +92,7 @@ module.exports = {
       brightness: ["hover", "focus"],
       borderStyle: ["hover", "focus"],
       borderWidth: ["last"],
-      padding: ["first"],
+      padding: ["first", "last"],
     },
   },
   plugins: [

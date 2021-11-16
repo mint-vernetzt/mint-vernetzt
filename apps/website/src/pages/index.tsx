@@ -23,11 +23,11 @@ export function Index({ data }: { data: GatsbyTypes.LandingPageQuery }) {
         description={""}
         children={""}
       />
-      <section className="container pt-2 md:pt-10">
+      <section className="container my-8 md:my-10 lg:my-20">
         <div className="hero hero-index flex items-end rounded-3xl relative overflow-hidden">
           <Img
             fluid={data.HeroImage.childImageSharp.fluid}
-            className="w-full h-auto md:h-full"
+            className="w-full h-3/4 md:h-full"
           />
           <div className="hero-text absolute top-0 left-0 min-h-3/4 md:min-h-full right-0 pt-12 px-4 md:pt-20 md:px-12 lg:pt-60 lg:px-20">
             <div>
@@ -50,7 +50,7 @@ export function Index({ data }: { data: GatsbyTypes.LandingPageQuery }) {
         </div>
       </section>
 
-      <section className="container pt-10 lg:pt-20">
+      <section className="container my-8 md:my-10 lg:my-20">
         <header>
           <h2>Aktiv werden</h2>
           <p className="lead md:px-8 lg:px-20 ">
@@ -103,7 +103,7 @@ export function Index({ data }: { data: GatsbyTypes.LandingPageQuery }) {
           ))}
         </div>
       </section>
-      <section className="container pt-10 lg:pt-20">
+      <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap md:-mx-2 lg:-mx-4">
           <div className="flex-100 md:flex-2/3 md:px-2 lg:px-4">
             <NewsFeed
@@ -136,8 +136,7 @@ export function Index({ data }: { data: GatsbyTypes.LandingPageQuery }) {
           </div>
         </div>
       </section>
-
-      <section className="container py-10 px-10">
+      <section className="container my-8 md:my-10 lg:my-20">
         <OrganizationBoxContainer
           headline="Der Verbund"
           body="Herausforderungen lösen wir gemeinsam. MINT-Potenziale heben wir im Team. MINTvernetzt ist ein Verbundprojekt, das gemeinsam von Mitarbeitenden der Körber-Stiftung, der matrix gGmbH, des Nationalen MINTForums e.V., des Stifterverbands und der Universität Regensburg umgesetzt wird. Zusammen blicken wir auf viel Erfahrung in der MINT-Bildung, die wir bei MINTvernetzt bündeln und weiterentwickeln wollen. Hier findet Ihr die unterschiedlichen Zuständigkeiten der Verbundpartner bei MINTvernetzt."
