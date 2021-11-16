@@ -2,7 +2,7 @@ import React from "react";
 import NewsFeedItem, { NewsFeedItemProps } from "./NewsFeedItem";
 
 export interface NewsFeedProps {
-  headline: string;
+  headline: string | React.ReactNode;
   body?: string;
   linkToOverview?: string;
   newsFeedItemsProps?: NewsFeedItemProps[];
