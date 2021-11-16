@@ -115,7 +115,9 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
                 <Icon type={IconType.LightBulb} width="2rem" height="2rem" />
               ),
               title: `Motivation`,
-              text: `MINT-Kompetenzen sind Zukunftskompetenzen. Ohne die Stärkung der MINT-Bildung und Aktivierung neuer MINT-Talente wird Deutschland als Innovationsstandort an Bedeutung verlieren und wichtige Beiträge zur Lösungsfindung globaler Herausforderungen wie dem Klimawandel nicht leisten können. Kindern und Jugendlichen Kompetenzen in Mathematik, Informatik, Naturwissenschaften und Technik zu vermitteln und ihnen den Zugang zu MINT-Arbeitsplätzen zu ermöglichen, sind zentrale Schlüssel für mehr Gleichberechtigung und Teilhabe.`,
+              text: `MINT-Kompetenzen sind Zukunftskompetenzen. Ohne die Stärkung der MINT-Bildung und Aktivierung neuer MINT-Talente wird Deutschland als Innovationsstandort an Bedeutung verlieren und 
+              wichtige Beiträge zur Lösungsfindung globaler Herausforderungen wie des Klimawandels nicht leisten können. Kindern und Jugendlichen Kompetenzen in Mathematik, Informatik, 
+              Naturwissenschaften und Technik zu vermitteln und ihnen den Zugang zu MINT-Arbeitsplätzen zu ermöglichen, sind zentrale Schlüssel für mehr Gleichberechtigung und Teilhabe.`,
             },
             {
               icon: <Icon type={IconType.Magic} width="2rem" height="2rem" />,
@@ -163,7 +165,7 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
           {[
             {
               title: `Service-Hotline`,
-              text: `Ihr habt allgemeine Fragen, Informationen oder Ideen? Dann richtet diese gerne an Ina Liebmann, unser Gesicht hinter der Service-Hotline.`,
+              text: `Ihr habt allgemeine Fragen, Informationen oder Ideen? Dann richtet sie gerne an Ina Liebmann, unser Gesicht hinter der Service-Hotline.`,
               phone: `(+49) 040 882 15690`,
               mail: `info@mint-vernetzt.de`,
             },
@@ -236,19 +238,27 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
       </section>
 
       <section className="container my-8 md:my-10 lg:my-20">
-        <header className="text-left">
-          <h2>Der Nationale Pakt für Frauen in MINT-Berufen</h2>
-          <p className="lead">
-            Seit 2008 haben sich über 370 Partnerinnen und Partner aus
-            Wirtschaft, Wissenschaft, Medien und Politik im Nationalen Pakt für
-            Frauen in MINT-Berufen zusammengeschlossen. Ihr erklärtes Ziel ist
-            es, mehr Mädchen und Frauen für eine Karriere in MINT-Berufen zu
-            begeistern. Der Pakt ist im Mai 2021 von MINTvernetzt übernommen
-            worden und wird gemeinsam mit den Partner:innen weiterentwickelt.
-            Dies ist eine Übersich, der aktuellen Pakt-Partner:innen, die seit
-            der Unterschrift des Memorandums für das Thema eintreten:
-          </p>
-        </header>
+        <div className="flex flex-wrap md:-mx-4 mb-8">
+          <div className="flex-100 md:flex-1/3 md:px-4">
+            <img src="../images/project_pakt.svg" className="w-full h-auto" />
+          </div>
+          <div className="flex-100 md:flex-2/3 md:px-4">
+            <h3 className="text-5xl leading-tight lg:leading-none mb-2 lg:mb-4">
+              Der Nationale Pakt für Frauen in MINT-Berufen
+            </h3>
+
+            <p className="lg:text-3xl lg:leading-snug">
+              Seit 2008 haben sich über 370 Partner:innen aus Wirtschaft,
+              Wissenschaft, Medien und Politik im Nationalen Pakt für Frauen in
+              MINT-Berufen zusammengeschlossen. Ihr erklärtes Ziel ist es, mehr
+              Mädchen und Frauen für eine Karriere in MINT-Berufen zu
+              begeistern. Der Pakt ist im Mai 2021 von MINTvernetzt übernommen
+              worden und wird gemeinsam mit den Partner:innen weiterentwickelt.
+              Dies ist eine Übersicht über die aktuellen Pakt-Partner:innen, die
+              seit der Unterzeichnung des Memorandums für das Thema eintreten:
+            </p>
+          </div>
+        </div>
 
         <ul className="pakt-list">
           {categories.map((category, index) => {
@@ -268,7 +278,7 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
                 >
                   {category}
                 </a>
-                <ul className="pakt-member max-h-0 transition-all ease-in-out duration-300 px-6 md:px-8">
+                <ul className="pakt-member max-h-0 overflow-hidden transition-all ease-in-out duration-300 px-6 md:px-8">
                   {paktDataByCategory[category].map((member) => (
                     <li key={member.slug} className="py-2">
                       <Link

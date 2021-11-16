@@ -67,7 +67,7 @@ export function Mintvernetzt({
               className="w-full h-auto rounded-2xl shadow-md mb-6"
             />
 
-            <h3 className="text-5xl leading-tight lg:text-6xl lg:leading-none mb-2 md:order-1">
+            <h3 className="text-5xl leading-tight lg:text-6xl lg:leading-none mb-2">
               MINTnews
             </h3>
             <p className="lg:text-3xl font-bold mb-2">Der MINTvernetzt-Blog</p>
@@ -91,7 +91,7 @@ export function Mintvernetzt({
               className="w-full h-auto rounded-2xl shadow-md mb-6"
             />
 
-            <h3 className="text-5xl leading-tight lg:text-6xl lg:leading-none mb-2 md:order-1">
+            <h3 className="text-5xl leading-tight lg:text-6xl lg:leading-none mb-2">
               Community Blog
             </h3>
             <p className="lg:text-3xl font-bold mb-2">
@@ -116,7 +116,7 @@ export function Mintvernetzt({
               className="w-full h-auto rounded-2xl shadow-md mb-6"
             />
 
-            <h3 className="text-5xl leading-tight lg:text-6xl lg:leading-none mb-2 md:order-1">
+            <h3 className="text-5xl leading-tight lg:text-6xl lg:leading-none mb-2">
               #SocialMedia
             </h3>
             <p className="lg:text-xl">
@@ -164,7 +164,7 @@ export function Mintvernetzt({
               className="w-full h-auto rounded-2xl shadow-md mb-6"
             />
 
-            <h3 className="text-5xl leading-tight lg:text-6xl lg:leading-none mb-2 md:order-1">
+            <h3 className="text-5xl leading-tight lg:text-6xl lg:leading-none mb-2">
               #Newsletter
             </h3>
             <p className="lg:text-xl">

@@ -19,20 +19,17 @@ export function UserCard(props: UserCardProps) {
         src={avatar.src}
         alt={avatar.alt}
       />
-      <p
-        data-testid="name"
-        className="mb-1 text-based font-semibold text-neutral-800"
-      >
+      <p data-testid="name" className="mb-1 font-semibold text-neutral-800">
         {name}
       </p>
-      <p className="mb-2 text-neutral-600" data-testid="position">
+      <p className="mb-2" data-testid="position">
         {position}
       </p>
       <div className="h-10 flex flex-wrap content-end">
         <a href={organizationUrl} data-testid="organizationUrl" target="_blank">
           <img
             data-testid="organizationLogo"
-            className="max-h-10 w-full"
+            className="max-h-10 w-20"
             src={organizationLogo.src}
             alt={organizationLogo.alt}
           />
