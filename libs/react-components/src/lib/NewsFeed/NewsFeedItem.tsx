@@ -34,9 +34,9 @@ export function NewsFeedItem({
   const formattedDate = formatDate(date);
 
   return (
-    <div className="flex flex-wrap md:flex-nowrap md:-mx-2 lg-mx-4 md:items-stretch">
+    <div className="flex flex-wrap md:flex-nowrap md:items-stretch">
       {image !== undefined ? (
-        <div className="flex-100 mb-2 md:mb-0 md:px-2 lg:px-4 md:flex-1/3 lg:min-h-12.5">
+        <div className="flex-100 mb-2 md:mb-0 md:mr-4 lg:mr-8 md:flex-1/3 lg:min-h-12.5">
           <img
             src={image.src}
             alt={image.alt}
@@ -44,7 +44,7 @@ export function NewsFeedItem({
           />
         </div>
       ) : null}
-      <div className="md:flex-auto md:px-2 lg:px-4 flex flex-wrap lg:self-center">
+      <div className="md:flex-auto flex flex-wrap lg:self-center">
         <time
           data-testid="date"
           dateTime={date.toISOString()}
