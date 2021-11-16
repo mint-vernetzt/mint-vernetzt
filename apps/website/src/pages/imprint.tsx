@@ -67,7 +67,7 @@ export function Imprint(props: ImprintProps) {
           dem Urheberrecht. Die unerlaubte Verwendung einzelner Inhalte oder
           kompletter Seiten wird sowohl straf- als auch zivilrechtlich verfolgt.
         </p>
-        <p>Folgende Bilder werden verwendet:</p>
+        <h3>Folgende Bilder werden verwendet:</h3>
         <ul className="m-4">
           <li className="list-disc">
             MINTvernetzt-Fotos: Claudia Höhne:{" "}
