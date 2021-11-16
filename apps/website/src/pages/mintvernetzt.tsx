@@ -126,34 +126,55 @@ export function Mintvernetzt({
               moderne WWW geschaffen, damit wir Euch auch dort mit Informationen
               versorgen können: #MINTvernetzt
             </p>
+            <p className="lg:text-xl">Folgt uns in den sozialen Medien.</p>
             <div className="flex">
-              <div className="icon w-8 h-8 mb-2 border border-secondary-500 rounded-full mr-2">
+              <div className="icon w-12 h-12 mb-2 border border-secondary-500 rounded-full mr-2">
                 <a href="https://twitter.com/mintvernetzt" target="_blank">
-                  <Icon type={IconType.Twitter} width="32" height="32" />
+                  <Icon
+                    type={IconType.Twitter}
+                    width="48"
+                    height="48"
+                    scaleFactor={0.67}
+                  />
                 </a>
               </div>
-              <div className="icon w-8 h-8 mb-2 border border-secondary-500 rounded-full mr-2">
+              <div className="icon w-12 h-12 mb-2 border border-secondary-500 rounded-full mr-2">
                 <a
                   href="https://www.instagram.com/mintvernetzt/"
                   target="_blank"
                 >
-                  <Icon type={IconType.Instagram} width="32" height="32" />
+                  <Icon
+                    type={IconType.Instagram}
+                    width="48"
+                    height="48"
+                    scaleFactor={0.67}
+                  />
                 </a>
               </div>
-              <div className="icon w-8 h-8 mb-2 border border-secondary-500 rounded-full mr-2">
+              <div className="icon w-12 h-12 mb-2 border border-secondary-500 rounded-full mr-2">
                 <a
                   href="https://www.linkedin.com/company/mintvernetzt"
                   target="_blank"
                 >
-                  <Icon type={IconType.LinkedIn} width="32" height="32" />
+                  <Icon
+                    type={IconType.LinkedIn}
+                    width="48"
+                    height="48"
+                    scaleFactor={0.67}
+                  />
                 </a>
               </div>
-              <div className="icon w-8 h-8 mb-2 border border-secondary-500 rounded-full">
+              <div className="icon w-12 h-12 mb-2 border border-secondary-500 rounded-full">
                 <a
                   href="https://www.youtube.com/channel/UCVQSAkscPmmPmjYWDVuvQYg"
                   target="_blank"
                 >
-                  <Icon type={IconType.Youtube} width="32" height="32" />
+                  <Icon
+                    type={IconType.Youtube}
+                    width="48"
+                    height="48"
+                    scaleFactor={0.67}
+                  />
                 </a>
               </div>
             </div>

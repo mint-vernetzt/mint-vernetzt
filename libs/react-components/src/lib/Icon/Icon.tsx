@@ -4,6 +4,7 @@ export interface IconProps {
   type: IconType;
   width?: string;
   height?: string;
+  scaleFactor?: number;
 }
 
 export enum IconType {
@@ -108,12 +109,14 @@ const Paths = {
 };
 
 export function Icon(props: IconProps) {
-  const { type, width = "1rem", height = "1rem" } = props;
+  const { type, width = "16", height = "16", scaleFactor = 1 } = props;
   return (
     <svg
       className=""
       style={{}}
-      viewBox={`0 0 ${width} ${height}`}
+      viewBox={`0 0 ${parseInt(width) * scaleFactor} ${
+        parseInt(height) * scaleFactor
+      }`}
       width={width}
       height={height}
       xmlns="http://www.w3.org/2000/svg"
