@@ -5,8 +5,25 @@ import { formatDate, Icon, IconType } from "@mint-vernetzt/react-components";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
+// TODO: move to utility
+const formatBytes = function (a: number, b = 2, k = 1024): string {
+  // with (Math) {
+  let d = Math.floor(Math.log(a) / Math.log(k));
+  const result =
+    0 == a
+      ? "0 Bytes"
+      : parseFloat((a / Math.pow(k, d)).toFixed(Math.max(0, b))).toLocaleString(
+          "de-DE"
+        ) +
+        " " +
+        ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"][d];
+  return result;
+  // }
+};
+
 function News({ data }) {
   const props = data.allWpNewsItem.nodes[0];
+
   return (
     <Layout>
       <SEO
@@ -65,10 +82,11 @@ function News({ data }) {
           </div>
           {props.documents && props.documents.documentList !== null && (
             <div className="flex-100 md:flex-1/3 md:px-2 lg:px-6">
-              <h4 className="text-3xl leading-5 pb-4">Documents</h4>
+              <h4 className="text-3xl leading-5 pb-4">Anhänge</h4>
               <ul className="document-list">
                 {props.documents.documentList.map((documentListItem, index) => {
                   const { document } = documentListItem;
+
                   return (
                     <li key={`document-${index}`} className="mb-2">
                       <a
@@ -76,10 +94,17 @@ function News({ data }) {
                         target="_blank"
                         className="flex item-center bg-beige-300 border border-neutral-400 rounded-lg"
                       >
-                        <div className="icon w-8 h-8 mb-2 bg-red-600 m-4 mr-0"></div>
+                        <span className="icon w-8 h-8 mb-2 m-4 mr-0">
+                          <Icon
+                            type={IconType.FilePDF}
+                            width="32"
+                            height="32"
+                          />
+                        </span>
                         <div className="my-3 mx-4">
                           <span className="block text-xs text-neutral-600 uppercase">
-                            {document.mimeType}
+                            {document.localFile.extension}{" "}
+                            {formatBytes(document.localFile.size)}
                           </span>
                           <div
                             dangerouslySetInnerHTML={{
@@ -87,7 +112,13 @@ function News({ data }) {
                             }}
                           />
                         </div>
-                        <div className="icon w-8 h-8 mb-2 bg-red-600 m-4 ml-auto"></div>
+                        <div className="icon w-8 h-8 mb-2 m-4 ml-auto">
+                          <Icon
+                            type={IconType.Download}
+                            width="32"
+                            height="32"
+                          />
+                        </div>
                       </a>
                     </li>
                   );
@@ -124,7 +155,10 @@ export const query = graphql`
               title
               mimeType
               caption
+              fileSize
               localFile {
+                size
+                extension
                 publicURL
               }
             }
