@@ -15,7 +15,7 @@ export function Imprint(props: ImprintProps) {
         children={""}
       />
       <section className="container my-8 md:my-10 lg:my-20">
-        <h1>Impressum</h1>
+        <h1 className="leading-none mb-4">Impressum</h1>
         <p>
           Körber-Stiftung
           <br />
