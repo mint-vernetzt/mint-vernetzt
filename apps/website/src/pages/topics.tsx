@@ -7,7 +7,7 @@ export function Topics({ data }) {
     <Layout>
       <SEO title="Themen" slug="/topics" description="" image="" children="" />
 
-      <section className="container my-10">
+      <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap content-center items-center md:-mx-6 lg:-mx-10">
           <div className="flex-100 lg:flex-2/3 md:px-6 lg:px-10">
             <h2 className="text-5xl leading-tight lg:text-6xl lg:leading-none mb-2">
@@ -33,7 +33,7 @@ export function Topics({ data }) {
         </div>
       </section>
 
-      <section className="container my-10">
+      <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap content-center items-center md:-mx-6 lg:-mx-10">
           <div className="flex-100 pb-6 md:pb-0 md:flex-1/3 lg:flex-1/4 md:px-6 lg:px-10">
             <img
@@ -77,7 +77,7 @@ export function Topics({ data }) {
         </div>
       </section>
 
-      <section className="container my-10">
+      <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap md:-mx-6 lg:-mx-10">
           <div className="flex-100 pb-6 md:pb-0 md:flex-1/2 md:px-6 lg:px-10">
             <h4 className="text-3xl leading-snug mb-2">MINT-DataLab</h4>
@@ -121,7 +121,7 @@ export function Topics({ data }) {
         </div>
       </section>
 
-      <section className="container my-10">
+      <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap content-center items-center md:-mx-6 lg:-mx-10">
           <div className="flex-100 lg:flex-2/3 md:px-6 lg:px-10">
             <h2 className="text-5xl leading-tight lg:text-6xl lg:leading-none mb-2">
@@ -144,7 +144,7 @@ export function Topics({ data }) {
         </div>
       </section>
 
-      <section className="container my-10">
+      <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap md:-mx-6 lg:-mx-10">
           <div className="flex-100 pb-6 md:pb-0 md:flex-1/2 md:px-6 lg:px-10">
             <h4 className="text-3xl leading-snug mb-2">Innovationspanel</h4>
@@ -178,7 +178,7 @@ export function Topics({ data }) {
         </div>
       </section>
 
-      <section className="container my-10">
+      <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap content-center items-center md:-mx-6 lg:-mx-10">
           <div className="flex-100 lg:flex-2/3 md:px-6 lg:px-10">
             <h2 className="text-5xl leading-tight lg:text-6xl lg:leading-none mb-2">
@@ -215,7 +215,7 @@ export function Topics({ data }) {
         </div>
       </section>
 
-      <section className="container my-10">
+      <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap md:-mx-6 lg:-mx-10">
           <div className="flex-100 pb-6 md:pb-0 md:flex-1/2 md:px-6 lg:px-10">
             <h4 className="text-3xl leading-snug mb-2">

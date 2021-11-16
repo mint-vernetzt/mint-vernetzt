@@ -18,7 +18,7 @@ export function Events({ data }: { data: GatsbyTypes.EventFeedQuery }) {
         description=""
       />
 
-      <section className="container mt-4 md:mt-10">
+      <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap md:-mx-6 lg:-mx-10">
           <div className="flex-100 md:flex-1/3 md:order-2 pb-4 md:pb-0 md:px-6 lg:px-10">
             <img
@@ -49,7 +49,7 @@ export function Events({ data }: { data: GatsbyTypes.EventFeedQuery }) {
         </div>
       </section>
 
-      <section className="container event-list my-10 lg:my-20">
+      <section className="container event-list my-8 md:my-10 lg:my-20">
         <EventFeed eventFeedItemsProps={events} />
       </section>
     </Layout>

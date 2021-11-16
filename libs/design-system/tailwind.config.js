@@ -92,7 +92,7 @@ module.exports = {
       brightness: ["hover", "focus"],
       borderStyle: ["hover", "focus"],
       borderWidth: ["last"],
-      padding: ["first"],
+      padding: ["first", "last"],
     },
   },
   plugins: [
