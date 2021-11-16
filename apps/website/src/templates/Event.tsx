@@ -151,36 +151,44 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
 
             {event.allChildren && (
               <ul>
-                {event.allChildren.nodes.map((childEvent) => (
-                  <li
-                    key={childEvent.id}
-                    className="border-b border-neutral-400 last:border-b-0 pt-4 pb-6"
-                  >
-                    <time
-                      data-testid="date"
-                      dateTime={childEvent.eventInformations.startDate}
-                      className="mb-2 md:mb-0 md:mr-2 md:py-2 md:pr-3 uppercase font-bold text-neutral-800 text-xs flex-100 md:flex-none md:order-3"
+                {event.allChildren.nodes
+                  .sort((a, b) => {
+                    const aDate = new Date(a.eventInformations.startDate);
+                    const bDate = new Date(b.eventInformations.startDate);
+                    if (aDate < bDate) return -1;
+                    if (aDate > bDate) return 1;
+                    return 0;
+                  })
+                  .map((childEvent) => (
+                    <li
+                      key={childEvent.id}
+                      className="border-b border-neutral-400 last:border-b-0 pt-4 pb-6"
                     >
-                      {formatDate(
-                        new Date(childEvent.eventInformations.startDate)
-                      )}
-                    </time>
-                    <h4 className="text-3xl leading-snug mb-2 flex-100 md:order-1">
-                      <Link
-                        to={`/event/${childEvent.slug}`}
-                        className="cursor-pointer hover:underline"
+                      <time
+                        data-testid="date"
+                        dateTime={childEvent.eventInformations.startDate}
+                        className="mb-2 md:mb-0 md:mr-2 md:py-2 md:pr-3 uppercase font-bold text-neutral-800 text-xs flex-100 md:flex-none md:order-3"
                       >
-                        {childEvent.title}
-                      </Link>
-                    </h4>
-                    <p
-                      data-testid="body"
-                      className="line-clamp-5 mb-4 md:line-clamp-none flex-100 md:order-2"
-                    >
-                      {childEvent.excerpt.replace(/<[^>]*>/g, "")}
-                    </p>
-                  </li>
-                ))}
+                        {formatDate(
+                          new Date(childEvent.eventInformations.startDate)
+                        )}
+                      </time>
+                      <h4 className="text-3xl leading-snug mb-2 flex-100 md:order-1">
+                        <Link
+                          to={`/event/${childEvent.slug}`}
+                          className="cursor-pointer hover:underline"
+                        >
+                          {childEvent.title}
+                        </Link>
+                      </h4>
+                      <p
+                        data-testid="body"
+                        className="line-clamp-5 mb-4 md:line-clamp-none flex-100 md:order-2"
+                      >
+                        {childEvent.excerpt.replace(/<[^>]*>/g, "")}
+                      </p>
+                    </li>
+                  ))}
               </ul>
             )}
           </div>
