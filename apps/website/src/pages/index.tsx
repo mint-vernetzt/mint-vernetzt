@@ -19,7 +19,7 @@ export function Index({ data }: { data: GatsbyTypes.LandingPageQuery }) {
       <SEO
         title="Willkommen"
         slug="/"
-        image="https://placeimg.com/300/300"
+        image=""
         description={""}
         children={""}
       />
