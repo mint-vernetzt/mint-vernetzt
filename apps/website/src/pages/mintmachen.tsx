@@ -149,7 +149,7 @@ export function Mintmachen({
               Open-Source-Community-Plattform.
             </p>
             <p>
-              <a href="/mintvernetzt" className="btn-primary">
+              <a href="/mintcommunity/" className="btn-primary">
                 Mehr erfahren
               </a>
             </p>
