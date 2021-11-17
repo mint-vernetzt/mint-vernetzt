@@ -2,7 +2,7 @@ import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Img from "gatsby-image";
-
+import { ReactComponent as Header } from "../images/mintvernetzt_header.svg";
 import { ContactCard, Icon, IconType } from "@mint-vernetzt/react-components";
 
 export function Mintvernetzt({
@@ -25,11 +25,12 @@ export function Mintvernetzt({
       <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap md:-mx-4">
           <div className="flex-100 md:flex-5/12 md:px-4">
-            <img
+            <Header />
+            {/* <img
               src="../images/mintvernetzt_header.svg"
               className="w-full h-auto"
               alt="MINTvernetzt informiert"
-            />
+            /> */}
           </div>
           <div className="flex-100 md:flex-7/12 md:px-4 md: self-center">
             <h1 className="text-5xl leading-tight lg:text-7xl lg:leading-none mb-2 lg:mb-4">
