@@ -44,7 +44,7 @@ export function EventNavigation(props: EventNavigationProps) {
             <h3
               className={`${activTextColor(
                 item.url
-              )} text-sm leading-snug font-normal lg:font-semibold lg:text-lg mb-1 lg:mb-2`}
+              )} text-sm leading-snug font-normal lg:font-semibold lg:text-lg mb-1 lg:mb-2 hover:underline`}
             >
               {linkWrapper(item.url, item.headline)}
             </h3>

@@ -63,6 +63,9 @@ export function Topics({ data }) {
               {/* Hier gibt’s mehr Infos zur Bewerbung und zum
               Auswahlprozess. */}
             </p>
+
+            <p>Weitere Informationen folgen in Kürze.</p>
+
             {/*
             <p>
               <Link

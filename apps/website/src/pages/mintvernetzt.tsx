@@ -73,11 +73,11 @@ export function Mintvernetzt({
             </h3>
             <p className="lg:text-3xl font-bold mb-2">Der MINTvernetzt-Blog</p>
             <p className="lg:text-xl">
-              Mit Wissensaustausch zu besserer MINT-Bildung: Um Euch stets über
-              Neuigkeiten, Ideen und Innovationen zu informieren und Euch
-              Möglichkeiten zu geben, Eure Erkenntnisse untereinander zu teilen,
-              haben wir verschiedene Kanäle aufgebaut, auf denen Ihr aktuelle
-              Informationen aus der MINT-Welt findet.
+              Informieren, inspirieren, Emotionen wecken: Wir geben Euch
+              Einblicke in die MINT-Welt und schauen auch über den Tellerrand,
+              stellen Euch interessante Persönlichkeiten vor und Erkenntnisse
+              aus der Forschung. Immer mit dem Fokus, einen Mehrwert für Eure
+              Arbeit zu schaffen.
             </p>
             <p>
               <Link to="/news" className="text-lilac-500 font-bold">
@@ -99,11 +99,10 @@ export function Mintvernetzt({
               Infos von Euch für Euch
             </p>
             <p className="lg:text-xl">
-              Informieren, inspirieren, Emotionen wecken: Wir geben Euch
-              Einblicke in die MINT-Welt und schauen auch über den Tellerrand,
-              stellen Euch interessante Persönlichkeiten vor und Erkenntnisse
-              aus der Forschung. Immer mit dem Fokus, einen Mehrwert für Eure
-              Arbeit zu schaffen.
+              Auf der MINTvernetzt-Plattform entsteht ein Blog von
+              MINT-Akteur:innen für die MINT-Akteur:innen! Wir teilen gemeinsam
+              mit Euch spannende Gute Praxis-Beispiele, erarbeiten innovative
+              Inhalte und sorgen so für ganz viel Wissenstransfer.
             </p>
           </div>
         </div>
