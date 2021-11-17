@@ -107,7 +107,7 @@ export function Index({
       </section>
       <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap md:-mx-2 lg:-mx-4">
-          <div className="flex-100 md:flex-2/3 md:px-2 lg:px-4">
+          <div className="flex-100 pb-8 md:pb-0 md:flex-2/3 md:px-2 lg:px-4">
             <NewsFeed
               headline={
                 <>
