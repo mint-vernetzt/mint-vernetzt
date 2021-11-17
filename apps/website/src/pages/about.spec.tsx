@@ -1,9 +1,9 @@
 import React from "react";
 import { render } from "@testing-library/react";
 
-import Project from "./project";
+import About from "./about";
 
-describe("Project Page", () => {
+describe("About Page", () => {
   it("should render successfully", () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     /*

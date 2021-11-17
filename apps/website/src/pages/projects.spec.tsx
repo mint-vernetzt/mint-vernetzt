@@ -1,9 +1,9 @@
 import React from "react";
 import { render } from "@testing-library/react";
 
-import Topics from "./topics";
+import Projects from "./projects";
 
-describe("Topics", () => {
+describe("Projects", () => {
   it("should render successfully", () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     // const props: any = {};

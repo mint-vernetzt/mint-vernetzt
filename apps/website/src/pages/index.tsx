@@ -46,7 +46,7 @@ export function Index({
                 Akteur:innen in Deutschland.
               </p>
               <p>
-                <Link to="/project/" className="btn-primary">
+                <Link to="/about/" className="btn-primary">
                   Erfahre mehr
                 </Link>
               </p>

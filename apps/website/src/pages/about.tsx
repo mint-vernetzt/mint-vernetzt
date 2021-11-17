@@ -20,7 +20,7 @@ const getCategorySlugFromMember = (slug: string) => {
   return slug.split("/")[0] ?? "no-category";
 };
 
-export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
+export function About({ data }: { data: GatsbyTypes.AboutPageQuery }) {
   const userCardsProps = getUserCardsProps(data.usersData);
 
   const paktDataByCategory: PaktDataByCategory = getPaktDataByCategory(
@@ -50,13 +50,7 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
 
   return (
     <Layout>
-      <SEO
-        title="Projekt"
-        slug="/project"
-        description=""
-        image=""
-        children=""
-      />
+      <SEO title="Über uns" slug="/about" description="" image="" children="" />
       <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap content-center items-center md:-mx-6 lg:-mx-10">
           <div className="flex-100 md:flex-1/3 pb-8 md:pb-0 md:px-6 lg:px-10">
@@ -276,10 +270,10 @@ export function Project({ data }: { data: GatsbyTypes.ProjectPageQuery }) {
   );
 }
 
-export default Project;
+export default About;
 
 export const pageQuery = graphql`
-  query ProjectPage {
+  query AboutPage {
     paktData: allMarkdownRemark(
       sort: { fields: [frontmatter___category, frontmatter___name], order: ASC }
     ) {

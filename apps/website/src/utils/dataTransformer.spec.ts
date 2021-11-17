@@ -17,7 +17,7 @@ import {
 } from "./dataTransformer";
 
 describe("getPaktDataByCategory", () => {
-  const edges: GatsbyTypes.ProjectPageQuery["paktData"]["edges"] = [
+  const edges: GatsbyTypes.AboutPageQuery["paktData"]["edges"] = [
     {
       node: {
         frontmatter: {
@@ -78,7 +78,7 @@ describe("getPaktDataByCategory", () => {
 
 describe("getUserCardsProps", () => {
   test("transformation as expected", () => {
-    const usersData: GatsbyTypes.ProjectPageQuery["usersData"] = {
+    const usersData: GatsbyTypes.AboutPageQuery["usersData"] = {
       nodes: [
         {
           contactInformations: {
@@ -139,7 +139,7 @@ describe("getUserCardsProps", () => {
   });
 
   test("transform user data with title", () => {
-    const usersData: GatsbyTypes.ProjectPageQuery["usersData"] = {
+    const usersData: GatsbyTypes.AboutPageQuery["usersData"] = {
       nodes: [
         {
           contactInformations: {

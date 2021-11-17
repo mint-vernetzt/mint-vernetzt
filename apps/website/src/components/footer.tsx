@@ -46,7 +46,7 @@ export function Footer() {
                   title: `Datenschutz`,
                 },
                 {
-                  route: `/project/#contact-details`,
+                  route: `/about/#contact-details`,
                   title: `Kontakt`,
                 },
               ].map((link, index) => (
