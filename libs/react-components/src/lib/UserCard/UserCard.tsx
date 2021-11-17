@@ -40,7 +40,7 @@ const linkWithEmail = (
   } else {
     return (
       <a
-        className="flex items-center flex-col"
+        className="flex items-center flex-col mb-1"
         data-testid="email"
         href={`mailto:${email}`}
       >
