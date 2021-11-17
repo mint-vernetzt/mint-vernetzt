@@ -1,6 +1,7 @@
 import { Link } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import { ReactComponent as BadgeRocket } from "../images/Badge_02Rocket.svg";
 
 export function Topics({ data }) {
   return (
@@ -36,11 +37,12 @@ export function Topics({ data }) {
       <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap content-center items-center md:-mx-6 lg:-mx-10">
           <div className="flex-100 pb-6 md:pb-0 md:flex-1/3 lg:flex-1/4 md:px-6 lg:px-10">
-            <img
+            <BadgeRocket />
+            {/* <img
               className="w-full h-auto"
               src="/images/Badge_02Rocket.svg"
               alt="MINTrakete"
-            />
+            /> */}
           </div>
 
           <div className="flex-100 md:flex-2/3 md:px-6 lg:px-10">
@@ -94,8 +96,8 @@ export function Topics({ data }) {
               Themen der MINT-Bildung. Schul- und Hochschulstatistiken, Daten
               zum Arbeitsmarkt und zur Fachkräfteentwicklung sowie empirische
               Bildungsstudien können eingesehen und durch Filter- und
-              Visualisierungsmöglichkeiten in individuellen 
-              Auswertungen dargestellt werden. 
+              Visualisierungsmöglichkeiten in individuellen
+              Auswertungen dargestellt werden.
             </p>
           </div>
 
@@ -118,7 +120,7 @@ export function Topics({ data }) {
               Lehrmethoden nach oder wie man Kinder, Mädchen oder andere
               Zielgruppen am besten erreicht. Auf der Community-Plattform
               möchten wir darüber mit Euch diskutieren, Eure Erfahrungen in der
-              Praxis hören und auch Impulse in die Forschung zurückgeben. 
+              Praxis hören und auch Impulse in die Forschung zurückgeben.
             </p>
           </div>
         </div>
@@ -141,7 +143,7 @@ export function Topics({ data }) {
               verfolgen wir eine interdisziplinäre Herangehensweise und schauen
               auch gerne mal über den Tellerrand. Neue Themen und Formate werden
               erlebbar und ko-kreativen Prozessen werden Bezüge zur eigenen
-              Arbeit im MINT-Bildungsbereich hergestellt. 
+              Arbeit im MINT-Bildungsbereich hergestellt.
             </p>
           </div>
         </div>
@@ -160,7 +162,7 @@ export function Topics({ data }) {
               arbeiten wir gemeinsam mit Kreativtechniken an unseren Ideen.
               Dabei begleiten uns Expert:innen für das jeweilige Thema und
               erfahrene Moderator:innen, die für einen gelungen
-              Ko-Kreationsprozess sorgen. 
+              Ko-Kreationsprozess sorgen.
             </p>
           </div>
 

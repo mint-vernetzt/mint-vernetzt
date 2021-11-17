@@ -3,8 +3,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { getParentEventItems } from "../utils/dataTransformer";
-import Img from "gatsby-image";
-import MoodImage from "../images/events_overview.svg";
+import { ReactComponent as EventsOverview } from "../images/events_overview.svg";
 
 export function Events({ data }: { data: GatsbyTypes.EventFeedQuery }) {
   const events = getParentEventItems(data.events);
@@ -21,11 +20,12 @@ export function Events({ data }: { data: GatsbyTypes.EventFeedQuery }) {
       <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap md:-mx-6 lg:-mx-10">
           <div className="flex-100 md:flex-1/3 md:order-2 pb-4 md:pb-0 md:px-6 lg:px-10">
-            <img
+            <EventsOverview />
+            {/* <img
               src={MoodImage}
               className="w-full h-auto rounded-3xl"
               alt="MINTevents"
-            />
+            /> */}
           </div>
 
           <div className="flex-100 md:flex-2/3 md:px-6 lg:px-10 md:order-1">
