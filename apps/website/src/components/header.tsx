@@ -88,8 +88,8 @@ export function Header(props) {
               <ul className="py-8 text-sm leading-6 md:py-0 md:flex md:items-center md:justify-end md:-mx-2">
                 {[
                   {
-                    route: `/project/`,
-                    title: `Projekt`,
+                    route: `/about/`,
+                    title: `Über uns`,
                   },
                   {
                     route: `/news/`,
@@ -100,8 +100,8 @@ export function Header(props) {
                     title: `Veranstaltungen`,
                   },
                   {
-                    route: `/topics/`,
-                    title: `Themen`,
+                    route: `/projects/`,
+                    title: `Projekte`,
                   },
                 ].map((link, index) => (
                   <li

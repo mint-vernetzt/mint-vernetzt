@@ -3,10 +3,16 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { ReactComponent as BadgeRocket } from "../images/Badge_02Rocket.svg";
 
-export function Topics({ data }) {
+export function Projects({ data }) {
   return (
     <Layout>
-      <SEO title="Themen" slug="/topics" description="" image="" children="" />
+      <SEO
+        title="Projekte"
+        slug="/projects/"
+        description=""
+        image=""
+        children=""
+      />
 
       <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap content-center items-center md:-mx-6 lg:-mx-10">
@@ -271,4 +277,4 @@ export function Topics({ data }) {
   );
 }
 
-export default Topics;
+export default Projects;

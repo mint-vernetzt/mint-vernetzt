@@ -16,7 +16,7 @@ export type PaktDataByCategory = {
 };
 
 export const getPaktDataByCategory = (
-  paktData: GatsbyTypes.ProjectPageQuery["paktData"]["edges"]
+  paktData: GatsbyTypes.AboutPageQuery["paktData"]["edges"]
 ): PaktDataByCategory => {
   return paktData.reduce(
     (acc, cur) => ({
@@ -31,7 +31,7 @@ export const getPaktDataByCategory = (
 };
 
 export const getUserCardsProps = (
-  usersData: GatsbyTypes.ProjectPageQuery["usersData"]
+  usersData: GatsbyTypes.AboutPageQuery["usersData"]
 ): UserCardProps[] => {
   return usersData.nodes.map((user) => {
     const fullName =
