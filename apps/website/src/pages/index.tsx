@@ -7,7 +7,12 @@ import Img from "gatsby-image";
 import { NewsFeed, EventTeaser } from "@mint-vernetzt/react-components";
 import { OrganizationBoxContainer } from "@mint-vernetzt/react-components";
 
-export function Index({ data }: { data: GatsbyTypes.LandingPageQuery }) {
+export function Index({
+  data,
+  ...otherProps
+}: {
+  data: GatsbyTypes.LandingPageQuery;
+}) {
   const newsItems = getNewsItems(data.newsItems);
   const organisations = getOrganizationsData(data.organizationsData);
   const linkWrapper = (url: string, children: React.ReactNode) => {
@@ -15,7 +20,7 @@ export function Index({ data }: { data: GatsbyTypes.LandingPageQuery }) {
   };
 
   return (
-    <Layout>
+    <Layout {...otherProps}>
       <SEO
         title="Willkommen"
         slug="/"

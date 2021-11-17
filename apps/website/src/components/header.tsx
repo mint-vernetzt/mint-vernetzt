@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Link } from "gatsby";
 
-export function Header() {
+export function Header(props) {
   const [isExpanded, toggleExpansion] = useState(false);
 
   return (
     <>
-      {window.location.pathname === "/" ? (
+      {props.path === "/" ? (
         <div className="bg-lilac-300">
           <div className="container">
             <div className="flex flex-wrap items-center  px-4 py-2 text-white text-2xl font-bold justify-center">
