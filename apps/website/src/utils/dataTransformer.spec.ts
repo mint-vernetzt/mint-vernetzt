@@ -84,6 +84,7 @@ describe("getUserCardsProps", () => {
           contactInformations: {
             firstName: "MyFirstname",
             lastName: "MyLastname",
+            email: "test@test.test",
             position: "MyPosition",
             title: null,
             phone: "",
@@ -122,6 +123,7 @@ describe("getUserCardsProps", () => {
     expect(userCardProps).toStrictEqual([
       {
         name: "MyFirstname MyLastname",
+        email: "test@test.test",
         position: "MyPosition",
         avatar: {
           src: "users-image.jpg",
@@ -144,6 +146,7 @@ describe("getUserCardsProps", () => {
             firstName: "MyFirstname",
             lastName: "MyLastname",
             position: "MyPosition",
+            email: "test@test.test",
             title: "Dr.",
             phone: "",
             photo: {
