@@ -105,6 +105,7 @@ export function Mintvernetzt({
               mit Euch spannende Gute Praxis-Beispiele, erarbeiten innovative
               Inhalte und sorgen so für ganz viel Wissenstransfer.
             </p>
+            <p>Weitere Infos folgen In Kürze.</p>
           </div>
         </div>
       </section>
