@@ -42,6 +42,7 @@ export const getUserCardsProps = (
 
     return {
       name: fullName,
+      email: user.contactInformations.email,
       position: user.contactInformations.position,
       avatar: {
         src:

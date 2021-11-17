@@ -1,4 +1,4 @@
-import { findByText, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 
 import UserCard, { UserCardProps } from "./UserCard";
 
@@ -25,6 +25,7 @@ describe("UserCard", () => {
   test("render and find all props", () => {
     const props: UserCardProps = {
       name: "Cute Kitten",
+      email: "test@test.test",
       position: "Cuteness Officer",
       avatar: {
         src: "https://placekitten.com/200/150",
@@ -40,6 +41,9 @@ describe("UserCard", () => {
 
     const nameDom = screen.getByTestId("name");
     expect(nameDom.innerHTML).toBe(props.name);
+
+    const emailDom = screen.getByTestId("email");
+    expect(emailDom.getAttribute("href")).toBe("mailto:" + props.email);
 
     const positionDom = screen.getByTestId("position");
     expect(positionDom.innerHTML).toBe(props.position);
@@ -58,5 +62,26 @@ describe("UserCard", () => {
     expect(organizationLogoDom.getAttribute("alt")).toBe(
       props.organizationLogo.alt
     );
+  });
+
+  test("email link not present when email is not applicable", () => {
+    const props: UserCardProps = {
+      name: "Cute Kitten",
+      position: "Cuteness Officer",
+      avatar: {
+        src: "https://placekitten.com/200/150",
+        alt: "Cute Kitten Pic",
+      },
+      organizationUrl: "https://placekitten.com",
+      organizationLogo: {
+        src: "https://placekitten.com/400/300",
+        alt: "Cute Kitten Corp.",
+      },
+    };
+
+    render(<UserCard {...props} />);
+
+    const emailDom = screen.queryByTestId("email");
+    expect(emailDom).toBeNull();
   });
 });
