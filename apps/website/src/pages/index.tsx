@@ -84,14 +84,11 @@ export function Index({ data }: { data: GatsbyTypes.LandingPageQuery }) {
           ].map((teaserbox, index) => (
             <div
               key={`teaserbox-${index}`}
-              className="p-4 pb-8 md:p-2 md:pb-8 lg:p-4 lg:pb-8 rounded-lg bg-beige-500"
+              className="p-4 pb-8 md:p-2 md:pb-8 lg:p-4 lg:pb-8 rounded-lg bg-neutral-200 shadow-lg"
             >
               <Link to={`${teaserbox.link}`} className="flex flex-col h-100">
                 <div className="rounded-lg overflow-hidden mb-2 lg:mb-4">
-                  <Img
-                    fluid={teaserbox.image}
-                    className="w-full h-auto md:h-full"
-                  />
+                  <Img fluid={teaserbox.image} className="w-full h-auto" />
                 </div>
 
                 <h4 className="text-base lg:text-3xl lg:leading-snug lg:mx-2 mb-2">
@@ -117,7 +114,7 @@ export function Index({ data }: { data: GatsbyTypes.LandingPageQuery }) {
               newsFeedItemsProps={newsItems}
             />
           </div>
-          <div className="flex-100 md:flex-1/3 pb-8 md:pb-0 md:px-2 lg:px-4">
+          <div className="event-teaser flex-100 md:flex-1/3 pb-8 md:pb-0 md:px-2 lg:px-4">
             <EventTeaser
               headline={
                 <>
@@ -158,7 +155,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    MintmachenImage: file(relativePath: { eq: "landingpage_mintmachen.jpg" }) {
+    MintmachenImage: file(relativePath: { eq: "landingpage_mintmachen.png" }) {
       childImageSharp {
         fluid(maxWidth: 560, quality: 80) {
           ...GatsbyImageSharpFluid
@@ -166,7 +163,7 @@ export const pageQuery = graphql`
       }
     }
     MintvernetztImage: file(
-      relativePath: { eq: "landingpage_mintvernetzt.jpg" }
+      relativePath: { eq: "landingpage_mintvernetzt.png" }
     ) {
       childImageSharp {
         fluid(maxWidth: 560, quality: 80) {
@@ -175,7 +172,7 @@ export const pageQuery = graphql`
       }
     }
     MintcommunityImage: file(
-      relativePath: { eq: "landingpage_mintcommunity.jpg" }
+      relativePath: { eq: "landingpage_mintcommunity.png" }
     ) {
       childImageSharp {
         fluid(maxWidth: 560, quality: 80) {

@@ -22,7 +22,7 @@ export function Mintmachen({
       />
 
       <section className="container my-8 md:my-10 lg:my-20">
-        <div className="flex flex-wrap items-center md:-mx-4">
+        <div className="flex flex-wrap md:-mx-4">
           <div className="flex-100 pb-4 md:pb-0 md:flex-5/12 md:px-4">
             <img
               src="../images/mintmachen_header.svg"
@@ -32,7 +32,7 @@ export function Mintmachen({
           </div>
           <div className="flex-100 md:flex-7/12 md:px-4">
             <h1 className="text-5xl leading-tight lg:text-7xl lg:leading-none mb-2 lg:mb-4">
-              MI(N)T&shy;machen
+              MI(N)T&shy;<span className="font-normal">machen</span>
             </h1>
 
             <p className="lg:text-xl">
@@ -41,32 +41,35 @@ export function Mintmachen({
               jetzt aktiv ein und helft einander mehr und bessere MINT-Angebote
               zu schaffen.
             </p>
-            <p>
-              <a
-                href="mailto:community@mint-vernetzt.de"
-                className="text-lilac-500 font-bold"
-              >
-                community@mint-vernetzt.de
-              </a>
-            </p>
+            <div className="lg:-mx-8">
+              <ContactCard
+                headline=""
+                name={`${pageContact.firstName} ${pageContact.lastName}`}
+                position={pageContact.position}
+                phone={pageContact.phone}
+                email={pageContact.email}
+                avatar={{
+                  src: pageContact.photo.localFile.childImageSharp.fluid.src,
+                  alt: `${pageContact.firstName} ${pageContact.lastName}`,
+                }}
+              />
+            </div>
           </div>
         </div>
       </section>
 
       <section className="container my-8 md:my-10 lg:my-20">
-        <div className="flex flex-wrap content-center items-center md:-mx-6 lg:-mx-10">
-          <div className="flex-100 pb-4 md:pb-0 md:flex-1/3 lg:flex-1/4 md:px-6 lg:px-10">
-            <img
-              className="w-full h-auto"
-              src="/images/Badge_02Rocket.svg"
-              alt="MINTrakete"
+        <div className="flex flex-wrap md:-mx-4">
+          <div className="flex-100 pb-4 md:pb-0 md:flex-1/2 md:px-4 md:order-2">
+            <Img
+              fluid={data.RocketImage.childImageSharp.fluid}
+              className="w-full h-auto rounded-2xl shadow-md"
             />
           </div>
-
-          <div className="flex-100 md:flex-1/2 md:px-6 lg:px-10">
-            <h2 className="text-5xl leading-tight lg:text-6xl lg:leading-none mb-2">
+          <div className="flex-100 md:flex-1/2 md:px-4 md:self-center md:text-right md:order-1">
+            <h3 className="text-5xl leading-tight lg:leading-none mb-2 lg:mb-4">
               MINT<span className="font-normal">rakete</span>
-            </h2>
+            </h3>
 
             <p className="lg:text-xl">
               Es gibt schon viele gute Praxis-Beispiele in der MINT-Bildung.
@@ -74,6 +77,8 @@ export function Mintmachen({
               MINT-Community mit Eurem Wissen und Euren Erfahrungen
               durchzustarten.
             </p>
+
+            <p className="lg:text-xl">Weitere Informationen folgen in Kürze.</p>
             {/*
             <p>
               <Link
@@ -90,13 +95,13 @@ export function Mintmachen({
 
       <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap md:-mx-4">
-          <div className="flex-100 pb-4 md:pb-0 md:flex-1/2 md:px-4 md:order-2">
+          <div className="flex-100 pb-4 md:pb-0 md:flex-1/2 md:px-4">
             <Img
               fluid={data.SurveyImage.childImageSharp.fluid}
               className="w-full h-auto rounded-2xl shadow-md"
             />
           </div>
-          <div className="flex-100 md:flex-1/2 md:px-4 md:self-center md:text-right md:order-1">
+          <div className="flex-100 md:flex-1/2 md:px-4 md:self-center">
             <h3 className="text-5xl leading-tight lg:leading-none mb-2 lg:mb-4">
               Befragungen
             </h3>
@@ -120,13 +125,13 @@ export function Mintmachen({
 
       <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap md:-mx-4">
-          <div className="flex-100 pb-4 md:pb-0 md:flex-1/2 md:px-4">
+          <div className="flex-100 pb-4 md:pb-0 md:flex-1/2 md:px-4 md:order-2">
             <Img
               fluid={data.PlatformImage.childImageSharp.fluid}
               className="w-full h-auto rounded-2xl shadow-md"
             />
           </div>
-          <div className="flex-100 md:flex-1/2 md:px-4">
+          <div className="flex-100 md:flex-1/2 md:px-4 md:order-1 md:text-right">
             <h3 className="text-5xl leading-tight lg:leading-none mb-2 lg:mb-4">
               Die Erstellung der MINTvernetzt-Plattform
             </h3>
@@ -140,19 +145,6 @@ export function Mintmachen({
               Feature-Ideen und arbeitet mit uns an der
               Open-Source-Community-Plattform.
             </p>
-            <div className="lg:-mx-8 pb-6">
-              <ContactCard
-                headline=""
-                name={`${pageContact.firstName} ${pageContact.lastName}`}
-                position={pageContact.position}
-                phone={pageContact.phone}
-                email={pageContact.email}
-                avatar={{
-                  src: pageContact.photo.localFile.childImageSharp.fluid.src,
-                  alt: `${pageContact.firstName} ${pageContact.lastName}`,
-                }}
-              />
-            </div>
             <p>
               <a href="/mintvernetzt" className="btn-primary">
                 Mehr erfahren
@@ -169,6 +161,13 @@ export default Mintmachen;
 
 export const pageQuery = graphql`
   query MintmachenPage {
+    RocketImage: file(relativePath: { eq: "badge_rocket.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 728, quality: 80) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
     SurveyImage: file(relativePath: { eq: "mintmachen_survey.png" }) {
       childImageSharp {
         fluid(maxWidth: 728, quality: 80) {
