@@ -2,6 +2,7 @@ import faker from "faker";
 
 export function getUserCardProps() {
   const name = faker.name.findName();
+  const email = faker.internet.email();
   const position = faker.name.jobTitle();
   const avatar = {
     src: faker.image.avatar(),
@@ -15,6 +16,7 @@ export function getUserCardProps() {
 
   return {
     name,
+    email,
     position,
     avatar,
     organizationUrl,
