@@ -2,10 +2,10 @@ import { Link } from "gatsby";
 
 export function Footer() {
   return (
-    <div className="footer-section py-4 lg:py-10 border-t border-neutral-400">
+    <div className="footer-section py-4 lg:py-10 border-t border-neutral-400 overflow-hidden">
       <div className="container">
         <div className="flex flex-wrap lg:items-center">
-          <div className="logo-mint md:pt-8 lg:pt-0 md:order-1 lg:pr-16">
+          <div className="logo-mint md:pt-8 lg:pt-0 md:order-1 lg:pr-8 xl:pr-16">
             <Link to="/">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -34,8 +34,8 @@ export function Footer() {
             </Link>
           </div>
 
-          <div className="flex-100 lg:flex-auto pt-8 pb-4 lg:pt-0 lg:pb-0 flex flex-wrap md:order-3 lg:order-2">
-            <ul className="meta_nav md:flex text-neutral-600 text-sm leading-4 font-semibold">
+          <div className="flex-100 lg:flex-auto pt-6 lg:pt-0 lg:pb-0 flex flex-wrap md:order-3 lg:order-2">
+            <ul className="flex-100 pb-2 mb-0 md:flex-auto meta_nav md:flex text-neutral-600 text-sm leading-4 font-semibold">
               {[
                 {
                   route: `/imprint/`,
@@ -57,9 +57,14 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
 
-          <div className="logo-bmbf md:ml-auto lg:ml-0 lg:pl-16 md:order-2 lg:order-3">
+            <div className="flex-100 md:flex-initial md:text-right pb-6 lg:pt-0 lg:pb-0 md:ml-auto">
+              <p className="text-sm leading-4 font-semibold">
+                Copyright © 2021. All Rights Reserved matrix gGmbH
+              </p>
+            </div>
+          </div>
+          <div className="pb-4 md:pb-0 logo-bmbf md:ml-auto lg:ml-0 md:order-2 lg:order-3 lg:pl-8 xl:pl-16">
             <a href="https://www.bmbf.de/" target="_blank">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
