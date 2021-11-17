@@ -17,9 +17,9 @@ export function Projects({ data }) {
       <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap content-center items-center md:-mx-6 lg:-mx-10">
           <div className="flex-100 lg:flex-2/3 md:px-6 lg:px-10">
-            <h2 className="text-5xl leading-tight lg:text-6xl lg:leading-none mb-4">
+            {/* <h2 className="text-5xl leading-tight lg:text-6xl lg:leading-none mb-4">
               Das Projekt
-            </h2>
+            </h2> */}
 
             <p className="lg:text-xl">
               Als MINTvernetzt haben wir Themenschwerpunkte, die wir mit
