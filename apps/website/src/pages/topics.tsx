@@ -11,6 +11,23 @@ export function Topics({ data }) {
       <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap content-center items-center md:-mx-6 lg:-mx-10">
           <div className="flex-100 lg:flex-2/3 md:px-6 lg:px-10">
+            <h2 className="text-5xl leading-tight lg:text-6xl lg:leading-none mb-4">
+              Das Projekt
+            </h2>
+
+            <p className="lg:text-xl">
+              Als MINTvernetzt haben wir Themenschwerpunkte, die wir mit
+              verschiedenen Maßnahmen bearbeiten und gemeinsam mit den
+              MINT-Akteur:innen voranbringen. Das sind aktuell Wissenstransfer,
+              Innovation und Diversität.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="container my-8 md:my-10 lg:my-20">
+        <div className="flex flex-wrap content-center items-center md:-mx-6 lg:-mx-10">
+          <div className="flex-100 lg:flex-2/3 md:px-6 lg:px-10">
             <h2 className="text-5xl leading-tight lg:text-6xl lg:leading-none mb-2">
               Wissenstransfer
             </h2>
@@ -61,14 +78,9 @@ export function Topics({ data }) {
               präsentieren können. Lernt dabei andere und neue Projektansätze
               kennen und tauscht Euch in verschiedenen Community-Formaten
               darüber aus. Im Fokus steht das gemeinschaftliche von- und
-              miteinander Lernen.{" "}
-              {/* Hier gibt’s mehr Infos zur Bewerbung und zum
-              Auswahlprozess. */}
+              miteinander Lernen. Hier gibt’s mehr Infos zur Bewerbung und zum
+              Auswahlprozess.
             </p>
-
-            <p>Weitere Informationen folgen in Kürze.</p>
-
-            {/*
             <p>
               <Link
                 to="/news/mintrakete-didaktik-als-schluessel-jetzt-bewerben"
@@ -77,7 +89,6 @@ export function Topics({ data }) {
                 Teilnehmen
               </Link>
             </p>
-            */}
           </div>
         </div>
       </section>

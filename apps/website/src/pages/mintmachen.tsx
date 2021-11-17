@@ -81,8 +81,6 @@ export function Mintmachen({
               durchzustarten.
             </p>
 
-            <p className="lg:text-xl">Weitere Informationen folgen in Kürze.</p>
-            {/*
             <p>
               <Link
                 to="/news/mintrakete-didaktik-als-schluessel-jetzt-bewerben"
@@ -91,7 +89,6 @@ export function Mintmachen({
                 Teilnehmen
               </Link>
             </p>
-            */}
           </div>
         </div>
       </section>
