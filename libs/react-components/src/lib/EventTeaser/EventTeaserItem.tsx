@@ -18,8 +18,8 @@ export function EventTeaserItem(props: EventTeaserItemProps) {
   const linkWrapper = props.linkWrapper ?? defaultLinkWrapper;
 
   return (
-    <div>
-      <h4 className="mb-1 text-neutral-600 leading-tight text-base lg:text-lg">
+    <div className="relative">
+      <h4 className="mb-1 text-neutral-600 leading-tight text-base lg:text-lg hover:underline">
         {linkWrapper(url, headline)}
       </h4>
       <p className="mb-4 text-neutral-600 leading-tight line-clamp-3 lg:line-clamp-2 text-sm lg:text-base">
