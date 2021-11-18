@@ -23,7 +23,7 @@ const SEO = ({ title, description, image, slug, children }: SEOProps) => {
       favicon: file(name: { eq: "favicon" }) {
         publicURL
       }
-      social: file(name: { eq: "mintvernetzt_og-img.png" }) {
+      social: file(name: { eq: "mintvernetzt_og-img" }) {
         publicURL
       }
     }
