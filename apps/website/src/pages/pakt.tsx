@@ -59,7 +59,7 @@ export function Pakt({ data }: { data: GatsbyTypes.PaktPageQuery }) {
 
           <div className="flex-100 md:flex-2/3 md:px-6 lg:px-10 md:order-1">
             <h1 className="text-5xl leading-tight lg:text-7xl lg:leading-none text-blue-500 mb-2">
-              MINT<span className="font-normal">women</span>
+              MINT<span className="font-normal">pakt</span>
             </h1>
             <p className="lg:text-3xl lg:leading-snug text-neutral-600 mb-4 font-bold">
               Der Nationale Pakt für Frauen in MINT-Berufen
