@@ -21,11 +21,6 @@ export function Events({ data }: { data: GatsbyTypes.EventFeedQuery }) {
         <div className="flex flex-wrap md:-mx-6 lg:-mx-10">
           <div className="flex-100 md:flex-1/3 md:order-2 pb-4 md:pb-0 md:px-6 lg:px-10">
             <EventsOverview />
-            {/* <img
-              src={MoodImage}
-              className="w-full h-auto rounded-3xl"
-              alt="MINTevents"
-            /> */}
           </div>
 
           <div className="flex-100 md:flex-2/3 md:px-6 lg:px-10 md:order-1">

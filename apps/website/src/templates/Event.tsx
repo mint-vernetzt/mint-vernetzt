@@ -187,6 +187,12 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
                       >
                         {childEvent.excerpt.replace(/<[^>]*>/g, "")}
                       </p>
+                      <Link
+                        to={`/event/${childEvent.slug}`}
+                        className="font-semibold text-secondary hover:underline"
+                      >
+                        Mehr Informationen
+                      </Link>
                     </li>
                   ))}
               </ul>
