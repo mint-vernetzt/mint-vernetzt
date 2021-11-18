@@ -99,8 +99,18 @@ export function About({ data }: { data: GatsbyTypes.AboutPageQuery }) {
             gerne für Euch da.
           </p>
         </header>
-        <div className="grid gap-6 grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
+
+        <div
+          data-testid="grid"
+          className="flex flex-wrap justify-center lg:mx-3 items-stretch"
+        >
           {[
+            {
+              title: `Leitung`,
+              text: `Stephanie Kowitz-Harms ist der strategische Kopf bei MINTvernetzt. Für Anfragen als Speakerin oder die Umsetzung gemeinsamer Bildungsvisionen im MINT-Bereich erreicht Ihr sie auf diesen Kanälen.`,
+              phone: `040 808192152`,
+              mail: `stephanie.kowitz-harms@mint-vernetzt.de`,
+            },
             {
               title: `Service-Hotline`,
               text: `Ihr habt allgemeine Fragen, Informationen oder Ideen? Dann richtet sie gerne an Ina Liebmann, unser Gesicht hinter der Service-Hotline.`,
@@ -128,39 +138,42 @@ export function About({ data }: { data: GatsbyTypes.AboutPageQuery }) {
           ].map((contactbox, index) => (
             <div
               key={`contactbox-${index}`}
-              className="flex flex-wrap content-between px-4 pt-4 pb-8 rounded-3xl shadow"
+              data-testid="gridcell"
+              className="md:w-1/2 lg:w-1/3 px-2 lg:px-3 mb-6"
             >
-              <div className="mb-4">
-                <h4 className="text-4xl text-blue-500 mb-2 leading-tight">
-                  {contactbox.title}
-                </h4>
-                <p className="text-neutral-600 mb-3 md:mb-6">
-                  {contactbox.text}
-                </p>
-              </div>
-              <div>
-                <p className="text-xs text-neutral-800 font-semibold mb-4">
-                  <a
-                    href={`tel:${contactbox.phone}`}
-                    className="flex items-center"
-                  >
-                    <span className="icon w-4 h-4 mr-2">
-                      <Icon type={IconType.Telephone} />
-                    </span>
-                    <span>{contactbox.phone}</span>
-                  </a>
-                </p>
-                <p className="text-xs text-neutral-800 font-semibold">
-                  <a
-                    href={`mailto:${contactbox.mail}`}
-                    className="flex items-center"
-                  >
-                    <span className="icon w-4 h-4 mr-2 ">
-                      <Icon type={IconType.Envelope} />
-                    </span>
-                    <span>{contactbox.mail}</span>
-                  </a>
-                </p>
+              <div className="flex flex-wrap content-between items-stretch px-4 pt-4 pb-8 rounded-3xl shadow h-full">
+                <div className="mb-4">
+                  <h4 className="text-4xl text-blue-500 mb-2 leading-tight">
+                    {contactbox.title}
+                  </h4>
+                  <p className="text-neutral-600 mb-3 md:mb-6">
+                    {contactbox.text}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs text-neutral-800 font-semibold mb-4">
+                    <a
+                      href={`tel:${contactbox.phone}`}
+                      className="flex items-center"
+                    >
+                      <span className="icon w-4 h-4 mr-2">
+                        <Icon type={IconType.Telephone} />
+                      </span>
+                      <span>{contactbox.phone}</span>
+                    </a>
+                  </p>
+                  <p className="text-xs text-neutral-800 font-semibold">
+                    <a
+                      href={`mailto:${contactbox.mail}`}
+                      className="flex items-center"
+                    >
+                      <span className="icon w-4 h-4 mr-2 ">
+                        <Icon type={IconType.Envelope} />
+                      </span>
+                      <span>{contactbox.mail}</span>
+                    </a>
+                  </p>
+                </div>
               </div>
             </div>
           ))}
