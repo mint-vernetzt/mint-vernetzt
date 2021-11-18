@@ -103,20 +103,25 @@ export function Mintmachen({
           </div>
           <div className="flex-100 md:flex-1/2 md:px-4 md:self-center">
             <h3 className="text-5xl leading-tight lg:leading-none mb-2 lg:mb-4">
-              Befragungen
+              Anmeldung zum MINTvernetzt-Verteiler
             </h3>
 
             <p className="lg:text-xl">
-              Wir vermessen die MINTcommunity Deutschlands und möchten Eure
-              Bedürfnisse ermitteln. Nehmt jetzt an der aktuellen Befragung
-              teil.
+              Seid dabei und werdet Teil von MINTvernetzt, der wachsenden,
+              deutschlandweiten Community für MINT-Akteur:innen! Um in unseren
+              MINTvernetzt-Verteiler aufgenommen zu werden und damit wir Euch
+              ein bisschen besser kennenlernen, beantwortet bitte ein paar kurze
+              Fragen. So können wir Euch mit MINTvernetzt bestmöglich
+              unterstützen und informieren. Es dauert nur 5 Minuten!
             </p>
             <p>
               <a
-                href="mailto:befragung@mint-vernetzt.de"
+                href="https://survey.lamapoll.de/Anmeldung-MINTvernetzt-Verteiler/"
                 className="text-lilac-500 font-bold"
+                target="_blank"
+                rel="noreferrer"
               >
-                befragung@mint-vernetzt.de
+                Zur Anmeldung
               </a>
             </p>
           </div>
