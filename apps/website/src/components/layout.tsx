@@ -6,7 +6,7 @@ import { Link } from "gatsby";
 function Layout({ children, ...otherProps }) {
   return (
     <div className="flex flex-col min-h-screen font-sans text-gray-600">
-      {otherProps.path === "/" ? (
+      {otherProps.location?.pathname === "/" ? (
         <div className="bg-lilac-300">
           <div className="container">
             <p className="text-center px-4 py-2 text-white font-bold">
@@ -24,7 +24,7 @@ function Layout({ children, ...otherProps }) {
         </div>
       ) : null}
       <header>
-        <Header {...otherProps} />
+        <Header />
       </header>
 
       <main className="flex-1 pb-20">{children}</main>

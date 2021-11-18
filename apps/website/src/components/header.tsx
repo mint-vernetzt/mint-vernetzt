@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "gatsby";
 
-export function Header(props) {
+export function Header() {
   const [isExpanded, toggleExpansion] = useState(false);
 
   return (
