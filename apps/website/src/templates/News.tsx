@@ -40,7 +40,9 @@ function News({ data }) {
           to="/news"
         >
           <span className="flex items-center">
-            <Icon type={IconType.ChevronLeft} />
+            <span className="mr-2">
+              <Icon type={IconType.ChevronLeft} />
+            </span>
             zur Übersicht
           </span>
         </Link>

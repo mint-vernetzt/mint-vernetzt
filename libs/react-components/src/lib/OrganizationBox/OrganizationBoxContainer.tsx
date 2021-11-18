@@ -29,7 +29,7 @@ export function OrganizationBoxContainer({
           <div
             key={`organization-box-container-item-${index}`}
             data-testid="gridcell"
-            className="md:w-1/2 px-2 lg:px-3 mb-6"
+            className="flex-100 md:flex-1/2 px-2 lg:px-3 mb-6"
           >
             <OrganizationBox {...useBoxProps} />
           </div>

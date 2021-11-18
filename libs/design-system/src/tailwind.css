@@ -4,8 +4,22 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap");
 
-body {
-  @apply text-neutral-600;
+@layer base {
+  body {
+    @apply text-neutral-600;
+  }
+  h1 {
+    @apply text-5xl leading-tight lg:text-7xl lg:leading-none mb-4;
+  }
+  h2 {
+    @apply text-4xl lg:text-5xl leading-tight lg:leading-none mb-2 lg:mb-4;
+  }
+  p {
+    @apply leading-6 mb-6;
+  }
+  ul {
+    @apply leading-6 mb-6;
+  }
 }
 
 body h1,
@@ -16,11 +30,6 @@ body h5,
 body p {
   -webkit-hyphens: auto;
   hyphens: auto;
-}
-
-p,
-ul {
-  @apply leading-6 mb-6;
 }
 
 div p:last-child,
@@ -244,7 +253,9 @@ ol {
   left: 45px;
 }
 
-.event-teaser ul li h4 a::after {
+.news-list ul li h4 a::after,
+.event-teaser ul li h4 a::after,
+.event-list li.event-item h4 a::after {
   position: absolute;
   content: " ";
   top: 0;

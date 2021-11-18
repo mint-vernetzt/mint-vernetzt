@@ -34,7 +34,7 @@ export function NewsFeedItem({
   const formattedDate = formatDate(date);
 
   return (
-    <div className="flex flex-wrap md:flex-nowrap md:items-stretch">
+    <div className="flex flex-wrap md:flex-nowrap md:items-stretch relative">
       {image !== undefined ? (
         <div className="flex-100 mb-2 md:mb-0 md:mr-4 lg:mr-8 md:flex-1/3 lg:min-h-12.5">
           <img
@@ -52,8 +52,7 @@ export function NewsFeedItem({
         >
           {formattedDate}
         </time>
-        {/* TODO: remove uppercase in tailwind config and override in component headline */}
-        <h4 className="text-primary text-3xl leading-snug mb-2 normal-case flex-100 md:order-1">
+        <h4 className="text-3xl leading-snug mb-2 flex-100 md:order-1">
           <a href={slug} className="cursor-pointer hover:underline">
             {headline}
           </a>
@@ -64,6 +63,7 @@ export function NewsFeedItem({
         >
           {body}
         </p>
+        {/*
         <ul className="flex flex-wrap md:order-4">
           {tagsProps.map((tagProps, index) => {
             return (
@@ -72,7 +72,7 @@ export function NewsFeedItem({
               </li>
             );
           })}
-        </ul>
+        </ul> */}
       </div>
     </div>
   );

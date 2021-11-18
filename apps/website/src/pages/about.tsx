@@ -139,7 +139,7 @@ export function About({ data }: { data: GatsbyTypes.AboutPageQuery }) {
             <div
               key={`contactbox-${index}`}
               data-testid="gridcell"
-              className="md:w-1/2 lg:w-1/3 px-2 lg:px-3 mb-6"
+              className="flex-100 md:flex-1/2 lg:flex-1/3 px-2 lg:px-3 mb-6"
             >
               <div className="flex flex-wrap content-between items-stretch px-4 pt-4 pb-8 rounded-3xl shadow h-full">
                 <div className="mb-4">

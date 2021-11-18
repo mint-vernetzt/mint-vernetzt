@@ -22,7 +22,7 @@ export function EventFeedItem({
   const formattedDate = formatDate(date);
 
   return (
-    <div>
+    <div className="relative">
       {/* TODO: add icon before date */}
       {/* <div className="inline-block icon w-3 h-3 mr-2 ">
         <Icon type={IconType.Calendar} width="2rem" height="2rem" />

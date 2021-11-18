@@ -112,7 +112,9 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
           to="/events"
         >
           <span className="flex items-center">
-            <Icon type={IconType.ChevronLeft} />
+            <span className="mr-2">
+              <Icon type={IconType.ChevronLeft} />
+            </span>
             Zur Veranstaltungsübersicht
           </span>
         </Link>
@@ -130,7 +132,9 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
               className="inline-block text-bold text-lilac-500"
             >
               <span className="flex items-center font-bold text-lg">
-                <Icon type={IconType.ChevronLeft} />
+                <span className="mr-2">
+                  <Icon type={IconType.ChevronLeft} />
+                </span>
                 Zurück zur Übersicht
               </span>
             </Link>
