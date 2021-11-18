@@ -29,7 +29,9 @@ export default function Template({ data }) {
           href={`/pakt/#${categoryHash}`}
         >
           <span className="flex items-center">
-            <Icon type={IconType.ChevronLeft} />
+            <span className="mr-2">
+              <Icon type={IconType.ChevronLeft} />
+            </span>
             zur Übersicht
           </span>
         </a>
