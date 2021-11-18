@@ -253,7 +253,9 @@ ol {
   left: 45px;
 }
 
-.event-teaser ul li h4 a::after {
+.news-list ul li h4 a::after,
+.event-teaser ul li h4 a::after,
+.event-list li.event-item h4 a::after {
   position: absolute;
   content: " ";
   top: 0;
