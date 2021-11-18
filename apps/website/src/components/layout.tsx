@@ -9,16 +9,14 @@ function Layout({ children, ...otherProps }) {
       {otherProps.location?.pathname === "/" ? (
         <div className="bg-lilac-300">
           <div className="container">
-            <p className="text-center px-4 py-2 text-white font-bold">
-              Vom 22. bis. 26.11. findet die MINT-Aktionswoche statt. Schaut
-              Euch die{" "}
+            <p>
               <Link
                 to="/event/auftaktveranstaltung"
-                className="hover:underline"
+                className="block text-center px-4 py-2 text-white font-bold"
               >
-                Auftaktveranstaltung im Livestream
-              </Link>{" "}
-              an.
+                Vom 22. bis. 26.11. findet die MINT-Aktionswoche statt. Schaut
+                Euch die Auftaktveranstaltung im Livestream an.
+              </Link>
             </p>
           </div>
         </div>
