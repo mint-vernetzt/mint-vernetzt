@@ -130,7 +130,7 @@ export function Index({
               linkWrapper={linkWrapper}
               items={data.events.nodes.map((event) => ({
                 headline: event.title,
-                body: event.excerpt.replace(/<[^>]*>/g, "").substr(0, 100),
+                body: event.excerpt.replace(/<[^>]*>/g, "").substr(0, 150),
                 date: new Date(event.eventInformations.startDate),
                 url: `/event/${event.slug}/`,
               }))}

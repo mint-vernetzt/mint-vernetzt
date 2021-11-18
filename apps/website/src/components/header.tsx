@@ -83,6 +83,10 @@ export function Header() {
                   route: `/projects/`,
                   title: `Projekte`,
                 },
+                {
+                  route: `/pakt/`,
+                  title: `Pakt`,
+                },
               ].map((link, index) => (
                 <li
                   key={`nav-item-${index}`}

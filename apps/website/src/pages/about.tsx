@@ -10,43 +10,10 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { ReactComponent as Logo } from "../images/logo-mint-vernetzt.svg";
 
-import {
-  getPaktDataByCategory,
-  getUserCardsProps,
-  PaktDataByCategory,
-} from "../utils/dataTransformer";
-
-const getCategorySlugFromMember = (slug: string) => {
-  return slug.split("/")[0] ?? "no-category";
-};
+import { getUserCardsProps } from "../utils/dataTransformer";
 
 export function About({ data }: { data: GatsbyTypes.AboutPageQuery }) {
   const userCardsProps = getUserCardsProps(data.usersData);
-
-  const paktDataByCategory: PaktDataByCategory = getPaktDataByCategory(
-    data.paktData.edges
-  );
-  const categories = Object.keys(paktDataByCategory);
-
-  useEffect(() => {
-    // accordeon toggle
-    document.querySelectorAll(".pakt-category").forEach(($category) => {
-      $category.addEventListener("click", (event) => {
-        // event.preventDefault();
-        document
-          .querySelectorAll(".pakt-category.active")
-          .forEach(($active) => {
-            if ($category !== $active) {
-              $active.classList.remove("active");
-            }
-          });
-        $category.classList.toggle("active");
-        setTimeout(() => {
-          $category.scrollIntoView({ block: "start", behavior: "smooth" });
-        }, 500);
-      });
-    });
-  }, []);
 
   return (
     <Layout>
@@ -207,65 +174,6 @@ export function About({ data }: { data: GatsbyTypes.AboutPageQuery }) {
           userCardsProps={userCardsProps}
         />
       </section>
-
-      <section className="container my-8 md:my-10 lg:my-20">
-        <div className="flex flex-wrap md:-mx-4 mb-8">
-          <div className="flex-100 md:flex-1/3 md:px-4">
-            <img src="../images/project_pakt.svg" className="w-full h-auto" />
-          </div>
-          <div className="flex-100 md:flex-2/3 md:px-4">
-            <h3 className="text-5xl leading-tight lg:leading-none mb-2 lg:mb-4">
-              Der Nationale Pakt für Frauen in MINT-Berufen
-            </h3>
-
-            <p className="lg:text-3xl lg:leading-snug">
-              Seit 2008 haben sich über 370 Partner:innen aus Wirtschaft,
-              Wissenschaft, Medien und Politik im Nationalen Pakt für Frauen in
-              MINT-Berufen zusammengeschlossen. Ihr erklärtes Ziel ist es, mehr
-              Mädchen und Frauen für eine Karriere in MINT-Berufen zu
-              begeistern. Der Pakt ist im Mai 2021 von MINTvernetzt übernommen
-              worden und wird gemeinsam mit den Partner:innen weiterentwickelt.
-              Dies ist eine Übersicht über die aktuellen Pakt-Partner:innen, die
-              seit der Unterzeichnung des Memorandums für das Thema eintreten:
-            </p>
-          </div>
-        </div>
-
-        <ul className="pakt-list">
-          {categories.map((category, index) => {
-            const categorySlug = getCategorySlugFromMember(
-              paktDataByCategory[category][0].slug
-            );
-
-            return (
-              <li
-                key={category}
-                id={categorySlug}
-                className="pakt-category relative overflow-hidden"
-              >
-                <a
-                  href={`#${categorySlug}`}
-                  className="block font-bold text-blue-500 md:text-3xl md:leading-snug py-3 flex item-center"
-                >
-                  {category}
-                </a>
-                <ul className="pakt-member max-h-0 overflow-hidden transition-all ease-in-out duration-300 px-6 md:px-8">
-                  {paktDataByCategory[category].map((member) => (
-                    <li key={member.slug} className="py-2">
-                      <Link
-                        to={`/pakt/${member.slug}`}
-                        className="block md:text-2xl"
-                      >
-                        {member.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            );
-          })}
-        </ul>
-      </section>
     </Layout>
   );
 }
@@ -274,20 +182,6 @@ export default About;
 
 export const pageQuery = graphql`
   query AboutPage {
-    paktData: allMarkdownRemark(
-      sort: { fields: [frontmatter___category, frontmatter___name], order: ASC }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            slug
-            name
-            category
-          }
-        }
-      }
-    }
-
     usersData: allWpContact(
       sort: { fields: contactInformations___lastName, order: ASC }
     ) {

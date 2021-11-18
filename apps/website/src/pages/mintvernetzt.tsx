@@ -122,10 +122,9 @@ export function Mintvernetzt({
               #SocialMedia
             </h3>
             <p className="lg:text-xl">
-              Ohne das I aus MINT wäre wohl auch hier nichts los: Social Media!
-              Zum Glück hat Tim Berners-Lee schon 1989 die Grundlage für das
-              moderne WWW geschaffen, damit wir Euch auch dort mit Informationen
-              versorgen können: #MINTvernetzt
+              Teilen, liken, verlinken: gemeinsam mit Euch wollen wir die
+              MINT-Bildung besser machen. Also folgt uns auf unsere Social Media
+              Kanälen und teilt Eure Projekte, Ideen und Tipps mit uns!
             </p>
             <p className="lg:text-xl">Folgt uns in den sozialen Medien.</p>
             <div className="flex">

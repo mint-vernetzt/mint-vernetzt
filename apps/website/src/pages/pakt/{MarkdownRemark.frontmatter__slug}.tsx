@@ -26,7 +26,7 @@ export default function Template({ data }) {
       <section className="container py-8">
         <a
           className="inline-block border border-neutral-400 py-3 px-4 mb-4 text-neutral-800 text-semibold uppercase rounded-lg"
-          href={`/about/#${categoryHash}`}
+          href={`/pakt/#${categoryHash}`}
         >
           <span className="flex items-center">
             <Icon type={IconType.ChevronLeft} />
@@ -83,7 +83,7 @@ export const pageQuery = graphql`
         citeQuote
         logo {
           childImageSharp {
-            fluid(maxWidth: 600) {
+            fluid(maxWidth: 600, quality: 80) {
               ...GatsbyImageSharpFluid
             }
           }
