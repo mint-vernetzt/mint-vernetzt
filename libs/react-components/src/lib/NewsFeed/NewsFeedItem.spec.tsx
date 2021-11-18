@@ -29,7 +29,7 @@ test("render content elements", () => {
 
   const dateDom = screen.getByTestId("date");
   expect(dateDom.textContent).toBe(formatDate(props.date));
-
+  /*
   const tags = screen.getAllByRole("listitem");
   expect(tags.length).toBe(props.tagsProps.length);
   const tag1Dom = tags[0];
@@ -38,6 +38,7 @@ test("render content elements", () => {
   expect(tag2Dom.textContent).toBe(tagProps2.title);
   const tag3Dom = tags[2];
   expect(tag3Dom.textContent).toBe(tagProps3.title);
+*/
 });
 
 test("show image", () => {
