@@ -54,6 +54,13 @@ const SEO = ({ title, description, image, slug, children }: SEOProps) => {
           image || data.social.publicURL
         }`}
       />
+      <meta
+        name="image"
+        property="og:image"
+        content={`${data.site.siteMetadata.siteUrl}${
+          image || data.social.publicURL
+        }`}
+      />
       <meta name="og:type" content="website" />
       <meta
         name="og:url"
