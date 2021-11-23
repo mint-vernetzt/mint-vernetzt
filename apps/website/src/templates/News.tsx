@@ -54,7 +54,7 @@ function News({ data }) {
           <h1 className="flex-100 md:order-1 text-5xl lg:text-7xl leading-tight lg:leading-none mb-2">
             {props.title}
           </h1>
-          <ul className="flex flex-wrap md:order-3">
+          {/* <ul className="flex flex-wrap md:order-3">
             {props.tags.nodes.map((tag, index) => {
               return (
                 <li
@@ -65,7 +65,7 @@ function News({ data }) {
                 </li>
               );
             })}
-          </ul>
+          </ul> */}
         </div>
 
         <Img
