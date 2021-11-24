@@ -11,11 +11,12 @@ function Layout({ children, ...otherProps }) {
           <div className="container">
             <p>
               <Link
-                to="/event/auftaktveranstaltung"
+                to="/event/mint-aktionswoche"
                 className="block text-center px-4 py-2 text-white font-bold"
               >
-                Vom 22. bis. 26.11. findet die MINT-Aktionswoche statt. Schaut
-                Euch die Auftaktveranstaltung im Livestream an.
+                Bis zum 26.11. findet die MINT-Aktionswoche statt. Hier findet
+                Ihr einen Überblick über alle Sessions und wie Ihr teilnehmen
+                könnt.
               </Link>
             </p>
           </div>
