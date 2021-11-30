@@ -41,5 +41,25 @@ register_post_meta('news', 'attachments', array(
 ) );
 
 add_action( 'graphql_register_types', function() {
+  register_graphql_object_type(
+    "attachment",
+    array(
+      "fields" => array(
+        'id' => array('type' => 'integer'),
+        'title' => array('type' => 'string'),
+        'filename' => array('type' => 'string'),
+        'fileSizeHumanReadable' => array('type' => 'string'),
+        'icon' => array('type' => 'string'),
+        'url' => array('type' => 'string')
+      ))
+  );
 
+  register_graphql_field( 'NewsItem', 'attachments', [
+    'type' => ['list_of' => 'attachment'],
+    'description' => __( 'Foobar', 'wp-graphql' ),
+    'resolve' => function( $post ) {
+      $attachments = get_post_meta( $post->ID, 'attachments', true );
+      return ! empty( $attachments ) ? $attachments : [];
+    }
+ ] );
 } );
