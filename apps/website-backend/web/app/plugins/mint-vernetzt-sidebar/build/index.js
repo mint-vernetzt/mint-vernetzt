@@ -42,6 +42,16 @@
         /***/
       },
 
+    /***/ "@wordpress/media-utils":
+      /*!************************************!*\
+  !*** external ["wp","mediaUtils"] ***!
+  \************************************/
+      /***/ function (module) {
+        module.exports = window["wp"]["mediaUtils"];
+
+        /***/
+      },
+
     /***/ "@wordpress/plugins":
       /*!*********************************!*\
   !*** external ["wp","plugins"] ***!
@@ -190,29 +200,140 @@
       /*#__PURE__*/ __webpack_require__.n(
         _wordpress_components__WEBPACK_IMPORTED_MODULE_4__
       );
+    /* harmony import */ var _wordpress_media_utils__WEBPACK_IMPORTED_MODULE_5__ =
+      __webpack_require__(
+        /*! @wordpress/media-utils */ "@wordpress/media-utils"
+      );
+    /* harmony import */ var _wordpress_media_utils__WEBPACK_IMPORTED_MODULE_5___default =
+      /*#__PURE__*/ __webpack_require__.n(
+        _wordpress_media_utils__WEBPACK_IMPORTED_MODULE_5__
+      );
 
-    function MetaField(props) {
-      const value = (0, _wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(
+    function Attachments() {
+      const files = (0, _wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(
         (select) => {
           const meta = select("core/editor").getEditedPostAttribute("meta");
-          console.log(meta);
-          return meta["test"];
+          return meta["attachments"];
         },
         []
       );
       const { editPost } = (0,
       _wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useDispatch)("core/editor");
       return (0, _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(
-        _wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl,
+        _wordpress_media_utils__WEBPACK_IMPORTED_MODULE_5__.MediaUpload,
         {
-          label: "test",
-          defaultValue: value,
-          onChange: (content) =>
-            editPost({
+          label: "Upload",
+          defaultValue: files,
+          multiple: true,
+          onSelect: (mediaItems) => {
+            console.log("media items", mediaItems);
+            const attachments = mediaItems.map((mediaItem) => {
+              const {
+                id,
+                title,
+                filename,
+                filesizeHumanReadable: fileSizeHumanReadable,
+                icon,
+                url,
+                subtype,
+              } = mediaItem;
+              return {
+                id,
+                title,
+                filename,
+                fileSizeHumanReadable,
+                icon,
+                url,
+                subtype,
+              };
+            });
+            return editPost({
               meta: {
-                test: content,
+                attachments,
               },
-            }),
+            }); // Promise
+          },
+          render: (props) => {
+            const { open } = props;
+            return (0,
+            _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(
+              _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment,
+              null,
+              files !== undefined && files !== null
+                ? files.map((file, index) => {
+                    return (0,
+                    _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(
+                      "div",
+                      {
+                        key: `attachment-${index}`,
+                      },
+                      (0,
+                      _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(
+                        "img",
+                        {
+                          src: file.icon,
+                          alt: "",
+                        }
+                      ),
+                      (0,
+                      _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(
+                        "p",
+                        null,
+                        (0,
+                        _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(
+                          "strong",
+                          null,
+                          file.title
+                        )
+                      ),
+                      (0,
+                      _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(
+                        "p",
+                        null,
+                        (0,
+                        _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(
+                          "strong",
+                          null,
+                          "File name:"
+                        ),
+                        " ",
+                        (0,
+                        _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(
+                          "a",
+                          {
+                            href: `${file.url}`,
+                            target: "_blank",
+                            rel: "noopener noreferrer",
+                          },
+                          file.filename
+                        )
+                      ),
+                      (0,
+                      _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(
+                        "p",
+                        null,
+                        (0,
+                        _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(
+                          "strong",
+                          null,
+                          "File size:"
+                        ),
+                        " ",
+                        file.fileSizeHumanReadable
+                      )
+                    );
+                  })
+                : null,
+              (0,
+              _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(
+                _wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button,
+                {
+                  onClick: open,
+                },
+                "Add Attachments"
+              )
+            );
+          },
         }
       );
     }
@@ -230,7 +351,7 @@
               title: "MINTvernetzt sidebar",
             },
             (0, _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(
-              MetaField,
+              Attachments,
               null
             )
           );

@@ -27,6 +27,7 @@ function Attachments() {
             filesizeHumanReadable: fileSizeHumanReadable,
             icon,
             url,
+            subtype,
           } = mediaItem;
           return {
             id,
@@ -35,6 +36,7 @@ function Attachments() {
             fileSizeHumanReadable,
             icon,
             url,
+            subtype,
           };
         });
         return editPost({ meta: { attachments } }); // Promise
