@@ -23,12 +23,6 @@ function sidebar_plugin_script_enqueue() {
 }
 add_action( 'enqueue_block_editor_assets', 'sidebar_plugin_script_enqueue' );
 
-register_post_meta("news", 'test', array(
-  'show_in_rest' => true,
-  'single' => true,
-  'type' => 'string',
-) );
-
 register_post_meta('news', 'attachments', array(
   'single' => true,
   'type' => 'array',
@@ -47,12 +41,5 @@ register_post_meta('news', 'attachments', array(
 ) );
 
 add_action( 'graphql_register_types', function() {
-  register_graphql_field( 'NewsItem', 'test', [
-     'type' => 'string',
-     'description' => __( 'Foobar', 'wp-graphql' ),
-     'resolve' => function( $post ) {
-       $test = get_post_meta( $post->ID, 'test', true );
-       return ! empty( $test ) ? $test : "";
-     }
-  ] );
+
 } );
