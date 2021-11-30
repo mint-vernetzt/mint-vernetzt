@@ -22,7 +22,7 @@ const formatBytes = function (a: number, b = 2, k = 1024): string {
 };
 
 function News({ data }) {
-  const props = data.allWpNewsItem.nodes[0];
+  const { newsItem: props } = data;
 
   return (
     <Layout>
@@ -82,17 +82,15 @@ function News({ data }) {
               }}
             />
           </div>
-          {props.documents && props.documents.documentList !== null && (
+          {props.attachments.length > 0 && (
             <div className="flex-100 md:flex-1/3 md:px-2 lg:px-6">
               <h4 className="text-3xl leading-5 pb-4">Anhänge</h4>
               <ul className="document-list">
-                {props.documents.documentList.map((documentListItem, index) => {
-                  const { document } = documentListItem;
-
+                {props.attachments.map((attachment, index) => {
                   return (
                     <li key={`document-${index}`} className="mb-2">
                       <a
-                        href={document.localFile.publicURL}
+                        href={attachment.url}
                         target="_blank"
                         className="flex item-center bg-beige-300 border border-neutral-400 rounded-lg"
                       >
@@ -105,14 +103,11 @@ function News({ data }) {
                         </span>
                         <div className="my-3 mx-4">
                           <span className="block text-xs text-neutral-600 uppercase">
-                            {document.localFile.extension}{" "}
-                            {formatBytes(document.localFile.size)}
+                            {`${attachment.subtype} ${attachment.fileSizeHumanReadable}`}
                           </span>
-                          <div
-                            dangerouslySetInnerHTML={{
-                              __html: document.caption,
-                            }}
-                          />
+                          <div>
+                            <p>{attachment.title}</p>
+                          </div>
                         </div>
                         <div className="icon w-8 h-8 mb-2 m-4 ml-auto">
                           <Icon
@@ -137,42 +132,31 @@ function News({ data }) {
 export default News;
 
 export const query = graphql`
-  query ($id: String!) {
-    allWpNewsItem(filter: { id: { eq: $id } }) {
-      nodes {
-        id
-        date
+  query News($id: String!) {
+    newsItem: wpNewsItem(id: { eq: $id }) {
+      id
+      date
+      title
+      content
+      excerpt
+      slug
+      tags {
+        nodes {
+          name
+        }
+      }
+      attachments {
         title
-        content
-        excerpt
-        slug
-        tags {
-          nodes {
-            name
-          }
-        }
-        documents {
-          documentList {
-            document {
-              title
-              mimeType
-              caption
-              fileSize
-              localFile {
-                size
-                extension
-                publicURL
-              }
-            }
-          }
-        }
-        featuredImage {
-          node {
-            localFile {
-              childImageSharp {
-                fluid(maxWidth: 1488, quality: 80) {
-                  ...GatsbyImageSharpFluid
-                }
+        fileSizeHumanReadable
+        subtype
+        url
+      }
+      featuredImage {
+        node {
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 1488, quality: 80) {
+                ...GatsbyImageSharpFluid
               }
             }
           }
