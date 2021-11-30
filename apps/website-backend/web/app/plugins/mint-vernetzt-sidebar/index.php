@@ -35,7 +35,8 @@ register_post_meta('news', 'attachments', array(
         'filename' => array('type' => 'string'),
         'fileSizeHumanReadable' => array('type' => 'string'),
         'icon' => array('type' => 'string'),
-        'url' => array('type' => 'string')
+        'url' => array('type' => 'string'),
+        'subtype' => array('type' => 'string'),
       ))
   )),
 ) );
@@ -50,7 +51,8 @@ add_action( 'graphql_register_types', function() {
         'filename' => array('type' => 'string'),
         'fileSizeHumanReadable' => array('type' => 'string'),
         'icon' => array('type' => 'string'),
-        'url' => array('type' => 'string')
+        'url' => array('type' => 'string'),
+        'subtype' => array('type' => 'string'),
       ))
   );
 
