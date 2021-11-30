@@ -28,3 +28,14 @@ register_post_meta("news", 'test', array(
   'single' => true,
   'type' => 'string',
 ) );
+
+add_action( 'graphql_register_types', function() {
+  register_graphql_field( 'NewsItem', 'test', [
+     'type' => 'string',
+     'description' => __( 'Foobar', 'wp-graphql' ),
+     'resolve' => function( $post ) {
+       $test = get_post_meta( $post->ID, 'test', true );
+       return ! empty( $test ) ? $test : "";
+     }
+  ] );
+} );
