@@ -1,12 +1,13 @@
 import Header from "./header";
 import Footer from "./footer";
 import "../../../../libs/design-system/src/styles.css";
-import { Link } from "gatsby";
+// import { Link } from "gatsby";
 
-function Layout({ children, ...otherProps }) {
+// function Layout({ children, ...otherProps }) {
+function Layout({ children }) {
   return (
     <div className="flex flex-col min-h-screen font-sans text-gray-600">
-      {otherProps.location?.pathname === "/" ? (
+      {/* {otherProps.location?.pathname === "/" ? (
         <div className="bg-lilac-300">
           <div className="container">
             <p>
@@ -21,7 +22,7 @@ function Layout({ children, ...otherProps }) {
             </p>
           </div>
         </div>
-      ) : null}
+      ) : null} */}
       <header>
         <Header />
       </header>
