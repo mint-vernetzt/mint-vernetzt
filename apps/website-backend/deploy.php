@@ -35,14 +35,6 @@ set('copy_dirs', [
   '{{docroot}}',
 ]);
 
-set('ACF_PRO_KEY', function () {
-  $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__);
-  $dotenv->load();
-  $dotenv->required('ACF_PRO_KEY')->notEmpty();
-
-  return $_ENV['ACF_PRO_KEY'];
-});
-
 set('rsync_src', '{{build_path}}/current/{{app_path}}');
 set('rsync', [
   'exclude'       => [],
@@ -109,7 +101,6 @@ task('build', function () {
 
     set('keep_releases', 1);
     set('deploy_path', get('build_path'));
-    set('env', ['ACF_PRO_KEY' => '{{ACF_PRO_KEY}}']);
     invoke('deploy:prepare');
     invoke('deploy:release');
     invoke('deploy:update_code');
