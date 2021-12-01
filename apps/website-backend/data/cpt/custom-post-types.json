@@ -26,7 +26,7 @@
     "show_in_menu": "true",
     "show_in_menu_string": "",
     "menu_icon": "",
-    "supports": ["title", "editor", "thumbnail", "excerpt"],
+    "supports": ["title", "editor", "thumbnail", "excerpt", "custom-fields"],
     "taxonomies": ["post_tag", "newscategory"],
     "labels": {
       "menu_name": "",
@@ -91,7 +91,14 @@
     "show_in_menu": "true",
     "show_in_menu_string": "",
     "menu_icon": "",
-    "supports": ["title", "editor", "thumbnail", "excerpt", "page-attributes"],
+    "supports": [
+      "title",
+      "editor",
+      "thumbnail",
+      "excerpt",
+      "custom-fields",
+      "page-attributes"
+    ],
     "taxonomies": ["post_tag", "eventcategory"],
     "labels": {
       "parent": "Events:",
@@ -157,7 +164,7 @@
     "show_in_menu": "true",
     "show_in_menu_string": "",
     "menu_icon": "dashicons-admin-users",
-    "supports": ["title", "revisions"],
+    "supports": ["title", "custom-fields", "revisions"],
     "taxonomies": ["contactcategory"],
     "labels": {
       "menu_name": "Contacts",
@@ -223,7 +230,7 @@
     "show_in_menu": "true",
     "show_in_menu_string": "",
     "menu_icon": "",
-    "supports": ["title"],
+    "supports": ["title", "custom-fields"],
     "taxonomies": ["organizationcategories"],
     "labels": {
       "menu_name": "",
