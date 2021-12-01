@@ -4,64 +4,64 @@
  * Text Domain:       mint-vernetzt-sidebar
  */
 
-function register_mint_vernetzt_sidebar() {
-    wp_register_script(
-        'mint_vernetzt-sidebar-js',
-        plugins_url( 'build/index.js', __FILE__ ),
-        array(
-            'wp-plugins',
-            'wp-edit-post',
-            'wp-element',
-            'wp-components'
-        )
-    );
-}
-add_action( 'init', 'register_mint_vernetzt_sidebar' );
+$defaultFields = [
+  'id' => ['type' => 'integer'],
+  'title' => ['type' => 'string'],
+  'filename' => ['type' => 'string'],
+  'fileSizeHumanReadable' => ['type' => 'string'],
+  'icon' => ['type' => 'string'],
+  'url' => ['type' => 'string'],
+  'subtype' => ['type' => 'string'],
+];
 
-function sidebar_plugin_script_enqueue() {
-  wp_enqueue_script( 'mint_vernetzt-sidebar-js' );
+function register_mint_vernetzt_sidebar()
+{
+  wp_register_script(
+    'mint_vernetzt-sidebar-js',
+    plugins_url('build/index.js', __FILE__),
+    [
+      'wp-plugins',
+      'wp-edit-post',
+      'wp-element',
+      'wp-components'
+    ]
+  );
 }
-add_action( 'enqueue_block_editor_assets', 'sidebar_plugin_script_enqueue' );
 
-register_post_meta('news', 'attachments', array(
+add_action('init', 'register_mint_vernetzt_sidebar');
+
+function sidebar_plugin_script_enqueue()
+{
+  wp_enqueue_script('mint_vernetzt-sidebar-js');
+}
+
+add_action('enqueue_block_editor_assets', 'sidebar_plugin_script_enqueue');
+
+register_post_meta('news', 'attachments', [
   'single' => true,
   'type' => 'array',
-  'show_in_rest' => array('schema' => array(
-    "items" => array(
+  'show_in_rest' => ['schema' => [
+    "items" => [
       'type' => 'object',
-      'properties' => array(
-        'id' => array('type' => 'integer'),
-        'title' => array('type' => 'string'),
-        'filename' => array('type' => 'string'),
-        'fileSizeHumanReadable' => array('type' => 'string'),
-        'icon' => array('type' => 'string'),
-        'url' => array('type' => 'string'),
-        'subtype' => array('type' => 'string'),
-      ))
-  )),
-) );
+      'properties' => $defaultFields
+    ]
+  ]],
+]);
 
-add_action( 'graphql_register_types', function() {
+add_action('graphql_register_types', function () use ($defaultFields) {
   register_graphql_object_type(
     "attachment",
-    array(
-      "fields" => array(
-        'id' => array('type' => 'integer'),
-        'title' => array('type' => 'string'),
-        'filename' => array('type' => 'string'),
-        'fileSizeHumanReadable' => array('type' => 'string'),
-        'icon' => array('type' => 'string'),
-        'url' => array('type' => 'string'),
-        'subtype' => array('type' => 'string'),
-      ))
+    [
+      "fields" => $defaultFields
+    ]
   );
 
-  register_graphql_field( 'NewsItem', 'attachments', [
+  register_graphql_field('NewsItem', 'attachments', [
     'type' => ['list_of' => 'attachment'],
-    'description' => __( 'Foobar', 'wp-graphql' ),
-    'resolve' => function( $post ) {
-      $attachments = get_post_meta( $post->ID, 'attachments', true );
-      return ! empty( $attachments ) ? $attachments : [];
+    'description' => __('News Attachments', 'wp-graphql'),
+    'resolve' => function ($post) {
+      $attachments = get_post_meta($post->ID, 'attachments', true);
+      return !empty($attachments) ? $attachments : [];
     }
- ] );
-} );
+  ]);
+});
