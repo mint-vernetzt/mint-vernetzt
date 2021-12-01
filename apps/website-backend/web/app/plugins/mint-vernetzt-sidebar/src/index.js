@@ -12,6 +12,11 @@ function Attachments() {
 
   const { editPost } = useDispatch("core/editor");
 
+  const handleRemove = (id) => {
+    const filteredFiles = files.filter((file) => file.id !== id);
+    editPost({ meta: { attachments: filteredFiles } });
+  };
+
   return (
     <MediaUpload
       label="Upload"
@@ -84,9 +89,26 @@ function Attachments() {
                           {file.filename}
                         </a>
                       </p>
-                      <p>
-                        <strong>File size:</strong> {file.fileSizeHumanReadable}
-                      </p>
+                      <div
+                        style={{
+                          display: "flex",
+                          direction: "row",
+                          justifyContent: "space-between",
+                          alignItems: "baseline",
+                        }}
+                      >
+                        <p>
+                          <strong>File size:</strong>{" "}
+                          {file.fileSizeHumanReadable}
+                        </p>
+                        <Button
+                          isSmall
+                          isTertiary
+                          onClick={() => handleRemove(file.id)}
+                        >
+                          Remove
+                        </Button>
+                      </div>
                     </div>
                   );
                 })
