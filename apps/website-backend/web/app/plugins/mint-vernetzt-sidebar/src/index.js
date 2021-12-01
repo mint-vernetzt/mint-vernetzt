@@ -66,12 +66,19 @@ function Attachments() {
                       key={`attachment-${index}`}
                       style={{ padding: "1rem" }}
                     >
-                      <div style={{ display: "flex", direction: "row" }}>
+                      <div
+                        style={{
+                          display: "flex",
+                          gap: "0.5rem",
+                          direction: "row",
+                          alignItems: "baseline",
+                        }}
+                      >
                         <div
                           style={{
                             width: "1rem",
                             height: "1rem",
-                            marginRight: "0.5rem",
+                            flexShrink: "0",
                           }}
                         >
                           <img
