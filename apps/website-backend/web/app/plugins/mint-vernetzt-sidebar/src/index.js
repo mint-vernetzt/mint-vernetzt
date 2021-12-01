@@ -48,11 +48,32 @@ function Attachments() {
             {files !== undefined && files !== null
               ? files.map((file, index) => {
                   return (
-                    <div key={`attachment-${index}`}>
-                      <img src={file.icon} alt="" />
-                      <p>
-                        <strong>{file.title}</strong>
-                      </p>
+                    <div
+                      key={`attachment-${index}`}
+                      style={{ padding: "1rem" }}
+                    >
+                      <div style={{ display: "flex", direction: "row" }}>
+                        <div
+                          style={{
+                            width: "1rem",
+                            height: "1rem",
+                            marginRight: "0.5rem",
+                          }}
+                        >
+                          <img
+                            src={file.icon}
+                            alt=""
+                            style={{
+                              maxWidth: "100%",
+                              height: "auto",
+                              display: "block",
+                            }}
+                          />
+                        </div>
+                        <p style={{ flex: "auto" }}>
+                          <strong>{file.title}</strong>
+                        </p>
+                      </div>
                       <p>
                         <strong>File name:</strong>{" "}
                         <a
@@ -70,7 +91,11 @@ function Attachments() {
                   );
                 })
               : null}
-            <Button onClick={open}>Add Attachments</Button>
+            <div style={{ padding: "1rem" }}>
+              <Button isPrimary onClick={open}>
+                Add Attachments
+              </Button>
+            </div>
           </>
         );
       }}
