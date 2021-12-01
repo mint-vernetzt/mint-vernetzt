@@ -1,8 +1,8 @@
-import { registerPlugin } from "@wordpress/plugins";
-import { PluginSidebar } from "@wordpress/edit-post";
-import { useSelect, useDispatch } from "@wordpress/data";
 import { Button } from "@wordpress/components";
+import { useDispatch, useSelect } from "@wordpress/data";
+import { PluginSidebar } from "@wordpress/edit-post";
 import { MediaUpload } from "@wordpress/media-utils";
+import { registerPlugin } from "@wordpress/plugins";
 
 function Attachments() {
   const files = useSelect((select) => {
