@@ -23,7 +23,6 @@ function Attachments() {
       defaultValue={files}
       multiple
       onSelect={(mediaItems) => {
-        console.log("media items", mediaItems);
         const attachments = mediaItems.map((mediaItem) => {
           const {
             id,
@@ -44,7 +43,17 @@ function Attachments() {
             subtype,
           };
         });
-        return editPost({ meta: { attachments } }); // Promise
+
+        // merge current an added attachment files
+        // remove duplicates
+        const allFiles = files
+          .concat(attachments)
+          .filter((file, index, array) => {
+            const indexInArray = array.findIndex((item) => item.id === file.id);
+            return indexInArray === index;
+          });
+
+        return editPost({ meta: { attachments: allFiles } }); // Promise
       }}
       render={(props) => {
         const { open } = props;
