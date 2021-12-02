@@ -20,4 +20,4 @@ Standorte der United Internet AG: Montabaur (Firmensitz), Karlsruhe, München, B
 - Workshops und Exkursionen für Studierende
 - Unterstützung des [Deutschlandstipendiums](https://www.deutschlandstipendium.de/index.html)
 
-[www.design-your-career.de](https://jobs.1und1.de/)
+[united-internet.de/jobs-karriere](https://www.united-internet.de/jobs-karriere/)
