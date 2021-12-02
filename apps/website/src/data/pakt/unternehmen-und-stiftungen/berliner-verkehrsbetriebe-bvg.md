@@ -10,9 +10,9 @@ citeQuote: ""
 
 Vollgas in die Zukunft. Unser Herz schlägt für Gelb!
 
-Fragst du dich, wie die Haltestellen und Bahnhöfe der Zukunft aussehen? Wie Busse schneller, leiser und noch nachhaltiger gestaltet werden können? Und bist du sowieso der Meinung, dass es gar nicht so schwer sein kann, dass (U-)Bahnen und Busse pünktlich abfahren? Dann sind wir der richtige Arbeitgeber für dich. In über 240 Berufen kannst du dich bei uns so richtig austoben und die Mobilität von morgen mitgestalten.
+Fragst du dich, wie die Haltestellen und Bahnhöfe der Zukunft aussehen? Wie Busse schneller, leiser und noch nachhaltiger gestaltet werden können? Und bist du sowieso der Meinung, dass es gar nicht so schwer sein kann, dass (U-)Bahnen und Busse pünktlich abfahren? Dann sind wir der richtige Arbeitgeber für dich. In über 240 Berufen kannst du dich bei uns so richtig austoben und die Mobilität von morgen mitgestalten.
 
-Bei der BVG bist du kein/e Einzelkämpfer/in, sondern Teil eines 15.700-köpfigen Teams, das Deutschlands größtes Nahverkehrsunternehmen als Arbeitgeber gewählt hat. Eine richtige Berliner Großfamilie, die in der Stadt den Ton angibt. Es lohnt sich, einen Blick hinter die Kulissen und in unsere Stellenangebote zu werfen: Denn wir suchen dich!
+Bei der BVG bist du kein/e Einzelkämpfer/in, sondern Teil eines 15.700-köpfigen Teams, das Deutschlands größtes Nahverkehrsunternehmen als Arbeitgeber gewählt hat. Eine richtige Berliner Großfamilie, die in der Stadt den Ton angibt. Es lohnt sich, einen Blick hinter die Kulissen und in unsere Stellenangebote zu werfen: Denn wir suchen dich!
 
 Schwerpunktmäßig suchen wir in folgenden Bereichen:
 

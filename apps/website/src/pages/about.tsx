@@ -60,7 +60,7 @@ export function About({ data }: { data: GatsbyTypes.AboutPageQuery }) {
             {
               icon: <Icon type={IconType.Magic} width="32" height="32" />,
               title: `Mission`,
-              text: `Das Netzwerk der MINT-Netzwerke: Mit MINTvernetzt schaffen wir ein Netzwerk für die MINT-Bildungslandschaft, das bestehende Initiativen und Akteur:innen aktiv einbindet und unterstützt. Wir wollen daran mitwirken, dass MINT-Akteur:innen sich als Gemeinschaft begreifen, für ihr Engagement und ihre Leistungen mehr Sichtbarkeit bekommen und ihr Angebot noch stärker mit schulischen Aktivitäten verzahnen können. Gemeinsam mit der Community werden wir Impulse für neue Themen, innovative Angebote und diversere Zielgruppen setzen, um zusammen eine bessere MINT-Bildungslandschaft zu schaffen.`,
+              text: `Das Netzwerk der MINT-Netzwerke: Mit MINTvernetzt schaffen wir ein Netzwerk für die MINT-Bildungslandschaft, das bestehende Initiativen und Akteur:innen aktiv einbindet und unterstützt. Wir wollen daran mitwirken, dass MINT-Akteur:innen sich als Gemeinschaft begreifen, für ihr Engagement und ihre Leistungen mehr Sichtbarkeit bekommen und ihr Angebot noch stärker mit schulischen Aktivitäten verzahnen können. Gemeinsam mit der Community werden wir Impulse für neue Themen, innovative Angebote und diversere Zielgruppen setzen, um zusammen eine bessere MINT-Bildungslandschaft zu schaffen.`,
             },
             {
               icon: <Icon type={IconType.Flag} width="32" height="32" />,
@@ -70,7 +70,7 @@ export function About({ data }: { data: GatsbyTypes.AboutPageQuery }) {
             {
               icon: <Icon type={IconType.Gem} width="32" height="32" />,
               title: `Vision`,
-              text: `Wir möchten die MINT-Akteur:innen Deutschlands zu einer bundesweiten lebendigen, diversen und nachhaltig wachsenden Gemeinschaft zusammenführen, um allen Kindern und Jugendlichen eine gute MINT-Bildung zu ermöglichen, die schulisches und außerschulisches Lernen miteinander verzahnt und anwendungsorientiert sowie praxisorientiert gestaltet ist. Unsere Vision ist es, dass Mädchen und junge Frauen sowie bislang benachteiligte Gruppen durch zielgruppenorientierte, klischeefreie und attraktive Angebote Zugang zur MINT-Bildung erhalten und Chancen in MINT-Berufen erkennen, die sie mit ihrem eigenen Selbstkonzept in Verbindung bringen können. Dadurch entsteht mehr Chancengerechtigkeit und Teilhabe in Deutschland.`,
+              text: `Wir möchten die MINT-Akteur:innen Deutschlands zu einer bundesweiten lebendigen, diversen und nachhaltig wachsenden Gemeinschaft zusammenführen, um allen Kindern und Jugendlichen eine gute MINT-Bildung zu ermöglichen, die schulisches und außerschulisches Lernen miteinander verzahnt und anwendungsorientiert sowie praxisorientiert gestaltet ist. Unsere Vision ist es, dass Mädchen und junge Frauen sowie bislang benachteiligte Gruppen durch zielgruppenorientierte, klischeefreie und attraktive Angebote Zugang zur MINT-Bildung erhalten und Chancen in MINT-Berufen erkennen, die sie mit ihrem eigenen Selbstkonzept in Verbindung bringen können. Dadurch entsteht mehr Chancengerechtigkeit und Teilhabe in Deutschland.`,
             },
           ].map((teaser, index) => (
             <div

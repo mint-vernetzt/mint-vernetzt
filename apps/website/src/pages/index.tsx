@@ -60,8 +60,8 @@ export function Index({
           <h2>Aktiv werden</h2>
           <p className="lead md:px-8 lg:px-20 ">
             Wir entwickeln MINTvernetzt mit Euch (weiter)! Hier könnt Ihr Euch
-            vernetzen, gute Praxis teilen und Kooperationen aufbauen. So machen
-            wir zusammen MINT-Bildungsangebote in Deutschland sichtbar, helfen
+            vernetzen, gute Praxis teilen und Kooperationen aufbauen. So machen
+            wir zusammen MINT-Bildungsangebote in Deutschland sichtbar, helfen
             Euch bei der Weiterentwicklung und schaffen Innovationsräume.
           </p>
         </header>
@@ -114,7 +114,7 @@ export function Index({
                   MINT<span className="font-normal">news</span>
                 </>
               }
-              body="Wir blicken in die MINT-Welt und darüber hinaus und informieren Euch regelmäßig über Erkenntnisse, Ereignisse und Innovationen, die für Eure tägliche Arbeit interessant sind."
+              body="Wir blicken in die MINT-Welt und darüber hinaus und informieren Euch regelmäßig über Erkenntnisse, Ereignisse und Innovationen, die für Eure tägliche Arbeit interessant sind."
               linkToOverview="/news/"
               newsFeedItemsProps={newsItems}
             />
@@ -141,7 +141,7 @@ export function Index({
       <section className="container my-8 md:my-10 lg:my-20">
         <OrganizationBoxContainer
           headline="Der Verbund"
-          body="Herausforderungen lösen wir gemeinsam. MINT-Potenziale heben wir im Team. MINTvernetzt ist ein Verbundprojekt, das gemeinsam von Mitarbeitenden der Körber-Stiftung, der matrix gGmbH, des Nationalen MINTForums e.V., des Stifterverbands und der Universität Regensburg umgesetzt wird. Zusammen blicken wir auf viel Erfahrung in der MINT-Bildung, die wir bei MINTvernetzt bündeln und weiterentwickeln wollen. Hier findet Ihr die unterschiedlichen Zuständigkeiten der Verbundpartner bei MINTvernetzt."
+          body="Herausforderungen lösen wir gemeinsam. MINT-Potenziale heben wir im Team. MINTvernetzt ist ein Verbundprojekt, das gemeinsam von Mitarbeitenden der Körber-Stiftung, der matrix gGmbH, des Nationalen MINTForums e.V., des Stifterverbands und der Universität Regensburg umgesetzt wird. Zusammen blicken wir auf viel Erfahrung in der MINT-Bildung, die wir bei MINTvernetzt bündeln und weiterentwickeln wollen. Hier findet Ihr die unterschiedlichen Zuständigkeiten der Verbundpartner bei MINTvernetzt."
           organisations={organisations}
         />
       </section>
