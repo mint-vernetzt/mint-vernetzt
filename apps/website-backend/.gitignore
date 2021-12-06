@@ -3,6 +3,7 @@ web/app/plugins/*
 !web/app/plugins/.gitkeep
 # Blocks
 !web/app/plugins/schedule*
+!web/app/plugins/mint-vernetzt*
 
 web/app/mu-plugins/*/
 web/app/upgrade

@@ -19,36 +19,7 @@ exports.createPages = async (props) => {
       allWpNewsItem(sort: { fields: [date] }) {
         nodes {
           id
-          date
-          title
-          content
           slug
-          tags {
-            nodes {
-              name
-            }
-          }
-          documents {
-            documentList {
-              document {
-                title
-                mimeType
-                link
-                caption
-              }
-            }
-          }
-          featuredImage {
-            node {
-              localFile {
-                childImageSharp {
-                  fluid(maxWidth: 1024) {
-                    src
-                  }
-                }
-              }
-            }
-          }
         }
       }
     }
