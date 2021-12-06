@@ -49,3 +49,7 @@ libs/design-system/src/styles.css
 .env.*
 apps/website/src/__generated__
 apps/website-backend/dump.sql.gz
+
+# Generated Docusaurus files
+.docusaurus/
+.cache-loader/

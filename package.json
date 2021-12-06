@@ -16,7 +16,11 @@
     "serve-website-backend": "cd apps/website-backend && ddev start && ddev launch"
   },
   "dependencies": {
+    "@docusaurus/core": "^2.0.0-alpha.70",
+    "@docusaurus/preset-classic": "^2.0.0-alpha.70",
+    "@mdx-js/react": "^1.6.21",
     "@tailwindcss/line-clamp": "^0.2.2",
+    "clsx": "^1.1.1",
     "core-js": "^3.6.5",
     "document-register-element": "1.13.1",
     "gatsby": "3.10.0",
@@ -52,6 +56,7 @@
     "@nrwl/tao": "12.6.2",
     "@nrwl/web": "12.6.2",
     "@nrwl/workspace": "12.6.2",
+    "@nx-plus/docusaurus": "^12.2.0",
     "@storybook/addon-a11y": "^6.3.6",
     "@storybook/addon-essentials": "~6.3.0",
     "@storybook/builder-webpack5": "^6.3.8",
