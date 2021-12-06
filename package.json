@@ -13,7 +13,9 @@
     "build-design-system": "nx build-tailwind design-system && nx build-storybook design-system",
     "serve-website": "nx tailwind design-system | nx serve website",
     "build-website": "nx build-tailwind design-system && nx build website",
-    "serve-website-backend": "cd apps/website-backend && ddev start && ddev launch"
+    "serve-website-backend": "cd apps/website-backend && ddev start && ddev launch",
+    "serve-documentation": "nx serve documentation --open",
+    "build-documentation": "nx build documentation --outputPath dist/docusaurus/documentation"
   },
   "dependencies": {
     "@docusaurus/core": "^2.0.0-alpha.70",
