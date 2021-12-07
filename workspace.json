@@ -21,7 +21,7 @@
             }
           }
         },
-        "build-storybook": {
+        "build": {
           "executor": "@nrwl/storybook:build",
           "outputs": ["{options.outputPath}"],
           "options": {
@@ -32,6 +32,7 @@
             }
           },
           "configurations": {
+            "production": {},
             "ci": {
               "quiet": true
             }
@@ -51,6 +52,13 @@
           "options": {
             "command": "NODE_ENV=production tailwindcss -c ./tailwind.config.js -i ./src/tailwind.css -o ./src/styles.css",
             "cwd": "libs/design-system"
+          }
+        },
+        "deploy": {
+          "executor": "@netlify-builder/deploy:deploy",
+          "options": {
+            "outputPath": "dist/storybook/design-system",
+            "siteId": "67cd81ae-bb10-4183-89cb-67472fc2434d"
           }
         }
       }

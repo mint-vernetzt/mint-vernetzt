@@ -10,12 +10,14 @@
     "create-react-lib": "nx g @nrwl/react:library --style=none --buildable --publishable --pascalCaseFiles --component=false",
     "create-react-lib-component": "nx g @nrwl/react:component --style=none --export --pascalCaseFiles --flat",
     "serve-design-system": "nx tailwind design-system | nx storybook design-system",
-    "build-design-system": "nx build-tailwind design-system && nx build-storybook design-system",
+    "build-design-system": "nx build-tailwind design-system && nx build design-system",
     "serve-website": "nx tailwind design-system | nx serve website",
     "build-website": "nx build-tailwind design-system && nx build website",
-    "serve-website-backend": "cd apps/website-backend && ddev start && ddev launch"
+    "serve-website-backend": "cd apps/website-backend && ddev start && ddev launch",
+    "affected:deploy": "nx affected --target=deploy"
   },
   "dependencies": {
+    "@netlify-builder/deploy": "^4.1.2",
     "@tailwindcss/line-clamp": "^0.2.2",
     "core-js": "^3.6.5",
     "document-register-element": "1.13.1",
