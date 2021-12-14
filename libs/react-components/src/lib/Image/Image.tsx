@@ -1,11 +1,17 @@
-/* eslint-disable-next-line */
-export interface ImageProps {}
+export interface ImageProps {
+  src: string;
+  alt?: string;
+  caption?: string;
+}
 
-export function Image(props: ImageProps) {
-  return (
-    <div>
-      <h1>Welcome to Image!</h1>
-    </div>
+export function Image({ src, alt = "", caption }: ImageProps) {
+  return caption !== undefined ? (
+    <figure>
+      <img src={src} alt={alt} />
+      <figcaption>{caption}</figcaption>
+    </figure>
+  ) : (
+    <img src={src} alt={alt} />
   );
 }
 
