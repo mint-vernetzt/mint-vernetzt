@@ -4,6 +4,10 @@
   "description": "A simple starter to get up and developing quickly with Gatsby",
   "version": "0.0.0",
   "license": "MIT",
+  "scripts": {
+    "serve-website": "cd ../.. && npm run serve-website",
+    "build-website": "cd ../.. && npm run build-website"
+  },
   "dependencies": {
     "gatsby": "*"
   }
