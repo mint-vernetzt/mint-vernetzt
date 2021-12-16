@@ -77,8 +77,9 @@ section.container header:not(.text-left) p.lead {
 }
 
 .wp-block-create-block-schedule-item div p a,
-.blog-post-content p a {
-  @apply text-lilac-500 font-bold;
+.blog-post-content p a,
+.event-description p a {
+  @apply text-lilac-500 font-bold hover:underline;
 }
 
 .event-description > ul,
