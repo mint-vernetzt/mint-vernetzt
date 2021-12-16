@@ -217,7 +217,7 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
 
             {contactPerson && (
               <ContactCard
-                headline="Ansprechpartner:In"
+                headline="Ansprechpartner:in"
                 name={`${contactPerson[0].contactInformations.firstName} ${contactPerson[0].contactInformations.lastName}`}
                 position={contactPerson[0].contactInformations.position}
                 phone={contactPerson[0].contactInformations.phone}
