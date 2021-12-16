@@ -16,6 +16,10 @@ export function Index({
   const newsItems = getNewsItems(data.newsItems);
   const organisations = getOrganizationsData(data.organizationsData);
 
+  const caseInsensitiveSortedOrganization = organisations.sort((a, b) => {
+    return a.name.toLocaleLowerCase().localeCompare(b.name.toLocaleLowerCase());
+  });
+
   const now = new Date();
   const events = data.events.nodes
     .map((event) => ({
@@ -150,7 +154,7 @@ export function Index({
         <OrganizationBoxContainer
           headline="Der Verbund"
           body="Herausforderungen lösen wir gemeinsam. MINT-Potenziale heben wir im Team. MINTvernetzt ist ein Verbundprojekt, das gemeinsam von Mitarbeitenden der Körber-Stiftung, der matrix gGmbH, des Nationalen MINTForums e.V., des Stifterverbands und der Universität Regensburg umgesetzt wird. Zusammen blicken wir auf viel Erfahrung in der MINT-Bildung, die wir bei MINTvernetzt bündeln und weiterentwickeln wollen. Hier findet Ihr die unterschiedlichen Zuständigkeiten der Verbundpartner bei MINTvernetzt."
-          organisations={organisations}
+          organisations={caseInsensitiveSortedOrganization}
         />
       </section>
     </Layout>
