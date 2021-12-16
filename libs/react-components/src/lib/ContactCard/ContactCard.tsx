@@ -6,8 +6,8 @@ export interface ContactCardProps {
   headline: string;
   name: string;
   position: string;
-  phone: string;
-  email: string;
+  phone?: string | null;
+  email?: string | null;
   avatar: Image;
 }
 
@@ -15,8 +15,8 @@ export function ContactCard({
   headline,
   name,
   position,
-  phone,
-  email,
+  phone = null,
+  email = null,
   avatar,
 }: ContactCardProps) {
   return (
@@ -41,22 +41,26 @@ export function ContactCard({
         </div>
       </div>
       <div className="pl-22">
-        <p className="text-xs text-neutral-800 font-semibold mb-2">
-          <a href={`tel:${phone}`} className="flex items-center">
-            <span className="icon w-4 h-4 mr-2">
-              <Icon type={IconType.Telephone} />
-            </span>
-            <span data-testid="phone">{phone}</span>
-          </a>
-        </p>
-        <p className="text-xs text-neutral-800 font-semibold">
-          <a href={`mailto:${email}`} className="flex items-center">
-            <span className="icon w-4 h-4 mr-2 ">
-              <Icon type={IconType.Envelope} />
-            </span>
-            <span data-testid="email">{email}</span>
-          </a>
-        </p>
+        {phone !== null ? (
+          <p className="text-xs text-neutral-800 font-semibold mb-2">
+            <a href={`tel:${phone}`} className="flex items-center">
+              <span className="icon w-4 h-4 mr-2">
+                <Icon type={IconType.Telephone} />
+              </span>
+              <span data-testid="phone">{phone}</span>
+            </a>
+          </p>
+        ) : null}
+        {email !== null ? (
+          <p className="text-xs text-neutral-800 font-semibold">
+            <a href={`mailto:${email}`} className="flex items-center">
+              <span className="icon w-4 h-4 mr-2 ">
+                <Icon type={IconType.Envelope} />
+              </span>
+              <span data-testid="email">{email}</span>
+            </a>
+          </p>
+        ) : null}
       </div>
     </div>
   );
