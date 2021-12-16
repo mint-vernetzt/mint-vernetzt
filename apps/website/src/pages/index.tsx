@@ -15,6 +15,19 @@ export function Index({
 }) {
   const newsItems = getNewsItems(data.newsItems);
   const organisations = getOrganizationsData(data.organizationsData);
+
+  const now = new Date();
+  const events = data.events.nodes
+    .map((event) => ({
+      headline: event.title,
+      body: event.excerpt.replace(/<[^>]*>/g, "").substr(0, 150),
+      date: new Date(event.eventInformations.startDate),
+      url: `/event/${event.slug}/`,
+    }))
+    .filter((event) => {
+      return event.date > now;
+    });
+
   const linkWrapper = (url: string, children: React.ReactNode) => {
     return <Link to={url}>{children}</Link>;
   };
@@ -128,12 +141,7 @@ export function Index({
               }
               linkToOverview="/events/"
               linkWrapper={linkWrapper}
-              items={data.events.nodes.map((event) => ({
-                headline: event.title,
-                body: event.excerpt.replace(/<[^>]*>/g, "").substr(0, 150),
-                date: new Date(event.eventInformations.startDate),
-                url: `/event/${event.slug}/`,
-              }))}
+              items={events}
             />
           </div>
         </div>
@@ -217,7 +225,7 @@ export const pageQuery = graphql`
     }
     events: allWpEvent(
       filter: { parentId: { eq: null } }
-      sort: { fields: eventInformations___startDate, order: DESC }
+      sort: { fields: eventInformations___startDate, order: ASC }
       limit: 4
     ) {
       nodes {

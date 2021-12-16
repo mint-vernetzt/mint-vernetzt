@@ -93,7 +93,7 @@ export const getNewsItems = (
 export const getParentEventItems = (
   graphqlResult: GatsbyTypes.EventFeedQuery["events"]
 ): EventFeedItemProps[] => {
-  return graphqlResult.nodes.map((event) => ({
+  const events = graphqlResult.nodes.map((event) => ({
     headline: event.title,
     body: event.excerpt.replace(/<[^>]*>/g, ""),
     slug: `/event/${event.slug}`,
@@ -102,6 +102,7 @@ export const getParentEventItems = (
       event.eventCategories.nodes.map((category) => category.name)[0] ?? null,
     tags: event.tags.nodes.map((tag) => tag.name) ?? [],
   }));
+  return events;
 };
 
 export const getOrganizationsData = (

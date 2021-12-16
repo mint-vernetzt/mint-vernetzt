@@ -7,6 +7,13 @@ import { ReactComponent as EventsOverview } from "../images/events_overview.svg"
 
 export function Events({ data }: { data: GatsbyTypes.EventFeedQuery }) {
   const events = getParentEventItems(data.events);
+
+  // filter past events
+  const now = new Date();
+  const futureEvents = events.filter((event) => {
+    return event.date > now;
+  });
+
   return (
     <Layout>
       <SEO
@@ -45,7 +52,7 @@ export function Events({ data }: { data: GatsbyTypes.EventFeedQuery }) {
       </section>
 
       <section className="container event-list my-8 md:my-10 lg:my-20">
-        <EventFeed eventFeedItemsProps={events} />
+        <EventFeed eventFeedItemsProps={futureEvents} />
       </section>
     </Layout>
   );
@@ -54,7 +61,7 @@ export const pageQuery = graphql`
   query EventFeed {
     events: allWpEvent(
       filter: { parentId: { eq: null } }
-      sort: { fields: eventInformations___startDate, order: DESC }
+      sort: { fields: eventInformations___startDate, order: ASC }
     ) {
       nodes {
         excerpt
