@@ -102,12 +102,7 @@ export const getParentEventItems = (
       event.eventCategories.nodes.map((category) => category.name)[0] ?? null,
     tags: event.tags.nodes.map((tag) => tag.name) ?? [],
   }));
-
-  // filter past events
-  const now = new Date();
-  return events.filter((event) => {
-    return event.date > now;
-  });
+  return events;
 };
 
 export const getOrganizationsData = (
