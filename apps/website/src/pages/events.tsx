@@ -54,7 +54,7 @@ export const pageQuery = graphql`
   query EventFeed {
     events: allWpEvent(
       filter: { parentId: { eq: null } }
-      sort: { fields: eventInformations___startDate, order: DESC }
+      sort: { fields: eventInformations___startDate, order: ASC }
     ) {
       nodes {
         excerpt
