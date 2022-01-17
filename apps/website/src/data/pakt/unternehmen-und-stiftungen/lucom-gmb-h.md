@@ -19,4 +19,4 @@ Die vielseitig integrierbare Lucom Technologie kann sowohl Geschäfts- als auch 
 - Vergabe von Praktikumsplätzen
 - Betreuung von Abschlussarbeiten
 
-[www.lucom.de](https://www.lucom.de/)
+[www.lucom.com](https://www.lucom.com/)
