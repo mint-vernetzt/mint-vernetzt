@@ -5,8 +5,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "serve-website": "cd ../.. && npm run serve-website",
-    "build-website": "cd ../.. && npm run build-website"
+    "start": "cd ../.. && npm run serve-website",
+    "build": "cd ../.. && npm run build-website"
   },
   "dependencies": {
     "gatsby": "*"
