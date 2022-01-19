@@ -21,6 +21,7 @@ export function Index({
   });
 
   const now = new Date();
+
   const events = data.events.nodes
     .map((event) => ({
       headline: event.title,
@@ -30,7 +31,8 @@ export function Index({
     }))
     .filter((event) => {
       return event.date > now;
-    });
+    })
+    .slice(0, 4);
 
   const linkWrapper = (url: string, children: React.ReactNode) => {
     return <Link to={url}>{children}</Link>;
@@ -230,7 +232,6 @@ export const pageQuery = graphql`
     events: allWpEvent(
       filter: { parentId: { eq: null } }
       sort: { fields: eventInformations___startDate, order: ASC }
-      limit: 4
     ) {
       nodes {
         excerpt
