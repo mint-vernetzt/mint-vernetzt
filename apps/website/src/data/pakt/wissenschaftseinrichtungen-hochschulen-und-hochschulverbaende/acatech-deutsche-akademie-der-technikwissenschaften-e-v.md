@@ -1,5 +1,5 @@
 ---
-name: "Acatech - Deutsche Akademie der Technikwissenschaften e.V."
+name: "acatech - Deutsche Akademie der Technikwissenschaften e.V."
 slug: "wissenschaftseinrichtungen-hochschulen-und-hochschulverbaende/acatech-deutsche-akademie-der-technikwissenschaften-e-v"
 logo: "../logos/acatech.png"
 category: "Wissenschaftseinrichtungen, Hochschulen und Hochschulverbände"
