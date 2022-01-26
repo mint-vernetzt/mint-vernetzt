@@ -2,24 +2,21 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-/* eslint-disable-next-line */
-export interface PrivacyProps {}
-
-export function Privacy({ data }) {
+export function PrivacyPolicy({ data }) {
   return (
     <Layout>
       <SEO
-        title={`${data.privacyPage.title}`}
-        slug={`${data.privacyPage.slug}`}
+        title={`${data.privacyPolicyPage.title}`}
+        slug={`${data.privacyPolicyPage.slug}`}
         children={""}
         image=""
         description=""
       />
       <section className="hero container my-8 md:my-10 lg:my-20">
-        <h1>{data.privacyPage.title}</h1>
+        <h1>{data.privacyPolicyPage.title}</h1>
         <div
           className="page-content"
-          dangerouslySetInnerHTML={{ __html: data.privacyPage.content }}
+          dangerouslySetInnerHTML={{ __html: data.privacyPolicyPage.content }}
         />
       </section>
     </Layout>
@@ -27,8 +24,8 @@ export function Privacy({ data }) {
 }
 
 export const pageQuery = graphql`
-  query PrivacyPage {
-    privacyPage: wpPage(slug: { eq: "privacy" }) {
+  query PrivacyPolicyPage {
+    privacyPolicyPage: wpPage(slug: { eq: "privacy-policy" }) {
       content
       title
       slug
@@ -36,4 +33,4 @@ export const pageQuery = graphql`
   }
 `;
 
-export default Privacy;
+export default PrivacyPolicy;
