@@ -64,7 +64,6 @@ export function NewsFeedItem({
         >
           {body}
         </p>
-        {/*
         <ul className="flex flex-wrap md:order-4">
           {tagsProps.map((tagProps, index) => {
             return (
@@ -73,7 +72,7 @@ export function NewsFeedItem({
               </li>
             );
           })}
-        </ul> */}
+        </ul>
       </div>
     </div>
   );
