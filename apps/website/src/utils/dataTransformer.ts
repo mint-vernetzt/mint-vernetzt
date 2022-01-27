@@ -66,7 +66,7 @@ export const getNewsItems = (
 ): NewsFeedItemProps[] => {
   return newsItems.nodes.map((newsItem) => {
     const tagsProps: TagProps[] = newsItem.tags.nodes.map((tag) => {
-      return { title: tag.name };
+      return { title: tag.name, slug: tag.slug };
     });
 
     let image;
