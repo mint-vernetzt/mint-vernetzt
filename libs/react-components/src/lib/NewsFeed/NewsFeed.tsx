@@ -1,12 +1,16 @@
 import React from "react";
 import { H2 } from "../Heading/Heading";
-import NewsFeedItem, { NewsFeedItemProps } from "./NewsFeedItem";
+import NewsFeedItem, {
+  NewsFeedItemProps,
+  TagClickHandler,
+} from "./NewsFeedItem";
 
 export interface NewsFeedProps {
   headline?: string | React.ReactNode;
   body?: string;
   linkToOverview?: string;
   newsFeedItemsProps?: NewsFeedItemProps[];
+  onTagClick?: TagClickHandler;
 }
 
 export function NewsFeed({
@@ -14,6 +18,7 @@ export function NewsFeed({
   body,
   linkToOverview,
   newsFeedItemsProps = [],
+  onTagClick,
 }: NewsFeedProps) {
   return (
     <div className="news-list">
@@ -38,6 +43,7 @@ export function NewsFeed({
           </p>
         ) : null}
       </header>
+
       <ul>
         {newsFeedItemsProps.map((newsFeedItemProps, index) => {
           return (
@@ -45,7 +51,7 @@ export function NewsFeed({
               key={`news-feed-item-${index}`}
               className="border-b border-neutral-400 last:border-b-0 pb-4 pt-6 first:pt-0 last:pb-0"
             >
-              <NewsFeedItem {...newsFeedItemProps} />
+              <NewsFeedItem {...newsFeedItemProps} onTagClick={onTagClick} />
             </li>
           );
         })}

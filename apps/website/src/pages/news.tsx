@@ -1,17 +1,47 @@
-import { H1, H2, NewsFeed } from "@mint-vernetzt/react-components";
+import {
+  H1,
+  H2,
+  NewsFeed,
+  TagClickHandler,
+} from "@mint-vernetzt/react-components";
 import { graphql } from "gatsby";
+import Img from "gatsby-image";
+import { useEffect, useState } from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { getNewsItems } from "../utils/dataTransformer";
-import Img from "gatsby-image";
+import { getQSParam, setQSParam } from "../utils/tagFilter";
 
 export function News({ data }) {
-  const newsItems = getNewsItems(data.allItems).map((item) => {
-    item.body = (
-      <span dangerouslySetInnerHTML={{ __html: item.body as string }} />
-    );
-    return item;
+  const [slugFilter, setSlugFilter] = useState<string>(() => getQSParam("q"));
+
+  useEffect(() => {
+    console.log("initial QS[q]:" + getQSParam("q"));
+    console.log("initial slugFilter:" + slugFilter);
   });
+
+  useEffect(() => {
+    console.log("changed" + slugFilter);
+  }, [slugFilter]);
+
+  const tagClickHandler: TagClickHandler = (slug) => {
+    setQSParam("q", slug);
+    setSlugFilter(slug);
+  };
+
+  const newsItems = getNewsItems(data.allItems)
+    .filter((item) => {
+      if (!slugFilter) {
+        return true;
+      }
+      return item.tagsProps.some((tag) => tag.slug === slugFilter);
+    })
+    .map((item) => {
+      item.body = (
+        <span dangerouslySetInnerHTML={{ __html: item.body as string }} />
+      );
+      return item;
+    });
 
   return (
     <Layout>
@@ -44,7 +74,12 @@ export function News({ data }) {
       </section>
       <section className="container my-8 md:my-10 lg:my-20">
         <H2>Neuigkeiten</H2>
-        <NewsFeed newsFeedItemsProps={newsItems} />
+
+        <NewsFeed
+          headline="Neuigkeiten"
+          newsFeedItemsProps={newsItems}
+          onTagClick={tagClickHandler}
+        />
       </section>
     </Layout>
   );
@@ -68,6 +103,7 @@ export const pageQuery = graphql`
         tags {
           nodes {
             name
+            slug
           }
         }
         featuredImage {

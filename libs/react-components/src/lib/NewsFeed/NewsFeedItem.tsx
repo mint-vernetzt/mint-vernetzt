@@ -1,10 +1,15 @@
+import { on } from "events";
 import React from "react";
 import { H4 } from "../Heading/Heading";
 import { Image } from "../types";
 import { formatDate } from "./utils";
 
+export type TagClickHandler = (slug: TagProps["slug"]) => void;
+
 export interface TagProps {
   title: string;
+  slug: string;
+  onTagClick?: TagClickHandler;
 }
 
 export interface NewsFeedItemProps {
@@ -13,12 +18,19 @@ export interface NewsFeedItemProps {
   date: Date;
   slug: string;
   tagsProps?: TagProps[];
+  onTagClick?: TagClickHandler;
   image?: Image;
 }
 
-function Tag({ title }: TagProps) {
+function Tag({ title, slug, onTagClick }: TagProps) {
+  let tagHandlerIsCallable = typeof onTagClick;
   return (
-    <div className="mr-2 mb-2 px-3 py-2 rounded-lg bg-secondary-300 text-neutral-800 text-sm text-bold">
+    <div
+      className={`mr-2 mb-2 px-3 py-2 rounded-lg bg-secondary-300 text-neutral-800 text-sm text-bold ${
+        tagHandlerIsCallable ? "cursor-pointer" : ""
+      }`}
+      onClick={() => tagHandlerIsCallable && onTagClick && onTagClick(slug)}
+    >
       {title}
     </div>
   );
@@ -31,6 +43,7 @@ export function NewsFeedItem({
   slug,
   tagsProps = [],
   image,
+  onTagClick,
 }: NewsFeedItemProps) {
   const formattedDate = formatDate(date);
 
@@ -68,7 +81,7 @@ export function NewsFeedItem({
           {tagsProps.map((tagProps, index) => {
             return (
               <li key={`tag-${index}`}>
-                <Tag {...tagProps} />
+                <Tag {...tagProps} onTagClick={onTagClick} />
               </li>
             );
           })}
