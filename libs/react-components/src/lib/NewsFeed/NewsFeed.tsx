@@ -1,18 +1,18 @@
-import { TagFilter } from "@mint-vernetzt/react-components";
-import { TagProps } from "@mint-vernetzt/react-components";
+import {
+  TagClickHandler,
+  TagFilter,
+  TagProps,
+} from "@mint-vernetzt/react-components";
 import React from "react";
 import { H2 } from "../Heading/Heading";
-import NewsFeedItem, {
-  NewsFeedItemProps,
-  TagClickHandler,
-} from "./NewsFeedItem";
+import NewsFeedItem, { NewsFeedItemProps } from "./NewsFeedItem";
 
 export interface NewsFeedProps {
   headline?: string | React.ReactNode;
   body?: string;
   linkToOverview?: string;
   newsFeedItemsProps?: NewsFeedItemProps[];
-  filterTags: TagProps[];
+  filterTags?: TagProps[];
   onTagClick?: TagClickHandler;
   onFilterClick?: TagClickHandler;
 }
