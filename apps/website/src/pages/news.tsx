@@ -1,47 +1,82 @@
 import {
+  filterProviderQS,
   H1,
   H2,
   NewsFeed,
+  setQSParam,
   TagClickHandler,
+  tagFilterReducer,
+  TagProps,
 } from "@mint-vernetzt/react-components";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useRef } from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { getNewsItems } from "../utils/dataTransformer";
-import { getQSParam, setQSParam } from "../utils/tagFilter";
 
-export function News({ data }) {
-  const [slugFilter, setSlugFilter] = useState<string>(() => getQSParam("q"));
+export const TAGS_QS_PARAM = "tags";
+
+export function News({ data }: { data: GatsbyTypes.NewsFeedQuery }) {
+  const [filterTags, dispatch] = useReducer(
+    tagFilterReducer,
+    filterProviderQS(TAGS_QS_PARAM) ?? []
+  );
+  let headlineRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
-    console.log("initial QS[q]:" + getQSParam("q"));
-    console.log("initial slugFilter:" + slugFilter);
-  });
+    setQSParam(TAGS_QS_PARAM, filterTags);
+  }, [filterTags]);
 
-  useEffect(() => {
-    console.log("changed" + slugFilter);
-  }, [slugFilter]);
+  let allNewsItems = getNewsItems(data.allItems);
 
-  const tagClickHandler: TagClickHandler = (slug) => {
-    setQSParam("q", slug);
-    setSlugFilter(slug);
+  let allowedTags: TagProps[] = [
+    ...new Map(
+      allNewsItems
+        .map((item) => item.tagsProps.map((tag) => tag))
+        .reduce((acc, cur) => acc.concat(cur))
+        .map((item) => [item.slug, item])
+    ).values(),
+  ];
+
+  let allowedTagSlugs = allowedTags.map((tag) => tag.slug);
+
+  let tagClickHandler: TagClickHandler = (slug) => {
+    if (
+      allowedTagSlugs.indexOf(slug) !== -1 &&
+      filterTags.indexOf(slug) === -1
+    ) {
+      dispatch({ slug, type: "ADD" });
+
+      if (headlineRef.current) {
+        headlineRef.current.scrollIntoView({
+          block: "end",
+          behavior: "smooth",
+        });
+      }
+    }
   };
 
-  const newsItems = getNewsItems(data.allItems)
-    .filter((item) => {
-      if (!slugFilter) {
-        return true;
-      }
-      return item.tagsProps.some((tag) => tag.slug === slugFilter);
-    })
-    .map((item) => {
-      item.body = (
-        <span dangerouslySetInnerHTML={{ __html: item.body as string }} />
-      );
-      return item;
-    });
+  let filterClickHandler: TagClickHandler = (slug) => {
+    if (allowedTagSlugs.indexOf(slug) !== -1) {
+      dispatch({ slug, type: "REMOVE" });
+    }
+  };
+
+  const newsItems = (
+    filterTags.length === 0
+      ? allNewsItems
+      : allNewsItems.filter((item) => {
+          return item.tagsProps.some(
+            (tag) => allowedTagSlugs.indexOf(tag.slug) !== -1
+          );
+        })
+  ).map((item) => {
+    item.body = (
+      <span dangerouslySetInnerHTML={{ __html: item.body as string }} />
+    );
+    return item;
+  });
 
   return (
     <Layout>
@@ -62,7 +97,7 @@ export function News({ data }) {
 
           <div className="hero-text absolute top-0 left-0 h-full right-0 pt-12 px-4 md:px-12 md:flex md:items-center lg:px-20">
             <div className="md:flex-100">
-              <H1 like="h0">
+              <H1 like="h0" ref={headlineRef}>
                 MINT<span className="font-normal">news</span>
               </H1>
               <p className="font-bold md:max-w-1/2 lg:text-3xl lg:leading-snug">
@@ -76,9 +111,12 @@ export function News({ data }) {
         <H2>Neuigkeiten</H2>
 
         <NewsFeed
-          headline="Neuigkeiten"
           newsFeedItemsProps={newsItems}
+          filterTags={allowedTags.filter(
+            (tag) => filterTags.indexOf(tag.slug) !== -1
+          )}
           onTagClick={tagClickHandler}
+          onFilterClick={filterClickHandler}
         />
       </section>
     </Layout>

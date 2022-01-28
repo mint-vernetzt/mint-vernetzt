@@ -1,4 +1,7 @@
 export * from "./lib/Heading/Heading";
+export * from "./lib/Tag/Tag";
+export * from "./lib/TagFilter/TagFilter";
+export * from "./lib/TagFilter/utils";
 export * from "./lib/Icon/Icon";
 export * from "./lib/EventTeaser/EventTeaser";
 export * from "./lib/ContactCard/ContactCard";

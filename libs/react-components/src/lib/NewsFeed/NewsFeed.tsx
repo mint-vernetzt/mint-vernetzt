@@ -1,3 +1,5 @@
+import { TagFilter } from "@mint-vernetzt/react-components";
+import { TagProps } from "@mint-vernetzt/react-components";
 import React from "react";
 import { H2 } from "../Heading/Heading";
 import NewsFeedItem, {
@@ -10,7 +12,9 @@ export interface NewsFeedProps {
   body?: string;
   linkToOverview?: string;
   newsFeedItemsProps?: NewsFeedItemProps[];
+  filterTags: TagProps[];
   onTagClick?: TagClickHandler;
+  onFilterClick?: TagClickHandler;
 }
 
 export function NewsFeed({
@@ -18,7 +22,9 @@ export function NewsFeed({
   body,
   linkToOverview,
   newsFeedItemsProps = [],
+  filterTags = [],
   onTagClick,
+  onFilterClick,
 }: NewsFeedProps) {
   return (
     <div className="news-list">
@@ -43,6 +49,8 @@ export function NewsFeed({
           </p>
         ) : null}
       </header>
+
+      <TagFilter tags={filterTags} handleTagClick={onFilterClick} />
 
       <ul>
         {newsFeedItemsProps.map((newsFeedItemProps, index) => {
