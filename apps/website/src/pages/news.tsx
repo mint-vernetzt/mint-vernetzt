@@ -1,83 +1,43 @@
-import {
-  filterProviderQS,
-  H1,
-  H2,
-  NewsFeed,
-  setQSParam,
-  TagClickHandler,
-  tagFilterReducer,
-  TagProps,
-} from "@mint-vernetzt/react-components";
+import { H1, H2, NewsFeed } from "@mint-vernetzt/react-components";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
-import { useEffect, useReducer, useRef } from "react";
+import { useRef } from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import { useTagFilter } from "../hooks/useTagFilter";
 import { getNewsItems } from "../utils/dataTransformer";
-
-export const TAGS_QS_PARAM = "tags";
+import { getAllowedTags } from "../utils/tagUtils";
 
 export function News({ data }: { data: GatsbyTypes.NewsFeedQuery }) {
-  const [filterTags, dispatch] = useReducer(
-    tagFilterReducer,
-    filterProviderQS(TAGS_QS_PARAM) ?? []
-  );
-  let headlineRef = useRef<HTMLHeadingElement>(null);
+  let [filterTags, filterClickHandler, tagClickHandler] = useTagFilter("tags");
+  let scrollToRef = useRef<HTMLHeadingElement>(null);
 
-  useEffect(() => {
-    setQSParam(TAGS_QS_PARAM, filterTags);
-  }, [filterTags]);
-
-  let allNewsItems = getNewsItems(data.allItems);
-
-  let allowedTags: TagProps[] = [
-    ...new Map(
-      allNewsItems
-        .map((item) => item.tagsProps.map((tag) => tag))
-        .reduce((acc, cur) => acc.concat(cur))
-        .map((item) => [item.slug, item])
-    ).values(),
-  ];
-
-  let allowedTagSlugs = allowedTags.map((tag) => tag.slug);
-
-  let tagClickHandler: TagClickHandler = (slug) => {
-    if (
-      allowedTagSlugs.indexOf(slug) !== -1 &&
-      filterTags.indexOf(slug) === -1
-    ) {
-      dispatch({ slug, type: "ADD" });
-
-      if (headlineRef.current) {
-        headlineRef.current.scrollIntoView({
-          block: "end",
-          behavior: "smooth",
-        });
-      }
-    }
-  };
-
-  let filterClickHandler: TagClickHandler = (slug) => {
-    if (allowedTagSlugs.indexOf(slug) !== -1) {
-      dispatch({ slug, type: "REMOVE" });
-    }
-  };
-
-  const newsItems = (
-    filterTags.length === 0
-      ? allNewsItems
-      : allNewsItems.filter((item) => {
-          return item.tagsProps.some(
-            (tag) => allowedTagSlugs.indexOf(tag.slug) !== -1
-          );
-        })
-  ).map((item) => {
+  let allNewsItems = getNewsItems(data.allItems).map((item) => {
     item.body = (
       <span dangerouslySetInnerHTML={{ __html: item.body as string }} />
     );
     return item;
   });
 
+  let allowedTags = getAllowedTags(
+    allNewsItems.map((item) => item.tagsProps.map((tag) => tag))
+  );
+  let allowedTagSlugs = allowedTags.map((tag) => tag.slug);
+
+  const newsItems =
+    filterTags.length === 0
+      ? allNewsItems
+      : allNewsItems.filter((item) => {
+          return item.tagsProps.some(
+            (tag) => filterTags.indexOf(tag.slug) !== -1
+          );
+        });
+  let afterTagClick = () => {
+    scrollToRef.current.scrollIntoView({
+      block: "start",
+      behavior: "smooth",
+    });
+  };
   return (
     <Layout>
       <SEO
@@ -97,7 +57,7 @@ export function News({ data }: { data: GatsbyTypes.NewsFeedQuery }) {
 
           <div className="hero-text absolute top-0 left-0 h-full right-0 pt-12 px-4 md:px-12 md:flex md:items-center lg:px-20">
             <div className="md:flex-100">
-              <H1 like="h0" ref={headlineRef}>
+              <H1 like="h0" ref={scrollToRef}>
                 MINT<span className="font-normal">news</span>
               </H1>
               <p className="font-bold md:max-w-1/2 lg:text-3xl lg:leading-snug">
@@ -115,8 +75,10 @@ export function News({ data }: { data: GatsbyTypes.NewsFeedQuery }) {
           filterTags={allowedTags.filter(
             (tag) => filterTags.indexOf(tag.slug) !== -1
           )}
-          onTagClick={tagClickHandler}
-          onFilterClick={filterClickHandler}
+          onTagClick={(slug) => {
+            tagClickHandler(slug, allowedTagSlugs, afterTagClick);
+          }}
+          onFilterClick={(slug) => filterClickHandler(slug, allowedTagSlugs)}
         />
       </section>
     </Layout>

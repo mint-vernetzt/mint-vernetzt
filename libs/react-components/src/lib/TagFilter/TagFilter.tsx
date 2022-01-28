@@ -19,7 +19,7 @@ export function TagFilter({ tags, handleTagClick }: TagFilterProps) {
       <strong className="mr-2 p-2">Tag-Filter:</strong>
       <ul className="flex flex-wrap md:order-4">
         {tags.map((tagProps) => (
-          <li>
+          <li key={tagProps.slug}>
             <Tag {...tagProps} onTagClick={handleTagClick} />
           </li>
         ))}

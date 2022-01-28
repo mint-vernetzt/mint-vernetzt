@@ -1,11 +1,17 @@
 import * as React from "react";
+
+import { TagClickHandler, TagProps } from "@mint-vernetzt/react-components";
 import { EventFeedItem, EventFeedItemProps } from "./EventFeedItem";
 
 export interface EventFeedProps {
   eventFeedItemsProps?: EventFeedItemProps[];
+  onTagClick?: TagClickHandler;
 }
 
-export function EventFeed({ eventFeedItemsProps = [] }: EventFeedProps) {
+export function EventFeed({
+  eventFeedItemsProps = [],
+  onTagClick,
+}: EventFeedProps) {
   return (
     <>
       <section>
@@ -17,7 +23,10 @@ export function EventFeed({ eventFeedItemsProps = [] }: EventFeedProps) {
                 className="event-item"
                 data-testid="event-item"
               >
-                <EventFeedItem {...eventFeedItemProps} />
+                <EventFeedItem
+                  {...eventFeedItemProps}
+                  onTagClick={onTagClick}
+                />
               </li>
             );
           })}

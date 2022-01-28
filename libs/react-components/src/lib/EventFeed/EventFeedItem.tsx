@@ -1,6 +1,7 @@
 import * as React from "react";
 import { H4 } from "../Heading/Heading";
 import { Icon, IconType } from "../Icon/Icon";
+import Tag, { TagClickHandler, TagProps } from "../Tag/Tag";
 import { formatDate } from "./utils";
 
 export interface EventFeedItemProps {
@@ -9,7 +10,8 @@ export interface EventFeedItemProps {
   slug: string;
   date: Date;
   category: string;
-  tags: string[];
+  tags: TagProps[];
+  onTagClick?: TagClickHandler;
 }
 
 export function EventFeedItem({
@@ -19,6 +21,7 @@ export function EventFeedItem({
   date,
   category,
   tags = [],
+  onTagClick,
 }: EventFeedItemProps) {
   const formattedDate = formatDate(date);
 
@@ -66,10 +69,8 @@ export function EventFeedItem({
       <p data-testid="body">{body}</p>
       <ul className="flex flex-wrap md:order-4">
         {tags.map((tag, index) => (
-          <li key={`event-taglist-${index}-${tag}`}>
-            <div className="mr-2 mb-2 px-3 py-2 rounded-lg bg-secondary-300 text-neutral-800 text-sm text-bold">
-              {tag}
-            </div>
+          <li key={`event-taglist-${index}-${tag.slug}`}>
+            <Tag title={tag.title} slug={tag.slug} onTagClick={onTagClick} />
           </li>
         ))}
       </ul>

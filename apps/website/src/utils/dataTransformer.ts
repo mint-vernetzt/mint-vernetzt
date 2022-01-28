@@ -100,7 +100,9 @@ export const getParentEventItems = (
     date: new Date(event.eventInformations.startDate),
     category:
       event.eventCategories.nodes.map((category) => category.name)[0] ?? null,
-    tags: event.tags.nodes.map((tag) => tag.name) ?? [],
+    tags:
+      event.tags.nodes.map((tag) => ({ slug: tag.slug, title: tag.name })) ??
+      [],
   }));
   return events;
 };
