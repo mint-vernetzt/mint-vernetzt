@@ -13,7 +13,12 @@ export function Index({
 }: {
   data: GatsbyTypes.LandingPageQuery;
 }) {
-  const newsItems = getNewsItems(data.newsItems);
+  const newsItems = getNewsItems(data.newsItems).map((item) => {
+    item.body = (
+      <span dangerouslySetInnerHTML={{ __html: item.body as string }} />
+    );
+    return item;
+  });
   const organisations = getOrganizationsData(data.organizationsData);
 
   const caseInsensitiveSortedOrganization = organisations.sort((a, b) => {
@@ -25,7 +30,13 @@ export function Index({
   const events = data.events.nodes
     .map((event) => ({
       headline: event.title,
-      body: event.excerpt.replace(/<[^>]*>/g, "").substr(0, 150),
+      body: (
+        <span
+          dangerouslySetInnerHTML={{
+            __html: event.excerpt.replace(/<[^>]*>/g, "").substr(0, 150),
+          }}
+        />
+      ),
       date: new Date(event.eventInformations.startDate),
       url: `/event/${event.slug}/`,
     }))

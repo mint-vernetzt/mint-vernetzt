@@ -4,7 +4,7 @@ import { formatDate } from "./utils";
 
 export interface EventFeedItemProps {
   headline: string;
-  body: string;
+  body: string | Element | React.ReactElement;
   slug: string;
   date: Date;
   category: string;

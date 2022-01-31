@@ -8,7 +8,7 @@ export interface TagProps {
 
 export interface NewsFeedItemProps {
   headline: string;
-  body: string;
+  body: string | Element | React.ReactElement;
   date: Date;
   slug: string;
   tagsProps?: TagProps[];

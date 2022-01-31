@@ -6,7 +6,12 @@ import { getNewsItems } from "../utils/dataTransformer";
 import Img from "gatsby-image";
 
 export function News({ data }) {
-  const newsItems = getNewsItems(data.allItems);
+  const newsItems = getNewsItems(data.allItems).map((item) => {
+    item.body = (
+      <span dangerouslySetInnerHTML={{ __html: item.body as string }} />
+    );
+    return item;
+  });
 
   return (
     <Layout>
