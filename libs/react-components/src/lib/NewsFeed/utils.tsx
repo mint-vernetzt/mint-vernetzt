@@ -1,5 +1,6 @@
+import { TagProps } from "@mint-vernetzt/react-components";
 import faker from "faker";
-import { NewsFeedItemProps, TagProps } from "./NewsFeedItem";
+import { NewsFeedItemProps } from "./NewsFeedItem";
 
 export function formatDate(date: Date): string {
   const formatted = date.toLocaleDateString("de-DE", {
@@ -12,7 +13,8 @@ export function formatDate(date: Date): string {
 
 export function getTag(): TagProps {
   const title = faker.lorem.word();
-  return { title };
+  const slug = faker.lorem.slug();
+  return { title, slug };
 }
 
 export interface GetNewsFeedItemPropsOptions {

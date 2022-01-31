@@ -43,6 +43,7 @@ export function NewsFeed({
             )}
           </H2>
         ) : null}
+
         {body !== undefined ? (
           <p data-testid="body" className="lead">
             {body}

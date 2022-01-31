@@ -4,7 +4,7 @@ import TagFilter from "./TagFilter";
 
 describe("TagFilter", () => {
   it("should render successfully", () => {
-    const { baseElement } = render(<TagFilter />);
+    const { baseElement } = render(<TagFilter tags={[]} />);
     expect(baseElement).toBeTruthy();
   });
 });

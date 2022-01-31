@@ -209,9 +209,11 @@ test("transform event items", () => {
           nodes: [
             {
               name: "Allgemein",
+              slug: "Allgemein",
             },
             {
               name: "Hackathon",
+              slug: "Hackathon",
             },
           ],
         },
@@ -230,7 +232,10 @@ test("transform event items", () => {
       slug: "/event/parent-event",
       date: new Date("2021-11-08"),
       category: "Digitale Veranstaltung",
-      tags: ["Allgemein", "Hackathon"],
+      tags: [
+        { title: "Allgemein", slug: "Allgemein" },
+        { title: "Hackathon", slug: "Hackathon" },
+      ],
     },
   ]);
 });
@@ -259,6 +264,7 @@ test("transform news items", () => {
           nodes: [
             {
               name: tagName,
+              slug: tagName,
             },
           ],
         },
