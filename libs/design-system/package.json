@@ -1,4 +1,8 @@
 {
   "name": "@mint-vernetzt/design-system",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "scripts": {
+    "start": "cd ../.. && npm run serve-design-system",
+    "build": "cd ../.. && npm run build-design-system"
+  }
 }
