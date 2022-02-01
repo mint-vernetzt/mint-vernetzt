@@ -22,7 +22,9 @@ function ColorItem(props: ColorItemProps) {
         <span className="block font-bold text-sm">
           {props.name || props.color}
         </span>
-        <span className="text-sm">{colors[props.color]}</span>
+        <span className="text-sm">
+          {(colors as { [index: string]: string })[props.color]}
+        </span>
       </div>
     </div>
   );
