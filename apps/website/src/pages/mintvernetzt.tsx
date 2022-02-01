@@ -180,7 +180,10 @@ export function Mintvernetzt({
             </div>
           </div>
 
-          <div className="flex-100 md:flex-1/2 md:px-4 lg:px-20">
+          <div
+            id="newsletter"
+            className="flex-100 md:flex-1/2 md:px-4 lg:px-20"
+          >
             <Img
               fluid={data.NewsletterImage.childImageSharp.fluid}
               className="w-full h-auto rounded-2xl shadow-md mb-6"

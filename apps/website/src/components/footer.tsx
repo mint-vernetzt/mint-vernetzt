@@ -46,6 +46,10 @@ export function Footer() {
                   title: `Datenschutz`,
                 },
                 {
+                  route: `/mintvernetzt/#newsletter`,
+                  title: `Newsletter`,
+                },
+                {
                   route: `/about/#contact-details`,
                   title: `Kontakt`,
                 },
