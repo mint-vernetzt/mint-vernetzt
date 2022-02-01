@@ -6,7 +6,12 @@ import { getParentEventItems } from "../utils/dataTransformer";
 import { ReactComponent as EventsOverview } from "../images/events_overview.svg";
 
 export function Events({ data }: { data: GatsbyTypes.EventFeedQuery }) {
-  const events = getParentEventItems(data.events);
+  const events = getParentEventItems(data.events).map((item) => {
+    item.body = (
+      <span dangerouslySetInnerHTML={{ __html: item.body as string }} />
+    );
+    return item;
+  });
 
   // filter past events
   const now = new Date();
