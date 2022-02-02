@@ -2,35 +2,39 @@ import React from "react";
 
 export interface HeadingProps {
   children: string | React.ReactNode;
+  as?: string;
 }
 
-export function Heading(props: HeadingProps) {
-  const { children } = props;
-
-  return (
-    <div>
-      <h2>{children}</h2>
-    </div>
-  );
+function getElement(props) {
+  const { as, ...otherProps } = props;
+  const element = React.createElement(as, otherProps);
+  return element;
 }
 
 export function H1(props: HeadingProps) {
-  return <h1>{props.children}</h1>;
+  const { children, as = "h1" } = props;
+  return getElement({ as, children });
 }
+
 export function H2(props: HeadingProps) {
-  return <h2>{props.children}</h2>;
+  const { children, as = "h2" } = props;
+  return getElement({ as, children });
 }
 export function H3(props: HeadingProps) {
-  return <h3>{props.children}</h3>;
+  const { children, as = "h3" } = props;
+  return getElement({ as, children });
 }
 export function H4(props: HeadingProps) {
-  return <h4>{props.children}</h4>;
+  const { children, as = "h4" } = props;
+  return getElement({ as, children });
 }
 export function H5(props: HeadingProps) {
-  return <h5>{props.children}</h5>;
+  const { children, as = "h5" } = props;
+  return getElement({ as, children });
 }
 export function H6(props: HeadingProps) {
-  return <h6>{props.children}</h6>;
+  const { children, as = "h6" } = props;
+  return getElement({ as, children });
 }
 
 export default {
