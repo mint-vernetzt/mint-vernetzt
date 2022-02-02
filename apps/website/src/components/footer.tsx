@@ -54,7 +54,10 @@ export function Footer() {
                   title: `Kontakt`,
                 },
               ].map((link, index) => (
-                <li key={`nav-item-${index}`} className="pb-4 md:pb-0 md:pr-8">
+                <li
+                  key={`nav-item-${index}`}
+                  className="pb-4 md:pb-0 md:pr-4 xl:pr-8"
+                >
                   <Link className="block" key={link.title} to={link.route}>
                     {link.title}
                   </Link>
