@@ -1,4 +1,8 @@
 {
   "name": "@mint-vernetzt/react-components",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "scripts": {
+    "test": "nx test react-components",
+    "test:watch": "npm test -- --watch"
+  }
 }
