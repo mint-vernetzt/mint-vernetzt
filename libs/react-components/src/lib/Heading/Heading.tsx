@@ -5,36 +5,40 @@ export interface HeadingProps {
   as?: string;
 }
 
-function getElement(props) {
+function getElement(props: {
+  children: string | React.ReactNode;
+  as: string;
+  [index: string]: any;
+}) {
   const { as, ...otherProps } = props;
   const element = React.createElement(as, otherProps);
   return element;
 }
 
 export function H1(props: HeadingProps) {
-  const { children, as = "h1" } = props;
-  return getElement({ as, children });
+  const { as = "h1", ...otherProps } = props;
+  return getElement({ as, ...otherProps });
 }
 
 export function H2(props: HeadingProps) {
-  const { children, as = "h2" } = props;
-  return getElement({ as, children });
+  const { as = "h2", ...otherProps } = props;
+  return getElement({ as, ...otherProps });
 }
 export function H3(props: HeadingProps) {
-  const { children, as = "h3" } = props;
-  return getElement({ as, children });
+  const { as = "h3", ...otherProps } = props;
+  return getElement({ as, ...otherProps });
 }
 export function H4(props: HeadingProps) {
-  const { children, as = "h4" } = props;
-  return getElement({ as, children });
+  const { as = "h4", ...otherProps } = props;
+  return getElement({ as, ...otherProps });
 }
 export function H5(props: HeadingProps) {
-  const { children, as = "h5" } = props;
-  return getElement({ as, children });
+  const { as = "h5", ...otherProps } = props;
+  return getElement({ as, ...otherProps });
 }
 export function H6(props: HeadingProps) {
-  const { children, as = "h6" } = props;
-  return getElement({ as, children });
+  const { as = "h6", ...otherProps } = props;
+  return getElement({ as, ...otherProps });
 }
 
 export default {
