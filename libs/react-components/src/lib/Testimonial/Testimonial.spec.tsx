@@ -16,7 +16,7 @@ describe("Testimonial", () => {
       />
     );
 
-    expect(screen.getByTestId("name").textContent).toBe(CITE_NAME);
+    expect(screen.getByRole("heading").textContent).toBe(CITE_NAME);
     expect(screen.getByTestId("jobTitle").textContent).toBe(CITE_TITLE);
     expect(screen.getByTestId("description").textContent).toBe(
       CITE_description
