@@ -5,7 +5,7 @@ import { getEventFeedItemProps } from "./utils";
 
 export default {
   component: EventFeed,
-  title: "Components/Event",
+  title: "Components/EventFeed",
 } as Meta;
 
 export const Item: Story<EventFeedItemProps> = (args) => (

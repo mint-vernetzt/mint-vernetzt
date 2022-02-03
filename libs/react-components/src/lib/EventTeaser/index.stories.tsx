@@ -4,7 +4,7 @@ import EventTeaser, { EventTeaserProps } from "./EventTeaser";
 
 export default {
   component: EventTeaser,
-  title: "Components/Event",
+  title: "Components/EventTeaser",
 } as Meta;
 
 export const EventTeaserStory: Story<EventTeaserProps> = (args) => (
