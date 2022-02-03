@@ -53,17 +53,18 @@ const extendedColors = {
 };
 
 const fontSizes = {
-  xs: "0.75rem",
-  sm: "0.875rem",
-  base: "1rem",
-  lg: "1.125rem",
-  xl: "1.1875rem",
-  "2xl": "1.25rem",
-  "3xl": "1.5rem",
-  "4xl": "2rem",
-  "5xl": "2.5rem",
-  "6xl": "4rem",
-  "7xl": "6rem",
+  xs: "0.75rem", // 12px
+  sm: "0.875rem", // 14px
+  base: "1rem", // 16px
+  lg: "1.125rem", // 18px
+  xl: "1.25rem", // 20px
+  "2xl": "1.375rem", // 22px
+  "3xl": "1.5rem", // 24px
+  "4xl": "1.625rem", // 26px
+  "5xl": "2rem", // 32px
+  "6xl": "2.5rem", // 40px
+  "7xl": "3rem", // 48px
+  "8xl": "4.5rem", // 72px
 };
 
 module.exports = {
