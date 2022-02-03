@@ -1,5 +1,4 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
-const plugin = require("tailwindcss/plugin");
 const lineClamp = require("@tailwindcss/line-clamp");
 const { colors, fontSizes } = require("./src/theme");
 
@@ -17,12 +16,16 @@ Object.keys(colors).forEach((color) => {
     `focus:border-${color}`,
   ]);
 });
+let fontSizeSafelist = [];
+Object.keys(fontSizes).forEach((fontsize) => {
+  fontSizeSafelist = fontSizeSafelist.concat([`text-${fontsize}`]);
+});
 
 module.exports = {
   mode: "jit",
   purge: {
     content: ["../**/*.ts", "../**/*.tsx", "../../apps/website/**/*.tsx"],
-    safelist: [...colorSafelist],
+    safelist: [...colorSafelist, ...fontSizeSafelist],
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
