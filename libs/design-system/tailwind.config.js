@@ -19,6 +19,7 @@ Object.keys(colors).forEach((color) => {
 });
 
 module.exports = {
+  mode: "jit",
   purge: {
     content: ["../**/*.ts", "../**/*.tsx", "../../apps/website/**/*.tsx"],
     safelist: [...colorSafelist],
