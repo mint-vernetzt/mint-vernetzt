@@ -1,7 +1,12 @@
 import { graphql, Link } from "gatsby";
 import React from "react";
 import Img from "gatsby-image";
-import { formatDate, Icon, IconType } from "@mint-vernetzt/react-components";
+import {
+  formatDate,
+  H1,
+  Icon,
+  IconType,
+} from "@mint-vernetzt/react-components";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
@@ -51,9 +56,7 @@ function News({ data }) {
           <div className="mb-2 md:mb-0 md:mr-2 md:py-2 md:pr-3 font-semibold text-neutral-800 text-xs flex-100 md:flex-none md:order-2">
             {formatDate(new Date(props.date))}
           </div>
-          <h1 className="flex-100 md:order-1 text-5xl lg:text-7xl leading-tight lg:leading-none mb-2">
-            {props.title}
-          </h1>
+          <H1 like="h0">{props.title}</H1>
           {/* <ul className="flex flex-wrap md:order-3">
             {props.tags.nodes.map((tag, index) => {
               return (

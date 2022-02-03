@@ -5,6 +5,9 @@ import {
   ContactCard,
   EventNavigation,
   formatDate,
+  H1,
+  H2,
+  H3,
   Icon,
   IconType,
 } from "@mint-vernetzt/react-components";
@@ -65,13 +68,9 @@ function EventHeader(event: GatsbyTypes.EventQuery["event"]) {
       </div>
 
       {event.parent ? (
-        <h2 className="flex-100 md:order-1 text-5xl lg:text-7xl leading-tight lg:leading-none mb-2 lg:mb-8">
-          {parentEvent.title}
-        </h2>
+        <H2 like="h1">{parentEvent.title}</H2>
       ) : (
-        <h1 className="flex-100 md:order-1 text-5xl lg:text-7xl leading-tight lg:leading-none mb-2 lg:mb-8">
-          {parentEvent.title}
-        </h1>
+        <H1 like="h0">{parentEvent.title}</H1>
       )}
 
       {parentEvent.tags && (
@@ -143,9 +142,7 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
 
         <div className="flex flex-wrap mt-6 md:mt-8 lg:mt-10 mb-8 md:-mx-2 lg:-mx-6 ">
           <div className="flex-100 md:flex-2/3 pb-8 md:pb-0 md:px-2 lg:px-6">
-            {event.parent && (
-              <h1 className="text-4xl leading-snug mb-2">{event.title}</h1>
-            )}
+            {event.parent && <H1 like="h0">{event.title}</H1>}
             <div
               className="event-description"
               dangerouslySetInnerHTML={{
@@ -177,14 +174,14 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
                           new Date(childEvent.eventInformations.startDate)
                         )}
                       </time>
-                      <h4 className="text-3xl leading-snug mb-2 flex-100 md:order-1">
+                      <H3>
                         <Link
                           to={`/event/${childEvent.slug}`}
                           className="cursor-pointer hover:underline"
                         >
                           {childEvent.title}
                         </Link>
-                      </h4>
+                      </H3>
                       <p
                         data-testid="body"
                         className="line-clamp-5 mb-4 md:line-clamp-none flex-100 md:order-2"

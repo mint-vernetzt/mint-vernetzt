@@ -1,4 +1,4 @@
-import { EventFeed } from "@mint-vernetzt/react-components";
+import { EventFeed, H1 } from "@mint-vernetzt/react-components";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -36,9 +36,9 @@ export function Events({ data }: { data: GatsbyTypes.EventFeedQuery }) {
           </div>
 
           <div className="flex-100 md:flex-2/3 md:px-6 lg:px-10 md:order-1">
-            <h1 className="text-5xl leading-tight lg:text-7xl lg:leading-none text-blue-500 mb-2">
+            <H1 like="h0">
               MINT<span className="font-normal">events</span>
-            </h1>
+            </H1>
 
             <p className="lg:text-3xl lg:leading-snug text-neutral-600 mb-4 font-bold">
               Gemeinsam die bunte Vielfalt der MINT-Bildungswelt zeigen.{" "}

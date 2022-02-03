@@ -3,7 +3,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Img from "gatsby-image";
 import { ReactComponent as Header } from "../images/mintcommunity_header.svg";
-import { ContactCard } from "@mint-vernetzt/react-components";
+import { ContactCard, H1, H2, H3 } from "@mint-vernetzt/react-components";
 
 export function Mintcommunity({
   data,
@@ -33,9 +33,9 @@ export function Mintcommunity({
             */}
           </div>
           <div className="flex-100 md:flex-7/12 md:px-4">
-            <h1 className="text-5xl leading-tight lg:text-7xl lg:leading-none mb-2 lg:mb-4">
+            <H1 like="h0">
               Werde Teil der MINT<span className="font-normal">community</span>
-            </h1>
+            </H1>
 
             <p className="lg:text-xl">
               Die bundesweite MINT-Community lebt davon, sich auszutauschen,
@@ -85,9 +85,7 @@ export function Mintcommunity({
             </div>
           </div>
           <div className="flex-100 md:flex-1/2 lg:flex-7/12 md:px-4 md:self-center md:order-1">
-            <h3 className="text-5xl leading-tight lg:leading-none mb-2 lg:mb-4">
-              Partizipation als Schlüssel für eine starke MINT-Community
-            </h3>
+            <H2>Partizipation als Schlüssel für eine starke MINT-Community</H2>
 
             <p className="lg:text-xl mb-8 lg:mb-16">
               Damit die Features des Community-Bereichs genau da ansetzen, wo
@@ -99,10 +97,10 @@ export function Mintcommunity({
               und in die Entwicklung eingebunden werden.
             </p>
 
-            <h4 className="text-3xl leading-tight mb-4">
+            <H3 like="h4">
               Ihr seid MINT-Akteur:in oder Programmierer:in und möchtet die
               Plattform aktiv mitgestalten?
-            </h4>
+            </H3>
 
             <div className="lg:-mx-8 pb-6">
               <ContactCard
@@ -124,9 +122,7 @@ export function Mintcommunity({
       <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap md:-mx-4">
           <div className="flex-100 md:flex-1/2 lg:flex-7/12 md:px-4 md:self-center md:order-1">
-            <h3 className="text-5xl leading-tight lg:leading-none mb-2 lg:mb-4">
-              MINTvernetzt Ausblick
-            </h3>
+            <H2>MINTvernetzt Ausblick</H2>
 
             <p className="lg:text-xl">
               Schon bald könnt Ihr hier ganz konkret sehen, an welchen Features

@@ -1,4 +1,7 @@
 import {
+  H1,
+  H2,
+  H3,
   Icon,
   IconType,
   UserCardContainer,
@@ -25,11 +28,11 @@ export function About({ data }: { data: GatsbyTypes.AboutPageQuery }) {
           </div>
 
           <div className="flex-100 md:flex-2/3 md:px-6 lg:px-10">
-            <h1 className="text-5xl leading-tight lg:text-7xl lg:leading-none mb-2">
+            <H1 like="h0">
               Was ist
               <br />
               MINT<span className="font-normal">vernetzt</span>?
-            </h1>
+            </H1>
 
             <p className="lg:text-3xl text-neutral-600 mb-4 font-bold">
               Die Service- und Anlaufstelle für MINT-Akteur:innen in Deutschland
@@ -80,7 +83,7 @@ export function About({ data }: { data: GatsbyTypes.AboutPageQuery }) {
               <div className="icon w-8 h-8 mb-2 border border-secondary-500 rounded-full">
                 {teaser.icon}
               </div>
-              <h4 className="text-2xl text-blue-500 mb-1">{teaser.title}</h4>
+              <H3 like="h5">{teaser.title}</H3>
               <p className="text-neutral-600">{teaser.text}</p>
             </div>
           ))}
@@ -92,7 +95,7 @@ export function About({ data }: { data: GatsbyTypes.AboutPageQuery }) {
         id="contact-details"
       >
         <header>
-          <h2>Für jede Frage die richtige Adresse</h2>
+          <H2 like="h1">Für jede Frage die richtige Adresse</H2>
           <p className="lead">
             Ihr habt eine Frage, sucht Informationen oder möchtet eine Idee mit
             uns teilen? Wir sind als Ansprechpartner:innen von MINTvernetzt
@@ -143,9 +146,7 @@ export function About({ data }: { data: GatsbyTypes.AboutPageQuery }) {
             >
               <div className="flex flex-wrap content-between items-stretch px-4 pt-4 pb-8 rounded-3xl shadow h-full">
                 <div className="mb-4">
-                  <h4 className="text-4xl text-blue-500 mb-2 leading-tight">
-                    {contactbox.title}
-                  </h4>
+                  <H3 like="h4">{contactbox.title}</H3>
                   <p className="text-neutral-600 mb-3 md:mb-6">
                     {contactbox.text}
                   </p>
@@ -182,7 +183,7 @@ export function About({ data }: { data: GatsbyTypes.AboutPageQuery }) {
 
       <section className="container my-8 md:my-10 lg:my-20">
         <UserCardContainer
-          headline="Das Team"
+          headline={<H2 like="h1">Das Team</H2>}
           body="Wir sind MINTvernetzt – ein junges, engagiertes Team mit unterschiedlichen Erfahrungen, Kompetenzen und Hintergründen. Hier findet Ihr alle Teammitglieder mit ihren Aufgaben. Wir freuen uns auf den Austausch mit Euch."
           userCardsProps={userCardsProps}
         />

@@ -1,3 +1,4 @@
+import { H1, H2, H3 } from "@mint-vernetzt/react-components";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
@@ -15,7 +16,7 @@ export function Imprint(props: ImprintProps) {
         children={""}
       />
       <section className="container my-8 md:my-10 lg:my-20">
-        <h1 className="leading-none mb-4">Impressum</h1>
+        <H1>Impressum</H1>
         <p>
           Körber-Stiftung
           <br />
@@ -55,7 +56,7 @@ export function Imprint(props: ImprintProps) {
           (Mitglied des Vorstands). Umsatzsteuer-Identifikationsnummer gemäß §
           27 a Umsatzsteuergesetz: DE 118 717 618
         </p>
-        <h2>Haftungshinweis</h2>
+        <H2>Haftungshinweis</H2>
         <p>
           Alle Inhalte dienen ausschließlich der allgemeinen Information. Für
           die Korrektheit und Vollständigkeit der Inhalte wird keine Garantie
@@ -67,7 +68,7 @@ export function Imprint(props: ImprintProps) {
           dem Urheberrecht. Die unerlaubte Verwendung einzelner Inhalte oder
           kompletter Seiten wird sowohl straf- als auch zivilrechtlich verfolgt.
         </p>
-        <h3>Folgende Bilder werden verwendet:</h3>
+        <H3>Folgende Bilder werden verwendet:</H3>
         <ul className="m-4">
           <li className="list-disc">
             MINTvernetzt-Fotos: Claudia Höhne:{" "}
@@ -204,7 +205,7 @@ export function Imprint(props: ImprintProps) {
             </a>
           </li>
         </ul>
-        <h2>Zuständige Aufsichtsbehörde</h2>
+        <H2>Zuständige Aufsichtsbehörde</H2>
         <p>
           Freie und Hansestadt Hamburg, Behörde für Justiz und Gleichstellung,
           Drehbahn 36, 20354 Hamburg
@@ -214,9 +215,9 @@ export function Imprint(props: ImprintProps) {
           <br />
           Inhaltlich Verantwortlicher gemäß § 6 MDStV: Dr. Lothar Dittmer
         </p>
-        <h2>Design und Gestaltungskonzept</h2>
+        <H2>Design und Gestaltungskonzept</H2>
         <p>matrix gGmbH</p>
-        <h2>Programmierung und Hosting</h2>
+        <H2>Programmierung und Hosting</H2>
         <p>
           matrix gGmbH
           <br />
