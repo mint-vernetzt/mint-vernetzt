@@ -93,12 +93,8 @@ section.container header:not(.text-left) {
   @apply md:text-center;
 }
 
-section.container header h2 {
-  @apply text-5xl leading-tight lg:text-6xl lg:leading-none mb-2 lg:mb-4;
-}
-
 section.container header p.lead {
-  @apply leading-6 lg:text-2xl text-neutral-600;
+  @apply leading-6 lg:text-xl text-neutral-600;
 }
 
 section.container header:not(.text-left) p.lead {
@@ -246,10 +242,6 @@ ol {
   @apply mb-8;
 }
 
-.event-description h2 {
-  @apply text-3xl leading-snug mb-2 lg:text-5xl lg:leading-none;
-}
-
 .event-sidebar-navigation li a::after {
   position: absolute;
   content: " ";
@@ -275,11 +267,6 @@ ol {
 
 #schedule > ul > li > h4 {
   @apply relative;
-}
-
-#schedule h4.headline::before {
-  /*  content: "\276F"; */
-  @apply absolute text-center transition-all ease-in-out duration-300 w-6 h-6 md:w-8 md:h-8 -left-8;
 }
 
 .zoomimage {
