@@ -14,7 +14,7 @@ function Heading(props: HeadingProps) {
   if (like === undefined) {
     like = as;
   } else {
-    className = className.concat(like).trimLeft();
+    className = `${className} ${like}`.trimLeft();
   }
 
   const element = React.createElement(as, {

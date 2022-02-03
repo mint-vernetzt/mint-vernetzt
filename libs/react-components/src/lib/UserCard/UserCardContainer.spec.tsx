@@ -8,7 +8,7 @@ const body = faker.lorem.paragraph();
 
 test("render headline and body", () => {
   const props: UserCardContainerProps = {
-    headline,
+    headline: <h1>{headline}</h1>,
     body,
   };
 

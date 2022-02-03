@@ -1,4 +1,5 @@
 import * as React from "react";
+import { H2 } from "../Heading/Heading";
 import { OrganizationBox, OrganizationBoxProps } from "./OrganizationBox";
 
 export interface OrganizationBoxContainerProps {
@@ -14,8 +15,8 @@ export function OrganizationBoxContainer({
 }: OrganizationBoxContainerProps) {
   return (
     <section>
-      <header className="md:px-16 lg:px-48">
-        <h2>{headline}</h2>
+      <header className="md:px-16 lg:px-32">
+        <H2 like="h1">{headline}</H2>
         <p data-testid="body" className="lead">
           {body}
         </p>

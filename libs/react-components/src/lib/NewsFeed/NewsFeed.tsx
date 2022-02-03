@@ -2,7 +2,7 @@ import React from "react";
 import NewsFeedItem, { NewsFeedItemProps } from "./NewsFeedItem";
 
 export interface NewsFeedProps {
-  headline: string | React.ReactNode;
+  headline?: string | React.ReactNode;
   body?: string;
   linkToOverview?: string;
   newsFeedItemsProps?: NewsFeedItemProps[];
@@ -17,15 +17,20 @@ export function NewsFeed({
   return (
     <div className="news-list">
       <header className="text-left">
-        <h2>
-          {linkToOverview !== undefined ? (
-            <a className="cursor-pointer hover:underline" href={linkToOverview}>
-              {headline}
-            </a>
-          ) : (
-            headline
-          )}
-        </h2>
+        {headline !== undefined ? (
+          <h2>
+            {linkToOverview !== undefined ? (
+              <a
+                className="cursor-pointer hover:underline"
+                href={linkToOverview}
+              >
+                {headline}
+              </a>
+            ) : (
+              headline
+            )}
+          </h2>
+        ) : null}
         {body !== undefined ? (
           <p data-testid="body" className="lead">
             {body}

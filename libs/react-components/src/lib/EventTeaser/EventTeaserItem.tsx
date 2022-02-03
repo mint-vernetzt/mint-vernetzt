@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import { formatDate } from "../EventFeed/utils";
+import { H3 } from "../Heading/Heading";
 import Icon, { IconType } from "../Icon/Icon";
 import { defaultLinkWrapper } from "./defaultLinkWrapper";
 
@@ -19,9 +20,9 @@ export function EventTeaserItem(props: EventTeaserItemProps) {
 
   return (
     <div className="relative">
-      <h4 className="mb-1 text-neutral-600 leading-tight text-base lg:text-lg hover:underline">
+      <H3 like="h6" className="mb-2 hover:underline leading-tight">
         {linkWrapper(url, headline)}
-      </h4>
+      </H3>
       <p className="mb-4 text-neutral-600 leading-tight line-clamp-3 lg:line-clamp-2 text-sm lg:text-base">
         {body}
       </p>
