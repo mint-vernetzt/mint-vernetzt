@@ -20,7 +20,7 @@ export function EventTeaser(props: EventTeaserProps) {
       {items.map((item, index) => (
         <li
           key={index}
-          className="border-b border-neutral-400 last:border-b-0 pt-4 pb-6"
+          className="border-b border-neutral-400 last:border-b-0 pt-4 first:pt-0 pb-6"
         >
           <EventTeaserItem
             headline={item.headline}
