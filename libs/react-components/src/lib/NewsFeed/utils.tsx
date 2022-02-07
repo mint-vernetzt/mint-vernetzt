@@ -1,5 +1,5 @@
-import { TagProps } from "@mint-vernetzt/react-components";
 import faker from "faker";
+import { ChipProps } from "../Chip/Chip";
 import { NewsFeedItemProps } from "./NewsFeedItem";
 
 export function formatDate(date: Date): string {
@@ -11,7 +11,7 @@ export function formatDate(date: Date): string {
   return formatted;
 }
 
-export function getTag(): TagProps {
+export function getTag(): ChipProps {
   const title = faker.lorem.word();
   const slug = faker.lorem.slug();
   return { title, slug };
@@ -35,10 +35,10 @@ export function getNewsFeedItemProps(
   const date = faker.date.future();
   const slug = faker.internet.url();
 
-  const tagsProps: TagProps[] = [];
+  const tags: ChipProps[] = [];
 
   for (let i = 0; i < numberOfTags; i++) {
-    tagsProps.push(getTag());
+    tags.push(getTag());
   }
 
   let image;
@@ -47,5 +47,5 @@ export function getNewsFeedItemProps(
     image = { src: faker.image.image(), alt: faker.lorem.words() };
   }
 
-  return { headline, body, date, slug, tagsProps, image };
+  return { headline, body, date, slug, tags, image };
 }

@@ -82,7 +82,7 @@ function EventHeader(event: GatsbyTypes.EventQuery["event"]) {
                 title={tag.name}
                 slug={tag.slug}
                 onClick={() =>
-                  (document.location.href = `/events/?tags=${tag.slug}`)
+                  (document.location.href = `/news/?tags=${tag.slug}`)
                 }
               />
             </li>
