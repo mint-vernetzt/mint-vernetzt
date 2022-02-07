@@ -53,7 +53,7 @@ function News({ data }) {
         </Link>
 
         <div className="flex flex-wrap mb-8">
-          <div className="mb-2 md:mb-0 md:mr-2 md:py-2 md:pr-3 font-semibold text-neutral-800 text-xs flex-100 md:flex-none md:order-2">
+          <div className="mb-2 md:mb-0 md:mr-2 md:py-2 md:pr-3 font-semibold text-neutral-800 text-xs flex-100 md:order-2">
             {formatDate(new Date(props.date))}
           </div>
           <H1 like="h0">{props.title}</H1>

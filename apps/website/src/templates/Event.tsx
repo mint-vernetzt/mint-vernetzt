@@ -42,7 +42,7 @@ function EventHeader(event: GatsbyTypes.EventQuery["event"]) {
   const formattedDate = formatDate(date);
   return (
     <div className="flex flex-wrap mb-8">
-      <div className="mb-2 md:mb-0 md:mr-2 md:py-2 md:pr-3 font-semibold uppercase text-neutral-800 text-xs flex-100 md:flex-none md:order-2">
+      <div className="mb-2 md:mb-0 md:mr-2 md:py-2 md:pr-3 font-semibold uppercase text-neutral-800 text-xs flex-100 md:order-2">
         <p className="text-xs text-neutral-800 font-semibold mb-4 flex items-center">
           <span className="icon w-4 h-4 mr-2">
             <Icon type={IconType.Calendar} />
