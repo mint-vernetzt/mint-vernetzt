@@ -36,7 +36,6 @@ export function ChipFilter({
       <ul className="flex flex-wrap md:order-4">
         {chips.map((chip) => (
           <li key={chip.slug}>
-            {isChipPossible(chip) === true ? "possible" : "impossible"}
             <Chip
               {...chip}
               onClick={isChipPossible(chip) ? onChipClick : undefined}
