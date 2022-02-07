@@ -4,7 +4,7 @@ import faker from "faker";
 
 export default {
   component: EventNavigation,
-  title: "Components/Event",
+  title: "Components/EventNavigation",
 } as Meta;
 
 export const EventNavigationStory: Story<EventNavigationProps> = (args) => (

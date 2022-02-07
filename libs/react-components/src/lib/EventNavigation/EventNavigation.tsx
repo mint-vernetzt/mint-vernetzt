@@ -2,6 +2,7 @@ import { formatDate } from "../NewsFeed/utils";
 import { Icon, IconType } from "../Icon/Icon";
 import * as React from "react";
 import { defaultLinkWrapper } from "../EventTeaser/defaultLinkWrapper";
+import { H2, H3 } from "../Heading/Heading";
 export interface EventNavigationItemProps {
   headline: string;
   date: Date;
@@ -29,7 +30,7 @@ export function EventNavigation(props: EventNavigationProps) {
 
   return (
     <div className="flex flex-col px-4 py-8 lg:px-8 bg-neutral-200 rounded-3xl shadow-lg mb-6 lg:mb-16">
-      {headline && <h2 className="text-3xl leading-snug">{headline}</h2>}
+      {headline && <H2>{headline}</H2>}
       <ul className="event-sidebar-navigation">
         {items.map((item, index) => (
           <li
@@ -41,13 +42,13 @@ export function EventNavigation(props: EventNavigationProps) {
             <div className="absolute left-0 lg:left-2 top-5 icon">
               <Icon type={IconType.Calendar} />
             </div>
-            <h3
+            <H3
               className={`${activTextColor(
                 item.url
               )} text-sm leading-snug font-normal lg:font-semibold lg:text-lg mb-1 lg:mb-2 hover:underline`}
             >
               {linkWrapper(item.url, item.headline)}
-            </h3>
+            </H3>
             <time
               data-testid="date"
               dateTime={item.date.toUTCString()}

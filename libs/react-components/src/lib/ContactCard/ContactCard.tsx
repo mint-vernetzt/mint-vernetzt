@@ -1,4 +1,5 @@
 import * as React from "react";
+import { H4 } from "../Heading/Heading";
 import { Icon, IconType } from "../Icon/Icon";
 import { Image } from "../types.d";
 
@@ -21,7 +22,7 @@ export function ContactCard({
 }: ContactCardProps) {
   return (
     <div className="contact-card lg:px-8">
-      <h4 className="mb-4 text-3xl leading-snug">{headline}</h4>
+      <H4>{headline}</H4>
       <div className="flex items-center mb-2">
         <div className="flex-18 mr-4">
           <img

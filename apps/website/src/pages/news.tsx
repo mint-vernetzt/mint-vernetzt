@@ -1,4 +1,4 @@
-import { NewsFeed } from "@mint-vernetzt/react-components";
+import { H1, H2, NewsFeed } from "@mint-vernetzt/react-components";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -32,9 +32,9 @@ export function News({ data }) {
 
           <div className="hero-text absolute top-0 left-0 h-full right-0 pt-12 px-4 md:px-12 md:flex md:items-center lg:px-20">
             <div className="md:flex-100">
-              <h1 className="text-6xl lg:text-7xl leading-none text-blue-500 mb-2">
+              <H1 like="h0">
                 MINT<span className="font-normal">news</span>
-              </h1>
+              </H1>
               <p className="font-bold md:max-w-1/2 lg:text-3xl lg:leading-snug">
                 Informieren, inspirieren und Emotionen wecken mit MINT
               </p>
@@ -43,7 +43,8 @@ export function News({ data }) {
         </div>
       </section>
       <section className="container my-8 md:my-10 lg:my-20">
-        <NewsFeed headline="Neuigkeiten" newsFeedItemsProps={newsItems} />
+        <H2>Neuigkeiten</H2>
+        <NewsFeed newsFeedItemsProps={newsItems} />
       </section>
     </Layout>
   );

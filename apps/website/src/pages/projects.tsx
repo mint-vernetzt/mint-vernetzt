@@ -1,3 +1,4 @@
+import { H1, H2, H3 } from "@mint-vernetzt/react-components";
 import { Link } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -17,9 +18,9 @@ export function Projects({ data }) {
       <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap content-center items-center md:-mx-6 lg:-mx-10">
           <div className="flex-100 lg:flex-2/3 md:px-6 lg:px-10">
-            <h1 className="text-5xl leading-tight lg:text-7xl lg:leading-none mb-2">
+            <H1 like="h0">
               MINT<span className="font-normal">projekte</span>
-            </h1>
+            </H1>
 
             <p className="lg:text-xl">
               Als MINTvernetzt haben wir Themenschwerpunkte, die uns besonders
@@ -37,10 +38,7 @@ export function Projects({ data }) {
       <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap content-center items-center md:-mx-6 lg:-mx-10">
           <div className="flex-100 lg:flex-2/3 md:px-6 lg:px-10">
-            <h2 className="text-5xl leading-tight lg:text-6xl lg:leading-none mb-2">
-              Wissenstransfer
-            </h2>
-
+            <H2 like="h1">Wissenstransfer</H2>
             <p className="lg:text-3xl mb-2 lg:mb-4 font-bold">
               Erfahrungen, Erkentnisse und Daten
             </p>
@@ -72,9 +70,9 @@ export function Projects({ data }) {
           </div>
 
           <div className="flex-100 md:flex-2/3 md:px-6 lg:px-10">
-            <h2 className="text-5xl leading-tight lg:text-6xl lg:leading-none mb-2">
-              MINT<span className="font-normal">rakete</span>
-            </h2>
+            <H2 like="h1">
+              <strong>MINT</strong>rakete
+            </H2>
 
             <p className="lg:text-3xl mb-2 lg:mb-4 font-bold">
               Jetzt für aktuelle Ausschreibung bewerben
@@ -105,7 +103,7 @@ export function Projects({ data }) {
       <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap md:-mx-6 lg:-mx-10">
           <div className="flex-100 pb-6 md:pb-0 md:flex-1/2 md:px-6 lg:px-10">
-            <h4 className="text-3xl leading-snug mb-2">MINT-DataLab</h4>
+            <H3 like="h4">MINT-DataLab</H3>
 
             <p className="mb-2 lg:mb-4 font-bold">
               Daten zur MINT-Bildungslandschaft und Ihrer Akteur:innen
@@ -122,9 +120,7 @@ export function Projects({ data }) {
           </div>
 
           <div className="flex-100 md:flex-1/2 md:px-6 lg:px-10">
-            <h4 className="text-3xl leading-snug mb-2">
-              MINT-Bildungsforschung{" "}
-            </h4>
+            <H3 like="h4">MINT-Bildungsforschung </H3>
 
             <p className="mb-2 lg:mb-4 font-bold">
               Formate der Wissenschaftskommunikation
@@ -149,9 +145,7 @@ export function Projects({ data }) {
       <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap content-center items-center md:-mx-6 lg:-mx-10">
           <div className="flex-100 lg:flex-2/3 md:px-6 lg:px-10">
-            <h2 className="text-5xl leading-tight lg:text-6xl lg:leading-none mb-2">
-              Innovation
-            </h2>
+            <H2 like="h1">Innovation</H2>
 
             <p className="lg:text-3xl mb-2 lg:mb-4 font-bold">
               Denk- und Experimentierräume für die MINT-Community
@@ -172,7 +166,7 @@ export function Projects({ data }) {
       <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap md:-mx-6 lg:-mx-10">
           <div className="flex-100 pb-6 md:pb-0 md:flex-1/2 md:px-6 lg:px-10">
-            <h4 className="text-3xl leading-snug mb-2">Innovationspanel</h4>
+            <H3 like="h4">Innovationspanel</H3>
 
             <p>
               Innovationspanels sind interaktive Austauschformate, die mehrmals
@@ -187,8 +181,7 @@ export function Projects({ data }) {
           </div>
 
           <div className="flex-100 md:flex-1/2 md:px-6 lg:px-10">
-            <h4 className="text-3xl leading-snug mb-2">Thinkathon</h4>
-
+            <H3 like="h4">Thinkathon</H3>
             <p>
               Einmal jährlich treffen wir uns in großer Runde von bis zu 100
               Akteur:innen zum Thinkathon. In verschiedenen Formaten wird der
@@ -206,9 +199,7 @@ export function Projects({ data }) {
       <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap content-center items-center md:-mx-6 lg:-mx-10">
           <div className="flex-100 lg:flex-2/3 md:px-6 lg:px-10">
-            <h2 className="text-5xl leading-tight lg:text-6xl lg:leading-none mb-2">
-              Diversität
-            </h2>
+            <H2 like="h1">Diversität</H2>
 
             <p className="lg:text-3xl mb-2 lg:mb-4 font-bold">
               Schwerpunkt: Mädchen und Frauen in MINT
@@ -243,9 +234,7 @@ export function Projects({ data }) {
       <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap md:-mx-6 lg:-mx-10">
           <div className="flex-100 pb-6 md:pb-0 md:flex-1/2 md:px-6 lg:px-10">
-            <h4 className="text-3xl leading-snug mb-2">
-              Informations- und Transferangebote{" "}
-            </h4>
+            <H3 like="h4">Informations- und Transferangebote </H3>
 
             <p>
               Wir bereiten praxisrelevante Forschungsbefunde zu Genderaspekten
@@ -257,9 +246,7 @@ export function Projects({ data }) {
           </div>
 
           <div className="flex-100 md:flex-1/2 md:px-6 lg:px-10">
-            <h4 className="text-3xl leading-snug mb-2">
-              Vernetzung und Aktivierung{" "}
-            </h4>
+            <H3 like="h4">Vernetzung und Aktivierung</H3>
 
             <p>
               Gemeinsam besser werden ist Teil der MINTvernetzt-DNA und findet

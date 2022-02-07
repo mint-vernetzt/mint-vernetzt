@@ -1,7 +1,13 @@
 import { graphql, Link } from "gatsby";
 import React from "react";
 import Img from "gatsby-image";
-import { formatDate, Icon, IconType } from "@mint-vernetzt/react-components";
+import {
+  formatDate,
+  H1,
+  H4,
+  Icon,
+  IconType,
+} from "@mint-vernetzt/react-components";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
@@ -48,12 +54,10 @@ function News({ data }) {
         </Link>
 
         <div className="flex flex-wrap mb-8">
-          <div className="mb-2 md:mb-0 md:mr-2 md:py-2 md:pr-3 font-semibold text-neutral-800 text-xs flex-100 md:flex-none md:order-2">
+          <div className="mb-2 md:mb-0 md:mr-2 md:py-2 md:pr-3 font-semibold text-neutral-800 text-xs flex-100 md:order-2">
             {formatDate(new Date(props.date))}
           </div>
-          <h1 className="flex-100 md:order-1 text-5xl lg:text-7xl leading-tight lg:leading-none mb-2">
-            {props.title}
-          </h1>
+          <H1 like="h0">{props.title}</H1>
           {/* <ul className="flex flex-wrap md:order-3">
             {props.tags.nodes.map((tag, index) => {
               return (
@@ -84,7 +88,7 @@ function News({ data }) {
           </div>
           {props.attachments.length > 0 && (
             <div className="flex-100 md:flex-1/3 md:px-2 lg:px-6">
-              <h4 className="text-3xl leading-5 pb-4">Anhänge</h4>
+              <H4>Anhänge</H4>
               <ul className="document-list">
                 {props.attachments.map((attachment, index) => {
                   return (

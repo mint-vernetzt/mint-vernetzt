@@ -1,8 +1,8 @@
-import * as React from "react";
+import React from "react";
 import { UserCard, UserCardProps } from "./UserCard";
 
 export interface UserCardContainerProps {
-  headline: string;
+  headline: string | React.ReactNode;
   body: string;
   userCardsProps?: UserCardProps[];
 }
@@ -15,9 +15,9 @@ export function UserCardContainer({
   return (
     <section className="bg-tertiary-300 rounded-3xl py-4 md:py-10 lg:py-24 px-2">
       <header>
-        <h2 role="heading" className="text-center">
-          {headline}
-        </h2>
+        {headline}
+        {/* <h2 role="heading" className="text-center">
+        </h2> */}
         <p data-testid="body" className="lead font-bold px-4 md:px-10">
           {body}
         </p>

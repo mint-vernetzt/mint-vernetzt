@@ -1,5 +1,4 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
-const plugin = require("tailwindcss/plugin");
 const lineClamp = require("@tailwindcss/line-clamp");
 const { colors, fontSizes } = require("./src/theme");
 
@@ -17,11 +16,16 @@ Object.keys(colors).forEach((color) => {
     `focus:border-${color}`,
   ]);
 });
+let fontSizeSafelist = [];
+Object.keys(fontSizes).forEach((fontsize) => {
+  fontSizeSafelist = fontSizeSafelist.concat([`text-${fontsize}`]);
+});
 
 module.exports = {
+  mode: "jit",
   purge: {
     content: ["../**/*.ts", "../**/*.tsx", "../../apps/website/**/*.tsx"],
-    safelist: [...colorSafelist],
+    safelist: [...colorSafelist, ...fontSizeSafelist],
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
@@ -95,46 +99,5 @@ module.exports = {
       padding: ["first", "last"],
     },
   },
-  plugins: [
-    lineClamp,
-    plugin(({ addBase, theme }) => {
-      console.log(theme);
-      addBase({
-        h1: {
-          fontSize: theme("fontSize.7xl"),
-          fontWeight: "bold",
-          color: theme("colors.blue-500"),
-        },
-        h2: {
-          fontSize: theme("fontSize.4xl"),
-          fontWeight: "bold",
-          color: theme("colors.blue-500"),
-        },
-        h3: {
-          fontSize: theme("fontSize.3xl"),
-          fontWeight: "bold",
-          color: theme("colors.blue-500"),
-        },
-        h4: {
-          fontSize: theme("fontSize.2xl"),
-          fontWeight: "bold",
-          color: theme("colors.blue-500"),
-        },
-        h5: {
-          fontSize: theme("fontSize.xl"),
-          fontWeight: "bold",
-          color: theme("colors.blue-500"),
-        },
-        h6: {
-          fontSize: theme("fontSize.lg"),
-          fontWeight: "bold",
-          color: theme("colors.blue-500"),
-        },
-        p: {
-          fontSize: theme("fontSize.base"),
-          color: theme("colors.text-neutral-600"),
-        },
-      });
-    }),
-  ],
+  plugins: [lineClamp],
 };

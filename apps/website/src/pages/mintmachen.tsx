@@ -5,7 +5,7 @@ import Img from "gatsby-image";
 import { ReactComponent as Header } from "../images/mintmachen_header.svg";
 import { ReactComponent as BadgeRocket } from "../images/Badge_02Rocket.svg";
 
-import { ContactCard } from "@mint-vernetzt/react-components";
+import { ContactCard, H1, H2 } from "@mint-vernetzt/react-components";
 
 export function Mintmachen({
   data,
@@ -34,9 +34,9 @@ export function Mintmachen({
             /> */}
           </div>
           <div className="flex-100 md:flex-7/12 md:px-4">
-            <h1 className="text-5xl leading-tight lg:text-7xl lg:leading-none mb-2 lg:mb-4">
+            <H1 like="h0">
               MI(N)T&shy;<span className="font-normal">machen</span>
-            </h1>
+            </H1>
 
             <p className="lg:text-xl">
               Wir machen die MINT-Akteur:innen Deutschlands sichtbar und
@@ -70,9 +70,9 @@ export function Mintmachen({
             />
           </div>
           <div className="flex-100 md:flex-1/2 md:px-4 md:self-center md:text-right md:order-1">
-            <h3 className="text-5xl leading-tight lg:leading-none mb-2 lg:mb-4">
-              MINT<span className="font-normal">rakete</span>
-            </h3>
+            <H2>
+              <strong>MINT</strong>rakete
+            </H2>
 
             <p className="lg:text-xl">
               Es gibt schon viele gute Praxis-Beispiele in der MINT-Bildung.
@@ -102,9 +102,7 @@ export function Mintmachen({
             />
           </div>
           <div className="flex-100 md:flex-1/2 md:px-4 md:self-center">
-            <h3 className="text-5xl leading-tight lg:leading-none mb-2 lg:mb-4">
-              Anmeldung zum MINTvernetzt-Verteiler
-            </h3>
+            <H2>Anmeldung zum MINTvernetzt-Verteiler</H2>
 
             <p className="lg:text-xl">
               Seid dabei und werdet Teil von MINTvernetzt, der wachsenden,
@@ -137,9 +135,7 @@ export function Mintmachen({
             />
           </div>
           <div className="flex-100 md:flex-1/2 md:px-4 md:order-1 md:text-right">
-            <h3 className="text-5xl leading-tight lg:leading-none mb-2 lg:mb-4">
-              Die Erstellung der MINTvernetzt-Plattform
-            </h3>
+            <H2>Die Erstellung der MINTvernetzt-Plattform</H2>
 
             <p className="lg:text-xl">
               Wir bauen einen Marktplatz für die MINT-Community Deutschlands.

@@ -1,4 +1,5 @@
 import * as React from "react";
+import { H4 } from "../Heading/Heading";
 import { Icon, IconType } from "../Icon/Icon";
 import { formatDate } from "./utils";
 
@@ -57,11 +58,11 @@ export function EventFeedItem({
         </span>
         <span>{category}</span> */}
       </p>
-      <h4 className="text-3xl leading-snug mt-2 mb-2">
+      <H4 like="h3">
         <a href={slug} className="cursor-pointer hover:underline">
           {headline}
         </a>
-      </h4>
+      </H4>
       <p data-testid="body">{body}</p>
       <ul className="flex flex-wrap md:order-4">
         {tags.map((tag, index) => (

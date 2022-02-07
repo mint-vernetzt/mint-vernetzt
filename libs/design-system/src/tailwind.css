@@ -8,12 +8,48 @@
   body {
     @apply text-neutral-600;
   }
-  h1 {
-    @apply text-5xl leading-tight lg:text-7xl lg:leading-none mb-4;
+
+  /** Heading **/
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-primary mb-2 leading-tight lg:leading-none;
   }
-  h2 {
-    @apply text-4xl lg:text-5xl leading-tight lg:leading-none mb-2 lg:mb-4;
+  h1,
+  .h1 {
+    @apply text-5xl lg:text-7xl mb-4;
   }
+  h2,
+  .h2 {
+    @apply text-4xl lg:text-6xl lg:mb-4;
+  }
+  h3,
+  .h3 {
+    @apply text-2xl lg:text-5xl;
+  }
+  h4,
+  .h4 {
+    @apply text-lg lg:text-3xl;
+  }
+  h5,
+  .h5 {
+    @apply text-base lg:text-xl;
+  }
+  h6,
+  .h6 {
+    @apply text-base lg:text-lg mb-1;
+  }
+  .h0 {
+    @apply text-6xl lg:text-8xl font-bold;
+  }
+  .h0 + h5 {
+    @apply font-bold;
+  }
+
   p {
     @apply leading-6 mb-6;
   }
@@ -27,6 +63,7 @@ body h2,
 body h3,
 body h4,
 body h5,
+body h6,
 body p {
   -webkit-hyphens: auto;
   hyphens: auto;
@@ -56,12 +93,8 @@ section.container header:not(.text-left) {
   @apply md:text-center;
 }
 
-section.container header h2 {
-  @apply text-5xl leading-tight lg:text-6xl lg:leading-none mb-2 lg:mb-4;
-}
-
 section.container header p.lead {
-  @apply leading-6 lg:text-2xl text-neutral-600;
+  @apply leading-6 lg:text-xl text-neutral-600;
 }
 
 section.container header:not(.text-left) p.lead {
@@ -193,7 +226,7 @@ ol {
 }
 
 .event-list .event-item {
-  @apply border-b border-neutral-400 last:border-b-0 pt-4 pb-6 lg:pt-6 lg:pb-8;
+  @apply border-b border-neutral-400 last:border-b-0 pb-6 lg:pb-8;
 }
 
 @screen lg {
@@ -207,10 +240,6 @@ ol {
 
 .event-description {
   @apply mb-8;
-}
-
-.event-description h2 {
-  @apply text-3xl leading-snug mb-2 lg:text-5xl lg:leading-none;
 }
 
 .event-sidebar-navigation li a::after {
@@ -238,11 +267,6 @@ ol {
 
 #schedule > ul > li > h4 {
   @apply relative;
-}
-
-#schedule h4.headline::before {
-  /*  content: "\276F"; */
-  @apply absolute text-center transition-all ease-in-out duration-300 w-6 h-6 md:w-8 md:h-8 -left-8;
 }
 
 .zoomimage {

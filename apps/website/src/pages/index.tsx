@@ -4,7 +4,13 @@ import SEO from "../components/seo";
 import { getNewsItems, getOrganizationsData } from "../utils/dataTransformer";
 import Img from "gatsby-image";
 
-import { NewsFeed, EventTeaser } from "@mint-vernetzt/react-components";
+import {
+  NewsFeed,
+  EventTeaser,
+  H1,
+  H2,
+  H4,
+} from "@mint-vernetzt/react-components";
 import { OrganizationBoxContainer } from "@mint-vernetzt/react-components";
 
 export function Index({
@@ -66,10 +72,9 @@ export function Index({
           />
           <div className="hero-text absolute top-0 left-0 min-h-3/4 md:min-h-full right-0 pt-12 px-4 md:pt-20 md:px-12 lg:pt-60 lg:px-20">
             <div>
-              <h1 className="text-6xl lg:text-7xl leading-none text-blue-500 mb-2">
-                MINT
-                <span className="font-normal block md:inline">vernetzt</span>
-              </h1>
+              <H1 like="h0">
+                MINT<span className="font-normal">vernetzt</span>
+              </H1>
               <p className="font-bold mb-4 md:max-w-1/2 lg:text-3xl lg:leading-snug">
                 die Service- und Anlaufstelle der MINT-
                 <br />
@@ -87,8 +92,8 @@ export function Index({
 
       <section className="container my-8 md:my-10 lg:my-20">
         <header>
-          <h2>Aktiv werden</h2>
-          <p className="lead md:px-8 lg:px-20 ">
+          <H2 like="h1">Aktiv werden</H2>
+          <p className="text-xl md:px-8 lg:px-20 ">
             Wir entwickeln MINTvernetzt mit Euch (weiter)! Hier könnt Ihr Euch
             vernetzen, gute Praxis teilen und Kooperationen aufbauen. So machen
             wir zusammen MINT-Bildungsangebote in Deutschland sichtbar, helfen
@@ -125,10 +130,7 @@ export function Index({
                 <div className="rounded-lg overflow-hidden mb-2 lg:mb-4">
                   <Img fluid={teaserbox.image} className="w-full h-auto" />
                 </div>
-
-                <h4 className="text-base lg:text-3xl lg:leading-snug lg:mx-2 mb-2">
-                  {teaserbox.title}
-                </h4>
+                <H4 className="lg:leading-snug lg:mx-2">{teaserbox.title}</H4>
                 <p className="lg:mx-2">{teaserbox.text}</p>
               </Link>
             </div>
@@ -138,28 +140,30 @@ export function Index({
       <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap md:-mx-2 lg:-mx-4">
           <div className="flex-100 pb-8 md:pb-0 md:flex-2/3 md:px-2 lg:px-4">
+            <Link to="/news/" className="hover:underline text-primary">
+              <H2 like="h1">
+                <strong>MINT</strong>news
+              </H2>
+            </Link>
             <NewsFeed
-              headline={
-                <>
-                  MINT<span className="font-normal">news</span>
-                </>
-              }
               body="Wir blicken in die MINT-Welt und darüber hinaus und informieren Euch regelmäßig über Erkenntnisse, Ereignisse und Innovationen, die für Eure tägliche Arbeit interessant sind."
               linkToOverview="/news/"
               newsFeedItemsProps={newsItems}
             />
           </div>
           <div className="event-teaser flex-100 md:flex-1/3 pb-8 md:pb-0 md:px-2 lg:px-4">
-            <EventTeaser
-              headline={
-                <>
-                  MINT<span className="font-normal">events</span>
-                </>
-              }
-              linkToOverview="/events/"
-              linkWrapper={linkWrapper}
-              items={events}
-            />
+            <div className="flex flex-col p-4 pb-15 md:pb-5 py-6 rounded-lg bg-neutral-200 shadow-lg">
+              <Link to="/events/" className="hover:underline text-primary">
+                <H2>
+                  <strong>MINT</strong>events
+                </H2>
+              </Link>
+              <EventTeaser
+                linkToOverview="/events/"
+                linkWrapper={linkWrapper}
+                items={events}
+              />
+            </div>
           </div>
         </div>
       </section>

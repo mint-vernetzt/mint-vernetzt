@@ -1,6 +1,11 @@
 import { graphql, Link } from "gatsby";
 import Img from "gatsby-image";
-import { Icon, IconType, Testimonial } from "@mint-vernetzt/react-components";
+import {
+  H1,
+  Icon,
+  IconType,
+  Testimonial,
+} from "@mint-vernetzt/react-components";
 import Layout from "../../components/layout";
 import SEO from "../../components/seo";
 
@@ -43,9 +48,7 @@ export default function Template({ data }) {
             )}
           </div>
           <div className="flex-100 md:flex-2/3 pb-8 md:pb-0 md:px-4 lg:px-6 md:order-1">
-            <h1 className="text-5xl leading-tight lg:text-6xl lg:leading-none text-blue-500 mb-8">
-              {frontmatter.name}
-            </h1>
+            <H1>{frontmatter.name}</H1>
           </div>
         </div>
 

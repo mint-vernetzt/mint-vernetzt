@@ -1,5 +1,6 @@
 /* eslint-disable-next-line */
 import * as React from "react";
+import { H2 } from "../Heading/Heading";
 import { Icon, IconType } from "../Icon/Icon";
 export interface TestimonialProps {
   name: string;
@@ -15,9 +16,7 @@ export function Testimonial(props: TestimonialProps) {
         <div className="w-8 h-8 mb-2">
           <Icon type={IconType.Quote} width="32" height="32" />
         </div>
-        <h2 className="text-primary text-3xl" data-testid="name">
-          {name}
-        </h2>
+        <H2 like="h4">{name}</H2>
         <span
           className="neutral-600 block text-sm mb-4 font-semibold"
           data-testid="jobTitle"

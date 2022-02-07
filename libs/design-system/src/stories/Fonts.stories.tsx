@@ -1,4 +1,5 @@
 import { Meta, Story } from "@storybook/react";
+import { fontSizes } from "../theme";
 
 const text =
   "ABCDEFGHIJKLMNOPQRSTUVWXYZ\nabcdefghijklmnopqrstuvwxyz\n,./:()!?#@&0123456789";
@@ -23,35 +24,15 @@ export const Families: Story = () => {
 export const Sizes: Story = () => {
   return (
     <div className="flex flex-wrap items-baseline text-primary">
-      <div className="w-1/6 text-xs font-bold">xs – 0.75rem</div>
-      <div className="w-5/6 text-xs truncate">{text}</div>
-      <hr className="w-full border-blue" />
-      <div className="w-1/6 text-xs font-bold">sm – 0.875rem</div>
-      <div className="w-5/6 text-sm truncate">{text}</div>
-      <hr className="w-full border-blue" />
-      <div className="w-1/6 text-xs font-bold">base – 1rem</div>
-      <div className="w-5/6 text-base truncate">{text}</div>
-      <hr className="w-full border-blue" />
-      <div className="w-1/6 text-xs font-bold">lg – 1.125rem</div>
-      <div className="w-5/6 text-lg truncate">{text}</div>
-      <hr className="w-full border-blue" />
-      <div className="w-1/6 text-xs font-bold">xl – 1.1875rem</div>
-      <div className="w-5/6 text-xl truncate">{text}</div>
-      <hr className="w-full border-blue" />
-      <div className="w-1/6 text-xs font-bold">2xl – 1.25rem</div>
-      <div className="w-5/6 text-2xl truncate">{text}</div>
-      <hr className="w-full border-blue" />
-      <div className="w-1/6 text-xs font-bold">3xl – 2rem</div>
-      <div className="w-5/6 text-3xl truncate">{text}</div>
-      <hr className="w-full border-blue" />
-      <div className="w-1/6 text-xs font-bold">4xl – 2.5rem</div>
-      <div className="w-5/6 text-4xl truncate">{text}</div>
-      <hr className="w-full border-blue" />
-      <div className="w-1/6 text-xs font-bold">5xl – 4rem</div>
-      <div className="w-5/6 text-5xl truncate">{text}</div>
-      <hr className="w-full border-blue" />
-      <div className="w-1/6 text-xs font-bold">6xl – 6rem</div>
-      <div className="w-5/6 text-6xl truncate">{text}</div>
+      {Object.keys(fontSizes).map((key) => {
+        const size = (fontSizes as { [index: string]: string })[key];
+        return (
+          <>
+            <div className="w-1/6 text-xs font-bold">{`${key} - ${size}`}</div>
+            <div className={`w-5/6 text-${key} truncate`}>{text}</div>
+          </>
+        );
+      })}
     </div>
   );
 };

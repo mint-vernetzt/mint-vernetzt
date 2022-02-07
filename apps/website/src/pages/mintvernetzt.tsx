@@ -3,7 +3,13 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Img from "gatsby-image";
 import { ReactComponent as Header } from "../images/mintvernetzt_header.svg";
-import { ContactCard, Icon, IconType } from "@mint-vernetzt/react-components";
+import {
+  ContactCard,
+  H1,
+  H2,
+  Icon,
+  IconType,
+} from "@mint-vernetzt/react-components";
 
 export function Mintvernetzt({
   data,
@@ -33,9 +39,9 @@ export function Mintvernetzt({
             /> */}
           </div>
           <div className="flex-100 md:flex-7/12 md:px-4 md: self-center">
-            <h1 className="text-5xl leading-tight lg:text-7xl lg:leading-none mb-2 lg:mb-4">
+            <H1 like="h0">
               MINT<span className="font-normal">vernetzt</span> informiert
-            </h1>
+            </H1>
 
             <p className="lg:text-xl">
               Mit Wissensaustausch zu besserer MINT-Bildung: Um Euch stets über
@@ -69,9 +75,7 @@ export function Mintvernetzt({
               className="w-full h-auto rounded-2xl shadow-md mb-6"
             />
 
-            <h3 className="text-5xl leading-tight lg:text-6xl lg:leading-none mb-2">
-              MINTnews
-            </h3>
+            <H2 like="h1">MINTnews</H2>
             <p className="lg:text-3xl font-bold mb-2">Der MINTvernetzt-Blog</p>
             <p className="lg:text-xl">
               Informieren, inspirieren, Emotionen wecken: Wir geben Euch
@@ -93,9 +97,7 @@ export function Mintvernetzt({
               className="w-full h-auto rounded-2xl shadow-md mb-6"
             />
 
-            <h3 className="text-5xl leading-tight lg:text-6xl lg:leading-none mb-2">
-              Community Blog
-            </h3>
+            <H2 like="h1">Community Blog</H2>
             <p className="lg:text-3xl font-bold mb-2">
               Infos von Euch für Euch
             </p>
@@ -118,9 +120,7 @@ export function Mintvernetzt({
               className="w-full h-auto rounded-2xl shadow-md mb-6"
             />
 
-            <h3 className="text-5xl leading-tight lg:text-6xl lg:leading-none mb-2">
-              #SocialMedia
-            </h3>
+            <H2 like="h1">#SocialMedia</H2>
             <p className="lg:text-xl">
               Teilen, liken, verlinken: gemeinsam mit Euch wollen wir die
               MINT-Bildung besser machen. Also folgt uns auf unsere Social Media
@@ -189,9 +189,7 @@ export function Mintvernetzt({
               className="w-full h-auto rounded-2xl shadow-md mb-6"
             />
 
-            <h3 className="text-5xl leading-tight lg:text-6xl lg:leading-none mb-2">
-              #Newsletter
-            </h3>
+            <H2 like="h1">#Newsletter</H2>
             <p className="lg:text-xl">
               Alle acht Wochen schicken wir Euch digitale Grüße mit Einblicken
               in die Community, Hinweisen zu Neuigkeiten und Veranstaltungen,
