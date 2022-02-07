@@ -10,7 +10,7 @@ import { getNewsItems } from "../utils/dataTransformer";
 import { getUniqueTags } from "../utils/tagUtils";
 
 export function News({ data }: { data: GatsbyTypes.NewsFeedQuery }) {
-  let [filterTags, filterClickHandler, addTagClickHandler] =
+  let [filterTags, filterClickHandler, addTagClickHandler, removeInvalidTags] =
     useTagFilter("tags");
   let scrollToRef = useRef<HTMLHeadingElement>(null);
 
@@ -26,13 +26,7 @@ export function News({ data }: { data: GatsbyTypes.NewsFeedQuery }) {
   );
   let allowedTagSlugs = allowedTags.map((tag) => tag.slug);
 
-  let isValidTags = filterTags.every(
-    (ft) => allowedTagSlugs.indexOf(ft) !== -1
-  );
-
-  if (!isValidTags) {
-    document.location = "/404/";
-  }
+  removeInvalidTags(allowedTagSlugs);
 
   const filteredNewsItems =
     filterTags.length === 0

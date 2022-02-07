@@ -18,7 +18,8 @@ export function useTagFilter(
     slug: Slug,
     allowedSlugs: Slug[],
     callback?: () => void
-  ) => void
+  ) => void,
+  removeInvalidTags: (allowedSlugs: Slug[]) => void
 ] {
   const [filterTags, dispatch] = useReducer(
     chipFilterReducer,
@@ -52,5 +53,18 @@ export function useTagFilter(
     dispatch({ slug, type });
   };
 
-  return [filterTags, filterClickHandler, addTagClickHandler];
+  let removeInvalidTags = (allowedSlugs: Slug[]) => {
+    filterTags
+      .filter((tag) => allowedSlugs.indexOf(tag) === -1)
+      .forEach((invalidSlug) =>
+        dispatch({ slug: invalidSlug, type: "REMOVE" })
+      );
+  };
+
+  return [
+    filterTags,
+    filterClickHandler,
+    addTagClickHandler,
+    removeInvalidTags,
+  ];
 }

@@ -10,7 +10,7 @@ import { getParentEventItems } from "../utils/dataTransformer";
 import { getUniqueTags } from "../utils/tagUtils";
 
 export function Events({ data }: { data: GatsbyTypes.EventFeedQuery }) {
-  let [filterTags, filterClickHandler, addTagClickHandler] =
+  let [filterTags, filterClickHandler, addTagClickHandler, removeInvalidTags] =
     useTagFilter("tags");
   let scrollToRef = useRef<HTMLElement>(null);
   let events = getParentEventItems(data.events).map((item) => {
@@ -26,6 +26,8 @@ export function Events({ data }: { data: GatsbyTypes.EventFeedQuery }) {
     futureEvents.map((event) => event.tags.map((tag) => tag))
   );
   let allowedTagSlugs = allowedTags.map((tag) => tag.slug);
+
+  removeInvalidTags(allowedTagSlugs);
 
   let afterTagClick = () => {
     scrollToRef.current.scrollIntoView({
