@@ -1,15 +1,17 @@
-import { EventFeed, H1, TagFilter } from "@mint-vernetzt/react-components";
+import { ChipFilter, EventFeed, H1 } from "@mint-vernetzt/react-components";
 import { graphql } from "gatsby";
 import { useRef } from "react";
+import Affix from "../components/affix";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { useTagFilter } from "../hooks/useTagFilter";
 import { ReactComponent as EventsOverview } from "../images/events_overview.svg";
 import { getParentEventItems } from "../utils/dataTransformer";
-import { getAllowedTags } from "../utils/tagUtils";
+import { getUniqueTags } from "../utils/tagUtils";
 
 export function Events({ data }: { data: GatsbyTypes.EventFeedQuery }) {
-  let [filterTags, filterClickHandler, tagClickHandler] = useTagFilter("tags");
+  let [filterTags, filterClickHandler, addTagClickHandler] =
+    useTagFilter("tags");
   let scrollToRef = useRef<HTMLElement>(null);
   let events = getParentEventItems(data.events).map((item) => {
     item.body = (
@@ -20,7 +22,7 @@ export function Events({ data }: { data: GatsbyTypes.EventFeedQuery }) {
   let now = new Date();
   let futureEvents = events.filter((event) => event.date >= now);
 
-  let allowedTags = getAllowedTags(
+  let allowedTags = getUniqueTags(
     futureEvents.map((event) => event.tags.map((tag) => tag))
   );
   let allowedTagSlugs = allowedTags.map((tag) => tag.slug);
@@ -36,8 +38,12 @@ export function Events({ data }: { data: GatsbyTypes.EventFeedQuery }) {
     filterTags.length === 0
       ? futureEvents
       : futureEvents.filter((event) => {
-          return event.tags.some((tag) => filterTags.indexOf(tag.slug) !== -1);
+          return filterTags.every(
+            (slug) => event.tags.filter((it) => it.slug === slug).length > 0
+          );
         });
+
+  let possibleTags = getUniqueTags(filteredEvents.map((event) => event.tags));
 
   return (
     <Layout>
@@ -80,17 +86,22 @@ export function Events({ data }: { data: GatsbyTypes.EventFeedQuery }) {
         ref={scrollToRef}
         className="container event-list my-8 md:my-10 lg:my-20"
       >
-        <TagFilter
-          tags={allowedTags.filter(
-            (tag) => filterTags.indexOf(tag.slug) !== -1
-          )}
-          handleTagClick={(slug) => filterClickHandler(slug, allowedTagSlugs)}
-        />
-
+        <div className="h-50 z-50 relative">
+          <Affix top={0}>
+            <ChipFilter
+              chips={allowedTags}
+              possibleTags={possibleTags}
+              selectedChips={allowedTags.filter(
+                (tag) => filterTags.indexOf(tag.slug) !== -1
+              )}
+              onChipClick={(slug) => filterClickHandler(slug, allowedTagSlugs)}
+            />
+          </Affix>
+        </div>
         <EventFeed
           eventFeedItemsProps={filteredEvents}
-          onTagClick={(slug) =>
-            tagClickHandler(slug, allowedTagSlugs, afterTagClick)
+          onChipClick={(slug) =>
+            addTagClickHandler(slug, allowedTagSlugs, afterTagClick)
           }
         />
       </section>

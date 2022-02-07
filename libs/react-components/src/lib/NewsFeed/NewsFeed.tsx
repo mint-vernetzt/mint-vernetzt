@@ -1,9 +1,5 @@
-import {
-  TagClickHandler,
-  TagFilter,
-  TagProps,
-} from "@mint-vernetzt/react-components";
-import React from "react";
+import { ChipClickHandler, ChipProps } from "@mint-vernetzt/react-components";
+import * as React from "react";
 import { H2 } from "../Heading/Heading";
 import NewsFeedItem, { NewsFeedItemProps } from "./NewsFeedItem";
 
@@ -12,9 +8,8 @@ export interface NewsFeedProps {
   body?: string;
   linkToOverview?: string;
   newsFeedItemsProps?: NewsFeedItemProps[];
-  filterTags?: TagProps[];
-  onTagClick?: TagClickHandler;
-  onFilterClick?: TagClickHandler;
+  selectedChips?: ChipProps[];
+  onChipClick?: ChipClickHandler;
 }
 
 export function NewsFeed({
@@ -22,9 +17,7 @@ export function NewsFeed({
   body,
   linkToOverview,
   newsFeedItemsProps = [],
-  filterTags = [],
-  onTagClick,
-  onFilterClick,
+  onChipClick,
 }: NewsFeedProps) {
   return (
     <div className="news-list">
@@ -51,8 +44,6 @@ export function NewsFeed({
         ) : null}
       </header>
 
-      <TagFilter tags={filterTags} handleTagClick={onFilterClick} />
-
       <ul>
         {newsFeedItemsProps.map((newsFeedItemProps, index) => {
           return (
@@ -60,7 +51,7 @@ export function NewsFeed({
               key={`news-feed-item-${index}`}
               className="border-b border-neutral-400 last:border-b-0 pb-4 pt-6 first:pt-0 last:pb-0"
             >
-              <NewsFeedItem {...newsFeedItemProps} onTagClick={onTagClick} />
+              <NewsFeedItem {...newsFeedItemProps} onChipClick={onChipClick} />
             </li>
           );
         })}

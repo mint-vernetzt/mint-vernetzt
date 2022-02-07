@@ -1,15 +1,17 @@
-import { H1, H2, NewsFeed } from "@mint-vernetzt/react-components";
+import { ChipFilter, H1, H2, NewsFeed } from "@mint-vernetzt/react-components";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import { useRef } from "react";
+import Affix from "../components/affix";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { useTagFilter } from "../hooks/useTagFilter";
 import { getNewsItems } from "../utils/dataTransformer";
-import { getAllowedTags } from "../utils/tagUtils";
+import { getUniqueTags } from "../utils/tagUtils";
 
 export function News({ data }: { data: GatsbyTypes.NewsFeedQuery }) {
-  let [filterTags, filterClickHandler, tagClickHandler] = useTagFilter("tags");
+  let [filterTags, filterClickHandler, addTagClickHandler] =
+    useTagFilter("tags");
   let scrollToRef = useRef<HTMLHeadingElement>(null);
 
   let allNewsItems = getNewsItems(data.allItems).map((item) => {
@@ -19,25 +21,31 @@ export function News({ data }: { data: GatsbyTypes.NewsFeedQuery }) {
     return item;
   });
 
-  let allowedTags = getAllowedTags(
-    allNewsItems.map((item) => item.tagsProps.map((tag) => tag))
+  let allowedTags = getUniqueTags(
+    allNewsItems.map((item) => item.tags.map((tag) => tag))
   );
   let allowedTagSlugs = allowedTags.map((tag) => tag.slug);
 
-  const newsItems =
+  const filteredNewsItems =
     filterTags.length === 0
       ? allNewsItems
       : allNewsItems.filter((item) => {
-          return item.tagsProps.some(
-            (tag) => filterTags.indexOf(tag.slug) !== -1
+          return filterTags.every(
+            (slug) => item.tags.filter((it) => it.slug === slug).length > 0
           );
         });
+
+  let possibleTags = getUniqueTags(
+    filteredNewsItems.map((item) => item.tags.map((tag) => tag))
+  );
+
   let afterTagClick = () => {
     scrollToRef.current.scrollIntoView({
       block: "start",
       behavior: "smooth",
     });
   };
+
   return (
     <Layout>
       <SEO
@@ -70,15 +78,24 @@ export function News({ data }: { data: GatsbyTypes.NewsFeedQuery }) {
       <section className="container my-8 md:my-10 lg:my-20">
         <H2>Neuigkeiten</H2>
 
+        <div style={{ height: "50px" }}>
+          <Affix top={0}>
+            <ChipFilter
+              chips={allowedTags}
+              possibleTags={possibleTags}
+              selectedChips={allowedTags.filter(
+                (tag) => filterTags.indexOf(tag.slug) !== -1
+              )}
+              onChipClick={(slug) => filterClickHandler(slug, allowedTagSlugs)}
+            />
+          </Affix>
+        </div>
+
         <NewsFeed
-          newsFeedItemsProps={newsItems}
-          filterTags={allowedTags.filter(
-            (tag) => filterTags.indexOf(tag.slug) !== -1
-          )}
-          onTagClick={(slug) => {
-            tagClickHandler(slug, allowedTagSlugs, afterTagClick);
+          newsFeedItemsProps={filteredNewsItems}
+          onChipClick={(slug) => {
+            addTagClickHandler(slug, allowedTagSlugs, afterTagClick);
           }}
-          onFilterClick={(slug) => filterClickHandler(slug, allowedTagSlugs)}
         />
       </section>
     </Layout>

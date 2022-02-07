@@ -1,10 +1,10 @@
 import { render } from "@testing-library/react";
 
-import Tag from "./Tag";
+import Chip from "./Chip";
 
-describe("Tag", () => {
+describe("Chip", () => {
   it("should render successfully", () => {
-    const { baseElement } = render(<Tag title="Tagtitle" slug="slug" />);
+    const { baseElement } = render(<Chip title="Tagtitle" slug="slug" />);
     expect(baseElement).toBeTruthy();
 
     // TODO

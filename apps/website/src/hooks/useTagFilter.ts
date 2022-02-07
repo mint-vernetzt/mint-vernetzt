@@ -1,26 +1,27 @@
+import { ChipFilterReducerAction } from "./../../../../libs/react-components/src/lib/ChipFilter/utils";
 import { useReducer, useEffect } from "react";
 
 import {
-  tagFilterReducer,
+  chipFilterReducer,
   filterProviderQS,
   setQSParam,
-  TagFilterReducerState,
+  ChipFilterReducerState,
   Slug,
 } from "@mint-vernetzt/react-components";
 
 export function useTagFilter(
   parameterName: string
 ): [
-  filterTags: TagFilterReducerState,
+  filterTags: ChipFilterReducerState,
   filterClickHandler: (slug: Slug, allowedSlugs: Slug[]) => void,
-  tagClickHandler: (
+  addTagClickHandler: (
     slug: Slug,
     allowedSlugs: Slug[],
     callback?: () => void
   ) => void
 ] {
   const [filterTags, dispatch] = useReducer(
-    tagFilterReducer,
+    chipFilterReducer,
     filterProviderQS(parameterName) ?? []
   );
 
@@ -28,18 +29,12 @@ export function useTagFilter(
     setQSParam(parameterName, filterTags);
   }, [filterTags]);
 
-  let filterClickHandler = (slug: Slug, allowedSlugs: Slug[]) => {
-    if (allowedSlugs.indexOf(slug) !== -1) {
-      dispatch({ slug, type: "REMOVE" });
-    }
-  };
-
-  let tagClickHandler = (
+  let addTagClickHandler = (
     slug: Slug,
     allowedSlugs: Slug[],
     callback?: () => void
   ) => {
-    if (allowedSlugs.indexOf(slug) !== -1 && filterTags.indexOf(slug) === -1) {
+    if (allowedSlugs.indexOf(slug) !== -1) {
       dispatch({ slug, type: "ADD" });
 
       if (callback) {
@@ -48,5 +43,14 @@ export function useTagFilter(
     }
   };
 
-  return [filterTags, filterClickHandler, tagClickHandler];
+  let filterClickHandler = (slug: Slug, allowedSlugs: Slug[]) => {
+    let type: ChipFilterReducerAction["type"] =
+      allowedSlugs.indexOf(slug) !== -1 && filterTags.indexOf(slug) === -1
+        ? "ADD"
+        : "REMOVE";
+
+    dispatch({ slug, type });
+  };
+
+  return [filterTags, filterClickHandler, addTagClickHandler];
 }

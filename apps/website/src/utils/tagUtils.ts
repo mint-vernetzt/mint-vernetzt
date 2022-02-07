@@ -1,6 +1,6 @@
-import { TagProps } from "@mint-vernetzt/react-components";
+import { ChipProps } from "@mint-vernetzt/react-components";
 
-export function getAllowedTags(tags: TagProps[][]): TagProps[] {
+export function getUniqueTags(tags: ChipProps[][]): ChipProps[] {
   return [
     ...new Map(
       tags

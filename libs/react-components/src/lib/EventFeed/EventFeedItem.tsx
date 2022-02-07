@@ -1,7 +1,7 @@
 import * as React from "react";
+import Chip, { ChipClickHandler, ChipProps } from "../Chip/Chip";
 import { H4 } from "../Heading/Heading";
 import { Icon, IconType } from "../Icon/Icon";
-import Tag, { TagClickHandler, TagProps } from "../Tag/Tag";
 import { formatDate } from "./utils";
 
 export interface EventFeedItemProps {
@@ -10,8 +10,8 @@ export interface EventFeedItemProps {
   slug: string;
   date: Date;
   category: string;
-  tags: TagProps[];
-  onTagClick?: TagClickHandler;
+  tags: ChipProps[];
+  onChipClick?: ChipClickHandler;
 }
 
 export function EventFeedItem({
@@ -21,28 +21,12 @@ export function EventFeedItem({
   date,
   category,
   tags = [],
-  onTagClick,
+  onChipClick,
 }: EventFeedItemProps) {
   const formattedDate = formatDate(date);
 
   return (
     <div className="relative">
-      {/* TODO: add icon before date */}
-      {/* <div className="inline-block icon w-3 h-3 mr-2 ">
-        <Icon type={IconType.Calendar} width="2rem" height="2rem" />
-      </div>
-      <time
-        data-testid="date"
-        dateTime={date.toISOString()}
-        className="uppercase font-semibold text-neutral-800 text-xs"
-      >
-        {formattedDate}
-      </time>
-      {/*
-      <div className="inline-block icon ml-3 w-3 h-3 bg-red-600"></div>{" "}
-      <div className="inline-block uppercase font-semibold text-neutral-800 text-xs">
-        {category}
-      </div> */}
       <p className="text-xs text-neutral-800 font-semibold mb-4 flex items-center">
         <span className="icon w-4 h-4 mr-2">
           <Icon type={IconType.Calendar} />
@@ -56,10 +40,6 @@ export function EventFeedItem({
             {formattedDate}
           </time>
         </span>
-        {/* <span className="icon w-4 h-4 mr-2">
-          <Icon type={IconType.Calendar} />
-        </span>
-        <span>{category}</span> */}
       </p>
       <H4 like="h3">
         <a href={slug} className="cursor-pointer hover:underline">
@@ -67,10 +47,10 @@ export function EventFeedItem({
         </a>
       </H4>
       <p data-testid="body">{body}</p>
-      <ul className="flex flex-wrap md:order-4">
+      <ul className="flex flex-wrap md:order-4 z-10 relative">
         {tags.map((tag, index) => (
           <li key={`event-taglist-${index}-${tag.slug}`}>
-            <Tag title={tag.title} slug={tag.slug} onTagClick={onTagClick} />
+            <Chip title={tag.title} slug={tag.slug} onClick={onChipClick} />
           </li>
         ))}
       </ul>

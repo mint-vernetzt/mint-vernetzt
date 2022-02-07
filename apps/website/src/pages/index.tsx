@@ -149,7 +149,7 @@ export function Index({
               body="Wir blicken in die MINT-Welt und darüber hinaus und informieren Euch regelmäßig über Erkenntnisse, Ereignisse und Innovationen, die für Eure tägliche Arbeit interessant sind."
               linkToOverview="/news/"
               newsFeedItemsProps={newsItems}
-              onTagClick={(slug) => {
+              onChipClick={(slug) => {
                 if (window) {
                   document.location.href = `/news/?tags=${slug}`;
                 }

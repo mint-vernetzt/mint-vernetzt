@@ -4,12 +4,12 @@ export type Slug = string;
 
 const SPLIT_CHAR = "|";
 
-export type TagFilterReducerState = Slug[];
-export type TagFilterReducerAction = { slug: string; type: "ADD" | "REMOVE" };
+export type ChipFilterReducerState = Slug[];
+export type ChipFilterReducerAction = { slug: string; type: "ADD" | "REMOVE" };
 
-export const tagFilterReducer = (
-  state: TagFilterReducerState,
-  action: TagFilterReducerAction
+export const chipFilterReducer = (
+  state: ChipFilterReducerState,
+  action: ChipFilterReducerAction
 ) => {
   switch (action.type) {
     case "ADD":

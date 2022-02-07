@@ -1,16 +1,16 @@
 import * as React from "react";
 
-import { TagClickHandler, TagProps } from "@mint-vernetzt/react-components";
 import { EventFeedItem, EventFeedItemProps } from "./EventFeedItem";
+import { ChipClickHandler } from "@mint-vernetzt/react-components";
 
 export interface EventFeedProps {
   eventFeedItemsProps?: EventFeedItemProps[];
-  onTagClick?: TagClickHandler;
+  onChipClick?: ChipClickHandler;
 }
 
 export function EventFeed({
   eventFeedItemsProps = [],
-  onTagClick,
+  onChipClick,
 }: EventFeedProps) {
   return (
     <>
@@ -25,7 +25,7 @@ export function EventFeed({
               >
                 <EventFeedItem
                   {...eventFeedItemProps}
-                  onTagClick={onTagClick}
+                  onChipClick={onChipClick}
                 />
               </li>
             );

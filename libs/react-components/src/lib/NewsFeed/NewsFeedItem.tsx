@@ -1,5 +1,9 @@
-import { TagClickHandler, TagProps } from "@mint-vernetzt/react-components";
-import React from "react";
+import {
+  Chip,
+  ChipClickHandler,
+  ChipProps,
+} from "@mint-vernetzt/react-components";
+import * as React from "react";
 import { H4 } from "../Heading/Heading";
 import { Image } from "../types";
 import { formatDate } from "./utils";
@@ -9,23 +13,9 @@ export interface NewsFeedItemProps {
   body: string | Element | React.ReactElement;
   date: Date;
   slug: string;
-  tagsProps?: TagProps[];
-  onTagClick?: TagClickHandler;
+  tags?: ChipProps[];
+  onChipClick?: ChipClickHandler;
   image?: Image;
-}
-
-function Tag({ title, slug, onTagClick }: TagProps) {
-  let tagHandlerIsCallable = typeof onTagClick === "function";
-  return (
-    <div
-      className={`mr-2 mb-2 px-3 py-2 rounded-lg bg-secondary-300 text-neutral-800 text-sm text-bold ${
-        tagHandlerIsCallable ? "cursor-pointer" : ""
-      }`}
-      onClick={() => tagHandlerIsCallable && onTagClick && onTagClick(slug)}
-    >
-      {title}
-    </div>
-  );
 }
 
 export function NewsFeedItem({
@@ -33,9 +23,9 @@ export function NewsFeedItem({
   body,
   date,
   slug,
-  tagsProps = [],
+  tags = [],
   image,
-  onTagClick,
+  onChipClick,
 }: NewsFeedItemProps) {
   const formattedDate = formatDate(date);
 
@@ -69,11 +59,11 @@ export function NewsFeedItem({
         >
           {body}
         </p>
-        <ul className="flex flex-wrap md:order-4">
-          {tagsProps.map((tagProps, index) => {
+        <ul className="flex flex-wrap md:order-4 z-10">
+          {tags.map((tag, index) => {
             return (
               <li key={`tag-${index}`}>
-                <Tag {...tagProps} onTagClick={onTagClick} />
+                <Chip {...tag} onClick={onChipClick} />
               </li>
             );
           })}

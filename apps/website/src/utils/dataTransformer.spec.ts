@@ -290,7 +290,7 @@ test("transform news items", () => {
   expect(formatDate(result[0].date)).toBe(formatDate(date));
   expect(result[0].body).toBe(excerpt);
   expect(result[0].slug).toBe(`/news/${slug}`);
-  expect(result[0].tagsProps[0].title).toBe(tagName);
+  expect(result[0].tags[0].title).toBe(tagName);
   expect(result[0].image.src).toBe(image.src);
   expect(result[0].image.alt).toBe(image.alt);
 });
