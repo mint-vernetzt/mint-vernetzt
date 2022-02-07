@@ -37,7 +37,7 @@
   }
   h5,
   .h5 {
-    @apply text-base lg:text-xl font-bold;
+    @apply text-base lg:text-xl;
   }
   h6,
   .h6 {
@@ -47,7 +47,7 @@
     @apply text-6xl lg:text-8xl font-bold;
   }
   .h0 + h5 {
-    @apply font-normal;
+    @apply font-bold;
   }
 
   p {
@@ -226,7 +226,7 @@ ol {
 }
 
 .event-list .event-item {
-  @apply border-b border-neutral-400 last:border-b-0 pt-4 pb-6 lg:pt-6 lg:pb-8;
+  @apply border-b border-neutral-400 last:border-b-0 pb-6 lg:pb-8;
 }
 
 @screen lg {
