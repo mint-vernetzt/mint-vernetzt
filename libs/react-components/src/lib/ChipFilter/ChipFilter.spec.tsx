@@ -16,8 +16,10 @@ describe("TagFilter", () => {
       { title: "Chip 3", slug: "chip-3" },
     ];
 
+    let clickHandler = jest.fn();
+
     const { container } = render(
-      <ChipFilter chips={tags} possibleTags={tags} />
+      <ChipFilter chips={tags} possibleTags={tags} onChipClick={clickHandler} />
     );
 
     expect(container.getElementsByClassName("is-selectable").length).toBe(3);
@@ -30,8 +32,15 @@ describe("TagFilter", () => {
       { title: "Chip 3", slug: "chip-3" },
     ];
 
+    let clickHandler = jest.fn();
+
     const { container } = render(
-      <ChipFilter chips={tags} selectedChips={tags.slice(0, 2)} />
+      <ChipFilter
+        chips={tags}
+        selectedChips={tags.slice(0, 2)}
+        possibleTags={tags}
+        onChipClick={clickHandler}
+      />
     );
 
     expect(container.getElementsByClassName("is-enabled").length).toBe(2);
@@ -59,7 +68,11 @@ describe("TagFilter", () => {
       { title: "Chip A", slug: "chip-a" },
     ];
 
-    const { container } = render(<ChipFilter chips={tags} />);
+    let clickHandler = jest.fn();
+
+    const { container } = render(
+      <ChipFilter chips={tags} possibleTags={tags} onChipClick={clickHandler} />
+    );
 
     expect(
       container.getElementsByClassName("is-selectable")[0].textContent
