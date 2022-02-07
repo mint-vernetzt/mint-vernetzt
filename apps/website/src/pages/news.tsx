@@ -26,6 +26,14 @@ export function News({ data }: { data: GatsbyTypes.NewsFeedQuery }) {
   );
   let allowedTagSlugs = allowedTags.map((tag) => tag.slug);
 
+  let isValidTags = filterTags.every(
+    (ft) => allowedTagSlugs.indexOf(ft) !== -1
+  );
+
+  if (!isValidTags) {
+    document.location = "/404/";
+  }
+
   const filteredNewsItems =
     filterTags.length === 0
       ? allNewsItems
