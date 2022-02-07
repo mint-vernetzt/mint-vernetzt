@@ -4,6 +4,7 @@ import Img from "gatsby-image";
 import {
   formatDate,
   H1,
+  H4,
   Icon,
   IconType,
 } from "@mint-vernetzt/react-components";
@@ -87,7 +88,7 @@ function News({ data }) {
           </div>
           {props.attachments.length > 0 && (
             <div className="flex-100 md:flex-1/3 md:px-2 lg:px-6">
-              <h4 className="text-3xl leading-5 pb-4">Anhänge</h4>
+              <H4>Anhänge</H4>
               <ul className="document-list">
                 {props.attachments.map((attachment, index) => {
                   return (

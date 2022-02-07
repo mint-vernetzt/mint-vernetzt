@@ -1,4 +1,5 @@
 import React from "react";
+import { H4 } from "../Heading/Heading";
 import { Image } from "../types";
 import { formatDate } from "./utils";
 
@@ -52,11 +53,11 @@ export function NewsFeedItem({
         >
           {formattedDate}
         </time>
-        <h4 className="text-3xl leading-snug mb-2 flex-100 md:order-1">
+        <H4 className="text-3xl leading-snug mb-2 flex-100 md:order-1">
           <a href={slug} className="cursor-pointer hover:underline">
             {headline}
           </a>
-        </h4>
+        </H4>
         <p
           data-testid="body"
           className="line-clamp-5 mb-4 md:line-clamp-none flex-100 md:order-2"

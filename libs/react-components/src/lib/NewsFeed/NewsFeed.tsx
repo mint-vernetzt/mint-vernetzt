@@ -1,4 +1,5 @@
 import React from "react";
+import { H2 } from "../Heading/Heading";
 import NewsFeedItem, { NewsFeedItemProps } from "./NewsFeedItem";
 
 export interface NewsFeedProps {
@@ -18,7 +19,7 @@ export function NewsFeed({
     <div className="news-list">
       <header className="text-left">
         {headline !== undefined ? (
-          <h2>
+          <H2>
             {linkToOverview !== undefined ? (
               <a
                 className="cursor-pointer hover:underline"
@@ -29,7 +30,7 @@ export function NewsFeed({
             ) : (
               headline
             )}
-          </h2>
+          </H2>
         ) : null}
         {body !== undefined ? (
           <p data-testid="body" className="lead">
