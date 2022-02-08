@@ -30,10 +30,14 @@ export function Events({ data }: { data: GatsbyTypes.EventFeedQuery }) {
   removeInvalidTags(allowedTagSlugs);
 
   let afterTagClick = () => {
-    scrollToRef.current.scrollIntoView({
-      block: "start",
-      behavior: "smooth",
-    });
+    if (scrollToRef.current) {
+      setTimeout(function () {
+        scrollToRef.current.scrollIntoView({
+          block: "start",
+          behavior: "smooth",
+        });
+      }, 200);
+    }
   };
 
   let filteredEvents =
@@ -96,7 +100,10 @@ export function Events({ data }: { data: GatsbyTypes.EventFeedQuery }) {
               selectedChips={allowedTags.filter(
                 (tag) => filterTags.indexOf(tag.slug) !== -1
               )}
-              onChipClick={(slug) => filterClickHandler(slug, allowedTagSlugs)}
+              onChipClick={(slug) => {
+                filterClickHandler(slug, allowedTagSlugs);
+                afterTagClick();
+              }}
             />
           </Affix>
         </div>

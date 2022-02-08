@@ -42,10 +42,14 @@ export function News({ data }: { data: GatsbyTypes.NewsFeedQuery }) {
   );
 
   let afterTagClick = () => {
-    scrollToRef.current.scrollIntoView({
-      block: "start",
-      behavior: "smooth",
-    });
+    if (scrollToRef.current) {
+      setTimeout(function () {
+        scrollToRef.current.scrollIntoView({
+          block: "start",
+          behavior: "smooth",
+        });
+      }, 200);
+    }
   };
 
   return (
@@ -67,7 +71,7 @@ export function News({ data }: { data: GatsbyTypes.NewsFeedQuery }) {
 
           <div className="hero-text absolute top-0 left-0 h-full right-0 pt-12 px-4 md:px-12 md:flex md:items-center lg:px-20">
             <div className="md:flex-100">
-              <H1 like="h0" ref={scrollToRef}>
+              <H1 like="h0">
                 MINT<span className="font-normal">news</span>
               </H1>
               <p className="font-bold md:max-w-1/2 lg:text-3xl lg:leading-snug">
@@ -78,8 +82,7 @@ export function News({ data }: { data: GatsbyTypes.NewsFeedQuery }) {
         </div>
       </section>
       <section className="container my-8 md:my-10 lg:my-20">
-        <H2>Neuigkeiten</H2>
-
+        <H2 ref={scrollToRef}>Neuigkeiten</H2>
         <div style={{ height: "50px" }}>
           <Affix top={0}>
             <ChipFilter
@@ -88,7 +91,10 @@ export function News({ data }: { data: GatsbyTypes.NewsFeedQuery }) {
               selectedChips={allowedTags.filter(
                 (tag) => filterTags.indexOf(tag.slug) !== -1
               )}
-              onChipClick={(slug) => filterClickHandler(slug, allowedTagSlugs)}
+              onChipClick={(slug) => {
+                filterClickHandler(slug, allowedTagSlugs);
+                afterTagClick();
+              }}
             />
           </Affix>
         </div>
