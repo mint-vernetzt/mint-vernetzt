@@ -14,6 +14,7 @@ export default function Affix(props: {
   };
   // Offset could make the element fixed ealier or later
   const { offset = 0 } = props;
+  const [distanceToBody, setDistanceToBody] = React.useState(0);
 
   const checkPosition = (distanceToBody: number, width: number) => {
     const scrollTop = window.scrollY;
@@ -40,9 +41,6 @@ export default function Affix(props: {
       // don't work in IE
       return;
     }
-
-    const distanceToBody =
-      window.scrollY + element.current.getBoundingClientRect().top;
     const handleScroll = () => {
       requestAnimationFrame(() => {
         element.current &&
@@ -55,6 +53,17 @@ export default function Affix(props: {
       window.removeEventListener("scroll", handleScroll);
     };
   });
+
+  // get initial distance
+  React.useEffect(() => {
+    const value = window.scrollY + element.current.getBoundingClientRect().top;
+    setDistanceToBody(value);
+  }, [element.current]);
+
+  // call position check on render (required on list length change)
+  React.useEffect(() => {
+    checkPosition(distanceToBody, element.current.clientWidth);
+  }, [distanceToBody, element.current]);
 
   return (
     <div ref={element} style={{ zIndex: 1 }} className={props.className}>
