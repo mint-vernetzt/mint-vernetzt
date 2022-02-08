@@ -1,23 +1,51 @@
-import { EventFeed, H1 } from "@mint-vernetzt/react-components";
+import { ChipFilter, EventFeed, H1 } from "@mint-vernetzt/react-components";
 import { graphql } from "gatsby";
+import { useRef } from "react";
+import Affix from "../components/affix";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import { getParentEventItems } from "../utils/dataTransformer";
+import { useTagFilter } from "../hooks/useTagFilter";
 import { ReactComponent as EventsOverview } from "../images/events_overview.svg";
+import { getParentEventItems } from "../utils/dataTransformer";
+import { getUniqueTags } from "../utils/tagUtils";
 
 export function Events({ data }: { data: GatsbyTypes.EventFeedQuery }) {
-  const events = getParentEventItems(data.events).map((item) => {
+  let [filterTags, filterClickHandler, addTagClickHandler, removeInvalidTags] =
+    useTagFilter("tags");
+  let scrollToRef = useRef<HTMLElement>(null);
+  let events = getParentEventItems(data.events).map((item) => {
     item.body = (
       <span dangerouslySetInnerHTML={{ __html: item.body as string }} />
     );
     return item;
   });
+  let now = new Date();
+  let futureEvents = events.filter((event) => event.date >= now);
 
-  // filter past events
-  const now = new Date();
-  const futureEvents = events.filter((event) => {
-    return event.date > now;
-  });
+  let allowedTags = getUniqueTags(
+    futureEvents.map((event) => event.tags.map((tag) => tag))
+  );
+  let allowedTagSlugs = allowedTags.map((tag) => tag.slug);
+
+  removeInvalidTags(allowedTagSlugs);
+
+  let afterTagClick = () => {
+    scrollToRef.current.scrollIntoView({
+      block: "start",
+      behavior: "smooth",
+    });
+  };
+
+  let filteredEvents =
+    filterTags.length === 0
+      ? futureEvents
+      : futureEvents.filter((event) => {
+          return filterTags.every(
+            (slug) => event.tags.filter((it) => it.slug === slug).length > 0
+          );
+        });
+
+  let possibleTags = getUniqueTags(filteredEvents.map((event) => event.tags));
 
   return (
     <Layout>
@@ -56,8 +84,28 @@ export function Events({ data }: { data: GatsbyTypes.EventFeedQuery }) {
         </div>
       </section>
 
-      <section className="container event-list my-8 md:my-10 lg:my-20">
-        <EventFeed eventFeedItemsProps={futureEvents} />
+      <section
+        ref={scrollToRef}
+        className="container event-list my-8 md:my-10 lg:my-20"
+      >
+        <div className="h-50 z-50 relative">
+          <Affix top={0}>
+            <ChipFilter
+              chips={allowedTags}
+              possibleTags={possibleTags}
+              selectedChips={allowedTags.filter(
+                (tag) => filterTags.indexOf(tag.slug) !== -1
+              )}
+              onChipClick={(slug) => filterClickHandler(slug, allowedTagSlugs)}
+            />
+          </Affix>
+        </div>
+        <EventFeed
+          eventFeedItemsProps={filteredEvents}
+          onChipClick={(slug) =>
+            addTagClickHandler(slug, allowedTagSlugs, afterTagClick)
+          }
+        />
       </section>
     </Layout>
   );
@@ -85,6 +133,7 @@ export const pageQuery = graphql`
         tags {
           nodes {
             name
+            slug
           }
         }
         title

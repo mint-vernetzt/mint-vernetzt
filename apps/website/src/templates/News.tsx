@@ -1,13 +1,13 @@
-import { graphql, Link } from "gatsby";
-import React from "react";
-import Img from "gatsby-image";
 import {
+  Chip,
   formatDate,
   H1,
   H4,
   Icon,
   IconType,
 } from "@mint-vernetzt/react-components";
+import { graphql, Link, navigate } from "gatsby";
+import Img from "gatsby-image";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
@@ -43,7 +43,16 @@ function News({ data }) {
       <section className="container py-4 md:py-8">
         <Link
           className="inline-block border border-neutral-400 py-3 px-4 mb-6 text-neutral-800 text-semibold uppercase rounded-lg"
-          to="/news"
+          to="/news/"
+          onClick={(e) => {
+            if (
+              typeof window !== "undefined" &&
+              window.previousPath === "/news/"
+            ) {
+              e.preventDefault();
+              navigate(-1);
+            }
+          }}
         >
           <span className="flex items-center">
             <span className="mr-2">
@@ -57,19 +66,26 @@ function News({ data }) {
           <div className="mb-2 md:mb-0 md:mr-2 md:py-2 md:pr-3 font-semibold text-neutral-800 text-xs flex-100 md:order-2">
             {formatDate(new Date(props.date))}
           </div>
+
           <H1 like="h0">{props.title}</H1>
-          {/* <ul className="flex flex-wrap md:order-3">
-            {props.tags.nodes.map((tag, index) => {
-              return (
-                <li
-                  key={`tag-${index}`}
-                  className="mr-2 mb-2 px-3 py-2 rounded-lg bg-secondary-300 text-neutral-800 text-sm text-bold"
-                >
-                  {tag.name}
-                </li>
-              );
-            })}
-          </ul> */}
+
+          {
+            <ul className="flex flex-wrap md:order-3">
+              {props.tags.nodes.map((tag, index) => {
+                return (
+                  <li key={`tag-${index}`}>
+                    <Chip
+                      title={tag.name}
+                      slug={tag.slug}
+                      onClick={() =>
+                        (document.location.href = `/news/?tags=${tag.slug}`)
+                      }
+                    />
+                  </li>
+                );
+              })}
+            </ul>
+          }
         </div>
 
         <Img
@@ -147,6 +163,7 @@ export const query = graphql`
       tags {
         nodes {
           name
+          slug
         }
       }
       attachments {

@@ -1,10 +1,10 @@
 import {
   NewsFeedItemProps,
-  TagProps,
   UserCardProps,
   OrganizationBoxProps,
   EventNavigationItemProps,
   EventFeedItemProps,
+  ChipProps,
 } from "@mint-vernetzt/react-components";
 
 export type PaktDataByCategory = {
@@ -65,8 +65,8 @@ export const getNewsItems = (
     | GatsbyTypes.NewsFeedQuery["allItems"]
 ): NewsFeedItemProps[] => {
   return newsItems.nodes.map((newsItem) => {
-    const tagsProps: TagProps[] = newsItem.tags.nodes.map((tag) => {
-      return { title: tag.name };
+    const tags: ChipProps[] = newsItem.tags.nodes.map((tag) => {
+      return { title: tag.name, slug: tag.slug };
     });
 
     let image;
@@ -84,7 +84,7 @@ export const getNewsItems = (
       body: newsItem.excerpt.replace(/<[^>]*>/g, ""),
       date: new Date(newsItem.date),
       slug: `/news/${newsItem.slug}`,
-      tagsProps,
+      tags,
       image,
     };
   });
@@ -100,7 +100,9 @@ export const getParentEventItems = (
     date: new Date(event.eventInformations.startDate),
     category:
       event.eventCategories.nodes.map((category) => category.name)[0] ?? null,
-    tags: event.tags.nodes.map((tag) => tag.name) ?? [],
+    tags:
+      event.tags.nodes.map((tag) => ({ slug: tag.slug, title: tag.name })) ??
+      [],
   }));
   return events;
 };

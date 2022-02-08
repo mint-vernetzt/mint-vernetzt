@@ -149,6 +149,11 @@ export function Index({
               body="Wir blicken in die MINT-Welt und darüber hinaus und informieren Euch regelmäßig über Erkenntnisse, Ereignisse und Innovationen, die für Eure tägliche Arbeit interessant sind."
               linkToOverview="/news/"
               newsFeedItemsProps={newsItems}
+              onChipClick={(slug) => {
+                if (window) {
+                  document.location.href = `/news/?tags=${slug}`;
+                }
+              }}
             />
           </div>
           <div className="event-teaser flex-100 md:flex-1/3 pb-8 md:pb-0 md:px-2 lg:px-4">
@@ -223,6 +228,7 @@ export const pageQuery = graphql`
         tags {
           nodes {
             name
+            slug
           }
         }
       }

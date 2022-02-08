@@ -1,7 +1,8 @@
-import { graphql, Link } from "gatsby";
 import React from "react";
+import { graphql, Link, navigate } from "gatsby";
 import Img from "gatsby-image";
 import {
+  Chip,
   ContactCard,
   EventNavigation,
   formatDate,
@@ -76,11 +77,14 @@ function EventHeader(event: GatsbyTypes.EventQuery["event"]) {
       {parentEvent.tags && (
         <ul className="flex flex-wrap md:order-3">
           {parentEvent.tags.nodes.map((tag, index) => (
-            <li
-              key={`tag-${index}`}
-              className="mr-2 mb-2 px-3 py-2 rounded-lg bg-secondary-300 text-neutral-800 text-sm text-bold"
-            >
-              {tag.name}
+            <li key={`${tag.slug}-${index}`}>
+              <Chip
+                title={tag.name}
+                slug={tag.slug}
+                onClick={() =>
+                  (document.location.href = `/news/?tags=${tag.slug}`)
+                }
+              />
             </li>
           ))}
         </ul>
@@ -109,6 +113,15 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
         <Link
           className="inline-block border border-neutral-400 py-3 px-4 mb-4 text-neutral-800 text-semibold uppercase rounded-lg"
           to="/events"
+          onClick={(e) => {
+            if (
+              typeof window !== "undefined" &&
+              window.previousPath === "/events/"
+            ) {
+              e.preventDefault();
+              navigate(-1);
+            }
+          }}
         >
           <span className="flex items-center">
             <span className="mr-2">
@@ -252,6 +265,7 @@ export const query = graphql`
       tags {
         nodes {
           name
+          slug
         }
       }
       eventCategories {
@@ -280,6 +294,7 @@ export const query = graphql`
             tags {
               nodes {
                 name
+                slug
               }
             }
             eventCategories {

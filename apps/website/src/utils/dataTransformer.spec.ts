@@ -209,9 +209,11 @@ test("transform event items", () => {
           nodes: [
             {
               name: "Allgemein",
+              slug: "Allgemein",
             },
             {
               name: "Hackathon",
+              slug: "Hackathon",
             },
           ],
         },
@@ -230,7 +232,10 @@ test("transform event items", () => {
       slug: "/event/parent-event",
       date: new Date("2021-11-08"),
       category: "Digitale Veranstaltung",
-      tags: ["Allgemein", "Hackathon"],
+      tags: [
+        { title: "Allgemein", slug: "Allgemein" },
+        { title: "Hackathon", slug: "Hackathon" },
+      ],
     },
   ]);
 });
@@ -259,6 +264,7 @@ test("transform news items", () => {
           nodes: [
             {
               name: tagName,
+              slug: tagName,
             },
           ],
         },
@@ -284,7 +290,7 @@ test("transform news items", () => {
   expect(formatDate(result[0].date)).toBe(formatDate(date));
   expect(result[0].body).toBe(excerpt);
   expect(result[0].slug).toBe(`/news/${slug}`);
-  expect(result[0].tagsProps[0].title).toBe(tagName);
+  expect(result[0].tags[0].title).toBe(tagName);
   expect(result[0].image.src).toBe(image.src);
   expect(result[0].image.alt).toBe(image.alt);
 });

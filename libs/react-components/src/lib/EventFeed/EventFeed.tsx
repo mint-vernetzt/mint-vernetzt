@@ -1,11 +1,17 @@
 import * as React from "react";
+
 import { EventFeedItem, EventFeedItemProps } from "./EventFeedItem";
+import { ChipClickHandler } from "@mint-vernetzt/react-components";
 
 export interface EventFeedProps {
   eventFeedItemsProps?: EventFeedItemProps[];
+  onChipClick?: ChipClickHandler;
 }
 
-export function EventFeed({ eventFeedItemsProps = [] }: EventFeedProps) {
+export function EventFeed({
+  eventFeedItemsProps = [],
+  onChipClick,
+}: EventFeedProps) {
   return (
     <>
       <section>
@@ -17,7 +23,10 @@ export function EventFeed({ eventFeedItemsProps = [] }: EventFeedProps) {
                 className="event-item"
                 data-testid="event-item"
               >
-                <EventFeedItem {...eventFeedItemProps} />
+                <EventFeedItem
+                  {...eventFeedItemProps}
+                  onChipClick={onChipClick}
+                />
               </li>
             );
           })}
