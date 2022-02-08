@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql, Link, navigate } from "gatsby";
 import Img from "gatsby-image";
 import {
   Chip,
@@ -77,7 +77,7 @@ function EventHeader(event: GatsbyTypes.EventQuery["event"]) {
       {parentEvent.tags && (
         <ul className="flex flex-wrap md:order-3">
           {parentEvent.tags.nodes.map((tag, index) => (
-            <li key={`tag-${index}`}>
+            <li key={`${tag.slug}-${index}`}>
               <Chip
                 title={tag.name}
                 slug={tag.slug}
@@ -113,6 +113,15 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
         <Link
           className="inline-block border border-neutral-400 py-3 px-4 mb-4 text-neutral-800 text-semibold uppercase rounded-lg"
           to="/events"
+          onClick={(e) => {
+            if (
+              typeof window !== "undefined" &&
+              window.previousPath === "/events/"
+            ) {
+              e.preventDefault();
+              navigate(-1);
+            }
+          }}
         >
           <span className="flex items-center">
             <span className="mr-2">

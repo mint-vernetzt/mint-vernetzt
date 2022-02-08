@@ -52,7 +52,7 @@ export function News({ data }: { data: GatsbyTypes.NewsFeedQuery }) {
     <Layout>
       <SEO
         title="Neuigkeiten"
-        slug="/news"
+        slug="/news/"
         children=""
         description=""
         image=""

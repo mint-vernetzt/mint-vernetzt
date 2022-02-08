@@ -85,7 +85,7 @@ export function Mintvernetzt({
               Arbeit zu schaffen.
             </p>
             <p>
-              <Link to="/news" className="text-lilac-500 font-bold">
+              <Link to="/news/" className="text-lilac-500 font-bold">
                 Zu den Neuigkeiten
               </Link>
             </p>

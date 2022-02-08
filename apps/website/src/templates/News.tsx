@@ -6,7 +6,7 @@ import {
   Icon,
   IconType,
 } from "@mint-vernetzt/react-components";
-import { graphql, Link } from "gatsby";
+import { graphql, Link, navigate } from "gatsby";
 import Img from "gatsby-image";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -43,7 +43,16 @@ function News({ data }) {
       <section className="container py-4 md:py-8">
         <Link
           className="inline-block border border-neutral-400 py-3 px-4 mb-6 text-neutral-800 text-semibold uppercase rounded-lg"
-          to="/news"
+          to="/news/"
+          onClick={(e) => {
+            if (
+              typeof window !== "undefined" &&
+              window.previousPath === "/news/"
+            ) {
+              e.preventDefault();
+              navigate(-1);
+            }
+          }}
         >
           <span className="flex items-center">
             <span className="mr-2">

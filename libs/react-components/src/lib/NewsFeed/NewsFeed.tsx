@@ -45,10 +45,10 @@ export function NewsFeed({
       </header>
 
       <ul>
-        {newsFeedItemsProps.map((newsFeedItemProps, index) => {
+        {newsFeedItemsProps.map((newsFeedItemProps) => {
           return (
             <li
-              key={`news-feed-item-${index}`}
+              key={`news-feed-item-${newsFeedItemProps.slug}`}
               className="border-b border-neutral-400 last:border-b-0 pb-4 pt-6 first:pt-0 last:pb-0"
             >
               <NewsFeedItem {...newsFeedItemProps} onChipClick={onChipClick} />

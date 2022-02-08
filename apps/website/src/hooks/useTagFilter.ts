@@ -21,12 +21,17 @@ export function useTagFilter(
   ) => void,
   removeInvalidTags: (allowedSlugs: Slug[]) => void
 ] {
-  const [filterTags, dispatch] = useReducer(
-    chipFilterReducer,
-    filterProviderQS(parameterName) ?? []
-  );
+  const [filterTags, dispatch] = useReducer(chipFilterReducer, []);
 
   useEffect(() => {
+    // add initial tags from query string if applicable
+    (filterProviderQS(parameterName) ?? []).forEach((tag) => {
+      dispatch({ slug: tag, type: "ADD" });
+    });
+  }, []);
+
+  useEffect(() => {
+    // set QS on every filter change
     setQSParam(parameterName, filterTags);
   }, [filterTags]);
 

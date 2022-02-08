@@ -11,11 +11,7 @@ export interface ChipProps {
   onClick?: ChipClickHandler;
 }
 
-function getClassNames(
-  slug: string,
-  isEnabled: boolean,
-  tagHandlerIsCallable: boolean
-) {
+function getClassNames(isEnabled: boolean, tagHandlerIsCallable: boolean) {
   let classesList: string[] = [
     `mr-2 mb-2 px-3 py-0 mt-2 rounded-lg border-2 text-neutral-800 text-sm text-bold`,
   ];
@@ -56,7 +52,7 @@ export function Chip({
 
   return (
     <div
-      className={getClassNames(slug, isEnabled, tagHandlerIsCallable)}
+      className={getClassNames(isEnabled, tagHandlerIsCallable)}
       onClick={() => tagHandlerIsCallable && onClick && onClick(slug)}
     >
       {title}

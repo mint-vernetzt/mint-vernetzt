@@ -5,3 +5,8 @@
  */
 
 // You can delete this file if you're not using it
+exports.onRouteUpdate = () => {
+  window.locations = window.locations || [document.referrer];
+  window.locations.push(window.location.pathname);
+  window.previousPath = window.locations[locations.length - 2];
+};
