@@ -6,6 +6,9 @@ import {
   EventFeedItemProps,
   ChipProps,
 } from "@mint-vernetzt/react-components";
+import { Link } from "gatsby";
+
+import Img from "gatsby-image";
 
 export type PaktDataByCategory = {
   [key: string]: {
@@ -165,4 +168,37 @@ export const getRelatedEvents = (
   }
 
   return sortRelatedEvents(relatedEvents);
+};
+
+function getTeaserUrl(teaserData: GatsbyTypes.WpTeaser) {
+  if (teaserData.teaserInformations.post === null) {
+    return teaserData.teaserInformations.pagepath;
+  }
+  let prefix =
+    teaserData.teaserInformations.post[0]?.__typename === "WpNewsItem"
+      ? "/news"
+      : "/event";
+  return `${prefix}/${teaserData.teaserInformations.post[0].slug}`;
+}
+
+export const getTeasersData = (data: GatsbyTypes.LandingPageQuery) => {
+  return data.teasers.nodes.map((teaser) => {
+    return {
+      image: (
+        <Img
+          fluid={
+            teaser.teaserInformations.image.localFile.childImageSharp.fluid
+          }
+          className="w-full h-3/4 md:h-full"
+        />
+      ),
+      headline: teaser.title,
+      excerpt: teaser.excerpt.replace(/<[^>]*>/g, ""),
+      url: (
+        <Link to={getTeaserUrl(teaser)} className="btn-primary">
+          {teaser.teaserInformations.buttonText || "Erfahre mehr"}
+        </Link>
+      ),
+    };
+  });
 };
