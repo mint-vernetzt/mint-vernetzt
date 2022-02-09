@@ -21,28 +21,30 @@ export function NewsFeed({
 }: NewsFeedProps) {
   return (
     <div className="news-list">
-      <header className="text-left">
-        {headline !== undefined ? (
-          <H2>
-            {linkToOverview !== undefined ? (
-              <a
-                className="cursor-pointer hover:underline"
-                href={linkToOverview}
-              >
-                {headline}
-              </a>
-            ) : (
-              headline
-            )}
-          </H2>
-        ) : null}
+      {headline !== undefined || body !== undefined ? (
+        <header className="text-left">
+          {headline !== undefined ? (
+            <H2>
+              {linkToOverview !== undefined ? (
+                <a
+                  className="cursor-pointer hover:underline"
+                  href={linkToOverview}
+                >
+                  {headline}
+                </a>
+              ) : (
+                headline
+              )}
+            </H2>
+          ) : null}
 
-        {body !== undefined ? (
-          <p data-testid="body" className="lead">
-            {body}
-          </p>
-        ) : null}
-      </header>
+          {body !== undefined ? (
+            <p data-testid="body" className="lead">
+              {body}
+            </p>
+          ) : null}
+        </header>
+      ) : null}
 
       <ul>
         {newsFeedItemsProps.map((newsFeedItemProps) => {

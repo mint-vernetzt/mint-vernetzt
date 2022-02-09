@@ -8,56 +8,77 @@ export interface HeadingProps extends React.HTMLProps<HTMLHeadingElement> {
   like?: HeadingStyles;
 }
 
-function Heading(props: HeadingProps) {
-  let { as, like, className = "", ...otherProps } = props;
+export const Heading = React.forwardRef(
+  (props: HeadingProps, ref: React.ForwardedRef<HTMLHeadingElement>) => {
+    let { as, like, className = "", ...otherProps } = props;
 
-  if (like === undefined) {
-    like = as;
-  } else {
-    className = `${className} ${like}`.trimLeft();
+    if (like === undefined) {
+      like = as;
+    } else {
+      className = `${className} ${like}`.trimLeft();
+    }
+
+    const element = React.createElement(as, {
+      className,
+      ...otherProps,
+      ref,
+    });
+    return element;
   }
+);
 
-  const element = React.createElement(as, {
-    className,
-    ...otherProps,
-  });
-  return element;
-}
+export const H1 = React.forwardRef(
+  (
+    props: { like?: HeadingStyles } & React.HTMLProps<HTMLHeadingElement>,
+    ref: React.ForwardedRef<HTMLHeadingElement>
+  ) => {
+    return <Heading {...props} ref={ref} as="h1" />;
+  }
+);
 
-export function H1(
-  props: { like?: HeadingStyles } & React.HTMLProps<HTMLHeadingElement>
-) {
-  return <Heading {...props} as="h1" />;
-}
+export const H2 = React.forwardRef(
+  (
+    props: { like?: HeadingStyles } & React.HTMLProps<HTMLHeadingElement>,
+    ref: React.ForwardedRef<HTMLHeadingElement>
+  ) => {
+    return <Heading {...props} ref={ref} as="h2" />;
+  }
+);
 
-export function H2(
-  props: { like?: HeadingStyles } & React.HTMLProps<HTMLHeadingElement>
-) {
-  return <Heading {...props} as="h2" />;
-}
+export const H3 = React.forwardRef(
+  (
+    props: { like?: HeadingStyles } & React.HTMLProps<HTMLHeadingElement>,
+    ref: React.ForwardedRef<HTMLHeadingElement>
+  ) => {
+    return <Heading {...props} ref={ref} as="h3" />;
+  }
+);
 
-export function H3(
-  props: { like?: HeadingStyles } & React.HTMLProps<HTMLHeadingElement>
-) {
-  return <Heading {...props} as="h3" />;
-}
+export const H4 = React.forwardRef(
+  (
+    props: { like?: HeadingStyles } & React.HTMLProps<HTMLHeadingElement>,
+    ref: React.ForwardedRef<HTMLHeadingElement>
+  ) => {
+    return <Heading {...props} ref={ref} as="h4" />;
+  }
+);
 
-export function H4(
-  props: { like?: HeadingStyles } & React.HTMLProps<HTMLHeadingElement>
-) {
-  return <Heading {...props} as="h4" />;
-}
+export const H5 = React.forwardRef(
+  (
+    props: { like?: HeadingStyles } & React.HTMLProps<HTMLHeadingElement>,
+    ref: React.ForwardedRef<HTMLHeadingElement>
+  ) => {
+    return <Heading {...props} ref={ref} as="h5" />;
+  }
+);
 
-export function H5(
-  props: { like?: HeadingStyles } & React.HTMLProps<HTMLHeadingElement>
-) {
-  return <Heading {...props} as="h5" />;
-}
-
-export function H6(
-  props: { like?: HeadingStyles } & React.HTMLProps<HTMLHeadingElement>
-) {
-  return <Heading {...props} as="h6" />;
-}
+export const H6 = React.forwardRef(
+  (
+    props: { like?: HeadingStyles } & React.HTMLProps<HTMLHeadingElement>,
+    ref: React.ForwardedRef<HTMLHeadingElement>
+  ) => {
+    return <Heading {...props} ref={ref} as="h6" />;
+  }
+);
 
 export default Heading;
