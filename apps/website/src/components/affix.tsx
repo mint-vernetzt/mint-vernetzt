@@ -66,7 +66,7 @@ export default function Affix(props: {
   }, [distanceToBody, element.current]);
 
   return (
-    <div ref={element} style={{ zIndex: 1 }} className={props.className}>
+    <div ref={element} className={props.className}>
       {props.children}
     </div>
   );

@@ -92,8 +92,8 @@ export function Events({ data }: { data: GatsbyTypes.EventFeedQuery }) {
         ref={scrollToRef}
         className="container event-list my-8 md:my-10 lg:my-20"
       >
-        <div className="h-50 z-50 relative">
-          <Affix top={0}>
+        <div style={{ height: "50px" }} className="mb-2">
+          <Affix top={0} className="z-50">
             <ChipFilter
               chips={allowedTags}
               possibleTags={possibleTags}

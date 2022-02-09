@@ -43,12 +43,12 @@ export function News({ data }: { data: GatsbyTypes.NewsFeedQuery }) {
 
   let afterTagClick = () => {
     if (scrollToRef.current) {
-      setTimeout(function () {
-        scrollToRef.current.scrollIntoView({
-          block: "start",
-          behavior: "smooth",
-        });
-      }, 200);
+      // setTimeout(function () {
+      scrollToRef.current.scrollIntoView({
+        block: "start",
+        behavior: "smooth",
+      });
+      // }, 200);
     }
   };
 
@@ -81,10 +81,9 @@ export function News({ data }: { data: GatsbyTypes.NewsFeedQuery }) {
           </div>
         </div>
       </section>
-      <section className="container my-8 md:my-10 lg:my-20">
-        <H2 ref={scrollToRef}>Neuigkeiten</H2>
-        <div style={{ height: "50px" }}>
-          <Affix top={0}>
+      <section className="container my-8 md:my-10 lg:my-20" ref={scrollToRef}>
+        <div style={{ height: "50px" }} className="mb-2">
+          <Affix top={0} className="z-50">
             <ChipFilter
               chips={allowedTags}
               possibleTags={possibleTags}
