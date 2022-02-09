@@ -12,9 +12,9 @@ export function HeroCarouselItem(props: HeroCarouselItemProps) {
   const { headline, excerpt, image, url } = props;
 
   return (
-    <div className="hero hero-index flex items-end md:items-top rounded-3xl relative overflow-hidden">
+    <div className="hero hero-index flex items-end rounded-3xl relative overflow-hidden">
       {image}
-      <div className="hero-text absolute top-0 left-0 min-h-3/4 md:min-h-full right-0 py-12 px-4 lg:py-16 md:px-12 lg:px-20">
+      <div className="hero-text absolute top-0 left-0 min-h-3/4 md:min-h-full right-0 py-12 px-4 lg:py-16 md:px-12 lg:px-20 md:flex md:items-center">
         <div className="md:w-3/4 xl:w-2/3">
           <h1 className="text-5xl lg:text-7xl leading-none text-blue-500 mb-2">
             {headline}

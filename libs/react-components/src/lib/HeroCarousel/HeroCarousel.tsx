@@ -63,7 +63,7 @@ export function HeroCarousel(props: HeroCarouselProps) {
         )}
       </Swiper>
 
-      <div className="prev-slide h-full absolute left-0.5 sm:left-6 top-0 w-10 lg:w-16 flex items-center z-10 md:pl-2 lg:pl-6 hover:text-blue-400">
+      <div className="prev-slide h-full absolute left-0.5 md:left-6 top-0 w-10 lg:w-16 flex items-center z-10 md:pl-2 lg:pl-6 hover:text-blue-400">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="18"
@@ -73,7 +73,7 @@ export function HeroCarousel(props: HeroCarouselProps) {
           <path d="M17.143.86a1.214 1.214 0 0 1 0 1.718L3.433 16.284l13.71 13.708a1.216 1.216 0 1 1-1.719 1.72L.857 17.142a1.214 1.214 0 0 1 0-1.719L15.424.857a1.214 1.214 0 0 1 1.72 0v.002Z" />
         </svg>
       </div>
-      <div className="next-slide h-full absolute right-0.5 sm:right-6 top-0 w-10 lg:w-16 flex justify-end items-center z-10 md:pr-2 lg:pr-6 hover:text-blue-400">
+      <div className="next-slide h-full absolute right-0.5 md:right-6 top-0 w-10 lg:w-16 flex justify-end items-center z-10 md:pr-2 lg:pr-6 hover:text-blue-400">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="18"
