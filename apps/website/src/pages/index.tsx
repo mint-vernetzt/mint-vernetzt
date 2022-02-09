@@ -1,7 +1,11 @@
 import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import { getNewsItems, getOrganizationsData } from "../utils/dataTransformer";
+import {
+  getNewsItems,
+  getOrganizationsData,
+  getTeasersData,
+} from "../utils/dataTransformer";
 import Img from "gatsby-image";
 
 import {
@@ -28,6 +32,41 @@ export function Index({
     return item;
   });
   const organisations = getOrganizationsData(data.organizationsData);
+
+  const teasers =
+    data.teasers.nodes.length > 0
+      ? getTeasersData(data)
+      : [
+          {
+            image: (
+              <Img
+                fluid={data.HeroImage.childImageSharp.fluid}
+                className="w-full h-3/4 md:h-full"
+              />
+            ),
+
+            headline: (
+              <>
+                MINT
+                <span className="font-normal block md:inline">vernetzt</span>
+              </>
+            ),
+
+            excerpt: (
+              <>
+                die Service- und Anlaufstelle der MINT-
+                <br />
+                Akteur:innen in Deutschland.
+              </>
+            ),
+
+            url: (
+              <Link to="/about/" className="btn-primary">
+                Erfahre mehr
+              </Link>
+            ),
+          },
+        ];
 
   const caseInsensitiveSortedOrganization = organisations.sort((a, b) => {
     return a.name.toLocaleLowerCase().localeCompare(b.name.toLocaleLowerCase());
@@ -67,59 +106,7 @@ export function Index({
         children={""}
       />
       <section className="container relative my-8 md:my-10 lg:my-20">
-        <HeroCarousel
-          items={[
-            {
-              image: (
-                <Img
-                  fluid={data.HeroImage.childImageSharp.fluid}
-                  className="w-full h-3/4 md:h-full"
-                />
-              ),
-
-              headline: (
-                <>
-                  MINT
-                  <span className="font-normal block md:inline">vernetzt</span>
-                </>
-              ),
-
-              excerpt: (
-                <>
-                  die Service- und Anlaufstelle der MINT-
-                  <br />
-                  Akteur:innen in Deutschland.
-                </>
-              ),
-
-              url: (
-                <Link to="/about/" className="btn-primary">
-                  Erfahre mehr
-                </Link>
-              ),
-            },
-            {
-              image: (
-                <Img
-                  fluid={data.MaedchenImage.childImageSharp.fluid}
-                  className="w-full h-3/4 md:h-full"
-                />
-              ),
-              headline:
-                "MINT für Mädchen: So unterstützt der InnoTruck bei der Berufswahl",
-              excerpt:
-                "Deutschland ist Innovationsland – und soll es auch bleiben. Deshalb fördern Initiativen wie der InnoTruck gezielt, dass vermehrt junge Frauen MINT-Berufe ergreifen. ",
-              url: (
-                <Link
-                  to="/news/mint-fuer-maedchen-so-unterstuetzt-der-innotruck-bei-der-berufswahl"
-                  className="btn-primary"
-                >
-                  Erfahre mehr
-                </Link>
-              ),
-            },
-          ]}
-        />
+        <HeroCarousel items={teasers} />
       </section>
 
       <section className="container z-10 relative flex justify-center">
@@ -318,6 +305,58 @@ export const pageQuery = graphql`
         }
         title
         slug
+      }
+    }
+    teasers: allWpTeaser(sort: { fields: date, order: ASC }) {
+      nodes {
+        title
+        excerpt
+        teaserInformations {
+          buttonText
+          image {
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 1488, quality: 80) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+          pagepath
+          post {
+            __typename
+            ... on WpEvent {
+              id
+              slug
+              featuredImage {
+                node {
+                  localFile {
+                    childImageSharp {
+                      fluid(maxWidth: 1488, quality: 80) {
+                        ...GatsbyImageSharpFluid
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            ... on WpNewsItem {
+              id
+              slug
+              featuredImage {
+                node {
+                  localFile {
+                    childImageSharp {
+                      fluid(maxWidth: 1488, quality: 80) {
+                        ...GatsbyImageSharpFluid
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
