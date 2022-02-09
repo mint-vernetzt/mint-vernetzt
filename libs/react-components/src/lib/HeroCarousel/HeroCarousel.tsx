@@ -1,14 +1,15 @@
 import * as React from "react";
-import { Navigation, Pagination, A11y } from "swiper";
+import { Navigation, Pagination, A11y, EffectFade, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/a11y";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "swiper/css/effect-fade";
+import "swiper/css/autoplay";
 
-import { Icon, IconType } from "@mint-vernetzt/react-components";
-import HeroCarouselItem, { HeroCarouselItemProps } from "./HeroCarouselItem";
+import { HeroCarouselItem, HeroCarouselItemProps } from "./HeroCarouselItem";
 
 /* eslint-disable-next-line */
 export interface HeroCarouselProps {
@@ -20,7 +21,8 @@ export function HeroCarousel(props: HeroCarouselProps) {
   return (
     <>
       <Swiper
-        modules={[Navigation, Pagination, A11y]}
+        modules={[Navigation, Pagination, A11y, EffectFade, Autoplay]}
+        effect="fade"
         spaceBetween={0}
         slidesPerView={1}
         navigation={{
@@ -44,9 +46,6 @@ export function HeroCarousel(props: HeroCarouselProps) {
             );
           },
         }}
-        scrollbar={{ draggable: true }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}
       >
         {items?.length > 0 && (
           <>

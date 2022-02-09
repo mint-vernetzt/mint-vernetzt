@@ -101,15 +101,19 @@ export function Index({
             {
               image: (
                 <Img
-                  fluid={data.HeroImage.childImageSharp.fluid}
+                  fluid={data.MaedchenImage.childImageSharp.fluid}
                   className="w-full h-3/4 md:h-full"
                 />
               ),
-              headline: "Teasers and where to put them",
+              headline:
+                "MINT für Mädchen: So unterstützt der InnoTruck bei der Berufswahl",
               excerpt:
-                "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy",
+                "Deutschland ist Innovationsland – und soll es auch bleiben. Deshalb fördern Initiativen wie der InnoTruck gezielt, dass vermehrt junge Frauen MINT-Berufe ergreifen. ",
               url: (
-                <Link to="/about/" className="btn-primary">
+                <Link
+                  to="/news/mint-fuer-maedchen-so-unterstuetzt-der-innotruck-bei-der-berufswahl"
+                  className="btn-primary"
+                >
                   Erfahre mehr
                 </Link>
               ),
@@ -231,6 +235,13 @@ export default Index;
 export const pageQuery = graphql`
   query LandingPage {
     HeroImage: file(relativePath: { eq: "home_hero_large.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1488, quality: 80) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    MaedchenImage: file(relativePath: { eq: "MINT_fuer_Maedchen.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1488, quality: 80) {
           ...GatsbyImageSharpFluid
