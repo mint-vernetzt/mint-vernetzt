@@ -162,6 +162,18 @@ ol {
   @apply px-4 py-3 bg-white font-semibold inline-block;
 }
 
+/* Hero Slider Styles */
+
+.next-slide[aria-disabled="true"],
+.prev-slide[aria-disabled="true"] {
+  @apply opacity-40 cursor-not-allowed;
+}
+
+.next-slide svg,
+.prev-slide svg {
+  fill: currentColor !important;
+}
+
 .hero-index,
 .hero-news {
   height: 540px;
@@ -173,7 +185,6 @@ ol {
     #efe8e6 70%,
     rgba(239, 232, 230, 0) 98%
   );
-  padding-bottom: 33.3333%;
 }
 
 .hero-news .hero-text {
@@ -196,7 +207,6 @@ ol {
       rgba(239, 232, 230, 0) 65%,
       rgba(239, 232, 230, 0) 69%
     );
-    @apply pb-16;
   }
   .hero-news .hero-text {
     background-image: linear-gradient(
@@ -205,7 +215,6 @@ ol {
       rgba(239, 232, 230, 0) 77%,
       rgba(239, 232, 230, 0) 95%
     );
-    @apply pb-12;
   }
   .hero-news {
     height: 288px;
@@ -214,7 +223,7 @@ ol {
 
 @screen lg {
   .hero-index {
-    height: 760px;
+    height: 660px;
   }
   .hero-news {
     height: 464px;

@@ -3,6 +3,8 @@ export * from "./lib/Heading/Heading";
 export * from "./lib/Chip/Chip";
 export * from "./lib/ChipFilter/ChipFilter";
 export * from "./lib/ChipFilter/utils";
+export * from "./lib/HeroCarousel/HeroCarousel";
+export * from "./lib/HeroCarousel/HeroCarouselItem";
 export * from "./lib/Icon/Icon";
 export * from "./lib/EventTeaser/EventTeaser";
 export * from "./lib/ContactCard/ContactCard";

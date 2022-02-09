@@ -11,6 +11,7 @@ import {
   H1,
   H2,
   H4,
+  HeroCarousel,
 } from "@mint-vernetzt/react-components";
 import { OrganizationBoxContainer } from "@mint-vernetzt/react-components";
 
@@ -65,30 +66,56 @@ export function Index({
         description={""}
         children={""}
       />
-      <section className="container my-8 md:my-10 lg:my-20">
-        <div className="hero hero-index flex items-end rounded-3xl relative overflow-hidden">
-          <Img
-            fluid={data.HeroImage.childImageSharp.fluid}
-            className="w-full h-3/4 md:h-full"
-          />
-          <div className="hero-text absolute top-0 left-0 min-h-3/4 md:min-h-full right-0 pt-12 px-4 md:pt-20 md:px-12 lg:pt-60 lg:px-20">
-            <div>
-              <H1 like="h0">
-                MINT<span className="font-normal">vernetzt</span>
-              </H1>
-              <p className="font-bold mb-4 md:max-w-1/2 lg:text-3xl lg:leading-snug">
-                die Service- und Anlaufstelle der MINT-
-                <br />
-                Akteur:innen in Deutschland.
-              </p>
-              <p>
+      <section className="container relative my-8 md:my-10 lg:my-20">
+        <HeroCarousel
+          items={[
+            {
+              image: (
+                <Img
+                  fluid={data.HeroImage.childImageSharp.fluid}
+                  className="w-full h-3/4 md:h-full"
+                />
+              ),
+
+              headline: (
+                <>
+                  MINT
+                  <span className="font-normal block md:inline">vernetzt</span>
+                </>
+              ),
+
+              excerpt: (
+                <>
+                  die Service- und Anlaufstelle der MINT-
+                  <br />
+                  Akteur:innen in Deutschland.
+                </>
+              ),
+
+              url: (
                 <Link to="/about/" className="btn-primary">
                   Erfahre mehr
                 </Link>
-              </p>
-            </div>
-          </div>
-        </div>
+              ),
+            },
+            {
+              image: (
+                <Img
+                  fluid={data.HeroImage.childImageSharp.fluid}
+                  className="w-full h-3/4 md:h-full"
+                />
+              ),
+              headline: "Teasers and where to put them",
+              excerpt:
+                "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy",
+              url: (
+                <Link to="/about/" className="btn-primary">
+                  Erfahre mehr
+                </Link>
+              ),
+            },
+          ]}
+        />
       </section>
 
       <section className="container z-10 relative flex justify-center">
