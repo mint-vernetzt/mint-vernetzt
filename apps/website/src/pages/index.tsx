@@ -15,9 +15,9 @@ import {
   H1,
   H2,
   H4,
-  HeroCarousel,
 } from "@mint-vernetzt/react-components";
 import { OrganizationBoxContainer } from "@mint-vernetzt/react-components";
+import HeroCarousel from "../components/hero-carousel";
 
 export function Index({
   data,
