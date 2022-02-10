@@ -7,6 +7,7 @@ import Img from "gatsby-image";
 import {
   NewsFeed,
   EventTeaser,
+  SocialBar,
   H1,
   H2,
   H4,
@@ -90,7 +91,13 @@ export function Index({
         </div>
       </section>
 
-      <section className="container my-8 md:my-10 lg:my-20">
+      <section className="container z-10 relative flex justify-center">
+        <div>
+          <SocialBar className="flex flex-col md:flex-row mx-2 pt-4 md:pt-6 md:pb-8 px-6 pb-4 bg-white rounded-2xl lg:rounded-3xl shadow -mt-36 md:-mt-24 lg:-mt-36 lg:px-12 lg:pb-10" />
+        </div>
+      </section>
+
+      <section className="container mt-8 md:mb-10 lg:mt-10 mb-8 md:mb-10 lg:mb-20">
         <header>
           <H2 like="h1">Aktiv werden</H2>
           <p className="text-xl md:px-8 lg:px-20 ">

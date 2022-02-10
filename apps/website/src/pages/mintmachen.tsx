@@ -93,7 +93,7 @@ export function Mintmachen({
         </div>
       </section>
 
-      <section className="container my-8 md:my-10 lg:my-20">
+      <section id="survey" className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap md:-mx-4">
           <div className="flex-100 pb-4 md:pb-0 md:flex-1/2 md:px-4">
             <Img

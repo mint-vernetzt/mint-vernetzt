@@ -1,3 +1,4 @@
+export * from "./lib/SocialBar/SocialBar";
 export * from "./lib/Heading/Heading";
 export * from "./lib/Chip/Chip";
 export * from "./lib/ChipFilter/ChipFilter";
