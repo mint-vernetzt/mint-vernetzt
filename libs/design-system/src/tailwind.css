@@ -298,3 +298,8 @@ ol {
   bottom: 0;
   right: 0;
 }
+
+.max-w-sm {
+  max-width: 400px;
+  margin: 0 auto;
+}
