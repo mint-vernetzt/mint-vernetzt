@@ -187,6 +187,7 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
+    "show_in_rest": false,
     "show_in_graphql": 1,
     "graphql_field_name": "contactInformations",
     "map_graphql_types_from_location_rules": 0,
@@ -306,6 +307,7 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
+    "show_in_rest": false,
     "show_in_graphql": 1,
     "graphql_field_name": "eventInformations",
     "map_graphql_types_from_location_rules": 0,
@@ -418,8 +420,124 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
+    "show_in_rest": false,
     "show_in_graphql": 1,
     "graphql_field_name": "organizationInformations",
+    "map_graphql_types_from_location_rules": 0,
+    "graphql_types": ""
+  },
+  {
+    "key": "group_6204d4a1a3e0a",
+    "title": "Teaser Informations",
+    "fields": [
+      {
+        "key": "field_6204d4b140b44",
+        "label": "Post",
+        "name": "post",
+        "type": "relationship",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "show_in_graphql": 1,
+        "post_type": ["news", "events"],
+        "taxonomy": "",
+        "filters": ["search", "post_type"],
+        "elements": ["featured_image"],
+        "min": "",
+        "max": 1,
+        "return_format": "object"
+      },
+      {
+        "key": "field_6204db4c40b45",
+        "label": "Page Path",
+        "name": "page_path",
+        "type": "text",
+        "instructions": "optional link page path",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "show_in_graphql": 1,
+        "default_value": "",
+        "placeholder": "/page/path",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_6204db8740b46",
+        "label": "Image",
+        "name": "image",
+        "type": "image",
+        "instructions": "optional teaser image",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "show_in_graphql": 1,
+        "return_format": "array",
+        "preview_size": "medium",
+        "library": "all",
+        "min_width": "",
+        "min_height": "",
+        "min_size": "",
+        "max_width": "",
+        "max_height": "",
+        "max_size": "",
+        "mime_types": ""
+      },
+      {
+        "key": "field_6204dba240b47",
+        "label": "ButtonText",
+        "name": "button_text",
+        "type": "text",
+        "instructions": "optional button text",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "show_in_graphql": 1,
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "post_type",
+          "operator": "==",
+          "value": "teaser"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "show_in_graphql": 1,
+    "graphql_field_name": "teaserInformations",
     "map_graphql_types_from_location_rules": 0,
     "graphql_types": ""
   }
