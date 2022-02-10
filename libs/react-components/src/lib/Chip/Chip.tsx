@@ -13,7 +13,7 @@ export interface ChipProps {
 
 function getClassNames(isEnabled: boolean, tagHandlerIsCallable: boolean) {
   let classesList: string[] = [
-    `mr-2 mb-2 px-3 py-0 mt-2 rounded-lg border-2 text-neutral-800 text-sm text-bold`,
+    `mr-2 mb-2 px-3 py-0 mt-2 rounded-lg border-2 text-neutral-800 text-sm text-bold whitespace-nowrap`,
   ];
 
   if (isEnabled) {
