@@ -140,11 +140,14 @@ export function Index({
       <section className="container my-8 md:my-10 lg:my-20">
         <div className="flex flex-wrap md:-mx-2 lg:-mx-4">
           <div className="flex-100 pb-8 md:pb-0 md:flex-2/3 md:px-2 lg:px-4">
-            <Link to="/news/" className="hover:underline text-primary">
+            <div className="flex items-baseline justify-between no-wrap">
               <H2 like="h1">
                 <strong>MINT</strong>news
               </H2>
-            </Link>
+              <Link to="/news/" className="text-sm text-primary">
+                Alle ansehen
+              </Link>
+            </div>
             <NewsFeed
               body="Wir blicken in die MINT-Welt und darüber hinaus und informieren Euch regelmäßig über Erkenntnisse, Ereignisse und Innovationen, die für Eure tägliche Arbeit interessant sind."
               linkToOverview="/news/"
@@ -158,11 +161,17 @@ export function Index({
           </div>
           <div className="event-teaser flex-100 md:flex-1/3 pb-8 md:pb-0 md:px-2 lg:px-4">
             <div className="flex flex-col p-4 pb-15 md:pb-5 py-6 rounded-lg bg-neutral-200 shadow-lg">
-              <Link to="/events/" className="hover:underline text-primary">
-                <H2>
+              <div className="flex items-baseline flex-wrap">
+                <H2 className="whitespace-nowrap">
                   <strong>MINT</strong>events
                 </H2>
-              </Link>
+                <Link
+                  to="/events/"
+                  className="text-sm text-primary whitespace-nowrap ml-auto mb-4"
+                >
+                  Alle ansehen
+                </Link>
+              </div>
               <EventTeaser
                 linkToOverview="/events/"
                 linkWrapper={linkWrapper}
