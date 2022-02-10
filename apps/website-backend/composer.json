@@ -55,7 +55,8 @@
     "wp-cli/wp-cli": "^2.5",
     "wp-cli/wp-cli-bundle": "^2.5",
     "wpackagist-plugin/svg-support": "^2.3",
-    "wpackagist-plugin/advanced-custom-fields": "^5.11"
+    "wpackagist-plugin/advanced-custom-fields": "^5.11",
+    "wpackagist-plugin/post-types-order": "^1.9"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.6.0",
@@ -64,7 +65,11 @@
   },
   "config": {
     "optimize-autoloader": true,
-    "preferred-install": "dist"
+    "preferred-install": "dist",
+    "allow-plugins": {
+      "composer/installers": true,
+      "roots/wordpress-core-installer": true
+    }
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
