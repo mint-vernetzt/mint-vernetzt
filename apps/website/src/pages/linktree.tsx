@@ -7,7 +7,35 @@ import Img from "gatsby-image";
 
 /* eslint-disable-next-line */
 
-export function Linktree({ data }: { data: GatsbyTypes.LinktreeQuery }) {
+const CategoryLabelMap = {
+  "internal-link": "MINTvernetzt",
+  "external-link": "Extern",
+  event: "Veranstaltung",
+  news: "Neuigkeit",
+};
+
+export function Linktree({ data }) {
+  const linkTreeItems = data.items.nodes.map((item) => {
+    return {
+      image: (
+        <Img
+          fluid={item.featuredImage.node.localFile.childrenImageSharp[0].fluid}
+          className="w-20 h-full object-cover rounded-lg"
+        />
+      ),
+      category:
+        CategoryLabelMap[item.linkTreeItemInformation.category.slug] ||
+        "Unbekannte Kategorie",
+      headline: item.title,
+      url: item.linkTreeItemInformation.url,
+      urlText:
+        item.linkTreeItemInformation.urlText ||
+        item.linkTreeItemInformation.url,
+    };
+  });
+
+  console.log(linkTreeItems);
+
   return (
     <div className="max-w-sm">
       <SEO
@@ -69,52 +97,7 @@ export function Linktree({ data }: { data: GatsbyTypes.LinktreeQuery }) {
         <div className="container mb-6">
           <hr className="border-neutral-500/50 mb-4" />
           <div className="">
-            {[
-              {
-                image: (
-                  <Img
-                    fluid={data.Teaser1Image.childImageSharp.fluid}
-                    className="w-20 h-full object-cover rounded-lg"
-                  />
-                ),
-                category: `Event`,
-                headline: `Peace On Earth A Wonderful Wish But No Way`,
-                url: `https://www.mint-vernetzt.de`,
-              },
-              {
-                image: (
-                  <Img
-                    fluid={data.Teaser2Image.childImageSharp.fluid}
-                    className="w-20 h-full object-cover rounded-lg"
-                  />
-                ),
-                category: `Website`,
-                headline: `Peace On Earth A Wonderful Wish But No Way Peace On Earth A Wonderful Wish But No Way `,
-                url: `https://www.mint-vernetzt.de`,
-              },
-              {
-                image: (
-                  <Img
-                    fluid={data.Teaser3Image.childImageSharp.fluid}
-                    className="w-20 h-full object-cover rounded-lg"
-                  />
-                ),
-                category: `Artikel`,
-                headline: `Peace On Earth!`,
-                url: `https://www.mint-vernetzt.de`,
-              },
-              {
-                image: (
-                  <Img
-                    fluid={data.Teaser4Image.childImageSharp.fluid}
-                    className="w-20 h-full object-cover rounded-lg"
-                  />
-                ),
-                category: `Event`,
-                headline: `Now: Peace On Earth! Wonderful`,
-                url: `https://www.mint-vernetzt.de`,
-              },
-            ].map((teaser, index) => (
+            {linkTreeItems.map((teaser, index) => (
               <div
                 key={`linktree-item-${index}`}
                 className="bg-white shadow rounded-lg mb-4"
@@ -132,8 +115,8 @@ export function Linktree({ data }: { data: GatsbyTypes.LinktreeQuery }) {
                     <H4 className="text-sm text-gray-800 font-bold mb-2">
                       {teaser.headline}
                     </H4>
-                    <span className="block text-xs text-gray-600 mb-1">
-                      {teaser.url}
+                    <span className="block text-xs text-gray-600 mb-1 line-clamp-1 block hover:underline hover:text-primary">
+                      {teaser.urlText}
                     </span>
                   </div>
                 </a>
@@ -402,7 +385,7 @@ export function Linktree({ data }: { data: GatsbyTypes.LinktreeQuery }) {
 export default Linktree;
 
 export const pageQuery = graphql`
-  query LinkTree {
+  query Peter {
     Teaser1Image: file(relativePath: { eq: "home_hero_large.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 280, quality: 80) {
@@ -428,6 +411,30 @@ export const pageQuery = graphql`
       childImageSharp {
         fluid(maxWidth: 280, quality: 80) {
           ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    items: allWpLinkTreeItem {
+      nodes {
+        title
+        linkTreeItemInformation {
+          category {
+            slug
+            name
+          }
+          url
+          urlText
+        }
+        featuredImage {
+          node {
+            localFile {
+              childrenImageSharp {
+                fluid(maxWidth: 280, quality: 80) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
         }
       }
     }
