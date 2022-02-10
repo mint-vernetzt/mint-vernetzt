@@ -172,7 +172,7 @@ export const getRelatedEvents = (
 
 function getTeaserUrl(teaserData: GatsbyTypes.WpTeaser) {
   if (teaserData.teaserInformations.post === null) {
-    return teaserData.teaserInformations.pagepath;
+    return teaserData.teaserInformations.pagePath;
   }
   let prefix =
     teaserData.teaserInformations.post[0]?.__typename === "WpNewsItem"

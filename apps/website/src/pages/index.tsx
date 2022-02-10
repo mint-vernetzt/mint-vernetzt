@@ -322,7 +322,7 @@ export const pageQuery = graphql`
               }
             }
           }
-          pagepath
+          pagePath
           post {
             __typename
             ... on WpEvent {
