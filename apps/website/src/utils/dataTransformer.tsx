@@ -170,19 +170,19 @@ export const getRelatedEvents = (
   return sortRelatedEvents(relatedEvents);
 };
 
-function getTeaserUrl(teaserData: GatsbyTypes.WpTeaser) {
-  if (teaserData.teaserInformations.post === null) {
-    return teaserData.teaserInformations.pagePath;
-  }
-  let prefix =
-    teaserData.teaserInformations.post[0]?.__typename === "WpNewsItem"
-      ? "/news"
-      : "/event";
-  return `${prefix}/${teaserData.teaserInformations.post[0].slug}`;
-}
-
 export const getTeasersData = (data: GatsbyTypes.LandingPageQuery) => {
   return data.teasers.nodes.map((teaser) => {
+    let url: string;
+    if (teaser.teaserInformations.post === null) {
+      url = teaser.teaserInformations.pagePath;
+    } else {
+      let prefix =
+        teaser.teaserInformations.post[0]?.__typename === "WpNewsItem"
+          ? "/news"
+          : "/event";
+      url = `${prefix}/${teaser.teaserInformations.post[0].slug}`;
+    }
+
     return {
       image: (
         <Img
@@ -195,7 +195,7 @@ export const getTeasersData = (data: GatsbyTypes.LandingPageQuery) => {
       headline: teaser.title,
       excerpt: teaser.excerpt.replace(/<[^>]*>/g, ""),
       url: (
-        <Link to={getTeaserUrl(teaser)} className="btn-primary">
+        <Link to={url} className="btn-primary">
           {teaser.teaserInformations.buttonText || "Erfahre mehr"}
         </Link>
       ),
