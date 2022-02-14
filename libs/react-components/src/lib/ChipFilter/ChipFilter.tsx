@@ -33,7 +33,7 @@ export function ChipFilter({
 
   return (
     <div className="flex flex-wrap mb-4 bg-white">
-      <ul className="flex flex-nowrap overflow-scroll md:order-4">
+      <ul className="flex flex-nowrap overflow-x-auto overflow-y-hidden md:order-4">
         {chips.map((chip) => (
           <li key={chip.slug}>
             <Chip
