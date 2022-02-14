@@ -9,8 +9,9 @@ test("render link with text", () => {
   render(<Link to={route}>{text}</Link>);
 
   const linkDom = screen.getByRole("link");
+
   expect(linkDom.getAttribute("href")).toBe(route);
-  expect(linkDom.innerText).toBe(text);
+  expect(linkDom.innerHTML).toBe(text);
 });
 
 test("render external link", () => {
@@ -36,7 +37,7 @@ test("wrap children inside link", () => {
 
   const linkDom = screen.getByRole("link");
   const headlineDom = within(linkDom).getByRole("heading");
-  expect(headlineDom.innerText).toBe(text);
+  expect(headlineDom.innerHTML).toBe(text);
 });
 
 test("use passed component as link", () => {
@@ -56,5 +57,5 @@ test("use passed component as link", () => {
 
   const linkDom = screen.getByTestId(testId);
   expect(linkDom.getAttribute("to")).toBe(route);
-  expect(linkDom.innerText).toBe(text);
+  expect(linkDom.innerHTML).toBe(text);
 });
