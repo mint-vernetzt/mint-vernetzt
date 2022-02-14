@@ -46,7 +46,7 @@ test("use passed component as link", () => {
   const text = "Home";
 
   const Component = (props: any) => {
-    return <span data-testId={testId} {...props} />;
+    return <span data-testid={testId} {...props} />;
   };
 
   render(
