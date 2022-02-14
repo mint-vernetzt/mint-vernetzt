@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Image } from "@mint-vernetzt/react-components";
+import { Image } from "../types";
 
 export interface OrganizationBoxProps {
   name: string;

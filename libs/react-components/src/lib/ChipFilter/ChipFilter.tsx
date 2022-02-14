@@ -1,10 +1,6 @@
 import * as React from "react";
 
-import {
-  Chip,
-  ChipProps,
-  ChipClickHandler,
-} from "@mint-vernetzt/react-components";
+import { Chip, ChipProps, ChipClickHandler } from "../Chip/Chip";
 
 /* eslint-disable-next-line */
 export interface ChipFilterProps {

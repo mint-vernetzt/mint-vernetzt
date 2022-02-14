@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { EventFeedItem, EventFeedItemProps } from "./EventFeedItem";
-import { ChipClickHandler } from "@mint-vernetzt/react-components";
+import { ChipClickHandler } from "../Chip/Chip";
 
 export interface EventFeedProps {
   eventFeedItemsProps?: EventFeedItemProps[];

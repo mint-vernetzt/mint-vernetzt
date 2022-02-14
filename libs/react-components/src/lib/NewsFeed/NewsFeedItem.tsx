@@ -1,8 +1,4 @@
-import {
-  Chip,
-  ChipClickHandler,
-  ChipProps,
-} from "@mint-vernetzt/react-components";
+import { Chip, ChipClickHandler, ChipProps } from "../Chip/Chip";
 import * as React from "react";
 import { H4 } from "../Heading/Heading";
 import { Image } from "../types";

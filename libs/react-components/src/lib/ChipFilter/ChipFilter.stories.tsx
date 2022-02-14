@@ -1,6 +1,6 @@
 import { Story, Meta } from "@storybook/react";
-import { ChipFilter, ChipFilterProps } from "@mint-vernetzt/react-components";
-import { ChipProps } from "@mint-vernetzt/react-components";
+import { ChipFilter, ChipFilterProps } from "./ChipFilter";
+import { ChipProps } from "../Chip/Chip";
 
 export default {
   component: ChipFilter,
