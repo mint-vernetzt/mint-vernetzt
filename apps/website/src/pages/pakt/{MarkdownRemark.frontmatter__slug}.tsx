@@ -1,3 +1,4 @@
+import * as React from "react";
 import { graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 import {
@@ -17,6 +18,10 @@ export default function Template({ data }) {
     frontmatter.citeAuthorFunction &&
     frontmatter.citeQuote;
 
+  let htmlWithAllLinksTargetBlank = html.replace(
+    /(<a [^>]*)(>)/gi,
+    '$1 target="_blank"$2'
+  );
   const categoryHash = frontmatter.slug.split("/")[0] ?? "/";
 
   return (
@@ -56,7 +61,7 @@ export default function Template({ data }) {
           <div className="flex-100 md:flex-2/3 pb-8 md:pb-0 md:px-4 lg:px-6 md:order-1">
             <div
               className="blog-post-content"
-              dangerouslySetInnerHTML={{ __html: html }}
+              dangerouslySetInnerHTML={{ __html: htmlWithAllLinksTargetBlank }}
             />
           </div>
 
