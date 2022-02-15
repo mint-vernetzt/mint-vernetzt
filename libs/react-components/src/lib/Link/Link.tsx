@@ -40,4 +40,6 @@ export const Link = React.forwardRef((props: LinkProps, ref) => {
   return element;
 });
 
+Link.displayName = "Link";
+
 export default Link;
