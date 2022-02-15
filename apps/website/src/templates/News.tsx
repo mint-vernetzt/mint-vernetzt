@@ -36,7 +36,7 @@ function News({ data }) {
         title={`${props.title}`}
         slug={`/news/${props.slug}`}
         description=""
-        image=""
+        image={`${props.featuredImage.node.localFile.publicURL}`}
         children=""
       />
 
@@ -180,6 +180,7 @@ export const query = graphql`
                 ...GatsbyImageSharpFluid
               }
             }
+            publicURL
           }
         }
       }
