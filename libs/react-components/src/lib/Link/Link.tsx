@@ -8,13 +8,7 @@ export interface LinkProps {
 }
 
 export const Link = React.forwardRef((props: LinkProps, ref) => {
-  const {
-    to,
-    isExternal = false,
-    as = "a",
-    className = "text-primary hover:underline",
-    ...otherProps
-  } = props;
+  const { to, isExternal = false, as = "a", className, ...otherProps } = props;
 
   let rel;
   let target;
@@ -28,9 +22,14 @@ export const Link = React.forwardRef((props: LinkProps, ref) => {
     href = to;
   }
 
+  let classes;
+  if (as === "a" && className === undefined) {
+    classes = "text-primary hover:underline";
+  }
+
   const element = React.createElement(as, {
     href,
-    className,
+    className: className || classes,
     to,
     rel,
     target,
