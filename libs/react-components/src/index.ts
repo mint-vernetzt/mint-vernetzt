@@ -22,3 +22,4 @@ export * from "./lib/Testimonial/Testimonial";
 export * from "./lib/types.d";
 export * from "./lib/OrganizationBox/OrganizationBox";
 export * from "./lib/OrganizationBox/OrganizationBoxContainer";
+export * from "./lib/Link/Link";
