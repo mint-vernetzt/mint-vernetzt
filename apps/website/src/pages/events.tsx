@@ -84,6 +84,12 @@ export function Events({ data }: { data: GatsbyTypes.EventFeedQuery }) {
               Formaten (z. B. virtuellen Stammtischen und Dialogformaten)
               flankiert werden.
             </p>
+            <p className="lg:text-xl text-neutral-600 mb-4">
+              Die hier abgebildeten Veranstaltungen sind ausschließlich für und
+              von der MINT-Community sowie Interessierte der MINT-Bildung.
+              Angebote, die sich an Kinder und Jugendliche richten, können wir
+              hier leider nicht abbilden.
+            </p>
           </div>
         </div>
       </section>
