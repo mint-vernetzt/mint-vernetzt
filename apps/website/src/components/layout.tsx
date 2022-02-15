@@ -1,6 +1,11 @@
 import Header from "./header";
 import Footer from "./footer";
+import "@fontsource/source-sans-pro/400.css";
+import "@fontsource/source-sans-pro/400-italic.css";
+import "@fontsource/source-sans-pro/600.css";
+import "@fontsource/source-sans-pro/600-italic.css";
 import "../../../../libs/design-system/src/styles.css";
+
 // import { Link } from "gatsby";
 
 // function Layout({ children, ...otherProps }) {
