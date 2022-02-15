@@ -20,7 +20,7 @@ export default function Template({ data }) {
 
   let htmlWithAllLinksTargetBlank = html.replace(
     /(<a [^>]*)(>)/gi,
-    '$1 target="_blank"$2'
+    '$1 rel="noopener noreferrer" target="_blank"$2'
   );
   const categoryHash = frontmatter.slug.split("/")[0] ?? "/";
 
