@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Link } from "gatsby";
+import { Link as GatsbyLink } from "gatsby";
+import { Link } from "@mint-vernetzt/react-components";
 
 export function Header() {
   const [isExpanded, toggleExpansion] = useState(false);
@@ -9,7 +10,7 @@ export function Header() {
       <div className="container">
         <div className="flex flex-wrap items-center">
           <div className="logo-mint lg:pr-16">
-            <Link to="/">
+            <Link to="/" as={GatsbyLink}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="56"
@@ -94,6 +95,7 @@ export function Header() {
                 >
                   <Link
                     className="inline-block py-px px-2 rounded-lg hover:bg-blue-500 hover:text-neutral-200"
+                    as={GatsbyLink}
                     key={link.title}
                     to={link.route}
                   >
