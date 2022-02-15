@@ -124,7 +124,7 @@ export default Pakt;
 export const pageQuery = graphql`
   query PaktPage {
     paktData: allMarkdownRemark(
-      sort: { fields: [frontmatter___category, frontmatter___name], order: ASC }
+      sort: { fields: [frontmatter___category, frontmatter___slug], order: ASC }
     ) {
       edges {
         node {
