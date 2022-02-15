@@ -2,12 +2,19 @@ import React from "react";
 export interface LinkProps {
   to: string;
   children: string | React.ReactNode;
+  className?: string;
   as?: string | React.ElementType;
   isExternal?: boolean;
 }
 
 export const Link = React.forwardRef((props: LinkProps, ref) => {
-  const { to, isExternal = false, as = "a", ...otherProps } = props;
+  const {
+    to,
+    isExternal = false,
+    as = "a",
+    className = "text-primary hover:underline",
+    ...otherProps
+  } = props;
 
   let rel;
   let target;
@@ -23,6 +30,7 @@ export const Link = React.forwardRef((props: LinkProps, ref) => {
 
   const element = React.createElement(as, {
     href,
+    className,
     to,
     rel,
     target,
