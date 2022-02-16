@@ -11,6 +11,7 @@ export const Default: Story<ButtonProps> = (args) => {
 Default.args = {
   disabled: false,
   submit: false,
+  small: false,
   children: "Button",
   variant: "primary",
 };

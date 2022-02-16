@@ -8,15 +8,24 @@ export interface ButtonProps {
   onClick?: React.MouseEventHandler;
   disabled?: boolean;
   variant?: ButtonVariants;
+  small?: boolean;
 }
 
 function getClasses(props: {
   variant: ButtonVariants;
   disabled: boolean;
+  small: boolean;
 }): string | undefined {
-  const { variant, disabled } = props;
+  const { variant, disabled, small } = props;
 
-  let classes = "px-3 py-2 rounded-lg border";
+  let classes = "border";
+
+  if (small) {
+    classes = classes.concat(" px-2 py-1 rounded text-sm");
+  } else {
+    classes = classes.concat(" px-3 py-2 rounded-lg");
+  }
+
   if (variant === "primary") {
     classes = classes.concat(" border-transparent");
     if (disabled) {
@@ -51,6 +60,7 @@ export function Button(props: ButtonProps) {
     submit = false,
     disabled = false,
     variant = "primary",
+    small = false,
     ...otherProps
   } = props;
 
@@ -59,7 +69,7 @@ export function Button(props: ButtonProps) {
     type = "submit";
   }
 
-  const classes = getClasses({ variant, disabled });
+  const classes = getClasses({ variant, disabled, small });
 
   return (
     <button
