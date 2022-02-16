@@ -32,7 +32,7 @@ function getClasses(props: {
       classes = classes.concat(" text-neutral-500 bg-primary-100");
     } else {
       classes = classes.concat(
-        " text-neutral-100 bg-primary-400 hover:shadow active:bg-primary-300"
+        " text-neutral-100 bg-primary hover:shadow active:bg-primary-300"
       );
     }
   } else if (variant === "neutral") {
@@ -48,7 +48,7 @@ function getClasses(props: {
     if (disabled) {
       classes = classes.concat(" text-primary-100");
     } else {
-      classes = classes.concat(" text-primary-400 hover:bg-primary-100");
+      classes = classes.concat(" text-primary hover:bg-primary-100");
     }
   }
 
