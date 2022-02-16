@@ -12,10 +12,15 @@ Default.args = {
   disabled: false,
   submit: false,
   children: "Button",
+  variant: "primary",
 };
 Default.argTypes = {
   children: {
     type: "string",
+  },
+  variant: {
+    options: ["primary", "neutral", "ghost"],
+    control: { type: "select" },
   },
   onClick: { action: "button clicked" },
 };
