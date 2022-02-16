@@ -29,6 +29,16 @@ const getImage = (data: GatsbyTypes.EventQuery) => {
   }
 };
 
+const getOgImage = (data: GatsbyTypes.EventQuery) => {
+  if (data.event.parent === null) {
+    return data.event.featuredImage?.node?.localFile?.publicURL ?? null;
+  } else {
+    return (
+      data.event.parent?.node?.featuredImage?.node?.localFile?.publicURL ?? null
+    );
+  }
+};
+
 const getContactPerson = (
   data: GatsbyTypes.EventQuery
 ): GatsbyTypes.EventQuery["event"]["eventInformations"]["contactPerson"] => {
@@ -96,6 +106,7 @@ function EventHeader(event: GatsbyTypes.EventQuery["event"]) {
 function Event({ data }: { data: GatsbyTypes.EventQuery }) {
   const { event } = data;
   const image = getImage(data);
+  const ogimage = getOgImage(data);
   const relatedEvents = getRelatedEvents(data);
   const contactPerson = getContactPerson(data);
 
@@ -105,7 +116,7 @@ function Event({ data }: { data: GatsbyTypes.EventQuery }) {
         title={`${event.title}`}
         slug={`/event/${event.slug}`}
         description=""
-        image=""
+        image={ogimage ? ogimage : ""}
         children=""
       />
 
@@ -281,6 +292,7 @@ export const query = graphql`
                 ...GatsbyImageSharpFluid
               }
             }
+            publicURL
           }
           altText
         }
@@ -310,6 +322,7 @@ export const query = graphql`
                       ...GatsbyImageSharpFluid
                     }
                   }
+                  publicURL
                 }
                 altText
               }
