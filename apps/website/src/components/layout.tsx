@@ -1,6 +1,8 @@
 import Header from "./header";
 import Footer from "./footer";
+
 import "../../../../libs/design-system/src/styles.css";
+
 // import { Link } from "gatsby";
 
 // function Layout({ children, ...otherProps }) {

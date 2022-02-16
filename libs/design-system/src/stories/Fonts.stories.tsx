@@ -11,10 +11,10 @@ export const Families: Story = () => {
       <div className="w-5/6 font-sans">Source Sans Pro 400</div>
       <div className="w-1/6 font-bold">sans italic</div>
       <div className="w-5/6 font-sans italic">Source Sans Pro 400</div>
-      <div className="w-1/6 font-bold">sans bold</div>
-      <div className="w-5/6 font-sans font-bold">Source Sans Pro 600</div>
-      <div className="w-1/6 font-bold">sans bold italic</div>
-      <div className="w-5/6 font-sans font-bold italic">
+      <div className="w-1/6 font-semibold">sans semibold</div>
+      <div className="w-5/6 font-sans font-semibold">Source Sans Pro 600</div>
+      <div className="w-1/6 font-semibold">sans semibold italic</div>
+      <div className="w-5/6 font-sans font-semibold italic">
         Source Sans Pro 600
       </div>
     </div>
