@@ -7,23 +7,27 @@ import SEO from "../components/seo";
 import { useTagFilter } from "../hooks/useTagFilter";
 import { ReactComponent as EventsOverview } from "../images/events_overview.svg";
 import { getParentEventItems } from "../utils/dataTransformer";
+import { isBeforeOneDayAfterDate } from "../utils/eventFilter";
 import { getUniqueTags } from "../utils/tagUtils";
 
 export function Events({ data }: { data: GatsbyTypes.EventFeedQuery }) {
   let [filterTags, filterClickHandler, addTagClickHandler, removeInvalidTags] =
     useTagFilter("tags");
   let scrollToRef = useRef<HTMLElement>(null);
-  let events = getParentEventItems(data.events).map((item) => {
+
+  let now = new Date();
+  let currentAndFutureEvents = data.events.nodes.filter((event) =>
+    isBeforeOneDayAfterDate(now, new Date(event.eventInformations.endDate))
+  );
+  let events = getParentEventItems(currentAndFutureEvents).map((item) => {
     item.body = (
       <span dangerouslySetInnerHTML={{ __html: item.body as string }} />
     );
     return item;
   });
-  let now = new Date();
-  let futureEvents = events.filter((event) => event.date >= now);
 
   let allowedTags = getUniqueTags(
-    futureEvents.map((event) => event.tags.map((tag) => tag))
+    events.map((event) => event.tags.map((tag) => tag))
   );
   let allowedTagSlugs = allowedTags.map((tag) => tag.slug);
 
@@ -42,8 +46,8 @@ export function Events({ data }: { data: GatsbyTypes.EventFeedQuery }) {
 
   let filteredEvents =
     filterTags.length === 0
-      ? futureEvents
-      : futureEvents.filter((event) => {
+      ? events
+      : events.filter((event) => {
           return filterTags.every(
             (slug) => event.tags.filter((it) => it.slug === slug).length > 0
           );

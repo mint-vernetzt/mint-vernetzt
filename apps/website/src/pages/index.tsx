@@ -18,6 +18,8 @@ import {
 } from "@mint-vernetzt/react-components";
 import { OrganizationBoxContainer } from "@mint-vernetzt/react-components";
 import HeroCarousel from "../components/hero-carousel";
+import { EventTeaserItemProps } from "libs/react-components/src/lib/EventTeaser/EventTeaserItem";
+import { isBeforeOneDayAfterDate } from "../utils/eventFilter";
 
 export function Index({
   data,
@@ -74,7 +76,10 @@ export function Index({
 
   const now = new Date();
 
-  const events = data.events.nodes
+  const events: EventTeaserItemProps[] = data.events.nodes
+    .filter((event) =>
+      isBeforeOneDayAfterDate(now, new Date(event.eventInformations.endDate))
+    )
     .map((event) => ({
       headline: event.title,
       body: (
@@ -87,9 +92,6 @@ export function Index({
       date: new Date(event.eventInformations.startDate),
       url: `/event/${event.slug}/`,
     }))
-    .filter((event) => {
-      return event.date > now;
-    })
     .slice(0, 4);
 
   const linkWrapper = (url: string, children: React.ReactNode) => {

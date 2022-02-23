@@ -94,9 +94,9 @@ export const getNewsItems = (
 };
 
 export const getParentEventItems = (
-  graphqlResult: GatsbyTypes.EventFeedQuery["events"]
+  graphqlResult: GatsbyTypes.EventFeedQuery["events"]["nodes"]
 ): EventFeedItemProps[] => {
-  const events = graphqlResult.nodes.map((event) => ({
+  const events = graphqlResult.map((event) => ({
     headline: event.title,
     body: event.excerpt.replace(/<[^>]*>/g, ""),
     slug: `/event/${event.slug}`,

@@ -187,41 +187,39 @@ describe("getUserCardsProps", () => {
 });
 
 test("transform event items", () => {
-  const input: GatsbyTypes.EventFeedQuery["events"] = {
-    nodes: [
-      {
-        excerpt: "excerpt",
-        content: "Content",
-        eventInformations: {
-          startTime: "13:07:34",
-          startDate: "2021-11-08",
-          endTime: "16:07:38",
-          endDate: "2021-11-08",
-        },
-        eventCategories: {
-          nodes: [
-            {
-              name: "Digitale Veranstaltung",
-            },
-          ],
-        },
-        tags: {
-          nodes: [
-            {
-              name: "Allgemein",
-              slug: "Allgemein",
-            },
-            {
-              name: "Hackathon",
-              slug: "Hackathon",
-            },
-          ],
-        },
-        title: "Parent Event",
-        slug: "parent-event",
+  const input: GatsbyTypes.EventFeedQuery["events"]["nodes"] = [
+    {
+      excerpt: "excerpt",
+      content: "Content",
+      eventInformations: {
+        startTime: "13:07:34",
+        startDate: "2021-11-08",
+        endTime: "16:07:38",
+        endDate: "2021-11-08",
       },
-    ],
-  };
+      eventCategories: {
+        nodes: [
+          {
+            name: "Digitale Veranstaltung",
+          },
+        ],
+      },
+      tags: {
+        nodes: [
+          {
+            name: "Allgemein",
+            slug: "Allgemein",
+          },
+          {
+            name: "Hackathon",
+            slug: "Hackathon",
+          },
+        ],
+      },
+      title: "Parent Event",
+      slug: "parent-event",
+    },
+  ];
 
   const transformed = getParentEventItems(input);
 

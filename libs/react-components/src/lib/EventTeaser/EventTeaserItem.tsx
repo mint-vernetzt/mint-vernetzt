@@ -8,7 +8,7 @@ import { defaultLinkWrapper } from "./defaultLinkWrapper";
 /* eslint-disable-next-line */
 export interface EventTeaserItemProps {
   headline: string;
-  body: string;
+  body: React.ReactNode | string;
   date: Date;
   url: string;
   linkWrapper?: (url: string, children: React.ReactNode) => React.ReactElement;
