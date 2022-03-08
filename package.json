@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@fontsource/source-sans-pro": "^4.5.3",
+    "@radix-ui/react-popover": "^0.1.6",
     "@tailwindcss/line-clamp": "^0.2.2",
     "core-js": "^3.6.5",
     "document-register-element": "1.13.1",
