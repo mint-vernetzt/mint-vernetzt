@@ -33,6 +33,16 @@ module.exports = {
       colors: {
         ...colors,
       },
+      keyframes: {
+        slideUpAndFade: {
+          "0%": { opacity: 0, transform: "translateY(2px)" },
+          "100%": { opacity: 1, transform: "translateY(0)" },
+        },
+      },
+      animation: {
+        slideUpAndFade:
+          "slideUpAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1) forwards",
+      },
     },
     fontFamily: {
       sans: ["'Source Sans Pro'", ...defaultTheme.fontFamily.sans],
@@ -62,6 +72,7 @@ module.exports = {
     },
     maxWidth: {
       ...defaultTheme.maxWidth,
+      xs: "20rem",
       "1/2": "50%",
       "3/4": "75%",
     },

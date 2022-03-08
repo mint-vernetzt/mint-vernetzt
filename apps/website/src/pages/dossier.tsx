@@ -2,7 +2,7 @@ import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Img from "gatsby-image";
-import Affix from "../components/affix";
+import * as Popover from "@radix-ui/react-popover";
 import { ReactComponent as Header } from "../images/mintvernetzt_header.svg";
 import {
   H2,
@@ -61,17 +61,27 @@ export function Dossier({ data }: { data: GatsbyTypes.DossierPageQuery }) {
               in den letzten Jahren – Mädchen und Frauen in MINT nach wie vor
               deutlich unterrepräsentiert sind. Beispielsweise sind in
               Deutschland nur 15,4% der 7,92 Millionen Beschäftigten in
-              MINT-Berufen weiblich (Bundesagentur für Arbeit, 2019). Dabei
-              zeigen sich zwischen den verschiedenen MINT-Disziplinen große
-              Unterschiede: Während mathematische und naturwissenschaftliche
-              Berufsfelder mit 37,5% einen relativ hohen Anteil an weiblichen
-              Beschäftigten haben, liegen technische und informatische Berufe
-              bei lediglich 14,1% und 16,3% (Bundesagentur für Arbeit, 2019).
-              Ähnlich stellen sich die Frauenanteile bei den
+              MINT-Berufen weiblich (
+              <a href="#ref_2" className="text-blue-400">
+                Bundesagentur für Arbeit, 2019
+              </a>
+              ). Dabei zeigen sich zwischen den verschiedenen MINT-Disziplinen
+              große Unterschiede: Während mathematische und
+              naturwissenschaftliche Berufsfelder mit 37,5% einen relativ hohen
+              Anteil an weiblichen Beschäftigten haben, liegen technische und
+              informatische Berufe bei lediglich 14,1% und 16,3% (
+              <a href="#ref_2" className="text-blue-400">
+                Bundesagentur für Arbeit, 2019
+              </a>
+              ). Ähnlich stellen sich die Frauenanteile bei den
               Studienanfängerzahlen dar: Während im
               mathematisch-naturwissenschaftlichen Bereich der Frauenanteil bei
               über 50% liegt, ist der Frauenanteil in der Informatik bei
-              lediglich 22,9% (Anger, Kohlisch & Plünnecke, 2021).
+              lediglich 22,9% (
+              <a href="#ref_1" className="text-blue-400">
+                Anger, Kohlisch & Plünnecke, 2021
+              </a>
+              ).
             </p>
             <p>
               Als mögliche Ursachen werden in der Forschung neben individuellen
@@ -81,15 +91,22 @@ export function Dossier({ data }: { data: GatsbyTypes.DossierPageQuery }) {
               diskutiert. Ein wichtiger Aspekt der Umwelt, der das Interesse von
               Mädchen an den einzelnen MINT-Bereichen nachhaltig beeinflusst,
               ist die didaktische Gestaltung von MINT-Unterricht und
-              MINT-Bildungsangeboten (Kampshoff & Wiepcke, 2021). Deshalb
-              fokussieren wir in diesem Beitrag am Beispiel der Informatik,
-              welche didaktischen Maßnahmen besonders wirksam sind, um das
-              Interesse von Mädchen an Informatik, Programmieren und Computer
-              nachhaltig zu fördern. Hierfür bieten wir einen Überblick über die
-              Forschungserkenntnisse einer systematischen Übersichtsarbeit an,
-              in der die Ergebnisse von 11 Literaturreviews und somit von über
-              800 Einzelpublikationen in konkreten Handlungsempfehlungen
-              zusammengefasst sind (Happe, Buhnova, Koziolek & Wagner, 2021).
+              MINT-Bildungsangeboten (
+              <a href="#ref_4" className="text-blue-400">
+                Kampshoff & Wiepcke, 2021
+              </a>
+              ). Deshalb fokussieren wir in diesem Beitrag am Beispiel der
+              Informatik, welche didaktischen Maßnahmen besonders wirksam sind,
+              um das Interesse von Mädchen an Informatik, Programmieren und
+              Computer nachhaltig zu fördern. Hierfür bieten wir einen Überblick
+              über die Forschungserkenntnisse einer systematischen
+              Übersichtsarbeit an, in der die Ergebnisse von 11 Literaturreviews
+              und somit von über 800 Einzelpublikationen in konkreten
+              Handlungsempfehlungen zusammengefasst sind (
+              <a href="#ref_3" className="text-blue-400">
+                Happe, Buhnova, Koziolek & Wagner, 2021
+              </a>
+              ).
             </p>
 
             <H4 className="font-semibold mt-10 mb-6">
@@ -119,9 +136,24 @@ export function Dossier({ data }: { data: GatsbyTypes.DossierPageQuery }) {
               weiterentwickelt. Die erste Gruppe von Maßnahmen zielt auf die
               Zeit vor dem ersten Kontakt mit dem Computer ab; falsche
               Stereotype sollen entkräftet werden, damit sich die Schülerinnen
-              nicht von der Informatik abwenden, bevor sie sich tatsächlich mit
-              dem Thema auseinandersetzen und es erleben können. Die zweite
-              Gruppe von Maßnahmen weckt das Engagement der Schülerinnen für den
+              nicht von der
+              <Popover.Root>
+                <Popover.Trigger className="text-lilac-500 font-semibold">
+                  &nbsp;Informatik&nbsp;
+                </Popover.Trigger>
+                <Popover.Content className="bg-white p-4 max-w-sm rounded-lg shadow-lg animate-slideUpAndFade">
+                  <Popover.Close />
+                  <Popover.Arrow className="text-white fill-current h-3 w-8" />
+                  Das Wort Informatik setzt sich aus den Wörtern Information und
+                  Automatik zusammen und bezeichnet die Wissenschaft von der
+                  systematischen Verarbeitung von Informationen mit Hilfe von
+                  Rechenanlagen. Die Ursprünge der Informatik liegen in der
+                  Mathematik, der Elektro- und Nachrichtentechnik.
+                </Popover.Content>
+              </Popover.Root>
+              abwenden, bevor sie sich tatsächlich mit dem Thema
+              auseinandersetzen und es erleben können. Die zweite Gruppe von
+              Maßnahmen weckt das Engagement der Schülerinnen für den
               Informatik-Bereich, während die dritte Gruppe Strategien umfasst,
               die einen geeigneten ersten Kontakt mit der Welt der Informatik
               ermöglichen und die es den Schülerinnen erlauben, erste positive
@@ -357,7 +389,21 @@ export function Dossier({ data }: { data: GatsbyTypes.DossierPageQuery }) {
               selbst auszudrücken, und ihrer Art des Leistungsverständnisses
               wahrnehmen. Damit verbundene stereotype Bilder und Botschaften,
               die beständig an die Mädchen herangetragen werden, verringern ihr
-              Zugehörigkeitsgefühl zum Informatikbereich.
+              <Popover.Root>
+                <Popover.Trigger className="text-lilac-500 font-semibold">
+                  &nbsp;Zugehörigkeitsgefühl&nbsp;
+                </Popover.Trigger>
+                <Popover.Content className="bg-white p-4 max-w-sm rounded-lg shadow-lg">
+                  <Popover.Close />
+                  <Popover.Arrow className="text-white fill-current h-3 w-8" />
+                  Das Wohlbefinden, das Menschen in Gruppen oder Cliquen — mit
+                  guten oder fragwürdigen Zielen — haben, ist das
+                  Zugehörigkeitsgefühl. Fühlen wir uns zugehörig, dann glauben
+                  wir an uns und unsere Möglichkeiten. Zweifeln wir aber an
+                  unserem Wert, dann können wir uns nicht mehr zugehörig fühlen.
+                </Popover.Content>
+              </Popover.Root>
+              zum Informatikbereich.
             </p>
             <p>
               Wirksame Interventionsstrategien bestehen darin, (1) den Mädchen
@@ -387,14 +433,16 @@ export function Dossier({ data }: { data: GatsbyTypes.DossierPageQuery }) {
                 <p className="font-bold text-sm mb-0 text-neutral-900">
                   Studie veröffentlicht: 16.11.2020
                 </p>
-                <p className="flex">
-                  <div className="mr-2 mb-2 px-3 py-0 mt-2 rounded-lg border-2 text-secondary-500 text-bold whitespace-nowrap bg-white border-secondary-500">
-                    Gendersensibilität
-                  </div>
-                  <div className="mr-2 mb-2 px-3 py-0 mt-2 rounded-lg border-2 text-secondary-500 text-bold whitespace-nowrap bg-white border-secondary-500">
-                    Didaktik
-                  </div>
-                </p>
+                {/* 
+                  <p className="flex">
+                    <div className="mr-2 mb-2 px-3 py-0 mt-2 rounded-lg border-2 text-secondary-500 text-bold whitespace-nowrap bg-white border-secondary-500">
+                      Gendersensibilität
+                    </div>
+                    <div className="mr-2 mb-2 px-3 py-0 mt-2 rounded-lg border-2 text-secondary-500 text-bold whitespace-nowrap bg-white border-secondary-500">
+                      Didaktik
+                    </div>
+                  </p>
+                */}
               </div>
 
               <hr className="mb-6" />
@@ -515,7 +563,7 @@ export function Dossier({ data }: { data: GatsbyTypes.DossierPageQuery }) {
             <H4 className="font-semibold mb-4">Literatur</H4>
 
             <ul>
-              <li className="pb-4 font-semibold">
+              <li className="pb-4 font-semibold" id="ref_1">
                 <a
                   href="https://www.iwkoeln.de/studien/christina-anger-enno-kohlisch-axel-pluennecke-mehr-frauen-fuer-mint-gewinnen-herausforderungen-von-dekarbonisierung-digitalisierung-und-demografie-meistern.html"
                   target="_blank"
@@ -527,7 +575,7 @@ export function Dossier({ data }: { data: GatsbyTypes.DossierPageQuery }) {
                   Demografie meistern. Köln: Institut der deutschen Wirtschaft.
                 </a>
               </li>
-              <li className="pb-4 font-semibold">
+              <li className="pb-4 font-semibold" id="ref_2">
                 <a
                   href="https://statistik.arbeitsagentur.de/DE/Statischer-Content/Statistiken/Themen-im-Fokus/Berufe/Generische-Publikationen/Broschuere-MINT.pdf"
                   target="_blank"
@@ -537,7 +585,7 @@ export function Dossier({ data }: { data: GatsbyTypes.DossierPageQuery }) {
                   MINT-Berufe. Nürnberg: Bundesagentur für Arbeit.
                 </a>
               </li>
-              <li className="pb-4 font-semibold">
+              <li className="pb-4 font-semibold" id="ref_3">
                 <a
                   href="https://link.springer.com/article/10.1007/s10639-020-10379-x"
                   target="_blank"
@@ -550,7 +598,7 @@ export function Dossier({ data }: { data: GatsbyTypes.DossierPageQuery }) {
                   https://doi.org/10.1007/s10639-020-10379-x
                 </a>
               </li>
-              <li className="pb-4 font-semibold">
+              <li className="pb-4 font-semibold" id="ref_4">
                 Kampshoff, M., & Wiepcke, C. (2021). Gender und MINT-Didaktik.
                 In M. Kampshoff & C. Wiepcke (Hrsg.), Vielfalt in Schule und
                 Unterricht – Konzepte und Debatten im Zeichen der Heterogenität
