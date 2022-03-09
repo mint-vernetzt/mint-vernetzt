@@ -76,9 +76,8 @@ export function Mintmachen({
 
             <p className="lg:text-xl">
               Es gibt schon viele gute Praxis-Beispiele in der MINT-Bildung.
-              Reicht jetzt Eure MINTrakete des Monats ein und helft der
-              MINT-Community mit Eurem Wissen und Euren Erfahrungen
-              durchzustarten.
+              Reicht Eure MINTrakete ein und helft der MINT-Community mit Eurem
+              Wissen und Euren Erfahrungen durchzustarten.
             </p>
 
             <p>
