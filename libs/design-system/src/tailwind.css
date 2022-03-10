@@ -120,6 +120,10 @@ section.container header:not(.text-left) p.lead {
   @apply text-lilac-500 font-bold hover:underline;
 }
 
+.blog-post-content li a {
+  @apply text-lilac-500 font-bold hover:underline;
+}
+
 .event-description > ul,
 .wp-block-create-block-schedule-item div ul,
 .blog-post-content ul {
