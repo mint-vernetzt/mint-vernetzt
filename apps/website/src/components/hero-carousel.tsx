@@ -77,7 +77,7 @@ export function HeroCarousel(props: HeroCarouselProps) {
         {items?.length > 0 && (
           <>
             {items.map((item, index) => (
-              <SwiperSlide>
+              <SwiperSlide key={`slide-${index}`}>
                 <HeroCarouselItem
                   headline={item.headline}
                   excerpt={item.excerpt}
