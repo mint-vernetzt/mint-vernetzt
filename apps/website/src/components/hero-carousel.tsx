@@ -56,6 +56,8 @@ export function HeroCarousel(props: HeroCarouselProps) {
           nextEl: ".next-slide",
           prevEl: ".prev-slide",
         }}
+        autoplay={{ delay: 5000 }}
+        loop={true}
         pagination={{
           clickable: true,
           // el: 'swiper-pagination',
@@ -77,7 +79,7 @@ export function HeroCarousel(props: HeroCarouselProps) {
         {items?.length > 0 && (
           <>
             {items.map((item, index) => (
-              <SwiperSlide>
+              <SwiperSlide key={`slide-${index}`}>
                 <HeroCarouselItem
                   headline={item.headline}
                   excerpt={item.excerpt}
