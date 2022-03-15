@@ -66,7 +66,11 @@ export function DossierWettbewerbe({
               in die Hintergründe und die Implikationen des aktuellen
               Forschungsartikels „First steps toward gender equity in the
               chemistry Olympiad: Understanding the role of implicit gender
-              science stereotypes“ (Steegh, Höffler, Höft & Parchmann, 2020).
+              science stereotypes“ (
+              <a href="#ref_3" className="text-blue-400">
+                Steegh, Höffler, Höft & Parchmann, 2020
+              </a>
+              ).
             </p>
 
             <H4 className="font-semibold mt-10 mb-6" id="chapter_1">
@@ -79,10 +83,13 @@ export function DossierWettbewerbe({
               für künftige Karrieren im MINT-Bereich. Beispielsweise zeigt eine
               Studie, dass über 50 % von 345 ehemaligen Wettbewerbsteilnehmenden
               in den USA später einen Doktortitel gemacht haben und viele danach
-              auch weiterhin in der Wissenschaft tätig waren (Campbell &
-              Walberg, 2011). Viele Wissenschaftsolympiaden werden deshalb auch
-              mit staatlichen Mitteln unterstützt, weil sie ein wichtiges Mittel
-              der Begabtenförderung sind. Allerdings besteht dadurch auch die
+              auch weiterhin in der Wissenschaft tätig waren (
+              <a href="#ref_1" className="text-blue-400">
+                Campbell & Walberg, 2011
+              </a>
+              ). Viele Wissenschaftsolympiaden werden deshalb auch mit
+              staatlichen Mitteln unterstützt, weil sie ein wichtiges Mittel der
+              Begabtenförderung sind. Allerdings besteht dadurch auch die
               Gefahr, dass Ungleichheiten zwischen den Geschlechtern verstärkt
               werden.
             </p>
@@ -122,7 +129,11 @@ export function DossierWettbewerbe({
               eine positive Entwicklung: Im Jahr 2020 nahmen in Deutschland mit
               53 % erstmals mehr Mädchen als Jungen an naturwissenschaftlichen
               Olympiaden teil – männliche Teilnehmer gewinnen die Wettbewerbe
-              jedoch nach wie vor häufiger (Köller & Steffensky, 2021).
+              jedoch nach wie vor häufiger (
+              <a href="#ref_2" className="text-blue-400">
+                Köller & Steffensky, 2021
+              </a>
+              ).
             </p>
 
             <H4 className="font-semibold mt-10 mb-6" id="chapter_3">
@@ -237,8 +248,11 @@ export function DossierWettbewerbe({
               unbewussten stereotypen Vorstellungen mit der geringeren Teilnahme
               von Mädchen und jungen Frauen an naturwissenschaftlichen
               Wettbewerben wie der Chemie-Olympiade. Entsprechende
-              Organisationen sollten daher nach Steegh et al. (2020) ihre
-              Strukturen kritisch reflektieren, um aufzudecken, welche
+              Organisationen sollten daher nach{" "}
+              <a href="#ref_3" className="text-blue-400">
+                Steegh et al. (2020)
+              </a>{" "}
+              ihre Strukturen kritisch reflektieren, um aufzudecken, welche
               Strukturen dazu beitragen, dass sich weniger Mädchen angesprochen
               fühlen. Ziel sollte es sein, ein Programm zu schaffen, das für
               männliche und weibliche Teilnehmende gleichermaßen attraktiv ist.
@@ -263,10 +277,10 @@ export function DossierWettbewerbe({
               <div className="study_details mb-6">
                 <H3 className="font-semibold mb-2">Details</H3>
                 <p className="font-bold text-sm mb-2 text-neutral-900">
-                  Artikel vom 09.02.2022
+                  Veröffentlicht am 16.03.2022
                 </p>
                 <p className="font-bold text-sm mb-0 text-neutral-900">
-                  Originalartikel veröffentlicht: 14.06.2020
+                  Originalartikel vom 14.06.2020
                 </p>
               </div>
 
@@ -275,14 +289,17 @@ export function DossierWettbewerbe({
               <div className="study_summary mb-4">
                 <H4 className="font-semibold mb-2">Zusammenfassung</H4>
                 <p>
-                  Die Unterrepräsentation von Mädchen in MINT wird in der
-                  Forschung in Zusammenhang mit Sozialisations- und
-                  Umwelteinflüsse durch Eltern, Lehrkräfte, Peers und Medien
-                  diskutiert. Wie kann dem mit didaktischen Maßnahmen entgegen
-                  gewirkt werden um so mehr Mädchen für den Informatik-Bereich
-                  zu begeistern? Eine Übersicht von konkreten
-                  Handlungsempfehlungen und Strategien für gendersensible
-                  Informatik-Bildung.
+                  Wissenschaftler:innen haben untersucht, wie sich
+                  Geschlechterstereotype auf die Teilnahme und Leistungen von
+                  Mädchen bei naturwissenschaftlichen Wettbewerben auswirken.
+                  Die Ergebnisse zeigen, dass unbewusste stereotype
+                  Vorstellungen damit zusammenhängen, dass sich weniger Mädchen
+                  an naturwissenschaftlichen Wettbewerben wie der
+                  Chemie-Olympiade durchsetzen. Da die Teilnahme an
+                  naturwissenschaftlichen Wettbewerben oft auch ein Sprungbrett
+                  für künftige Karrieren im MINT-Bereich darstellt, sollten
+                  Programme ihre Strukturen kritisch reflektieren, um männliche
+                  und weibliche Teilnehmende gleichermaßen anzusprechen.
                 </p>
               </div>
 
@@ -345,13 +362,13 @@ export function DossierWettbewerbe({
                       href="#study_sources"
                       className="block font-semibold text-lg text-primary-400 hover:text-primary"
                     >
-                      Mehr Literatur
+                      Literatur, Originalartikel, Autoren
                     </a>
                   </li>
                 </ul>
               </div>
 
-              <hr className="mb-6" />
+              {/* <hr className="mb-6" />
 
               <div className="study_download">
                 <H4 className="font-semibold mb-4">Downloads</H4>
@@ -384,7 +401,7 @@ export function DossierWettbewerbe({
                     </svg>
                   </div>
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -469,7 +486,7 @@ export function DossierWettbewerbe({
             </ul>
           </div>
           <div className="flex-100 md:flex-5/12 pb-8 md:pb-0 md:px-2 lg:px-4">
-            <H4 className="font-semibold mb-4">Original Artikel</H4>
+            <H4 className="font-semibold mb-4">Originalartikel</H4>
             <p className="text-xl mb-2 text-neutral-900">
               First steps toward gender equity in the chemistry Olympiad:
               Understanding the role of implicit gender-science stereotypes
@@ -498,30 +515,22 @@ export function DossierWettbewerbe({
                 </svg>
               </div>
             </a>
-            {/*
-            <p className="font-semibold text-lg mb-2">Autoren</p>
+
+            <p className="font-semibold text-lg mb-2">Autor:innen</p>
             <ul>
               <li className="pb-2">
-                <p className="text-lg mb-0 leading-6">Lucia Happe</p>
-                <p className="text-xs mb-0 leading-4">
-                  <a href="" className="text-xs">
-                    https://link.springer.com/article/10.1007/s10639-020-10379-x#auth-Lucia-Happe
-                  </a>
-                </p>
+                <p className="text-lg mb-0 leading-6">Anneke Steegh</p>
               </li>
               <li className="pb-2">
-                <p className="text-lg mb-0 leading-6">Barbora Buhnova</p>
-                <p className="text-xs mb-0 leading-4">author link</p>
+                <p className="text-lg mb-0 leading-6">Tim Höffler</p>
               </li>
               <li className="pb-2">
-                <p className="text-lg mb-0 leading-6">Anne Koziolek</p>
-                <p className="text-xs mb-0 leading-4">Uni Regensburg</p>
+                <p className="text-lg mb-0 leading-6">Lars Höft</p>
               </li>
               <li className="pb-2">
-                <p className="text-lg mb-0 leading-6">Ingo Wagner</p>
-                <p className="text-xs mb-0 leading-4">Uni Regensburg</p>
+                <p className="text-lg mb-0 leading-6">Ilka Parchmann</p>
               </li>
-            </ul> */}
+            </ul>
           </div>
         </div>
       </section>
@@ -533,7 +542,9 @@ export default DossierWettbewerbe;
 
 export const pageQuery = graphql`
   query DossierWettbewerbePage {
-    HeroImage: file(relativePath: { eq: "dossier_header.jpg" }) {
+    HeroImage: file(
+      relativePath: { eq: "themenspezial-artikel-maedchen-wettbewerb.jpg" }
+    ) {
       childImageSharp {
         fluid(maxWidth: 1488, quality: 80) {
           ...GatsbyImageSharpFluid

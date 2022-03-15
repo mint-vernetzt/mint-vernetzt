@@ -146,21 +146,27 @@ export default MintForschung;
 
 export const pageQuery = graphql`
   query MintForschungPage {
-    HeroImage: file(relativePath: { eq: "dossier_header.jpg" }) {
+    HeroImage: file(relativePath: { eq: "mint-bildungsforschung.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1488, quality: 80) {
           ...GatsbyImageSharpFluid
         }
       }
     }
-    Dossier1TeaserImage: file(relativePath: { eq: "dossier_1_teaser.jpg" }) {
+    Dossier1TeaserImage: file(
+      relativePath: {
+        eq: "themenspezial-artikel-maedchen-fuer-programmieren-begeistern.jpg"
+      }
+    ) {
       childImageSharp {
         fluid(maxWidth: 744, quality: 80) {
           ...GatsbyImageSharpFluid
         }
       }
     }
-    Dossier2TeaserImage: file(relativePath: { eq: "dossier_2_teaser.jpg" }) {
+    Dossier2TeaserImage: file(
+      relativePath: { eq: "themenspezial-artikel-maedchen-wettbewerb.jpg" }
+    ) {
       childImageSharp {
         fluid(maxWidth: 744, quality: 80) {
           ...GatsbyImageSharpFluid

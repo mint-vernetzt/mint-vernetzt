@@ -88,8 +88,11 @@ export function DossierMeta({
             </H4>
             <p>
               In der Publikation „Effective measures to foster girls’ interest
-              in secondary computer science education“ (Happe, Buhnova, Koziolek
-              & Wagner, 2021) sind die wichtigsten Strategien für gendersensible
+              in secondary computer science education“ (
+              <a href="#ref_2" className="text-blue-400">
+                Happe, Buhnova, Koziolek & Wagner, 2021
+              </a>
+              ) sind die wichtigsten Strategien für gendersensible
               Informatik-Bildung herausgearbeitet. Dabei wurden in einer
               Übersichtsarbeit die Ergebnisse von 11 Literaturreviews und somit
               von über 800 Einzelpublikationen in konkreten
@@ -150,7 +153,7 @@ export function DossierMeta({
                 beispielsweise durch Begegnungen mit Informatiker:innen, die
                 nicht dem Klischee des/der exzentrischen Einzelgänger:in
                 entsprechen, sondern die sich auch mit Freund:innen treffen und
-                Hobbys wie Sport und Musik haben (vgl. auch
+                Hobbys wie Sport und Musik haben (vgl. auch{" "}
                 <a href="#ref_2" className="text-blue-400">
                   Boston & Cimpian, 2018
                 </a>
@@ -159,8 +162,11 @@ export function DossierMeta({
               <li className="pl-3">
                 Die Arbeit in der Informatik als gemeinschaftsorientiert
                 darstellen (dient nicht nur der eigenen Neugier und Anerkennung,
-                sondern hilft vor allem anderen; vgl. auch Boston & Cimpian,
-                2018), um stereotype Vorstellungen darüber zu revidieren, was
+                sondern hilft vor allem anderen; vgl. auch{" "}
+                <a href="#ref_2" className="text-blue-400">
+                  Boston & Cimpian, 2018
+                </a>
+                ), um stereotype Vorstellungen darüber zu revidieren, was
                 Informatiker:innen tun
               </li>
               <li className="pl-3">
@@ -176,7 +182,11 @@ export function DossierMeta({
                 Hintergrund und Lebensgeschichte – dadurch können sich die
                 Mädchen besser mit den Frauen identifizieren und es wird umso
                 greifbarer, in der Informatik erfolgreich sein zu können (vgl.
-                auch Boston & Cimpian, 2018)
+                auch{" "}
+                <a href="#ref_2" className="text-blue-400">
+                  Boston & Cimpian, 2018
+                </a>
+                )
               </li>
             </ul>
 
@@ -312,7 +322,7 @@ export function DossierMeta({
               Welche didaktischen Maßnahmen man als Minimum umsetzen sollte
             </H4>
             <p className="mb-4">
-              Im m Rahmen des Meta-Reviews von Happe und Kolleg:innen (2021)
+              Im Rahmen des Meta-Reviews von Happe und Kolleg:innen (2021)
               wurden außerdem sechs Maßnahmen identifiziert, die als Minimum
               empfohlen werden, um Informatik-Kurse zu gestalten, die alle
               Geschlechter gleichermaßen ansprechen. Denn die Literaturrecherche
@@ -469,7 +479,7 @@ export function DossierMeta({
                       href="#study_sources"
                       className="block font-semibold text-lg text-primary-400 hover:text-primary"
                     >
-                      Mehr Literatur & Autoren
+                      Literatur, Originalartikel, Autoren
                     </a>
                   </li>
                 </ul>
@@ -561,7 +571,7 @@ export function DossierMeta({
             </ul>
           </div>
           <div className="flex-100 md:flex-5/12 pb-8 md:pb-0 md:px-2 lg:px-4">
-            <H4 className="font-semibold mb-4">Original Studie</H4>
+            <H4 className="font-semibold mb-4">Originalartikel</H4>
             <p className="text-xl mb-2 text-neutral-900">
               Effective measures to foster girls’ interest in secondary computer
               science education
@@ -573,7 +583,7 @@ export function DossierMeta({
             >
               <div>
                 <p className="text-xs m-0 text-semibold">PDF - Link</p>
-                <H6 className="m-0 text-neutral-700">Original studie</H6>
+                <H6 className="m-0 text-neutral-700">Originalartikel</H6>
               </div>
               <div className="ml-auto">
                 <svg
@@ -582,7 +592,7 @@ export function DossierMeta({
                   viewBox="0 0 12 16"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <g fill="currentColor" fill-rule="nonzero">
+                  <g fill="currentColor" fillRule="nonzero">
                     <path d="M1.5 10a.5.5 0 0 1-.5-.5v-8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-2a.5.5 0 1 0 0 1h2A1.5 1.5 0 0 0 12 9.5v-8A1.5 1.5 0 0 0 10.5 0h-9A1.5 1.5 0 0 0 0 1.5v8A1.5 1.5 0 0 0 1.5 11h2a.5.5 0 1 0 0-1h-2Z" />
                     <path d="M5.646 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 1 0-.708-.708L6.5 14.293V5.5a.5.5 0 0 0-1 0v8.793l-2.146-2.147a.5.5 0 1 0-.708.708l3 3Z" />
                   </g>
@@ -590,27 +600,27 @@ export function DossierMeta({
               </div>
             </a>
 
-            <p className="font-semibold text-lg mb-2">Autoren</p>
+            <p className="font-semibold text-lg mb-2">Autor:innen</p>
             <ul>
               <li className="pb-2">
                 <p className="text-lg mb-0 leading-6">Lucia Happe</p>
-                <p className="text-xs mb-0 leading-4">
+                {/* <p className="text-xs mb-0 leading-4">
                   <a href="" className="text-xs">
                     https://link.springer.com/article/10.1007/s10639-020-10379-x#auth-Lucia-Happe
                   </a>
-                </p>
+                </p> */}
               </li>
               <li className="pb-2">
                 <p className="text-lg mb-0 leading-6">Barbora Buhnova</p>
-                <p className="text-xs mb-0 leading-4">author link</p>
+                {/* <p className="text-xs mb-0 leading-4">author link</p> */}
               </li>
               <li className="pb-2">
                 <p className="text-lg mb-0 leading-6">Anne Koziolek</p>
-                <p className="text-xs mb-0 leading-4">Uni Regensburg</p>
+                {/* <p className="text-xs mb-0 leading-4">Uni Regensburg</p> */}
               </li>
               <li className="pb-2">
                 <p className="text-lg mb-0 leading-6">Ingo Wagner</p>
-                <p className="text-xs mb-0 leading-4">Uni Regensburg</p>
+                {/* <p className="text-xs mb-0 leading-4">Uni Regensburg</p> */}
               </li>
             </ul>
           </div>
@@ -624,7 +634,11 @@ export default DossierMeta;
 
 export const pageQuery = graphql`
   query DossierMetaPage {
-    HeroImage: file(relativePath: { eq: "dossier_header.jpg" }) {
+    HeroImage: file(
+      relativePath: {
+        eq: "themenspezial-artikel-maedchen-fuer-programmieren-begeistern.jpg"
+      }
+    ) {
       childImageSharp {
         fluid(maxWidth: 1488, quality: 80) {
           ...GatsbyImageSharpFluid
