@@ -60,15 +60,15 @@ export function DossierWettbewerbe({
               haben in diesem Zusammenhang untersucht, wie sich Stereotype auf
               die Teilnahme von Mädchen an naturwissenschaftlichen Wettbewerben
               auswirken. Die Ergebnisse zeigen, dass unbewusste stereotype
-              Vorstellungen damit zusammenhängen, dass weniger Mädchen an
+              Vorstellungen damit zusammenhängen, dass sich weniger Mädchen an
               naturwissenschaftlichen Wettbewerben wie der Chemie-Olympiade
-              teilnehmen. Wir haben uns eingelesen und geben Euch einen Einblick
-              in die Hintergründe und die Implikationen des aktuellen
+              durchsetzen. Wir haben uns eingelesen und geben Euch einen
+              Einblick in die Hintergründe und die Implikationen des aktuellen
               Forschungsartikels „First steps toward gender equity in the
               chemistry Olympiad: Understanding the role of implicit gender
               science stereotypes“ (
               <a href="#ref_3" className="text-blue-400">
-                Steegh, Höffler, Höft & Parchmann, 2020
+                Steegh, Höffler, Höft & Parchmann, 2021
               </a>
               ).
             </p>
@@ -109,8 +109,8 @@ export function DossierWettbewerbe({
               vertreten waren. Insgesamt bestanden die deutschen Teams für die
               Chemie-Olympiade von 2008 bis 2016 aus nur 3 % Mädchen. Die Zahlen
               weisen ziemlich eindeutig darauf hin, dass es für Mädchen
-              schwieriger ist, an internationalen Wissenschaftsolympiaden
-              teilzunehmen.
+              schwieriger ist, sich bis zur internationalen
+              Wissenschaftsolympiade durchzusetzen.
             </p>
             <p>
               Darüber hinaus schneiden Schülerinnen, die sich für ein
@@ -204,8 +204,8 @@ export function DossierWettbewerbe({
               Wettbewerbs oder im nächsten Jahr wieder am Wettbewerb
               teilzunehmen? Es wurde erwartet, dass sich die unbewussten
               Stereotype der Teilnehmenden negativ auf Leistungen und Teilnahme
-              der Mädchen auswirken würden, während sie sich nicht negativ auf
-              Leistungen und Teilnahme der Jungen auswirken würden.
+              der Mädchen auswirken würden, während sie sich nicht oder sogar
+              positiv auf Leistungen und Teilnahme der Jungen auswirken würden.
             </p>
             <p>
               Für die Studie wurden Teilnehmende der ersten Auswahlrunde an der
@@ -250,7 +250,7 @@ export function DossierWettbewerbe({
               Wettbewerben wie der Chemie-Olympiade. Entsprechende
               Organisationen sollten daher nach{" "}
               <a href="#ref_3" className="text-blue-400">
-                Steegh et al. (2020)
+                Steegh et al. (2021)
               </a>{" "}
               ihre Strukturen kritisch reflektieren, um aufzudecken, welche
               Strukturen dazu beitragen, dass sich weniger Mädchen angesprochen
@@ -362,7 +362,7 @@ export function DossierWettbewerbe({
                       href="#study_sources"
                       className="block font-semibold text-lg text-primary-400 hover:text-primary"
                     >
-                      Literatur, Originalartikel, Autoren
+                      Literatur, Originalartikel, Autor:innen
                     </a>
                   </li>
                 </ul>
@@ -426,11 +426,25 @@ export function DossierWettbewerbe({
             <p className="pb-4 font-semibold">
               <a
                 href="https://science-surfers.com/sdg5-geschlechtergleichheit/"
+                rel="noreferrer"
                 target="_blank"
                 className="text-primary underline"
               >
                 Mädchen und MINT – na klar! Nur in vielen Köpfen ist das noch
                 nicht angekommen
+              </a>
+            </p>
+            <H4 className="font-semibold mb-4" id="study_sources">
+              Weiterführender Link zu einem englischsprachigen Artikel:
+            </H4>
+            <p className="pb-4 font-semibold">
+              <a
+                href="https://www.discovermagazine.com/mind/at-stem-competitions-gender-norms-still-hold-girls-back#.XS49oi2ZOi4"
+                rel="noreferrer"
+                target="_blank"
+                className="text-primary underline"
+              >
+                At STEM Competitions, Gender Norms Still Hold Girls Back
               </a>
             </p>
 
@@ -440,6 +454,7 @@ export function DossierWettbewerbe({
               <li className="pb-4 font-semibold" id="ref_1">
                 <a
                   href="https://doi.org/10.1080/02783193.2011.530202"
+                  rel="noreferrer"
                   target="_blank"
                   className="text-primary underline"
                 >
@@ -451,6 +466,7 @@ export function DossierWettbewerbe({
               <li className="pb-4 font-semibold" id="ref_2">
                 <a
                   href="https://www.koerber-stiftung.de/fileadmin/user_upload/koerber-stiftung/redaktion/mint_nachwuchsbarometer/pdf/2021/MINT-Nachwuchsbarometer_2021.pdf"
+                  rel="noreferrer"
                   target="_blank"
                   className="text-primary underline"
                 >
@@ -462,25 +478,14 @@ export function DossierWettbewerbe({
               <li className="pb-4 font-semibold" id="ref_3">
                 <a
                   href="https://doi.org/10.1002/tea.21645"
+                  rel="noreferrer"
                   target="_blank"
                   className="text-primary underline"
                 >
-                  Steegh, A., Höffler, T., Höft, L., & Parchmann, I. (2020).
+                  Steegh, A., Höffler, T., Höft, L., & Parchmann, I. (2021).
                   First steps toward gender equity in the chemistry Olympiad:
                   Understanding the role of implicit gender‐science stereotypes.
                   Journal of Research in Science Teaching, 58(1), 40–68.
-                </a>
-              </li>
-              <li className="pb-4 font-semibold" id="ref_4">
-                <a
-                  href="https://doi.org/10.1103/PhysRevPhysEducRes.14.020113"
-                  target="_blank"
-                  className="text-primary underline"
-                >
-                  Wulff, P., Hazari, Z., Petersen, S., & Neumann, K. (2018).
-                  Engaging young women in physics: An intervention to support
-                  young women’s physics identity development. Physical Review
-                  Physics Education Research, 14(2), 1– 18
                 </a>
               </li>
             </ul>
@@ -494,6 +499,7 @@ export function DossierWettbewerbe({
 
             <a
               href="https://onlinelibrary.wiley.com/doi/epdf/10.1002/tea.21645"
+              rel="noreferrer"
               target="_blank"
               className="flex py-4 px-6 rounded-lg bg-neutral-400 text-neutral-700 hover:shadow-lg relative items-center mb-6"
             >

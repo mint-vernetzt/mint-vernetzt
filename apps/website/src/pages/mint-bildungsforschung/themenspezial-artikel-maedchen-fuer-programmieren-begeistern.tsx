@@ -479,7 +479,7 @@ export function DossierMeta({
                       href="#study_sources"
                       className="block font-semibold text-lg text-primary-400 hover:text-primary"
                     >
-                      Literatur, Originalartikel, Autoren
+                      Literatur, Originalartikel, Autor:innen
                     </a>
                   </li>
                 </ul>
@@ -541,6 +541,7 @@ export function DossierMeta({
               <li className="pb-4 font-semibold" id="ref_1">
                 <a
                   href="https://doi.org/10.1177/1076217518786955"
+                  rel="noreferrer"
                   target="_blank"
                   className="text-primary underline"
                 >
@@ -552,6 +553,7 @@ export function DossierMeta({
               <li className="pb-4 font-semibold" id="ref_2">
                 <a
                   href="https://link.springer.com/article/10.1007/s10639-020-10379-x"
+                  rel="noreferrer"
                   target="_blank"
                   className="text-primary underline"
                 >
@@ -579,6 +581,8 @@ export function DossierMeta({
 
             <a
               href="https://link.springer.com/content/pdf/10.1007/s10639-020-10379-x.pdf"
+              rel="noreferrer"
+              target="_blank"
               className="flex py-4 px-6 rounded-lg bg-neutral-400 text-neutral-700 hover:shadow-lg relative items-center mb-6"
             >
               <div>

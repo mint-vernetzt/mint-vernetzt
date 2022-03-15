@@ -49,7 +49,7 @@ export function MintForschung({
 
       <section className="container mt-8 md:mb-10 lg:mt-10 mb-8 md:mb-10 lg:mb-20">
         <header>
-          <H2 like="h1">Gendersensible Lehrmethoden und -umgebungen</H2>
+          <H2 like="h1">Gendersensibles Lehren und Lernen</H2>
           <p className="text-xl md:px-8 lg:px-20 ">
             In unterschiedlichen Beiträgen bereiten wir Forschungserkenntnisse
             praxisorientiert auf und teilen Wissen miteinander. In diesem
