@@ -183,15 +183,17 @@ export const getTeasersData = (data: GatsbyTypes.LandingPageQuery) => {
       url = `${prefix}/${teaser.teaserInformations.post[0].slug}`;
     }
 
+    let image;
+    if (teaser.teaserInformations.image !== null) {
+      image = teaser.teaserInformations.image.localFile.childImageSharp.fluid;
+    } else {
+      image =
+        teaser.teaserInformations.post[0].featuredImage.node.localFile
+          .childImageSharp.fluid;
+    }
+
     return {
-      image: (
-        <Img
-          fluid={
-            teaser.teaserInformations.image.localFile.childImageSharp.fluid
-          }
-          className="w-full h-3/4 md:h-full"
-        />
-      ),
+      image: <Img fluid={image} className="w-full h-3/4 md:h-full" />,
       headline: teaser.title,
       excerpt: teaser.excerpt.replace(/<[^>]*>/g, ""),
       url: (
