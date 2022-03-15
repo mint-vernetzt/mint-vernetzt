@@ -309,7 +309,7 @@ export const pageQuery = graphql`
         slug
       }
     }
-    teasers: allWpTeaser(sort: { fields: date, order: ASC }) {
+    teasers: allWpTeaser(sort: { fields: date, order: DESC }) {
       nodes {
         title
         excerpt
