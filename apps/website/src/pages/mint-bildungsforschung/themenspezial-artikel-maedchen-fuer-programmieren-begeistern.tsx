@@ -1,6 +1,6 @@
 import { graphql, Link } from "gatsby";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Layout from "../../components/layout";
+import SEO from "../../components/seo";
 import Img from "gatsby-image";
 import * as Popover from "@radix-ui/react-popover";
 
@@ -402,10 +402,10 @@ export function DossierMeta({
               <div className="study_details mb-6">
                 <H3 className="font-semibold mb-2">Details</H3>
                 <p className="font-bold text-sm mb-2 text-neutral-900">
-                  Artikel vom 09.02.2022
+                  Veröffentlicht am 16.03.2022
                 </p>
                 <p className="font-bold text-sm mb-0 text-neutral-900">
-                  Studie veröffentlicht: 16.11.2020
+                  Originalartikel vom 16.11.2020
                 </p>
               </div>
 
@@ -475,7 +475,7 @@ export function DossierMeta({
                 </ul>
               </div>
 
-              <hr className="mb-6" />
+              {/* <hr className="mb-6" />
 
               <div className="study_download">
                 <H4 className="font-semibold mb-4">Downloads</H4>
@@ -505,7 +505,7 @@ export function DossierMeta({
                     </svg>
                   </div>
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

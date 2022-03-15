@@ -1,6 +1,6 @@
 import { graphql, Link } from "gatsby";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Layout from "../../components/layout";
+import SEO from "../../components/seo";
 import Img from "gatsby-image";
 import * as Popover from "@radix-ui/react-popover";
 
