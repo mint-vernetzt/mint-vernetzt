@@ -13,12 +13,16 @@ import {
   IconType,
 } from "@mint-vernetzt/react-components";
 
-export function Dossier({ data }: { data: GatsbyTypes.DossierPageQuery }) {
+export function DossierMeta({
+  data,
+}: {
+  data: GatsbyTypes.DossierMetaPageQuery;
+}) {
   return (
     <Layout>
       <SEO
         title="Wie können Mädchen für Programmieren begeistert werden?"
-        slug="/dossier"
+        slug="/gender-didaktik-dossier_meta-review"
         description=""
         image=""
         children=""
@@ -32,7 +36,7 @@ export function Dossier({ data }: { data: GatsbyTypes.DossierPageQuery }) {
             <span className="mr-2">
               <Icon type={IconType.ChevronLeft} />
             </span>
-            zur Startseite
+            zur Übersicht
           </span>
         </Link>
 
@@ -52,108 +56,65 @@ export function Dossier({ data }: { data: GatsbyTypes.DossierPageQuery }) {
               Ein Überblick zu konkreten Handlungsempfehlungen aus der Forschung
               im Bereich Informatik und Didaktik.
             </p>
-            <H4 className="font-semibold mb-6">
-              Wo wir grade stehen: Mädchen und Frauen in MINT und Ursachen für
-              geringe Teilhabe
-            </H4>
-            <p>
+            <p className="font-bold" id="study_background">
               Aktuelle Zahlen zeigen, dass – trotz einiger positiver Tendenzen
               in den letzten Jahren – Mädchen und Frauen in MINT nach wie vor
-              deutlich unterrepräsentiert sind. Beispielsweise sind in
-              Deutschland nur 15,4% der 7,92 Millionen Beschäftigten in
-              MINT-Berufen weiblich (
-              <a href="#ref_2" className="text-blue-400">
-                Bundesagentur für Arbeit, 2019
-              </a>
-              ). Dabei zeigen sich zwischen den verschiedenen MINT-Disziplinen
-              große Unterschiede: Während mathematische und
-              naturwissenschaftliche Berufsfelder mit 37,5% einen relativ hohen
-              Anteil an weiblichen Beschäftigten haben, liegen technische und
-              informatische Berufe bei lediglich 14,1% und 16,3% (
-              <a href="#ref_2" className="text-blue-400">
-                Bundesagentur für Arbeit, 2019
-              </a>
-              ). Ähnlich stellen sich die Frauenanteile bei den
-              Studienanfängerzahlen dar: Während im
-              mathematisch-naturwissenschaftlichen Bereich der Frauenanteil bei
-              über 50% liegt, ist der Frauenanteil in der Informatik bei
-              lediglich 22,9% (
-              <a href="#ref_1" className="text-blue-400">
-                Anger, Kohlisch & Plünnecke, 2021
-              </a>
-              ).
-            </p>
-            <p>
-              Als mögliche Ursachen werden in der Forschung neben individuellen
-              Merkmalen wie niedrigeres Interesse oder niedrigeres Vertrauen in
-              die eigenen MINT-Fähigkeiten vor allem Sozialisations- und
-              Umwelteinflüsse durch Eltern, Lehrkräfte, Peers und Medien
-              diskutiert. Ein wichtiger Aspekt der Umwelt, der das Interesse von
-              Mädchen an den einzelnen MINT-Bereichen nachhaltig beeinflusst,
-              ist die didaktische Gestaltung von MINT-Unterricht und
+              deutlich unterrepräsentiert sind. Als mögliche Ursachen werden in
+              der Forschung neben individuellen Merkmalen wie niedrigerem
+              Interesse oder niedrigerem Vertrauen in die eigenen
+              MINT-Fähigkeiten vor allem Sozialisations- und Umwelteinflüsse
+              durch Eltern, Lehrkräfte, Peers und Medien diskutiert. Ein
+              wichtiger Aspekt der Umwelt, der das Interesse von Mädchen an den
+              einzelnen MINT-Bereichen nachhaltig beeinflusst, ist die
+              didaktische Gestaltung von MINT-Unterricht und
               MINT-Bildungsangeboten (
-              <a href="#ref_4" className="text-blue-400">
-                Kampshoff & Wiepcke, 2021
+              <a href="#ref_3" className="text-blue-400">
+                Kampshoff & Wiepcke, 2020
               </a>
-              ). Deshalb fokussieren wir in diesem Beitrag am Beispiel der
+              ). Deshalb zeigen wir in diesem Beitrag am Beispiel der
               Informatik, welche didaktischen Maßnahmen besonders wirksam sind,
               um das Interesse von Mädchen an Informatik, Programmieren und
-              Computer nachhaltig zu fördern. Hierfür bieten wir einen Überblick
-              über die Forschungserkenntnisse einer systematischen
-              Übersichtsarbeit an, in der die Ergebnisse von 11 Literaturreviews
-              und somit von über 800 Einzelpublikationen in konkreten
-              Handlungsempfehlungen zusammengefasst sind (
-              <a href="#ref_3" className="text-blue-400">
-                Happe, Buhnova, Koziolek & Wagner, 2021
+              Computer nachhaltig zu fördern. Der Artikel beruht auf der
+              systematischen Übersichtsarbeit der Wissenschaftler:innen{" "}
+              <a href="#ref_2" className="text-blue-400">
+                Lucia Happe, Barbora Buhnova, Anne Koziolek und Ingo Wagner
               </a>
-              ).
+              , die 2021 erschienen ist.
             </p>
 
-            <H4 className="font-semibold mt-10 mb-6">
+            <H4 className="font-semibold mt-10 mb-6" id="study_results">
               Wirksame didaktische Maßnahmen um Mädchen für den
               Informatik-Bereich zu begeistern
             </H4>
             <p>
               In der Publikation „Effective measures to foster girls’ interest
-              in secondary computer science education” von Lucia Happe, Barbora
-              Buhnova, Anne Koziolek und Ingo Wagner sind die wichtigsten
-              Strategien für gendersensible Informatik-Bildung herausgearbeitet.
-              In dem Meta-Review ist das derzeit vorhandene Wissen über wirksame
-              didaktische Maßnahmen zusammengefasst, um Mädchen für den
-              Informatik-Bereich zu begeistern. Insgesamt identifizierten die
-              Wissenschaftler:innen 22 konkrete Maßnahmen, die sie wiederum in
-              sechs Gruppen gliederten. MINT-Akteur:innen und Pädagog:innen
-              finden hier also eine umfassende und leicht zugängliche Übersicht
-              der in der Forschungsliteratur empfohlenen Maßnahmen.
+              in secondary computer science education“ (Happe, Buhnova, Koziolek
+              & Wagner, 2021) sind die wichtigsten Strategien für gendersensible
+              Informatik-Bildung herausgearbeitet. Dabei wurden in einer
+              Übersichtsarbeit die Ergebnisse von 11 Literaturreviews und somit
+              von über 800 Einzelpublikationen in konkreten
+              Handlungsempfehlungen zusammengefasst. In dem Meta-Review ist
+              demnach das derzeit vorhandene Wissen über wirksame didaktische
+              Maßnahmen zusammengefasst, um Mädchen für den Informatik-Bereich
+              zu begeistern. Insgesamt identifizierten die Wissenschaftler:innen
+              22 konkrete Maßnahmen, die sie wiederum in sechs Gruppen
+              gliederten. Ihr findet hier also eine umfassende und leicht
+              zugängliche Übersicht über die in der Forschungsliteratur
+              empfohlenen Maßnahmen.
             </p>
             <p>
-              Eines der wichtigsten Elemente, das zum Verbleib von Schülerinnen
-              in der Informatik führt, ist das Interesse, da es den Lernprozess
-              anregt und entscheidend für den Lernerfolg ist. Die im Rahmen des
-              Meta-Reviews identifizierten didaktischen Empfehlungen sind
-              deshalb nach sechs verschiedenen Phasen geordnet, in denen sich
-              das Informatik-Interesse von Schülerinnen beständig
+              Eines der wichtigsten Elemente, die zum Verbleib von Schülerinnen
+              in der Informatik führen, ist das Interesse. Es regt den
+              Lernprozess an und ist entscheidend für den Lernerfolg. Die im
+              Rahmen des Meta-Reviews identifizierten didaktischen Empfehlungen
+              sind deshalb nach sechs verschiedenen Phasen geordnet, in denen
+              sich das Informatik-Interesse von Schülerinnen beständig
               weiterentwickelt. Die erste Gruppe von Maßnahmen zielt auf die
               Zeit vor dem ersten Kontakt mit dem Computer ab; falsche
               Stereotype sollen entkräftet werden, damit sich die Schülerinnen
-              nicht von der
-              <Popover.Root>
-                <Popover.Trigger className="text-lilac-500 font-semibold">
-                  &nbsp;Informatik&nbsp;
-                </Popover.Trigger>
-                <Popover.Content className="bg-white p-4 max-w-sm rounded-lg shadow-lg animate-slideUpAndFade">
-                  <Popover.Close />
-                  <Popover.Arrow className="text-white fill-current h-3 w-8" />
-                  Das Wort Informatik setzt sich aus den Wörtern Information und
-                  Automatik zusammen und bezeichnet die Wissenschaft von der
-                  systematischen Verarbeitung von Informationen mit Hilfe von
-                  Rechenanlagen. Die Ursprünge der Informatik liegen in der
-                  Mathematik, der Elektro- und Nachrichtentechnik.
-                </Popover.Content>
-              </Popover.Root>
-              abwenden, bevor sie sich tatsächlich mit dem Thema
-              auseinandersetzen und es erleben können. Die zweite Gruppe von
-              Maßnahmen weckt das Engagement der Schülerinnen für den
+              nicht von der Informatik abwenden, bevor sie sich tatsächlich mit
+              dem Thema auseinandersetzen und es erleben können. Die zweite
+              Gruppe von Maßnahmen weckt das Engagement der Schülerinnen für den
               Informatik-Bereich, während die dritte Gruppe Strategien umfasst,
               die einen geeigneten ersten Kontakt mit der Welt der Informatik
               ermöglichen und die es den Schülerinnen erlauben, erste positive
@@ -167,7 +128,7 @@ export function Dossier({ data }: { data: GatsbyTypes.DossierPageQuery }) {
               erlischt. Die fünfte Gruppe umfasst Strategien, die die Häufigkeit
               wiederholter positiver Erfahrungen mit Informatik und Computern
               erhöhen sollen, um das Interesse der Schülerinnen
-              aufrechtzuerhalten; auf diese Weise kann sich bei den Mädchen ein
+              aufrechtzuerhalten. Auf diese Weise kann sich bei den Mädchen ein
               individuelles Interesse dafür entwickeln, eigene Begegnungen mit
               der Informatik zu suchen und ein tiefergehendes Vertrauen in die
               eigenen Informatik-Fähigkeiten aufzubauen. Die sechste Gruppe
@@ -176,7 +137,7 @@ export function Dossier({ data }: { data: GatsbyTypes.DossierPageQuery }) {
               Informatik, Computern und Programmieren entwickeln.
             </p>
 
-            <H4 className="font-semibold mt-10 mb-6">
+            <H4 className="font-semibold mt-10 mb-6" id="study_recommendations">
               Konkrete Handlungsempfehlungen gegliedert in 6 thematische Gruppen
             </H4>
 
@@ -185,23 +146,37 @@ export function Dossier({ data }: { data: GatsbyTypes.DossierPageQuery }) {
             </p>
             <ul className="list-disc list-outside mb-4 pl-5">
               <li className="pl-3">
-                Nicht-stereotype Rollenmodelle zur Verfügung stellen, um
-                stereotype Vorstellungen zu revidieren
+                Nichtstereotype Rollenmodelle zur Verfügung stellen,
+                beispielsweise durch Begegnungen mit Informatiker:innen, die
+                nicht dem Klischee des/der exzentrischen Einzelgänger:in
+                entsprechen, sondern die sich auch mit Freund:innen treffen und
+                Hobbys wie Sport und Musik haben (vgl. auch
+                <a href="#ref_2" className="text-blue-400">
+                  Boston & Cimpian, 2018
+                </a>
+                )
               </li>
               <li className="pl-3">
-                Die Arbeit in der Informatik als hilfreich und
-                gemeinschaftsorientiert darstellen, um stereotype Vorstellungen
-                über die Arbeit von Informatiker:innen zu revidieren
+                Die Arbeit in der Informatik als gemeinschaftsorientiert
+                darstellen (dient nicht nur der eigenen Neugier und Anerkennung,
+                sondern hilft vor allem anderen; vgl. auch Boston & Cimpian,
+                2018), um stereotype Vorstellungen darüber zu revidieren, was
+                Informatiker:innen tun
               </li>
               <li className="pl-3">
                 Gelegenheiten bieten, Computeraktivitäten als Teil einer Gruppe
-                durchzuführen, um stereotype Vorstellungen über die Arbeitsweise
-                von Informatiker:innen zu revidieren
+                durchzuführen, um stereotype Vorstellungen darüber zu ändern,
+                wie Informatiker:innen arbeiten
               </li>
               <li className="pl-3">
                 Mädchen mit erfolgreichen weiblichen Informatik-Rollenmodellen
-                bekannt machen, um Mädchen gegen stereotype Vorstellungen zu
-                immunisieren
+                bekannt machen, um sie gegen stereotype Vorstellungen zu
+                immunisieren; wichtig ist dabei, dass die Rollenmodelle den
+                Mädchen möglichst ähnlich sind, zum Beispiel hinsichtlich
+                Hintergrund und Lebensgeschichte – dadurch können sich die
+                Mädchen besser mit den Frauen identifizieren und es wird umso
+                greifbarer, in der Informatik erfolgreich sein zu können (vgl.
+                auch Boston & Cimpian, 2018)
               </li>
             </ul>
 
@@ -218,8 +193,8 @@ export function Dossier({ data }: { data: GatsbyTypes.DossierPageQuery }) {
               </li>
               <li className="pl-3">
                 Sichtbare Hinweise auf den Erfolg von Frauen in der Informatik
-                einbeziehen, beispielsweise durch Portraits von erfolgreichen
-                Informatikerinnen im Klassenzimmer
+                einbeziehen, beispielsweise durch Porträts erfolgreicher
+                Informatikerinnen
               </li>
             </ul>
 
@@ -238,11 +213,12 @@ export function Dossier({ data }: { data: GatsbyTypes.DossierPageQuery }) {
                 Einstiegshürden möglichst niedrig zu halten
               </li>
               <li className="pl-3">
-                Visuelle Programmierumgebungen, um Einführungen ins
-                Programmieren ansprechender zu gestalten
+                Programmierumgebungen mit einer visuellen
+                Entwicklungsoberfläche, um Einführungen ins Programmieren
+                ansprechender zu gestalten
               </li>
               <li className="pl-3">
-                Diskussionen und Reflektionen über die Aktivitäten einbeziehen,
+                Diskussionen und Reflexionen über die Aktivitäten einbeziehen,
                 um das Lernen zu unterstützen
               </li>
             </ul>
@@ -254,16 +230,17 @@ export function Dossier({ data }: { data: GatsbyTypes.DossierPageQuery }) {
             <ul className="list-disc list-outside mb-4 pl-5">
               <li className="pl-3">
                 Bildungsangebote und Klassen nur für Mädchen, um den
-                Schülerinnen mehr Aufmerksamkeit von den Lehrkräften zu
-                ermöglichen
+                Schülerinnen mehr Aufmerksamkeit von den Lehrkräften und
+                Anbieter:innen zu ermöglichen
               </li>
               <li className="pl-3">
-                Aufteilung von Klassen nach Erfahrung, um dem entgegenzuwirken,
-                dass die Schüler:innen mit der meisten Erfahrung die meiste Zeit
-                der Lehrkräfte in Anspruch nehmen
+                Aufteilung von Bildungsangeboten und Klassen nach Erfahrung, um
+                dem entgegenzuwirken, dass die Schüler:innen mit der meisten
+                Erfahrung die meiste Zeit der Lehrkräfte und Anbieter:innen in
+                Anspruch nehmen
               </li>
               <li className="pl-3">
-                Nicht-kompetitive Lernumgebungen, um den Aufbau einer
+                Nichtkompetitive Lernumgebungen, um den Aufbau einer
                 Klassenhierarchie zu vermeiden, die für Mädchen weniger geeignet
                 ist
               </li>
@@ -290,7 +267,7 @@ export function Dossier({ data }: { data: GatsbyTypes.DossierPageQuery }) {
               </li>
               <li className="pl-3">
                 Eine positive und konstruktive Haltung gegenüber Misserfolgen
-                als wertvolle Lerngelegenheiten einnehmen
+                als wertvollen Lerngelegenheiten einnehmen
               </li>
             </ul>
 
@@ -326,55 +303,52 @@ export function Dossier({ data }: { data: GatsbyTypes.DossierPageQuery }) {
               <li className="pl-3">
                 Schülerinnen ermöglichen, dass sie Teil einer Gruppe und Teil
                 der Informatik-Community sind, um langfristig das
-                Zugehörigkeitsgefühl zum Informatikbereich aufrechtzuerhalten
+                Zugehörigkeitsgefühl zum Informatik-Bereich aufrechtzuerhalten
                 und zu erhöhen
               </li>
             </ul>
 
-            <H4 className="font-semibold mt-10 mb-6">
+            <H4 className="font-semibold mt-10 mb-6" id="study_final">
               Welche didaktischen Maßnahmen man als Minimum umsetzen sollte
             </H4>
             <p className="mb-4">
-              Im Rahmen des Meta-Reviews von Happe und Kolleg:innen (2021)
+              Im m Rahmen des Meta-Reviews von Happe und Kolleg:innen (2021)
               wurden außerdem sechs Maßnahmen identifiziert, die als Minimum
-              empfohlen werden, um einen für alle Geschlechter offenen
-              Informatik-Unterricht zu gestalten. Denn die Literaturrecherche
+              empfohlen werden, um Informatik-Kurse zu gestalten, die alle
+              Geschlechter gleichermaßen ansprechen. Denn die Literaturrecherche
               zeigte, dass Kurse und Bildungsangebote in der Forschungsliteratur
               als effektiv eingestuft wurden, wenn sie ähnliche Strategien und
               Maßnahmen verwendeten und mindestens die folgenden Aspekte
-              beinhalteten:
+              beinhalteten.
             </p>
             <ol>
               <li>
                 Forschungsbasierte und praxisnahe Lernaktivitäten einsetzen, um
-                Schülerinnen für Informatik zu begeistern (empfohlen in 7 von 11
-                ausgewerteten Literaturreviews)
+                Schülerinnen für Informatik zu begeistern
               </li>
               <li>
-                Möglichst früh so viele Facetten und interdisziplinäre
-                Anwendungen der Informatik aufzeigen wie möglich, um
-                Schülerinnen zu begeistern, die sich für diverse Fachrichtungen
-                interessieren (empfohlen in 6 von 11 ausgewerteten Reviews)
+                Frühzeitig so viele Facetten und interdisziplinäre Anwendungen
+                der Informatik aufzeigen wie möglich, um Schülerinnen zu
+                begeistern, die sich für diverse Fachrichtungen interessieren
               </li>
               <li>
                 Aufteilung der Klassen im besten Fall nach Erfahrungslevel,
                 zumindest aber nach Geschlecht oder Zugehörigkeit zur gleichen
-                Interessengruppe (empfohlen in 5 von 11 ausgewerteten Reviews)
+                Interessengruppe
               </li>
               <li>
                 Mehr Wert auf den Prozess des Denkens, Entwickelns und
                 Problemlösens legen als auf das eigentliche Programmieren und
-                Coden (empfohlen in 4 von 11 ausgewerteten Reviews)
+                Coden
               </li>
               <li>
                 Visuelle Programmierumgebungen für Einführungen ins
-                Programmieren verwenden (empfohlen in 4 von 11 ausgewerteten
-                Reviews)
+                Programmieren verwenden
               </li>
               <li>
                 Schülerinnen zu Veranstaltungen und Exkursionen mitnehmen und
                 mit ihnen Geschichten und Rollenmodelle aus der Geschichte der
-                Informatik teilen (empfohlen in 4 von 11 ausgewerteten Reviews)
+                Informatik teilen
               </li>
             </ol>
 
@@ -384,38 +358,39 @@ export function Dossier({ data }: { data: GatsbyTypes.DossierPageQuery }) {
               Informatik-Bildung steht, um mehr Mädchen und junge Frauen für
               Computer und das Programmieren zu begeistern und auch langfristig
               im Informatik-Bereich zu halten. Mädchen wählen beispielsweise
-              nach wie vor seltener Informatikkurse, weil sie das
+              nach wie vor seltener Informatik-Kurse, weil sie das
               Unterrichtsfeld als eher abschreckend gegenüber ihrer Art, sich
               selbst auszudrücken, und ihrer Art des Leistungsverständnisses
               wahrnehmen. Damit verbundene stereotype Bilder und Botschaften,
               die beständig an die Mädchen herangetragen werden, verringern ihr
-              <Popover.Root>
-                <Popover.Trigger className="text-lilac-500 font-semibold">
-                  &nbsp;Zugehörigkeitsgefühl&nbsp;
-                </Popover.Trigger>
-                <Popover.Content className="bg-white p-4 max-w-sm rounded-lg shadow-lg">
-                  <Popover.Close />
-                  <Popover.Arrow className="text-white fill-current h-3 w-8" />
-                  Das Wohlbefinden, das Menschen in Gruppen oder Cliquen — mit
-                  guten oder fragwürdigen Zielen — haben, ist das
-                  Zugehörigkeitsgefühl. Fühlen wir uns zugehörig, dann glauben
-                  wir an uns und unsere Möglichkeiten. Zweifeln wir aber an
-                  unserem Wert, dann können wir uns nicht mehr zugehörig fühlen.
-                </Popover.Content>
-              </Popover.Root>
-              zum Informatikbereich.
+              Gefühl der Zugehörigkeit zum Informatik-Bereich.
             </p>
+            <p className="mb-0">
+              Wirksame Interventionsstrategien bestehen darin:
+            </p>
+            <ol>
+              <li>den Mädchen ansprechende praktische Erfahrungen zu bieten</li>
+              <li>
+                die Informatik-Motivation zu erhöhen, indem der
+                gesellschaftliche Impact der Arbeit von Informatiker:innen
+                hervorgehoben wird
+              </li>
+              <li>
+                den Mädchen Möglichkeiten zu bieten, mit ihren Stärken
+                erfolgreich zu sein
+              </li>
+              <li>
+                den Mädchen geeignete weibliche Rollenmodelle zur Verfügung zu
+                stellen
+              </li>
+              <li>
+                die Lehrkräfte und wichtige Schlüsselpersonen im Umfeld der
+                Mädchen geeignet zu schulen, um nachhaltig ein größeres
+                Interesse an Informatik und Technologie zu fördern
+              </li>
+            </ol>
             <p>
-              Wirksame Interventionsstrategien bestehen darin, (1) den Mädchen
-              ansprechende praktische Erfahrungen zu bieten, (2) die
-              Informatik-Motivation zu erhöhen, indem der gesellschaftliche
-              Impact der Arbeit von Informatiker:innen hervorgehoben wird, (3)
-              den Mädchen Möglichkeiten zu bieten, mit ihren Stärken erfolgreich
-              sein zu können, (4) den Mädchen geeignete weibliche Rollenmodelle
-              zur Verfügung zu stellen, und (5) die Lehrkräfte und wichtige
-              Schlüsselpersonen im Umfeld der Mädchen geeignet zu schulen, um
-              nachhaltig ein größeres Interesse an Informatik und Technologie zu
-              fördern. Um diese spannenden Herausforderungen zu meistern, ist es
+              Um diese spannenden Herausforderungen zu meistern, ist es
               notwendig, dass Lehrkräfte und Pädagog:innen in der
               Informatik-Bildung durch geeignete berufliche
               Weiterbildungsprogramme unterstützt werden.
@@ -423,7 +398,6 @@ export function Dossier({ data }: { data: GatsbyTypes.DossierPageQuery }) {
           </div>
 
           <div className="flex-100 md:flex-5/12 pb-8 md:pb-0 md:px-2 lg:px-4">
-            {/* <Affix top={0} className="z-50"> */}
             <div className="p-4 pb-15 md:pb-5 py-6 rounded-lg bg-neutral-200 shadow-lg relative">
               <div className="study_details mb-6">
                 <H3 className="font-semibold mb-2">Details</H3>
@@ -433,16 +407,6 @@ export function Dossier({ data }: { data: GatsbyTypes.DossierPageQuery }) {
                 <p className="font-bold text-sm mb-0 text-neutral-900">
                   Studie veröffentlicht: 16.11.2020
                 </p>
-                {/* 
-                  <p className="flex">
-                    <div className="mr-2 mb-2 px-3 py-0 mt-2 rounded-lg border-2 text-secondary-500 text-bold whitespace-nowrap bg-white border-secondary-500">
-                      Gendersensibilität
-                    </div>
-                    <div className="mr-2 mb-2 px-3 py-0 mt-2 rounded-lg border-2 text-secondary-500 text-bold whitespace-nowrap bg-white border-secondary-500">
-                      Didaktik
-                    </div>
-                  </p>
-                */}
               </div>
 
               <hr className="mb-6" />
@@ -516,7 +480,7 @@ export function Dossier({ data }: { data: GatsbyTypes.DossierPageQuery }) {
               <div className="study_download">
                 <H4 className="font-semibold mb-4">Downloads</H4>
                 <a
-                  href="#"
+                  href="https://link.springer.com/content/pdf/10.1007/s10639-020-10379-x.pdf"
                   className="flex py-4 px-6 rounded-lg bg-neutral-400 text-neutral-700 hover:shadow-lg relative items-center"
                 >
                   <div className="">
@@ -543,7 +507,6 @@ export function Dossier({ data }: { data: GatsbyTypes.DossierPageQuery }) {
                 </a>
               </div>
             </div>
-            {/* </Affix> */}
           </div>
         </div>
 
@@ -560,32 +523,23 @@ export function Dossier({ data }: { data: GatsbyTypes.DossierPageQuery }) {
 
         <div className="flex flex-wrap md:flex-nowrap md:-mx-2 lg:-mx-4">
           <div className="flex-100 pb-8 md:pb-0 md:flex-7/12 md:px-2 lg:px-4">
-            <H4 className="font-semibold mb-4">Literatur</H4>
+            <H4 className="font-semibold mb-4" id="study_sources">
+              Literatur
+            </H4>
 
             <ul>
               <li className="pb-4 font-semibold" id="ref_1">
                 <a
-                  href="https://www.iwkoeln.de/studien/christina-anger-enno-kohlisch-axel-pluennecke-mehr-frauen-fuer-mint-gewinnen-herausforderungen-von-dekarbonisierung-digitalisierung-und-demografie-meistern.html"
+                  href="https://doi.org/10.1177/1076217518786955"
                   target="_blank"
                   className="text-primary underline"
                 >
-                  Anger, C., Kohlisch, E., & Plünnecke, A. (2021).
-                  MINT-Herbstreport 2021: Mehr Frauen für MINT gewinnen –
-                  Herausforderungen von Dekarbonisierung, Digitalisierung und
-                  Demografie meistern. Köln: Institut der deutschen Wirtschaft.
+                  Boston, J. S., & Cimpian, A. (2018). How do we encourage
+                  gifted girls to pursue and succeed in science and engineering?
+                  Gifted Child Today, 41(4), 196–207.
                 </a>
               </li>
               <li className="pb-4 font-semibold" id="ref_2">
-                <a
-                  href="https://statistik.arbeitsagentur.de/DE/Statischer-Content/Statistiken/Themen-im-Fokus/Berufe/Generische-Publikationen/Broschuere-MINT.pdf"
-                  target="_blank"
-                  className="text-primary underline"
-                >
-                  Bundesagentur für Arbeit. (2019). Blickpunkt Arbeitsmarkt –
-                  MINT-Berufe. Nürnberg: Bundesagentur für Arbeit.
-                </a>
-              </li>
-              <li className="pb-4 font-semibold" id="ref_3">
                 <a
                   href="https://link.springer.com/article/10.1007/s10639-020-10379-x"
                   target="_blank"
@@ -598,7 +552,7 @@ export function Dossier({ data }: { data: GatsbyTypes.DossierPageQuery }) {
                   https://doi.org/10.1007/s10639-020-10379-x
                 </a>
               </li>
-              <li className="pb-4 font-semibold" id="ref_4">
+              <li className="pb-4 font-semibold" id="ref_3">
                 Kampshoff, M., & Wiepcke, C. (2021). Gender und MINT-Didaktik.
                 In M. Kampshoff & C. Wiepcke (Hrsg.), Vielfalt in Schule und
                 Unterricht – Konzepte und Debatten im Zeichen der Heterogenität
@@ -614,7 +568,7 @@ export function Dossier({ data }: { data: GatsbyTypes.DossierPageQuery }) {
             </p>
 
             <a
-              href="#"
+              href="https://link.springer.com/content/pdf/10.1007/s10639-020-10379-x.pdf"
               className="flex py-4 px-6 rounded-lg bg-neutral-400 text-neutral-700 hover:shadow-lg relative items-center mb-6"
             >
               <div>
@@ -666,10 +620,10 @@ export function Dossier({ data }: { data: GatsbyTypes.DossierPageQuery }) {
   );
 }
 
-export default Dossier;
+export default DossierMeta;
 
 export const pageQuery = graphql`
-  query DossierPage {
+  query DossierMetaPage {
     HeroImage: file(relativePath: { eq: "dossier_header.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1488, quality: 80) {
