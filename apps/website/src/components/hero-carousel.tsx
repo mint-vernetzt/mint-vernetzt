@@ -56,6 +56,8 @@ export function HeroCarousel(props: HeroCarouselProps) {
           nextEl: ".next-slide",
           prevEl: ".prev-slide",
         }}
+        autoplay={{ delay: 5000 }}
+        loop={true}
         pagination={{
           clickable: true,
           // el: 'swiper-pagination',
