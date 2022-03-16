@@ -22,7 +22,7 @@ export function DossierWettbewerbe({
     <Layout>
       <SEO
         title="Naturwissenschaftliche Wettbewerbe sind für Mädchen weniger attraktiv als für Jungen – über Stereotype und Strukturen"
-        slug="/gender-didaktik-dossier_wettbewerbe"
+        slug="/mint-bildungsforschung/themenspezial-artikel-maedchen-wettbewerb"
         description=""
         image=""
         children=""
@@ -287,7 +287,7 @@ export function DossierWettbewerbe({
               <hr className="mb-6" />
 
               <div className="study_summary mb-4">
-                <H4 className="font-semibold mb-2">Zusammenfassung</H4>
+                <H4 className="font-semibold mb-4">Zusammenfassung</H4>
                 <p>
                   Wissenschaftler:innen haben untersucht, wie sich
                   Geschlechterstereotype auf die Teilnahme und Leistungen von
@@ -303,8 +303,8 @@ export function DossierWettbewerbe({
                 </p>
               </div>
 
-              <div className="study_navigation hidden md:block mb-6">
-                <H4 className="font-semibold mb-2">Absätze</H4>
+              <div className="study_navigation hidden md:block mb-6 mt-6">
+                <H4 className="font-semibold mb-4">Absätze</H4>
                 <ul className="">
                   <li className="mb-4">
                     <a
@@ -406,7 +406,7 @@ export function DossierWettbewerbe({
           </div>
         </div>
 
-        <div className="flex flex-wrap md:flex-nowrap md:-mx-2 lg:-mx-4 py-6">
+        <div className="flex flex-wrap md:flex-nowrap md:-mx-2 lg:-mx-4 my-10">
           <div className="flex-100 pb-8 md:pb-0 md:flex-7/12 md:px-2 lg:px-4">
             <div className="flex justify-center">
               <div className="w-4 h-1 bg-neutral-400 rounded mx-2"></div>

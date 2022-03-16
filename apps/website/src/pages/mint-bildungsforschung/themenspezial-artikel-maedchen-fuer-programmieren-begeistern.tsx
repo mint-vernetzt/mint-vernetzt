@@ -22,7 +22,7 @@ export function DossierMeta({
     <Layout>
       <SEO
         title="Wie können Mädchen für Programmieren begeistert werden?"
-        slug="/gender-didaktik-dossier_meta-review"
+        slug="/mint-bildungsforschung/themenspezial-artikel-maedchen-fuer-programmieren-begeistern"
         description=""
         image=""
         children=""
@@ -422,7 +422,7 @@ export function DossierMeta({
               <hr className="mb-6" />
 
               <div className="study_summary mb-4">
-                <H4 className="font-semibold mb-2">Zusammenfassung</H4>
+                <H4 className="font-semibold mb-4">Zusammenfassung</H4>
                 <p>
                   Die Unterrepräsentation von Mädchen in MINT wird in der
                   Forschung in Zusammenhang mit Sozialisations- und
@@ -435,8 +435,8 @@ export function DossierMeta({
                 </p>
               </div>
 
-              <div className="study_navigation hidden md:block mb-6">
-                <H4 className="font-semibold mb-2">Absätze</H4>
+              <div className="study_navigation hidden md:block mb-6 mt-6">
+                <H4 className="font-semibold mb-4">Absätze</H4>
                 <ul className="">
                   <li className="mb-4">
                     <a
@@ -520,7 +520,7 @@ export function DossierMeta({
           </div>
         </div>
 
-        <div className="flex flex-wrap md:flex-nowrap md:-mx-2 lg:-mx-4 py-6">
+        <div className="flex flex-wrap md:flex-nowrap md:-mx-2 lg:-mx-4 my-10">
           <div className="flex-100 pb-8 md:pb-0 md:flex-7/12 md:px-2 lg:px-4">
             <div className="flex justify-center">
               <div className="w-4 h-1 bg-neutral-400 rounded mx-2"></div>
