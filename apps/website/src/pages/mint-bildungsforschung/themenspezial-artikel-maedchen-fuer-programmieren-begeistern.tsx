@@ -440,15 +440,6 @@ export function DossierMeta({
                 <ul className="">
                   <li className="mb-4">
                     <a
-                      href="#study_background"
-                      className="block font-semibold text-lg text-primary-400 hover:text-primary"
-                    >
-                      Wo wir grade stehen: Mädchen und Frauen in MINT und
-                      Ursachen für geringe Teilhabe
-                    </a>
-                  </li>
-                  <li className="mb-4">
-                    <a
                       href="#study_results"
                       className="block font-semibold text-lg text-primary-400 hover:text-primary"
                     >
