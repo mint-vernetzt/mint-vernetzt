@@ -24,7 +24,7 @@ export function DossierWettbewerbe({
         title="Naturwissenschaftliche Wettbewerbe sind für Mädchen weniger attraktiv als für Jungen – über Stereotype und Strukturen"
         slug="/mint-bildungsforschung/themenspezial-artikel-maedchen-wettbewerb"
         description=""
-        image=""
+        image={data.HeroImage.publicURL}
         children=""
       />
       <section className="container py-4 md:py-8">
@@ -551,6 +551,7 @@ export const pageQuery = graphql`
     HeroImage: file(
       relativePath: { eq: "themenspezial-artikel-maedchen-wettbewerb.jpg" }
     ) {
+      publicURL
       childImageSharp {
         fluid(maxWidth: 1488, quality: 80) {
           ...GatsbyImageSharpFluid

@@ -24,7 +24,7 @@ export function DossierMeta({
         title="Wie können Mädchen für Programmieren begeistert werden?"
         slug="/mint-bildungsforschung/themenspezial-artikel-maedchen-fuer-programmieren-begeistern"
         description=""
-        image=""
+        image={data.HeroImage.publicURL}
         children=""
       />
       <section className="container py-4 md:py-8">
@@ -634,6 +634,7 @@ export const pageQuery = graphql`
         eq: "themenspezial-artikel-maedchen-fuer-programmieren-begeistern.jpg"
       }
     ) {
+      publicURL
       childImageSharp {
         fluid(maxWidth: 1488, quality: 80) {
           ...GatsbyImageSharpFluid

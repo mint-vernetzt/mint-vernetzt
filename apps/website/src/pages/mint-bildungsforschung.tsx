@@ -24,7 +24,7 @@ export function MintForschung({
         title="MINT-Bildungsforschung"
         slug="/mint-bildungsforschung"
         description="Wissenschaftliche Untersuchungen und aktuelle Erkenntnisse, die die Bildungsarbeit konkret unterstützen."
-        image=""
+        image={data.HeroImage.publicURL}
         children=""
       />
       <section className="container my-8 md:my-10 lg:my-20">
@@ -147,6 +147,7 @@ export default MintForschung;
 export const pageQuery = graphql`
   query MintForschungPage {
     HeroImage: file(relativePath: { eq: "mint-bildungsforschung.jpg" }) {
+      publicURL
       childImageSharp {
         fluid(maxWidth: 1488, quality: 80) {
           ...GatsbyImageSharpFluid
