@@ -43,6 +43,15 @@ exports.createPages = async (props) => {
       },
     });
   });
+
+  const { createRedirect } = actions;
+
+  createRedirect({
+    fromPath: `/instagram`,
+    toPath: `/linktree`,
+    redirectInBrowser: true,
+    isPermanent: true,
+  });
 };
 
 exports.createSchemaCustomization = ({ actions }) => {
