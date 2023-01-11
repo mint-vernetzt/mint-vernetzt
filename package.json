@@ -31,7 +31,7 @@
     "gatsby-plugin-typegen": "^2.2.4",
     "gatsby-plugin-typescript": "3.10.0",
     "gatsby-source-filesystem": "3.10.0",
-    "gatsby-transformer-remark": "^4.11.0",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^3.10.0",
     "prop-types": "15.7.2",
     "react": "17.0.2",
