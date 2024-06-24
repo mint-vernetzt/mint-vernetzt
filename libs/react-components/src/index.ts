@@ -1,3 +1,4 @@
+export * from "./lib/Button/Button";
 export * from "./lib/SocialBar/SocialBar";
 export * from "./lib/Heading/Heading";
 export * from "./lib/Chip/Chip";
@@ -7,7 +8,6 @@ export * from "./lib/Icon/Icon";
 export * from "./lib/EventTeaser/EventTeaser";
 export * from "./lib/ContactCard/ContactCard";
 export * from "./lib/EventNavigation/EventNavigation";
-export * from "./lib/Button";
 export * from "./lib/NewsFeed/NewsFeed";
 export * from "./lib/NewsFeed/NewsFeedItem";
 export * from "./lib/NewsFeed/utils";
